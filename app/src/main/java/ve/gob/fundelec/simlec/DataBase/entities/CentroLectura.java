@@ -10,6 +10,17 @@ import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
 /**
  * Created by fundelec on 11/07/17.
  */
+/**
+CREATE TABLE centro_lectura
+(
+  id bigint NOT NULL DEFAULT nextval('centro_lectura_id_seq'::regclass),
+  cod_ctro_lectura character varying(3) NOT NULL,
+  nom_ctro_lectura character varying(70) NOT NULL,
+  version bigint,
+  accion integer,
+  CONSTRAINT pkcentro_lectura PRIMARY KEY (id)
+)
+ */
 @Table(database = DataBaseSimlec.class)
 public class CentroLectura extends BaseModel {
     @Column
@@ -25,4 +36,46 @@ public class CentroLectura extends BaseModel {
     @Column
     int accion;
 
+    public CentroLectura() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCod_ctro_lectura() {
+        return cod_ctro_lectura;
+    }
+
+    public void setCod_ctro_lectura(String cod_ctro_lectura) {
+        this.cod_ctro_lectura = cod_ctro_lectura;
+    }
+
+    public String getNom_ctro_lectura() {
+        return nom_ctro_lectura;
+    }
+
+    public void setNom_ctro_lectura(String nom_ctro_lectura) {
+        this.nom_ctro_lectura = nom_ctro_lectura;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public int getAccion() {
+        return accion;
+    }
+
+    public void setAccion(int accion) {
+        this.accion = accion;
+    }
 }

@@ -10,6 +10,25 @@ import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
 /**
  * Created by fundelec on 11/07/17.
  */
+/**
+CREATE TABLE lector
+(
+  id bigint NOT NULL DEFAULT nextval('lector_id_seq'::regclass),
+  cod_lector character varying(3) NOT NULL,
+  nom_lector character varying(50) NOT NULL,
+  primer_apell character varying(50),
+  segundo_apell character varying(50),
+  cod_lector_alterno character varying(3),
+  rol_operador integer NOT NULL,
+  id_centro_lectura bigint NOT NULL,
+  version bigint,
+  accion integer,
+  CONSTRAINT pklector PRIMARY KEY (id),
+  CONSTRAINT fk_lector_centro_lectura FOREIGN KEY (id_centro_lectura)
+      REFERENCES centro_lectura (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+ */
 @Table(database = DataBaseSimlec.class)
 public class Lector extends BaseModel {
 
