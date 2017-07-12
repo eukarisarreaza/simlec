@@ -5,4 +5,13 @@ package ve.gob.fundelec.simlec.Login;
  */
 
 public class LoginInteractorImpl implements LoginInteractor{
+    private LoginRepository repository;
+
+    public LoginInteractorImpl(LoginRepository repository) {
+        this.repository = repository;
+    }
+
+
+
+
 }

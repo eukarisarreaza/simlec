@@ -6,12 +6,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.Login.LoginPresenter;
+import ve.gob.fundelec.simlec.Login.di.LoginComponent;
 import ve.gob.fundelec.simlec.R;
+import ve.gob.fundelec.simlec.SimlecApplication;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
 
@@ -29,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     Button iniciar;
 
     private String tipoUsuario;
+    @Inject
     private LoginPresenter presenter;
 
 
@@ -38,21 +43,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         setupInject();
-
-        //presenter.onCreate();
+        presenter.onCreate();
     }
 
     private void setupInject() {
-
-
-
+        SimlecApplication application= (SimlecApplication) getApplication();
+        LoginComponent component= application.getLoginComponent(this);
+        component.inject(this);
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //presenter.onDestroy();
+        presenter.onDestroy();
     }
 
     @OnClick(R.id.lector)
@@ -86,6 +90,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @OnClick(R.id.iniciar)
     @Override
     public void iniciar() {
-        //presenter.login(tipoUsuario, usuarioText.getText().toString(), passwordText.getText().toString());
+        presenter.login(tipoUsuario, usuarioText.getText().toString(), passwordText.getText().toString());
     }
 }
