@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="@dimen/margi_extra_corto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imagen"
+        android:src="@drawable/map_marker_radius"
+        android:padding="3dp"
+        android:layout_marginRight="@dimen/margi_extra_corto"
+        android:layout_marginLeft="@dimen/margi_extra_corto"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/tittle"
+        android:layout_marginLeft="@dimen/margi_extra_corto"
+        android:text="tittle"
+        android:textSize="@dimen/subtitulo_size"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">SIMLEC</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_precinto">P</string>
+    <string name="action_sobrante">S</string>
+    <string name="next">SIGUIENTE</string>
+    <string name="prev">ANTERIOR</string>
+    <string name="unidad_lectura_gestionar">Lectura a Gestionar</string>
+    <string name="captura_indice_lectura">INDICE DE LECTURA</string>
+    <string name="ingreso_lectura">VALOR DE LECTURA</string>
+
+    <string name="aparato_sobrante">Aparato Sobrante</string>
+    <string name="rutas_asignadas">Rutas Asignadas</string>
+    <string name="campa_a">Campaña</string>
+    <string name="reporte">Reporte</string>
+    <string name="sincronizar">Sincronizar</string>
+    <string name="otras_opciones">Otras Opciones</string>
+    <string name="bateria">Bateria</string>
+    <string name="linterna">Linterna</string>
+    <string name="unidad_lectura_gestionar_c">LECTURA A GESTIONAR</string>
+    <string name="kva">kVA</string>
+    <string name="grabar">GRABAR</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="va">VA</string>
+    <string name="continuar_recorrido">Continuar Recorrido</string>
+    <string name="nombre_proyecto">Sistema Móvil para la Lectura de Medidores</string>
+    <string name="lista_de_medidores">Lista de Medidores</string>
+    <string name="progreso_de_recorrido">Progreso del Recorrido</string>
+    <string name="verificar_lectura">¡¡VERIFICAR LECTURA!!</string>
+    <string name="calles_avenidas">Listado de Calles y Avenidas</string>
+    <string name="lista_de_centros">Listado de Centros de Medición</string>
+    <string name="hint_usuario">ID USUARIO</string>
+    <string name="hint_password">CLAVE</string>
+    <string name="lector">LECTOR</string>
+    <string name="supervisor">SUPERVISOR</string>
+    <string name="administrador">ADMINISTRADOR</string>
+    <string name="iniciar">INICIAR</string>
+    <string name="kwh">kWh</string>
+    <string name="loading">Cargando...</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="salir">Salir</string>
+    <string name="cargar">Cerrar Ruta y Actualizar Sistema</string>
+    <string name="preparar_dispositivo">Preparar Dispositivo</string>
+
+    <string-array name="nota_lectura">
+        <item>Imposible Accesar Objeto Conexion</item>
+        <item>Liberado por Responsable - Estimación Automática</item>
+        <item>Decreto 46</item>
+        <item>Antisociales en la zona</item>
+    </string-array>
+
+    <string-array name="notaLectura">
+        <item>Imposible Accesar Ubicación Aparato</item>
+        <item>Posible Irregularidad en Medidor</item>
+        <item>Medidor Averiado</item>
+        <item>Medidor No Encontrado</item>
+        <item>Medidor Mal Ubicado</item>
+        <item>Numero de Serie Borrado Medidor</item>
+        <item>Medidor Registro InversiÃ³n</item>
+        <item>Imposible Lectura Medidor</item>
+        <item>Leido por Cliente</item>
+        <item>Cerradura / Candado daÃ±ado</item>
+        <item>Casa Cerrada</item>
+        <item>Aparato Apagado</item>
+        <item>Conexión Directa</item>
+        <item>Pto. Med. Sin Hig y Seg.</item>
+        <item>Dirección Errada</item>
+        <item>Objeto de conexión inválido</item>
+        <item>Modulo Fuera de Norma</item>
+    </string-array>
+
+
+</resources>
