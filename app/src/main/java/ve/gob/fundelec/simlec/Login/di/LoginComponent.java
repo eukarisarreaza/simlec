@@ -4,6 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import ve.gob.fundelec.simlec.Login.ui.LoginActivity;
+import ve.gob.fundelec.simlec.Services.di.ServiceModule;
 import ve.gob.fundelec.simlec.lib.di.LibsModule;
 
 /**
