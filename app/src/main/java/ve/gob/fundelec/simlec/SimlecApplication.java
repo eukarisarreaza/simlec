@@ -10,6 +10,7 @@ import com.raizlabs.android.dbflow.config.FlowManager;
  */
 
 public class SimlecApplication extends Application {
+    private static final String BASE_URL= "http://";
 
 
     @Override
