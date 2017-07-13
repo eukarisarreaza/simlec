@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.Login.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -14,6 +15,8 @@ import butterknife.OnClick;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.Login.LoginPresenter;
 import ve.gob.fundelec.simlec.Login.di.LoginComponent;
+import ve.gob.fundelec.simlec.Main.ui.MainActivity;
+import ve.gob.fundelec.simlec.ProgressDialog;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 
@@ -33,8 +36,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     Button iniciar;
 
     private String tipoUsuario;
+    private ProgressDialog dialog;
+
+
     @Inject
-    private LoginPresenter presenter;
+    LoginPresenter presenter;
 
 
     @Override
@@ -87,9 +93,31 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         tipoUsuario= Configuracion.TipoUsuario.ADMINISTRADOR.name();
     }
 
+    @Override
+    public void showProgressDialogo() {
+        dialog= ProgressDialog.newInstance();
+        dialog.show(getSupportFragmentManager(), "");
+    }
+
+    @Override
+    public void hideProgressDialogo() {
+        if(dialog!=null)
+            dialog.dismiss();
+    }
+
     @OnClick(R.id.iniciar)
     @Override
     public void iniciar() {
         presenter.login(tipoUsuario, usuarioText.getText().toString(), passwordText.getText().toString());
+    }
+
+    @Override
+    public void showMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        startActivity(intent);
     }
 }

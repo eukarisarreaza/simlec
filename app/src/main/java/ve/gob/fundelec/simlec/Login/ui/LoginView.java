@@ -9,5 +9,9 @@ public interface LoginView {
     void onSelectSupervisor();
     void onSelectAdministrador();
 
+    void showProgressDialogo();
+    void hideProgressDialogo();
+
     void iniciar();
+    void showMainActivity();
 }

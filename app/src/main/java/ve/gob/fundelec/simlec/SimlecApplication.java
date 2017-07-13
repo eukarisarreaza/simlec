@@ -19,8 +19,7 @@ import ve.gob.fundelec.simlec.lib.di.LibsModule;
  */
 
 public class SimlecApplication extends Application {
-    private static final String BASE_URL= "http://";
-
+    private static final String BASE_URL= "http://4d-investment.kontabiliza.com.ve/api/public/";
 
     @Override
     public void onCreate() {

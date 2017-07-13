@@ -12,6 +12,8 @@ public class LoginInteractorImpl implements LoginInteractor{
     }
 
 
-
-
+    @Override
+    public void login(String type, String user, String password) {
+        this.repository.login(type, user, password);
+    }
 }

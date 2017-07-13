@@ -5,4 +5,5 @@ package ve.gob.fundelec.simlec.Login;
  */
 
 public interface LoginRepository {
+    void login(String type, String user, String password);
 }
