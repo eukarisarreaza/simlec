@@ -1,9 +1,12 @@
 package ve.gob.fundelec.simlec.Main.di;
 
+import android.content.Context;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.Main.MainIteractor;
 import ve.gob.fundelec.simlec.Main.MainIteractorImpl;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
@@ -38,10 +41,9 @@ public class MainModule {
 
     @Provides
     @Singleton
-    MainRepository providesMainRepository(){
-        return new MainRepositoryImpl();
+    MainRepository providesMainRepository(EventBus eventBus, LectorSessionManager sessionManager, Context context){
+        return new MainRepositoryImpl(eventBus, sessionManager, context);
     }
-
 
     @Provides
     @Singleton

@@ -11,6 +11,10 @@ import ve.gob.fundelec.simlec.Login.di.LoginComponent;
 import ve.gob.fundelec.simlec.Login.di.LoginModule;
 import ve.gob.fundelec.simlec.Login.di.SesionModule;
 import ve.gob.fundelec.simlec.Login.ui.LoginView;
+import ve.gob.fundelec.simlec.Main.di.DaggerMainComponent;
+import ve.gob.fundelec.simlec.Main.di.MainComponent;
+import ve.gob.fundelec.simlec.Main.di.MainModule;
+import ve.gob.fundelec.simlec.Main.ui.MainView;
 import ve.gob.fundelec.simlec.Services.di.ServiceModule;
 import ve.gob.fundelec.simlec.lib.di.LibsModule;
 
@@ -26,10 +30,6 @@ public class SimlecApplication extends Application {
         super.onCreate();
         FlowManager.init(new FlowConfig.Builder(this).build());
 
-
-
-
-
     }
 
     public LoginComponent getLoginComponent(LoginView view){
@@ -38,6 +38,16 @@ public class SimlecApplication extends Application {
                 .libsModule(new LibsModule())
                 .loginModule(new LoginModule(view))
                 .serviceModule(new ServiceModule(BASE_URL))
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
+
+    public MainComponent getMainComponent(MainView view){
+        return DaggerMainComponent
+                .builder()
+                .libsModule(new LibsModule())
+                .mainModule(new MainModule(view))
                 .sesionModule(new SesionModule())
                 .contextModule(new ContextModule(getApplicationContext()))
                 .build();

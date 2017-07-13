@@ -18,7 +18,9 @@ import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.adapter.AdaterMenuItem;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
+import ve.gob.fundelec.simlec.Main.di.MainComponent;
 import ve.gob.fundelec.simlec.R;
+import ve.gob.fundelec.simlec.SimlecApplication;
 
 public class MainActivity extends AppCompatActivity implements MainView, AdapterView.OnItemClickListener{
     private static final String TAG=MainActivity.class.getName();
@@ -42,12 +44,14 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
         sertDrawer();
         setupInject();
         pressenter.onCreate();
-
+        pressenter.getListItenMenu();
+        pressenter.getInicio();
     }
 
     private void setupInject() {
-
-
+        SimlecApplication application= (SimlecApplication) getApplication();
+        MainComponent component= application.getMainComponent(this);
+        component.inject(this);
     }
 
     private void sertDrawer() {

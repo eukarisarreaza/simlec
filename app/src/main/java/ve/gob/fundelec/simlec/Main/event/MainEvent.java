@@ -14,10 +14,13 @@ public class MainEvent {
     public final static int onSearch = 2;
     public final static int onClickPresinto = 3;
     public final static int onClickSobrante = 4;
+    public final static int showListMenu = 5;
+
 
     private int eventType;
 
     private List<ItemMenu> list;
+    private String errorMessage;
 
 
     public int getEventType() {
@@ -34,5 +37,13 @@ public class MainEvent {
 
     public void setList(List<ItemMenu> list) {
         this.list = list;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }

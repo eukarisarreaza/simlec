@@ -15,7 +15,6 @@ public class MainPressenterImpl implements MainPressenter {
     private MainView view;
     private MainIteractor iteractor;
 
-
     public MainPressenterImpl(EventBus eventBus, MainView view, MainIteractor interactor) {
         this.eventBus = eventBus;
         this.view = view;
@@ -46,6 +45,9 @@ public class MainPressenterImpl implements MainPressenter {
             case MainEvent.onClickSobrante:
                 break;
             case MainEvent.onSearch:
+                break;
+            case MainEvent.showListMenu:
+                view.showListOpciones(event.getList());
                 break;
         }
     }

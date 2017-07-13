@@ -14,6 +14,7 @@ public class LectorSessionManager {
 
     private static final String KEY_USER = "key_user";
     private static final String KEY_LOGGED = "key_logged";
+    private static final String KEY_TYPE_USER = "key_type_user";
 
     private static final String KEY_INICIO = "key_inicio"; // PARA CREAR DATOS DE INICIO EN LA BASE DE DATOS
 
@@ -64,4 +65,13 @@ public class LectorSessionManager {
         editor.apply();
     }
 
+    public String getTipoUser(){
+        return settings.getString(KEY_TYPE_USER, Configuracion.TipoUsuario.LECTOR.name());
+    }
+
+    public void setTipoUser(Configuracion.TipoUsuario tipoUsuario){
+        SharedPreferences.Editor editor= settings.edit();
+        editor.putString(KEY_TYPE_USER, tipoUsuario.name());
+        editor.apply();
+    }
 }
