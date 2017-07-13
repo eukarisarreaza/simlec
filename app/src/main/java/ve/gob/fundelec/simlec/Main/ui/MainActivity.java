@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -74,7 +76,81 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     }
 
     @Override
+    public void rutasAsinadas() {
+
+    }
+
+    @Override
+    public void aparatoSobrante() {
+
+    }
+
+    @Override
+    public void campaña() {
+
+    }
+
+    @Override
+    public void reporte() {
+
+    }
+
+    @Override
+    public void sincronizar() {
+
+    }
+
+    @Override
+    public void salir() {
+        /** CERRAR SESION E IR A LA PANTALLA DE LOGIN */
+
+
+
+    }
+
+    @Override
+    public void bateria() {
+
+    }
+
+    @Override
+    public void linterna() {
+
+    }
+
+    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if(position==0){
+            drawer.closeDrawer(Gravity.RIGHT);
+            return;
+        }
+        ItemMenu menu= adaterMenuItem.getItem(position-1);
+        Log.e(TAG, menu.getTexto());
+        if(menu.getTexto().equals("Rutas Asignadas")){
+
+        }else
+        if(menu.getTexto().equals("Aparato Sobrantes")) {
+
+        }else
+        if(menu.getTexto().equals("Campaña")) {
+
+        }else
+        if(menu.getTexto().equals("Reporte")) {
+
+        }else
+        if(menu.getTexto().equals("Sincronizar")) {
+
+        }else
+        if(menu.getTexto().equals("Salir")) {
+
+        }else
+        if(menu.getTexto().equals("Bateria")) {
+
+        }else
+        if(menu.getTexto().equals("Linterna")) {
+
+        }
+
 
     }
 
