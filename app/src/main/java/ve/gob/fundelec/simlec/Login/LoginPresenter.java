@@ -12,4 +12,6 @@ public interface LoginPresenter {
     void onEventMainThread(LoginEvent event);
 
     void login(String type, String user, String password);
+
+    void checkForAuthenticateUser();
 }

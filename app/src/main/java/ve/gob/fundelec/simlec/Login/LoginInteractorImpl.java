@@ -16,4 +16,9 @@ public class LoginInteractorImpl implements LoginInteractor{
     public void login(String type, String user, String password) {
         this.repository.login(type, user, password);
     }
+
+    @Override
+    public void checkForAuthenticateUser() {
+        this.repository.checkForAuthenticateUser();
+    }
 }

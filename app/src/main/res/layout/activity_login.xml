@@ -89,9 +89,8 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:drawableTint="@color/background"
                     android:id="@+id/lector"
-                    android:background="@color/background"
+                    android:background="@color/background_2"
                     android:text="@string/lector"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -101,7 +100,6 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:drawableTint="@color/background"
                     android:id="@+id/supervisor"
                     android:clickable="true"
                     android:text="@string/supervisor"
@@ -113,7 +111,6 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:drawableTint="@color/background"
                     android:id="@+id/administrador"
                     android:text="@string/administrador"
                     android:textStyle="bold"

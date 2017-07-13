@@ -28,8 +28,8 @@ public class LoginModule {
 
     @Provides
     @Singleton
-    LoginPresenter providesLoginPresenter(EventBus eventBus, LoginInteractor interactor){
-        return new LoginPresenterImpl(eventBus, interactor);
+    LoginPresenter providesLoginPresenter(EventBus eventBus, LoginInteractor interactor, LoginView view){
+        return new LoginPresenterImpl(eventBus, interactor, view);
     }
 
     @Provides

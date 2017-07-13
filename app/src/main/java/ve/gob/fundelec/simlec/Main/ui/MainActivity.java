@@ -40,7 +40,14 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         sertDrawer();
+        setupInject();
         pressenter.onCreate();
+
+    }
+
+    private void setupInject() {
+
+
     }
 
     private void sertDrawer() {

@@ -45,7 +45,7 @@ public class MainModule {
 
     @Provides
     @Singleton
-    public MainView providesMainView(){
+    MainView providesMainView(){
         return this.view;
     }
 

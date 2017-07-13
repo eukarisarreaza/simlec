@@ -36,8 +36,14 @@ public class LoginPresenterImpl implements LoginPresenter{
     public void onEventMainThread(LoginEvent event) {
         switch (event.getEventType()){
             case LoginEvent.onLoginError:
+                view.hideProgressDialogo();
                 break;
             case LoginEvent.onLoginSuccess:
+                view.hideProgressDialogo();
+                view.showMainActivity();
+                break;
+            case LoginEvent.isLogeed:
+                view.hideProgressDialogo();
                 view.showMainActivity();
                 break;
         }
@@ -47,6 +53,10 @@ public class LoginPresenterImpl implements LoginPresenter{
     public void login(String type, String user, String password) {
         view.showProgressDialogo();
         interactor.login(type, user, password);
+    }
 
+    @Override
+    public void checkForAuthenticateUser() {
+        interactor.checkForAuthenticateUser();
     }
 }

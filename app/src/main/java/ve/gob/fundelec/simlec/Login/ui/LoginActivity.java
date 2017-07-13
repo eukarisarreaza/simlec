@@ -50,6 +50,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         ButterKnife.bind(this);
         setupInject();
         presenter.onCreate();
+        presenter.checkForAuthenticateUser();
+        tipoUsuario= Configuracion.TipoUsuario.LECTOR.name();
     }
 
     private void setupInject() {
@@ -70,14 +72,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public void onSelectLector() {
         supervisor.setBackgroundResource(R.color.backgroundColor);
         administrador.setBackgroundResource(R.color.backgroundColor);
-        lector.setBackgroundResource(R.color.background);
+        lector.setBackgroundResource(R.color.background_2);
         tipoUsuario= Configuracion.TipoUsuario.LECTOR.name();
     }
 
     @OnClick(R.id.supervisor)
     @Override
     public void onSelectSupervisor() {
-        supervisor.setBackgroundResource(R.color.background);
+        supervisor.setBackgroundResource(R.color.background_2);
         administrador.setBackgroundResource(R.color.backgroundColor);
         lector.setBackgroundResource(R.color.backgroundColor);
         tipoUsuario= Configuracion.TipoUsuario.SUPERVISOR.name();
@@ -88,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @Override
     public void onSelectAdministrador() {
         supervisor.setBackgroundResource(R.color.backgroundColor);
-        administrador.setBackgroundResource(R.color.background);
+        administrador.setBackgroundResource(R.color.background_2);
         lector.setBackgroundResource(R.color.backgroundColor);
         tipoUsuario= Configuracion.TipoUsuario.ADMINISTRADOR.name();
     }

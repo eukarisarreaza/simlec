@@ -47,7 +47,6 @@ public class MainPressenterImpl implements MainPressenter {
                 break;
             case MainEvent.onSearch:
                 break;
-
         }
     }
 

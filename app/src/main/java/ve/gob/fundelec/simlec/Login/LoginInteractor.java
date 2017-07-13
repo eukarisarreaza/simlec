@@ -6,4 +6,5 @@ package ve.gob.fundelec.simlec.Login;
 
 public interface LoginInteractor {
     void login(String type, String user, String password);
+    void checkForAuthenticateUser();
 }
