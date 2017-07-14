@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.Campaña;
+package ve.gob.fundelec.simlec.Campaña.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,7 +15,7 @@ public class CampanaFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static CampanaFragment newInstance(String param1, String param2) {
+    public static CampanaFragment newInstance() {
         CampanaFragment fragment = new CampanaFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -30,7 +30,7 @@ public class CampanaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_campana, container, false);
     }
 

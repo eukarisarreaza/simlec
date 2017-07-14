@@ -20,6 +20,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
+import ve.gob.fundelec.simlec.Campaña.ui.CampanaFragment;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.adapter.AdaterMenuItem;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
@@ -93,7 +94,9 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void campaña() {
-
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, CampanaFragment.newInstance())
+                .commit();
     }
 
     @Override
