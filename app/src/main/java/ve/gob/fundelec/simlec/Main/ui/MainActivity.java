@@ -1,6 +1,8 @@
 package ve.gob.fundelec.simlec.Main.ui;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.adapter.AdaterMenuItem;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
@@ -83,6 +86,9 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Override
     public void aparatoSobrante() {
 
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .commit();
     }
 
     @Override
@@ -103,9 +109,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Override
     public void salir() {
         /** CERRAR SESION E IR A LA PANTALLA DE LOGIN */
-
-
-
+        finish();
     }
 
     @Override
@@ -125,33 +129,31 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
             return;
         }
         ItemMenu menu= adaterMenuItem.getItem(position-1);
-        Log.e(TAG, menu.getTexto());
+
         if(menu.getTexto().equals("Rutas Asignadas")){
-
+            rutasAsinadas();
         }else
-        if(menu.getTexto().equals("Aparato Sobrantes")) {
-
+        if(menu.getTexto().equals("Aparato Sobrante")) {
+            aparatoSobrante();
         }else
         if(menu.getTexto().equals("Campaña")) {
-
+            campaña();
         }else
         if(menu.getTexto().equals("Reporte")) {
-
+            reporte();
         }else
         if(menu.getTexto().equals("Sincronizar")) {
-
+            sincronizar();
         }else
         if(menu.getTexto().equals("Salir")) {
-
+            salir();
         }else
         if(menu.getTexto().equals("Bateria")) {
-
+            bateria();
         }else
         if(menu.getTexto().equals("Linterna")) {
-
+            linterna();
         }
-
-
     }
 
 

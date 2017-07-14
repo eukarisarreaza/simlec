@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/toolbar_layout_subtitulo"/>
+
+    <TextView
+        android:id="@+id/actualizar"
+        android:background="@color/opcion1_3"
+        android:text="ACTUALIZAR"
+        android:gravity="end"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:padding="@dimen/margi_extra_corto"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_margin="@dimen/margi_corto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:hint="12355678"
+            android:drawableLeft="@drawable/search"
+            android:paddingLeft="5dp"
+            android:drawablePadding="@dimen/margi_corto"
+            android:background="@drawable/edittext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:padding="@dimen/margi_extra_corto"
+            android:text="OBJ. CONEX: EDIF. FEDE CALLE BELLA VISTA"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:padding="@dimen/margi_extra_corto"
+            android:layout_weight="1"
+            android:text="PISO 5 APTO 53"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:padding="@dimen/margi_extra_corto"
+            android:layout_weight="1"
+            android:text="C-1 DEAD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

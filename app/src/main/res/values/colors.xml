@@ -17,7 +17,7 @@
     <color name="backgroundColor">@android:color/white</color>
 
     <color name="background">#424242</color>
-    <color name="background_2">#b9424242</color>
+    <color name="background_2">#7b424242</color>
 
     <color name="textColorPrimary">#f2f2f2</color>
     <color name="textColorSecondary">#bcffffff</color>
