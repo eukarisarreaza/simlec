@@ -36,25 +36,24 @@ public class ObjetoConexion extends BaseModel{
     @Column
     @PrimaryKey
     int id;
-
     @Column
     int id_calle_avenida; // clave foranea  calle_avenida (id)
     @Column
     int cod_obj_conex;
     @Column
-    String nom_obj_conex;
+    String nom_obj_conex;//100
     @Column
     int ord_obj_conex;
     @Column
-    String interlocutor;
+    String interlocutor;//255
     @Column
-    String apendice;
+    String apendice;//20
     @Column
-    String piso;
+    String piso;//8
     @Column
-    String nro_habitacion;
+    String nro_habitacion;//10
     @Column
-    String emplazamiento;
+    String emplazamiento;//10
 
     @Column
     int version;

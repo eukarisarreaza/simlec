@@ -31,26 +31,23 @@ CREATE TABLE lector
  */
 @Table(database = DataBaseSimlec.class)
 public class Lector extends BaseModel {
-
     @Column
     @PrimaryKey
     int id;
-
     @Column
-    String cod_lector;
+    String cod_lector; // limite de 3
     @Column
-    String nom_lector;
+    String nom_lector; // limite de 50
     @Column
-    String primer_apell;
+    String primer_apell; // limite de 50
     @Column
-    String segundo_apell; //date
+    String segundo_apell; // limite de 50
     @Column
-    String cod_lector_alterno;
-
+    String cod_lector_alterno; // limite de 3
     @Column
     int rol_operador;
     @Column
-    int id_centro_lectura; //clave foranea centro_lectura (id)
+    int id_centro_lectura; /** clave foranea centro_lectura (id)**/
     @Column
     int version;
     @Column

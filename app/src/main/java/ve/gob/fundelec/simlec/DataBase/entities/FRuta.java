@@ -30,9 +30,9 @@ public class FRuta extends BaseModel{
     int id;
 
     @Column
-    String cod_edo_ruta;
+    String cod_edo_ruta; // limite de 3
     @Column
-    String nom_edo_ruta;
+    String nom_edo_ruta; // limite de 40
     @Column
     String desc_edo_ruta;
 

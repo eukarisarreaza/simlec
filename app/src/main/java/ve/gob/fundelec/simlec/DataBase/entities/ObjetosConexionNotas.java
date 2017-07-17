@@ -34,16 +34,14 @@ public class ObjetosConexionNotas extends BaseModel{
     @Column
     @PrimaryKey
     int id;
-
     @Column
     int id_objeto_conexion; /** objeto_conexion (id)*/
+    @Column
+    int id_programacion_calle; /** programacion_calle (id)*/
     @Column
     String fch_lectura; // timestamp without time zone NOT NULL
     @Column
     String cod_nota_lectura;
-    @Column
-    int id_programacion_calle; /** programacion_calle (id)*/
-
     @Column
     int version;
     @Column

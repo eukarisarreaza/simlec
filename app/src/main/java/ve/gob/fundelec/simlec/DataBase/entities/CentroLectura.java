@@ -28,6 +28,8 @@ public class CentroLectura extends BaseModel {
     int id;
 
     @Column
+    int id_municipio;
+    @Column
     String cod_ctro_lectura;
     @Column
     String nom_ctro_lectura;
@@ -36,15 +38,20 @@ public class CentroLectura extends BaseModel {
     @Column
     int accion;
 
-    public CentroLectura() {
-    }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getId_municipio() {
+        return id_municipio;
+    }
+
+    public void setId_municipio(int id_municipio) {
+        this.id_municipio = id_municipio;
     }
 
     public String getCod_ctro_lectura() {

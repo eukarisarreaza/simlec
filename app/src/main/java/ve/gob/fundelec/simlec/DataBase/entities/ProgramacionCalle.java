@@ -48,7 +48,6 @@ public class ProgramacionCalle extends BaseModel{
     @Column
     @PrimaryKey
     int id;
-
     @Column
     String fch_programa; // date
     @Column
@@ -56,9 +55,9 @@ public class ProgramacionCalle extends BaseModel{
     @Column
     int id_dispositivo_movil; /** dispositivo_movil (id)**/
     @Column
-    String fch_asig_diaria; // date
+    int id_calle_avenida; /** calle_avenida (id)*/
     @Column
-    String fch_lect_real; // date
+    String fch_asig_diaria; // date
     @Column
     int lect_visitadas;
     @Column
@@ -78,18 +77,13 @@ public class ProgramacionCalle extends BaseModel{
     @Column
     int cant_med_sobrantes;
     @Column
-    int id_calle_avenida; /** calle_avenida (id)*/
-
-
+    int cant_lect_programadas;
+    @Column
+    int cant_lect_gestionada;
     @Column
     int version;
     @Column
     int accion;
-
-
-    public ProgramacionCalle() {
-    }
-
 
     public int getId() {
         return id;
@@ -123,20 +117,20 @@ public class ProgramacionCalle extends BaseModel{
         this.id_dispositivo_movil = id_dispositivo_movil;
     }
 
+    public int getId_calle_avenida() {
+        return id_calle_avenida;
+    }
+
+    public void setId_calle_avenida(int id_calle_avenida) {
+        this.id_calle_avenida = id_calle_avenida;
+    }
+
     public String getFch_asig_diaria() {
         return fch_asig_diaria;
     }
 
     public void setFch_asig_diaria(String fch_asig_diaria) {
         this.fch_asig_diaria = fch_asig_diaria;
-    }
-
-    public String getFch_lect_real() {
-        return fch_lect_real;
-    }
-
-    public void setFch_lect_real(String fch_lect_real) {
-        this.fch_lect_real = fch_lect_real;
     }
 
     public int getLect_visitadas() {
@@ -211,12 +205,20 @@ public class ProgramacionCalle extends BaseModel{
         this.cant_med_sobrantes = cant_med_sobrantes;
     }
 
-    public int getId_calle_avenida() {
-        return id_calle_avenida;
+    public int getCant_lect_programadas() {
+        return cant_lect_programadas;
     }
 
-    public void setId_calle_avenida(int id_calle_avenida) {
-        this.id_calle_avenida = id_calle_avenida;
+    public void setCant_lect_programadas(int cant_lect_programadas) {
+        this.cant_lect_programadas = cant_lect_programadas;
+    }
+
+    public int getCant_lect_gestionada() {
+        return cant_lect_gestionada;
+    }
+
+    public void setCant_lect_gestionada(int cant_lect_gestionada) {
+        this.cant_lect_gestionada = cant_lect_gestionada;
     }
 
     public int getVersion() {

@@ -33,31 +33,26 @@ CREATE TABLE calle_avenida
  */
 @Table(database = DataBaseSimlec.class)
 public class CalleAvenida extends BaseModel{
-
     @Column
     @PrimaryKey
     int id;
-
-    @Column
-    String nom_calle;
     @Column
     int id_ruta;
     @Column
-    String secuencia;
-    @Column
     int id_parroquia;
     @Column
-    String sector;
-    @Column
     int cod_calle;
-
+    @Column
+    String nom_calle; // limite de 50
+    @Column
+    String secuencia;
+    @Column
+    String sector; // limite de 255
     @Column
     int version;
     @Column
     int accion;
 
-    public CalleAvenida() {
-    }
 
     public int getId() {
         return id;
@@ -65,14 +60,6 @@ public class CalleAvenida extends BaseModel{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNom_calle() {
-        return nom_calle;
-    }
-
-    public void setNom_calle(String nom_calle) {
-        this.nom_calle = nom_calle;
     }
 
     public int getId_ruta() {
@@ -83,14 +70,6 @@ public class CalleAvenida extends BaseModel{
         this.id_ruta = id_ruta;
     }
 
-    public String getSecuencia() {
-        return secuencia;
-    }
-
-    public void setSecuencia(String secuencia) {
-        this.secuencia = secuencia;
-    }
-
     public int getId_parroquia() {
         return id_parroquia;
     }
@@ -99,20 +78,36 @@ public class CalleAvenida extends BaseModel{
         this.id_parroquia = id_parroquia;
     }
 
-    public String getSector() {
-        return sector;
-    }
-
-    public void setSector(String sector) {
-        this.sector = sector;
-    }
-
     public int getCod_calle() {
         return cod_calle;
     }
 
     public void setCod_calle(int cod_calle) {
         this.cod_calle = cod_calle;
+    }
+
+    public String getNom_calle() {
+        return nom_calle;
+    }
+
+    public void setNom_calle(String nom_calle) {
+        this.nom_calle = nom_calle;
+    }
+
+    public String getSecuencia() {
+        return secuencia;
+    }
+
+    public void setSecuencia(String secuencia) {
+        this.secuencia = secuencia;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
     }
 
     public int getVersion() {

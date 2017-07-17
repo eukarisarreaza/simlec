@@ -33,24 +33,23 @@ public class FNotaLectura extends BaseModel {
     int id;
 
     @Column
-    String cod_nota_letura;
+    String cod_nota_letura; // limite de 2
     @Column
-    String nom_nota_lectura;
+    String nom_nota_lectura; // limite de 50
     @Column
     String desc_nota_lectura;
     @Column
     int clas_nota_lectura;
     @Column
-    int version;
-    @Column
-    int accion;
-    @Column
     int crit_nota_lectura;
     @Column
     String impl_nota_lectura;
 
-    public FNotaLectura() {
-    }
+    @Column
+    int version;
+    @Column
+    int accion;
+
 
     public int getId() {
         return id;
@@ -92,22 +91,6 @@ public class FNotaLectura extends BaseModel {
         this.clas_nota_lectura = clas_nota_lectura;
     }
 
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
-
-    public int getAccion() {
-        return accion;
-    }
-
-    public void setAccion(int accion) {
-        this.accion = accion;
-    }
-
     public int getCrit_nota_lectura() {
         return crit_nota_lectura;
     }
@@ -122,5 +105,21 @@ public class FNotaLectura extends BaseModel {
 
     public void setImpl_nota_lectura(String impl_nota_lectura) {
         this.impl_nota_lectura = impl_nota_lectura;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public int getAccion() {
+        return accion;
+    }
+
+    public void setAccion(int accion) {
+        this.accion = accion;
     }
 }

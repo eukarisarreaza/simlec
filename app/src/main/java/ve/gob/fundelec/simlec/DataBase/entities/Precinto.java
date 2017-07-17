@@ -31,16 +31,14 @@ public class Precinto extends BaseModel{
     @Column
     @PrimaryKey
     int id;
-
     @Column
     int id_medidores; /** medidores (id)*/
     @Column
-    String fch_cambio;
+    String fch_cambio; //timestamp
     @Column
-    String pre_medidor_actual;
+    String pre_medidor_actual; //20
     @Column
-    String pre_medidor_nuevo;
-
+    String pre_medidor_nuevo; //20
     @Column
     int version;
     @Column

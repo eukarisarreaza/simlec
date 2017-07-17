@@ -15,37 +15,32 @@ public class Medidores extends BaseModel {
     @Column
     @PrimaryKey
     int id;
-
     @Column
     int id_objeto_conexion; // clave foranea objeto_conexion (id)
     @Column
     int tip_medidor;
     @Column
+    String long_lat; // limite de 30
+    @Column
     int dig_entero;
     @Column
     int dig_decimal;
-
     @Column
-    String modelo;
+    String modelo; //255
     @Column
-    String numero;
+    String numero; //255
     @Column
-    String ubicacion;
+    String ubicacion;//255
     @Column
-    String contrato;
+    String contrato; //255
     @Column
-    String pre_medidor;
+    String pre_medidor; //limite de 20
     @Column
     int edo_medidor;
-
     @Column
     int version;
     @Column
     int accion;
-
-
-    public Medidores() {
-    }
 
     public int getId() {
         return id;
@@ -69,6 +64,14 @@ public class Medidores extends BaseModel {
 
     public void setTip_medidor(int tip_medidor) {
         this.tip_medidor = tip_medidor;
+    }
+
+    public String getLong_lat() {
+        return long_lat;
+    }
+
+    public void setLong_lat(String long_lat) {
+        this.long_lat = long_lat;
     }
 
     public int getDig_entero() {

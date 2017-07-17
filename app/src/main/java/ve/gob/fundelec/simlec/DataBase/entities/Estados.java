@@ -3,6 +3,7 @@ package ve.gob.fundelec.simlec.DataBase.entities;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
 
@@ -10,7 +11,7 @@ import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
  * Created by fundelec on 17/07/17.
  */
 @Table(database = DataBaseSimlec.class)
-public class Estados {
+public class Estados extends BaseModel{
 
     @Column
     @PrimaryKey

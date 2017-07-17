@@ -37,15 +37,15 @@ public class Ruta extends BaseModel{
     int id;
 
     @Column
-    String cod_ruta;
+    String cod_ruta; // limite de 10
     @Column
-    String nom_ruta;
+    String nom_ruta; // limite de 50
     @Column
     int id_edo_ruta;  /** f_ruta (id) */
     @Column
     int id_centro_lectura; /**  centro_lectura (id) */
     @Column
-    String cod_status;
+    String cod_status; // limite de 2
 
     @Column
     int version;
