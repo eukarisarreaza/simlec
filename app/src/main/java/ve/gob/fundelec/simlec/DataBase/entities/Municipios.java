@@ -27,6 +27,17 @@ public class Municipios extends BaseModel{
     @Column
     int accion;
 
+    public Municipios() {
+    }
+
+    public Municipios(String id_municipio, int id_estado, String municipio, int version, int accion) {
+        this.id_municipio = Integer.valueOf(id_municipio);
+        this.id_estado = id_estado;
+        this.municipio = municipio;
+        this.version = version;
+        this.accion = accion;
+    }
+
     public int getId_municipio() {
         return id_municipio;
     }

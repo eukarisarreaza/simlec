@@ -42,6 +42,30 @@ public class Medidores extends BaseModel {
     @Column
     int accion;
 
+
+    public Medidores() {
+    }
+
+    public Medidores(int id, int id_objeto_conexion, int tip_medidor, int dig_entero, int dig_decimal,
+                     String modelo, String numero, String ubicacion, String contrato, String pre_medidor,
+                     int edo_medidor, int version, int accion, String long_lat) {
+        this.id = id;
+        this.id_objeto_conexion = id_objeto_conexion;
+        this.tip_medidor = tip_medidor;
+        this.long_lat = long_lat;
+        this.dig_entero = dig_entero;
+        this.dig_decimal = dig_decimal;
+        this.modelo = modelo;
+        this.numero = numero;
+        this.ubicacion = ubicacion;
+        this.contrato = contrato;
+        this.pre_medidor = pre_medidor;
+        this.edo_medidor = edo_medidor;
+        this.version = version;
+        this.accion = accion;
+    }
+
+
     public int getId() {
         return id;
     }

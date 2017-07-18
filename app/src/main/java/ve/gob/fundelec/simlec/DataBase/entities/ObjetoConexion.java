@@ -63,6 +63,21 @@ public class ObjetoConexion extends BaseModel{
     public ObjetoConexion() {
     }
 
+    public ObjetoConexion(int id, int id_calle_avenida, int cod_obj_conex, String nom_obj_conex,
+                          int ord_obj_conex, String interlocutor, String apendice, String piso, String nro_habitacion, String emplazamiento, int version, int accion) {
+        this.id = id;
+        this.id_calle_avenida = id_calle_avenida;
+        this.cod_obj_conex = cod_obj_conex;
+        this.nom_obj_conex = nom_obj_conex;
+        this.ord_obj_conex = ord_obj_conex;
+        this.interlocutor = interlocutor;
+        this.apendice = apendice;
+        this.piso = piso;
+        this.nro_habitacion = nro_habitacion;
+        this.emplazamiento = emplazamiento;
+        this.version = version;
+        this.accion = accion;
+    }
 
     public int getId() {
         return id;

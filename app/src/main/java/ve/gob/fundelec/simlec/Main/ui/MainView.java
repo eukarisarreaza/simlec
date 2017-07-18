@@ -11,7 +11,7 @@ import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
 public interface MainView {
     void showListOpciones(List<ItemMenu> list);
 
-    void rutasAsinadas();
+    void rutasAsinadas(String fragment);
     void aparatoSobrante();
     void campaña();
     void reporte();

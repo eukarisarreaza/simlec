@@ -45,6 +45,15 @@ public class FRuta extends BaseModel{
     public FRuta() {
     }
 
+    public FRuta(int id, String cod_edo_ruta, String nom_edo_ruta, int version, int accion, String desc_edo_ruta) {
+        this.id = id;
+        this.cod_edo_ruta = cod_edo_ruta;
+        this.nom_edo_ruta = nom_edo_ruta;
+        this.desc_edo_ruta = desc_edo_ruta;
+        this.version = version;
+        this.accion = accion;
+    }
+
     public int getId() {
         return id;
     }

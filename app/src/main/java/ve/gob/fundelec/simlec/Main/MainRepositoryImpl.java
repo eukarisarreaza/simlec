@@ -29,7 +29,7 @@ public class MainRepositoryImpl implements MainRepository {
 
     @Override
     public void getInicio() {
-
+        // envia al preserter el ultimo fragment en RutasAsignadas
 
 
 

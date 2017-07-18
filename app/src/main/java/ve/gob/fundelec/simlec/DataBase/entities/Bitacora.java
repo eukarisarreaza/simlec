@@ -32,6 +32,8 @@ public class Bitacora extends BaseModel{
     @Column
     int accion;
 
+    public Bitacora() {
+    }
 
     public int getId() {
         return id;

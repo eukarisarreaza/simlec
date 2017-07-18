@@ -26,6 +26,17 @@ public class Estados extends BaseModel{
     @Column
     int accion;
 
+    public Estados() {
+    }
+
+    public Estados(int id_estado, String estado, String iso_3166_2, int version, int accion) {
+        this.id_estado = id_estado;
+        this.estado = estado;
+        this.iso_3166_2 = iso_3166_2;
+        this.version = version;
+        this.accion = accion;
+    }
+
     public int getId_estado() {
         return id_estado;
     }

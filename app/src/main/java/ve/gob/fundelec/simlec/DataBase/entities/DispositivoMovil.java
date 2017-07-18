@@ -32,6 +32,8 @@ public class DispositivoMovil extends BaseModel{
     @Column
     int accion;
 
+    public DispositivoMovil() {
+    }
 
     public int getId() {
         return id;

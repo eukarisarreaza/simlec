@@ -3,6 +3,7 @@ package ve.gob.fundelec.simlec;
 import android.app.Application;
 
 import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
 import ve.gob.fundelec.simlec.Login.di.ContextModule;
@@ -29,7 +30,7 @@ public class SimlecApplication extends Application {
     public void onCreate() {
         super.onCreate();
         FlowManager.init(new FlowConfig.Builder(this).build());
-
+        FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
     }
 
     public LoginComponent getLoginComponent(LoginView view){

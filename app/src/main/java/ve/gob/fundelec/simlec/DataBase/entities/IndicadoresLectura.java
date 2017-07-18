@@ -72,6 +72,30 @@ public class IndicadoresLectura extends BaseModel {
     @Column
     int accion;
 
+    public IndicadoresLectura() {
+    }
+
+    public IndicadoresLectura(int id, int id_medidores, int id_programacion_calle, String cod_nota_lectura,
+                              double lim_super_kwh, double lim_infer_kwh, double lim_super_va, double lim_infer_va,
+                              double lectura_prevista, double consumo_kwh, double demanda_va, int version, int accion,
+                              int orden_lectura, String fch_toma_lectura) {
+        this.id = id;
+        this.id_medidores = id_medidores;
+        this.id_programacion_calle = id_programacion_calle;
+        this.orden_lectura = orden_lectura;
+        this.cod_nota_lectura = cod_nota_lectura;
+        this.lim_super_kwh = lim_super_kwh;
+        this.lim_infer_kwh = lim_infer_kwh;
+        this.lim_super_va = lim_super_va;
+        this.lim_infer_va = lim_infer_va;
+        this.lectura_prevista = lectura_prevista;
+        this.fch_toma_lectura = fch_toma_lectura;
+        this.consumo_kwh = consumo_kwh;
+        this.demanda_va = demanda_va;
+        this.version = version;
+        this.accion = accion;
+    }
+
     public int getId() {
         return id;
     }

@@ -80,7 +80,11 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     }
 
     @Override
-    public void rutasAsinadas() {
+    public void rutasAsinadas(String fragment) {
+
+
+
+
 
     }
 
@@ -134,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
         ItemMenu menu= adaterMenuItem.getItem(position-1);
 
         if(menu.getTexto().equals("Rutas Asignadas")){
-            rutasAsinadas();
+            pressenter.getInicio();
         }else
         if(menu.getTexto().equals("Aparato Sobrante")) {
             aparatoSobrante();

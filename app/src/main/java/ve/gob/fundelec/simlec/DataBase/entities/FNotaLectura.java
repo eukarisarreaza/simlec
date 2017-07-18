@@ -50,6 +50,21 @@ public class FNotaLectura extends BaseModel {
     @Column
     int accion;
 
+    public FNotaLectura() {
+    }
+
+    public FNotaLectura(int id, String cod_nota_letura, String nom_nota_lectura, String desc_nota_lectura,
+                        int clas_nota_lectura, int version, int accion, int crit_nota_lectura, String impl_nota_lectura) {
+        this.id = id;
+        this.cod_nota_letura = cod_nota_letura;
+        this.nom_nota_lectura = nom_nota_lectura;
+        this.desc_nota_lectura = desc_nota_lectura;
+        this.clas_nota_lectura = clas_nota_lectura;
+        this.crit_nota_lectura = crit_nota_lectura;
+        this.impl_nota_lectura = impl_nota_lectura;
+        this.version = version;
+        this.accion = accion;
+    }
 
     public int getId() {
         return id;

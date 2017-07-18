@@ -26,6 +26,17 @@ public class Parroquias extends BaseModel{
     @Column
     int accion;
 
+    public Parroquias() {
+    }
+
+    public Parroquias(String id_parroquia, int id_municipio, String parroquia, int version, int accion) {
+        this.id_parroquia = Integer.valueOf(id_parroquia);
+        this.id_municipio = id_municipio;
+        this.parroquia = parroquia;
+        this.version = version;
+        this.accion = accion;
+    }
+
     public int getId_parroquia() {
         return id_parroquia;
     }

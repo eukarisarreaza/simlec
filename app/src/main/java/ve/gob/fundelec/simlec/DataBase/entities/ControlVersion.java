@@ -30,6 +30,8 @@ public class ControlVersion {
     @Column
     boolean cambio;
 
+    public ControlVersion() {
+    }
 
     public int getId() {
         return id;

@@ -53,7 +53,22 @@ public class Lector extends BaseModel {
     @Column
     int accion;
 
+
     public Lector() {
+    }
+
+    public Lector(int id, String cod_lector, String nom_lector, String primer_apell, String segundo_apell,
+                  String cod_lector_alterno, int rol_operador, int id_centro_lectura, int version, int accion) {
+        this.id = id;
+        this.cod_lector = cod_lector;
+        this.nom_lector = nom_lector;
+        this.primer_apell = primer_apell;
+        this.segundo_apell = segundo_apell;
+        this.cod_lector_alterno = cod_lector_alterno;
+        this.rol_operador = rol_operador;
+        this.id_centro_lectura = id_centro_lectura;
+        this.version = version;
+        this.accion = accion;
     }
 
     public int getId() {

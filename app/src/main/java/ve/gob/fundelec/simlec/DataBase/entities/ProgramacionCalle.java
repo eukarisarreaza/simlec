@@ -55,9 +55,8 @@ public class ProgramacionCalle extends BaseModel{
     @Column
     int id_dispositivo_movil; /** dispositivo_movil (id)**/
     @Column
-    int id_calle_avenida; /** calle_avenida (id)*/
-    @Column
     String fch_asig_diaria; // date
+
     @Column
     int lect_visitadas;
     @Column
@@ -77,13 +76,62 @@ public class ProgramacionCalle extends BaseModel{
     @Column
     int cant_med_sobrantes;
     @Column
-    int cant_lect_programadas;
-    @Column
-    int cant_lect_gestionada;
+    int id_calle_avenida; /** calle_avenida (id)*/
     @Column
     int version;
     @Column
     int accion;
+    @Column
+    int cant_lect_programadas;
+    @Column
+    int cant_lect_gestionada;
+
+    public ProgramacionCalle() {
+    }
+
+    public ProgramacionCalle(int id, String fch_programa, int id_lector, int id_dispositivo_movil,
+                             String fch_asig_diaria, int lect_visitadas, int lect_novisitadas,
+                             int lect_noleidas, int lect_leidas, int lect_ausentes, int lect_anomalas,
+                             int lect_modificadas, int lect_forzadas, int cant_med_sobrantes,
+                             int id_calle_avenida, int version, int accion, int cant_lect_programadas,
+                             int cant_lect_gestionada) {
+        this.id = id;
+        this.fch_programa = fch_programa;
+        this.id_lector = id_lector;
+        this.id_dispositivo_movil = id_dispositivo_movil;
+        this.fch_asig_diaria = fch_asig_diaria;
+        this.lect_visitadas = lect_visitadas;
+        this.lect_novisitadas = lect_novisitadas;
+        this.lect_noleidas = lect_noleidas;
+        this.lect_leidas = lect_leidas;
+        this.lect_ausentes = lect_ausentes;
+        this.lect_anomalas = lect_anomalas;
+        this.lect_modificadas = lect_modificadas;
+        this.lect_forzadas = lect_forzadas;
+        this.cant_med_sobrantes = cant_med_sobrantes;
+        this.id_calle_avenida = id_calle_avenida;
+        this.version = version;
+        this.accion = accion;
+        this.cant_lect_programadas = cant_lect_programadas;
+        this.cant_lect_gestionada = cant_lect_gestionada;
+    }
+    public ProgramacionCalle(int id, String fch_programa, int id_lector, int id_dispositivo_movil,
+                             String fch_asig_diaria,
+
+                             int id_calle_avenida, int version, int accion, int cant_lect_programadas,
+                             int cant_lect_gestionada) {
+        this.id = id;
+        this.fch_programa = fch_programa;
+        this.id_lector = id_lector;
+        this.id_dispositivo_movil = id_dispositivo_movil;
+        this.fch_asig_diaria = fch_asig_diaria;
+        this.id_calle_avenida = id_calle_avenida;
+        this.version = version;
+        this.accion = accion;
+        this.cant_lect_programadas = cant_lect_programadas;
+        this.cant_lect_gestionada = cant_lect_gestionada;
+    }
+
 
     public int getId() {
         return id;

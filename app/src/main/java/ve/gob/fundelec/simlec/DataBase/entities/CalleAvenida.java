@@ -53,6 +53,20 @@ public class CalleAvenida extends BaseModel{
     @Column
     int accion;
 
+    public CalleAvenida() {
+    }
+
+    public CalleAvenida(int id, String nom_calle, int id_ruta, String secuencia, int version, int accion, int id_parroquia, String sector, int cod_calle) {
+        this.id = id;
+        this.id_ruta = id_ruta;
+        this.id_parroquia = id_parroquia;
+        this.cod_calle = cod_calle;
+        this.nom_calle = nom_calle;
+        this.secuencia = secuencia;
+        this.sector = sector;
+        this.version = version;
+        this.accion = accion;
+    }
 
     public int getId() {
         return id;

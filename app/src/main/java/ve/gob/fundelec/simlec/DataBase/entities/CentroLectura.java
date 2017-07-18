@@ -38,6 +38,18 @@ public class CentroLectura extends BaseModel {
     @Column
     int accion;
 
+    public CentroLectura() {
+    }
+
+    public CentroLectura(int id, String cod_ctro_lectura, String nom_ctro_lectura, int version, int accion, int id_municipio) {
+        this.id = id;
+        this.id_municipio = id_municipio;
+        this.cod_ctro_lectura = cod_ctro_lectura;
+        this.nom_ctro_lectura = nom_ctro_lectura;
+        this.version = version;
+        this.accion = accion;
+    }
+
     public int getId() {
         return id;
     }
