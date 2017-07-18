@@ -1242,11 +1242,11 @@ public class LoginRepositoryImpl implements LoginRepository{
     private void setObjetoConexion() {
 
 
-        ObjetoConexion objeto1= new ObjetoConexion( 1,2, 18000692860L,"RESD EL SOLAR DEL SAMAN",
+        ObjetoConexion objeto1= new ObjetoConexion( 1,2, "18000692860","RESD EL SOLAR DEL SAMAN",
                 1,"SERVICIOS GUARVINACA C.A.","APTO","3", "3-B", "C1-ALFR", 1, 1);
         objeto1.save();
 
-        ObjetoConexion objeto2= new ObjetoConexion( 2,1, 18000691893L, "PSTE 00GM0165",
+        ObjetoConexion objeto2= new ObjetoConexion( 2,1, "18000691893", "PSTE 00GM0165",
                 1,"","CASA 09","PB", "", "C1-ALFR", 1, 1);
          objeto2.save();
 
