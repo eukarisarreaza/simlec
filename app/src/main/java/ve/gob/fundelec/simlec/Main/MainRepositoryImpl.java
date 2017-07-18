@@ -1,11 +1,15 @@
 package ve.gob.fundelec.simlec.Main;
 
 import android.content.Context;
+import android.util.Log;
+
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ve.gob.fundelec.simlec.Configuracion;
+import ve.gob.fundelec.simlec.DataBase.entities.Parroquias;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
 import ve.gob.fundelec.simlec.Main.event.MainEvent;
@@ -17,6 +21,7 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
  */
 
 public class MainRepositoryImpl implements MainRepository {
+    private static final String TAG= MainRepositoryImpl.class.getName();
     private EventBus eventBus;
     private LectorSessionManager sessionManager;
     private Context context;
@@ -31,8 +36,12 @@ public class MainRepositoryImpl implements MainRepository {
     public void getInicio() {
         // envia al preserter el ultimo fragment en RutasAsignadas
 
+        List<Parroquias> parroquiasList = SQLite.select().
+                from(Parroquias.class).queryList();
 
-
+        for (Parroquias item: parroquiasList) {
+            Log.e(TAG, "parroquia "+item.getParroquia());
+        }
     }
 
     @Override

@@ -38,13 +38,11 @@ public class LoginRepositoryImpl implements LoginRepository{
     @Override
     public void login(String type, String user, String password) {
         /** crear data de inicio */
-        if(!sessionManager.getInicio()){
-            cargarDatosIncio();
-        }
         // validar que no esten vacios los campos o sena nulos
         if(type.isEmpty() || user.isEmpty() || password.isEmpty())
             postEvent(LoginEvent.onLoginError, "");
         else {
+            cargarDatosIncio();
             sessionManager.setLogged();
             postEvent(LoginEvent.onLoginSuccess, "");
         }
@@ -1244,11 +1242,11 @@ public class LoginRepositoryImpl implements LoginRepository{
     private void setObjetoConexion() {
 
 
-        ObjetoConexion objeto1= new ObjetoConexion( 1,2, 154445,"RESD EL SOLAR DEL SAMAN",
+        ObjetoConexion objeto1= new ObjetoConexion( 1,2, 18000692860L,"RESD EL SOLAR DEL SAMAN",
                 1,"SERVICIOS GUARVINACA C.A.","APTO","3", "3-B", "C1-ALFR", 1, 1);
         objeto1.save();
 
-        ObjetoConexion objeto2= new ObjetoConexion( 2,1, 180893, "PSTE 00GM0165",
+        ObjetoConexion objeto2= new ObjetoConexion( 2,1, 18000691893L, "PSTE 00GM0165",
                 1,"","CASA 09","PB", "", "C1-ALFR", 1, 1);
          objeto2.save();
 

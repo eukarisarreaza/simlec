@@ -39,7 +39,7 @@ public class ObjetoConexion extends BaseModel{
     @Column
     int id_calle_avenida; // clave foranea  calle_avenida (id)
     @Column
-    int cod_obj_conex;
+    long cod_obj_conex;
     @Column
     String nom_obj_conex;//100
     @Column
@@ -63,7 +63,7 @@ public class ObjetoConexion extends BaseModel{
     public ObjetoConexion() {
     }
 
-    public ObjetoConexion(int id, int id_calle_avenida, int cod_obj_conex, String nom_obj_conex,
+    public ObjetoConexion(int id, int id_calle_avenida, long cod_obj_conex, String nom_obj_conex,
                           int ord_obj_conex, String interlocutor, String apendice, String piso, String nro_habitacion, String emplazamiento, int version, int accion) {
         this.id = id;
         this.id_calle_avenida = id_calle_avenida;
@@ -95,11 +95,11 @@ public class ObjetoConexion extends BaseModel{
         this.id_calle_avenida = id_calle_avenida;
     }
 
-    public int getCod_obj_conex() {
+    public long getCod_obj_conex() {
         return cod_obj_conex;
     }
 
-    public void setCod_obj_conex(int cod_obj_conex) {
+    public void setCod_obj_conex(long cod_obj_conex) {
         this.cod_obj_conex = cod_obj_conex;
     }
 
