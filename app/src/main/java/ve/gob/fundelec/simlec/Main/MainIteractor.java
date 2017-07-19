@@ -7,4 +7,6 @@ package ve.gob.fundelec.simlec.Main;
 public interface MainIteractor {
     void getInicio();
     void getListMenu();
+
+    void salir();
 }

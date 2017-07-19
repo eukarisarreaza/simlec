@@ -62,4 +62,9 @@ public class MainPressenterImpl implements MainPressenter {
         iteractor.getInicio();
     }
 
+    @Override
+    public void salir() {
+        iteractor.salir();
+    }
+
 }

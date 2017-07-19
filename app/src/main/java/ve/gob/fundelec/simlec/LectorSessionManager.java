@@ -55,6 +55,13 @@ public class LectorSessionManager {
         editor.apply();
     }
 
+    public void logout(){
+        SharedPreferences.Editor editor= settings.edit();
+        editor.putBoolean(KEY_LOGGED, false);
+        editor.apply();
+    }
+
+
     public boolean getInicio(){
         return settings.getBoolean(KEY_INICIO, false);
     }

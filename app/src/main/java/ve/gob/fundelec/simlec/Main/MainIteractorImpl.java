@@ -6,10 +6,11 @@ package ve.gob.fundelec.simlec.Main;
 
 public class MainIteractorImpl implements MainIteractor {
     private MainRepository repository;
+    private UserRepository userRepository;
 
-
-    public MainIteractorImpl(MainRepository repository) {
+    public MainIteractorImpl(MainRepository repository, UserRepository userRepository) {
         this.repository = repository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -20,5 +21,10 @@ public class MainIteractorImpl implements MainIteractor {
     @Override
     public void getListMenu() {
         this.repository.getListMenu();
+    }
+
+    @Override
+    public void salir() {
+        userRepository.logout();
     }
 }

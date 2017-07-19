@@ -36,12 +36,15 @@ public class MainRepositoryImpl implements MainRepository {
     public void getInicio() {
         // envia al preserter el ultimo fragment en RutasAsignadas
 
+        /**
         List<Parroquias> parroquiasList = SQLite.select().
                 from(Parroquias.class).queryList();
 
         for (Parroquias item: parroquiasList) {
             Log.e(TAG, "parroquia "+item.getParroquia());
         }
+
+        */
     }
 
     @Override

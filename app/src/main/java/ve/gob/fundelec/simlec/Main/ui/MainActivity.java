@@ -1,11 +1,13 @@
 package ve.gob.fundelec.simlec.Main.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.LoginFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -21,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
 import ve.gob.fundelec.simlec.Campaña.ui.CampanaFragment;
+import ve.gob.fundelec.simlec.Login.ui.LoginActivity;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.adapter.AdaterMenuItem;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Inject
     MainPressenter pressenter;
-
 
 
     @Override
@@ -82,10 +84,6 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Override
     public void rutasAsinadas(String fragment) {
 
-
-
-
-
     }
 
     @Override
@@ -116,6 +114,13 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Override
     public void salir() {
         /** CERRAR SESION E IR A LA PANTALLA DE LOGIN */
+        pressenter.salir();
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        startActivity(intent);
         finish();
     }
 
@@ -131,10 +136,8 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if(position==0){
-            drawer.closeDrawer(Gravity.RIGHT);
-            return;
-        }
+        drawer.closeDrawer(Gravity.RIGHT);
+
         ItemMenu menu= adaterMenuItem.getItem(position-1);
 
         if(menu.getTexto().equals("Rutas Asignadas")){
