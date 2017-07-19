@@ -14,14 +14,14 @@ public class MainEvent {
     public final static int onSearch = 2;
     public final static int onClickPresinto = 3;
     public final static int onClickSobrante = 4;
-    public final static int showListMenu = 5;
-
+    public final static int showListMenu = 5;   /** MOSTRAR EL MENU LATERAL*/
+    public final static int showFragmentInicio= 6;
 
     private int eventType;
 
     private List<ItemMenu> list;
     private String errorMessage;
-
+    private String fragment;
 
     public int getEventType() {
         return eventType;
@@ -45,5 +45,13 @@ public class MainEvent {
 
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
+    }
+
+    public String getFragment() {
+        return fragment;
+    }
+
+    public void setFragment(String fragment) {
+        this.fragment = fragment;
     }
 }

@@ -1,7 +1,10 @@
 package ve.gob.fundelec.simlec.Main;
 
+import android.icu.util.ValueIterator;
+
 import org.greenrobot.eventbus.Subscribe;
 
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.Main.event.MainEvent;
 import ve.gob.fundelec.simlec.Main.ui.MainView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -49,6 +52,24 @@ public class MainPressenterImpl implements MainPressenter {
             case MainEvent.showListMenu:
                 view.showListOpciones(event.getList());
                 break;
+            case MainEvent.showFragmentInicio:
+                showFragmentInicio(event.getFragment());
+                break;
+        }
+    }
+
+    private void showFragmentInicio(String ruta_fragment){
+        if(ruta_fragment.equals(Configuracion.PantallasRecorridoRutas.LISTA_RUTAS_ASIGNADAS.name())){
+            view.listaRutasAsignadas();
+        }else
+        if(ruta_fragment.equals(Configuracion.PantallasRecorridoRutas.LISTA_CALLES_AVENIDAS.name())){
+            view.listaCallesAvenidas();
+        }else
+        if(ruta_fragment.equals(Configuracion.PantallasRecorridoRutas.LISTA_CENTROS_MEDICION.name())){
+            view.listaObjetosConexion(); /** LISTA DE OBJETOS DE CONEXION O CENTROS DE MEDICION */
+        }else
+        if(ruta_fragment.equals(Configuracion.PantallasRecorridoRutas.LECTURA_GESTIONAR.name())){
+            view.lecturaGestionar();
         }
     }
 

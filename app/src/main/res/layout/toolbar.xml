@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:background="@color/opcion1_1"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:layout_collapseMode="pin">
+
+    <LinearLayout
+        android:elevation="@dimen/margi_extra_corto"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_marginTop="@dimen/margi_extra_corto"
+            android:layout_marginBottom="@dimen/margi_extra_corto"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/titulo_size"
+            android:text="@string/app_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:visibility="gone"
+            android:scaleType="fitCenter"
+            android:layout_marginRight="@dimen/margi_extra_corto"
+            android:layout_gravity="center"
+            android:id="@+id/letter_s"
+            android:src="@drawable/s_letter"
+            android:background="@android:color/transparent"
+            android:layout_width="30dp"
+            android:layout_height="20dp" />
+
+        <ImageView
+            android:visibility="gone"
+            android:scaleType="fitCenter"
+            android:layout_marginRight="@dimen/margi_extra_corto"
+            android:layout_gravity="center"
+            android:id="@+id/letter_p"
+            android:src="@drawable/p_letter"
+            android:background="@android:color/transparent"
+            android:layout_width="30dp"
+            android:layout_height="20dp" />
+
+        <ImageView
+            android:visibility="visible"
+            android:scaleType="center"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:id="@+id/search"
+            android:src="@drawable/search"
+            android:background="@android:color/transparent"
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:scaleType="center"
+            android:layout_marginRight="@dimen/margi_extra_corto"
+            android:layout_gravity="center"
+            android:id="@+id/menu"
+            android:src="@drawable/menu"
+            android:background="@android:color/transparent"
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>

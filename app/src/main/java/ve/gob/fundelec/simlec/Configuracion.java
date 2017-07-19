@@ -9,4 +9,7 @@ public class Configuracion {
         LECTOR, ADMINISTRADOR, SUPERVISOR,
     }
 
+    public enum PantallasRecorridoRutas {
+        LISTA_RUTAS_ASIGNADAS, LISTA_CALLES_AVENIDAS, LISTA_CENTROS_MEDICION, LECTURA_GESTIONAR,
+    }
 }

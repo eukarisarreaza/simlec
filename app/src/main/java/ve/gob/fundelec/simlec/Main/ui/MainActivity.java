@@ -82,9 +82,33 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     }
 
     @Override
-    public void rutasAsinadas(String fragment) {
-
+    public void listaRutasAsignadas() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .commit();
     }
+
+    @Override
+    public void listaCallesAvenidas() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .commit();
+    }
+
+    @Override
+    public void listaObjetosConexion() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .commit();
+    }
+
+    @Override
+    public void lecturaGestionar() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .commit();
+    }
+
 
     @Override
     public void aparatoSobrante() {

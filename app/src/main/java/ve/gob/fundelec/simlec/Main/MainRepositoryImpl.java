@@ -43,8 +43,10 @@ public class MainRepositoryImpl implements MainRepository {
         for (Parroquias item: parroquiasList) {
             Log.e(TAG, "parroquia "+item.getParroquia());
         }
-
         */
+
+        postEventInicio(MainEvent.showFragmentInicio, sessionManager.getKeyRuta());
+
     }
 
     @Override
@@ -91,9 +93,14 @@ public class MainRepositoryImpl implements MainRepository {
         if(errorMessage != null){
             event.setErrorMessage(errorMessage);
         }
-        eventBus.postSticky(event);
+        eventBus.post(event);
     }
 
-
+    private void postEventInicio(int type, String fragment){
+        MainEvent event= new MainEvent();
+        event.setEventType(type);
+        event.setFragment(fragment);
+        eventBus.post(event);
+    }
 
 }

@@ -15,8 +15,7 @@ public class LectorSessionManager {
     private static final String KEY_USER = "key_user";
     private static final String KEY_LOGGED = "key_logged";
     private static final String KEY_TYPE_USER = "key_type_user";
-
-    private static final String KEY_INICIO = "key_inicio"; // PARA CREAR DATOS DE INICIO EN LA BASE DE DATOS
+    private static final String KEY_RUTA = "key_ruta"; // almacenar el ultimo fragment que utilizo en la opcion Rutas Asignadas
 
 
     private SharedPreferences settings;
@@ -61,17 +60,6 @@ public class LectorSessionManager {
         editor.apply();
     }
 
-
-    public boolean getInicio(){
-        return settings.getBoolean(KEY_INICIO, false);
-    }
-
-    public void setInicio(){
-        SharedPreferences.Editor editor= settings.edit();
-        editor.putBoolean(KEY_INICIO, true);
-        editor.apply();
-    }
-
     public String getTipoUser(){
         return settings.getString(KEY_TYPE_USER, Configuracion.TipoUsuario.LECTOR.name());
     }
@@ -79,6 +67,16 @@ public class LectorSessionManager {
     public void setTipoUser(Configuracion.TipoUsuario tipoUsuario){
         SharedPreferences.Editor editor= settings.edit();
         editor.putString(KEY_TYPE_USER, tipoUsuario.name());
+        editor.apply();
+    }
+
+    public String getKeyRuta() {
+        return settings.getString(KEY_RUTA, Configuracion.PantallasRecorridoRutas.LISTA_RUTAS_ASIGNADAS.name() );
+    }
+
+    public void setRuta(Configuracion.PantallasRecorridoRutas fragment){
+        SharedPreferences.Editor editor= settings.edit();
+        editor.putString(KEY_RUTA, fragment.name());
         editor.apply();
     }
 }

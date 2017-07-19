@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp"
+            android:fitsSystemWindows="true">
+
+            <RelativeLayout
+                android:background="@drawable/fondo_degradado"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/heigth_toolbar">
+
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/toolbar_elevation"
+                    android:layout_marginRight="@dimen/toolbar_elevation"
+                    android:elevation="@dimen/margi_extra_corto"
+                    android:paddingLeft="@dimen/margi_extra_corto"
+                    android:paddingRight="@dimen/margi_extra_corto"
+                    android:paddingBottom="@dimen/margi_extra_corto"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+
+
+                    <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/icono_perfil"
+                            app:civ_border_color="#FAFAFA"
+                            app:civ_border_width="2dp" />
+
+                        <EditText
+                            android:layout_marginTop="@dimen/margi_extra_corto"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="12dp"
+                            android:background="@android:color/white"
+                            android:text="Eukaris Arreaza"
+                            android:gravity="center"
+                            android:inputType="textMultiLine"
+                            android:maxLines="2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/margi_extra_corto"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textColor="@android:color/black"
+                            android:textSize="17sp"
+                            android:text="@string/tittle_sistema"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textColor="@android:color/black"
+                                android:text="Perfil"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/perfil"
+                                android:textColor="@android:color/darker_gray"
+                                android:text="pendiente"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textColor="@android:color/black"
+                                android:gravity="center"
+                                android:text="Último Incio de Sesión  "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/ultimo_inicio"
+                                android:textColor="@android:color/darker_gray"
+                                android:gravity="center"
+                                android:text="pendiente"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/version"
+                            android:textColor="@android:color/darker_gray"
+                            android:gravity="center"
+                            android:text="v. 1.0.2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <include
+                layout="@layout/toolbar"/>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margi_extra_corto"
+            android:layout_marginRight="@dimen/margi_extra_corto"
+            android:layout_marginLeft="@dimen/margi_extra_corto"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Lista de Rutas Asignadas"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="@dimen/margi_extra_corto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/listRutas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rutasBloquedas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"/>
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

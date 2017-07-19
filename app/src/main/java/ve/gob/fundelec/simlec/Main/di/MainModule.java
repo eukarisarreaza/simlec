@@ -13,6 +13,8 @@ import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.MainPressenterImpl;
 import ve.gob.fundelec.simlec.Main.MainRepository;
 import ve.gob.fundelec.simlec.Main.MainRepositoryImpl;
+import ve.gob.fundelec.simlec.Main.UserRepository;
+import ve.gob.fundelec.simlec.Main.UserRepositoryImpl;
 import ve.gob.fundelec.simlec.Main.ui.MainView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -35,8 +37,14 @@ public class MainModule {
 
     @Provides
     @Singleton
-    MainIteractor providesMainIteractor(MainRepository repository){
-        return new MainIteractorImpl(repository);
+    MainIteractor providesMainIteractor(MainRepository repository, UserRepository userRepository){
+        return new MainIteractorImpl(repository, userRepository);
+    }
+
+    @Provides
+    @Singleton
+    UserRepository providesUserRepository(LectorSessionManager sessionManager){
+        return new UserRepositoryImpl(sessionManager);
     }
 
     @Provides
