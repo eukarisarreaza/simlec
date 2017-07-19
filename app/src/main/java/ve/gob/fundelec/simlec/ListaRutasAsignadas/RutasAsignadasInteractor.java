@@ -5,4 +5,11 @@ package ve.gob.fundelec.simlec.ListaRutasAsignadas;
  */
 
 public interface RutasAsignadasInteractor {
+    void getInfoUser();
+
+    void getListRutas();
+
+    void getUltimoInicio();
+
+    void getVersionApp();
 }

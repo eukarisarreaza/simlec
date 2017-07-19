@@ -11,4 +11,5 @@ public interface RutasAsignadasRepository{
     void getInfoUser();
     void getVersionApp();
 
+    void getUltimoInicio();
 }

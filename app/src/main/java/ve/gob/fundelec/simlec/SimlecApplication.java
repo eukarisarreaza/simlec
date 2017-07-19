@@ -6,6 +6,10 @@ import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.di.DaggerRutasAsignadasComponent;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.di.RutasAsignadasComponent;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.di.RutasAsignadasModule;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.ui.RutasAsignadasView;
 import ve.gob.fundelec.simlec.Login.di.ContextModule;
 import ve.gob.fundelec.simlec.Login.di.DaggerLoginComponent;
 import ve.gob.fundelec.simlec.Login.di.LoginComponent;
@@ -54,9 +58,14 @@ public class SimlecApplication extends Application {
                 .build();
     }
 
-
-
-
-
+    public RutasAsignadasComponent getRutasAsignadasComponent(RutasAsignadasView view){
+        return DaggerRutasAsignadasComponent
+                .builder()
+                .rutasAsignadasModule(new RutasAsignadasModule(view))
+                .libsModule(new LibsModule())
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
 
 }

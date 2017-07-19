@@ -7,6 +7,7 @@ import ve.gob.fundelec.simlec.LectorSessionManager;
  */
 
 public class UserRepositoryImpl implements UserRepository{
+    private LectorSessionManager sessionManager;
 
     public UserRepositoryImpl(LectorSessionManager sessionManager) {
         this.sessionManager = sessionManager;
@@ -15,7 +16,5 @@ public class UserRepositoryImpl implements UserRepository{
     @Override
     public void logout() {
         this.sessionManager.logout();
-
-
     }
 }

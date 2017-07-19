@@ -66,6 +66,7 @@ public class LoginRepositoryImpl implements LoginRepository{
     }
 
     private void cargarDatosIncio() {
+        /** SERAN SOLO DATOS DE PRUEBAS */
         setFNotasLectura();
         setFRuta();
         setCalleRuta();
@@ -79,7 +80,6 @@ public class LoginRepositoryImpl implements LoginRepository{
         setParroquias();
         setProgamacionCalle();
         setRutas();
-        sessionManager.setInicio();
     }
 
     private void setRutas() {
@@ -1611,6 +1611,9 @@ public class LoginRepositoryImpl implements LoginRepository{
 
     private void setLector() {
         Lector lector= new Lector(1,"Z04","Eukaris","Arreaza","Bompart","",1,1,1,1);
+        lector.save();
+
+        sessionManager.setLector(lector);
     }
 
     private void setIndicadoresLectura() {

@@ -23,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
 import ve.gob.fundelec.simlec.Campaña.ui.CampanaFragment;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.ui.RutasAsignadasFragment;
 import ve.gob.fundelec.simlec.Login.ui.LoginActivity;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.adapter.AdaterMenuItem;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Override
     public void listaRutasAsignadas() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .replace(R.id.framelayout, RutasAsignadasFragment.newInstance())
                 .commit();
     }
 
