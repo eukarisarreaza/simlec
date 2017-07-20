@@ -3,7 +3,7 @@ package ve.gob.fundelec.simlec.ListaRutasAsignadas.event;
 import java.util.List;
 
 import ve.gob.fundelec.simlec.DataBase.entities.Lector;
-import ve.gob.fundelec.simlec.DataBase.entities.Ruta;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 
 /**
  * Created by fundelec on 19/07/17.
@@ -17,7 +17,7 @@ public class RutasAsignadasEvent {
     private int eventType;
     private String errorMessage;
     private Lector lector;
-    private List<Ruta> list;
+    private List<QueryRutas> list;
     private String versionApp;
 
     public int getEventType() {
@@ -45,19 +45,20 @@ public class RutasAsignadasEvent {
         this.lector = lector;
     }
 
-    public List<Ruta> getList() {
-        return list;
-    }
-
-    public void setList(List<Ruta> list) {
-        this.list = list;
-    }
-
     public String getVersionApp() {
         return versionApp;
     }
 
     public void setVersionApp(String versionApp) {
         this.versionApp = versionApp;
+    }
+
+
+    public List<QueryRutas> getList() {
+        return list;
+    }
+
+    public void setList(List<QueryRutas> list) {
+        this.list = list;
     }
 }

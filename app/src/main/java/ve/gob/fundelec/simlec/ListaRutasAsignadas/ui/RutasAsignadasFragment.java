@@ -84,6 +84,7 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
         presenter.onCreate();
         presenter.getInfoUser();
         presenter.getVersionApp();
+        presenter.getListRutas();
         return view;
     }
 

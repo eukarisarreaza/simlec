@@ -1,14 +1,24 @@
 package ve.gob.fundelec.simlec.ListaRutasAsignadas;
 
-import com.raizlabs.android.dbflow.sql.language.SQLite;
+import android.util.Log;
 
+import com.raizlabs.android.dbflow.sql.language.Method;
+import com.raizlabs.android.dbflow.sql.language.NameAlias;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
+import com.raizlabs.android.dbflow.sql.language.Select;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida;
+import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Lector;
 import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle;
+import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Ruta;
+import ve.gob.fundelec.simlec.DataBase.entities.Ruta_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.event.RutasAsignadasEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -17,6 +27,7 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
  */
 
 public class RutasAsignadasRepositoryImpl implements RutasAsignadasRepository{
+    private static final String TAG= RutasAsignadasRepositoryImpl.class.getName();
     private EventBus eventBus;
     private LectorSessionManager sessionManager;
 
@@ -42,12 +53,26 @@ public class RutasAsignadasRepositoryImpl implements RutasAsignadasRepository{
          JOIN ruta c ON b.id_ruta = c.id
        GROUP BY c.id, c.nom_ruta, 'C.C.C.T 0001 '::text, a.id_lector, a.id_dispositivo_movil;
 
-         List<ProgramacionCalle> rutas= SQLite.select()
-         .from(ProgramacionCalle.class)
-         .innerJoin(CalleAvenida.class)
-         .on()
-
          */
+
+        /** **/
+
+        List<QueryRutas> list= new Select(ProgramacionCalle_Table.id.withTable(NameAlias.builder("C").build()).as("id_programacion_calle"),
+                CalleAvenida_Table.id.withTable(NameAlias.builder("R").build()).as("id_calle_avenida"),
+                ProgramacionCalle_Table.fch_programa, ProgramacionCalle_Table.id_lector, ProgramacionCalle_Table.id_dispositivo_movil,
+                ProgramacionCalle_Table.fch_asig_diaria, CalleAvenida_Table.id_ruta, CalleAvenida_Table.id_parroquia,
+                CalleAvenida_Table.cod_calle, CalleAvenida_Table.nom_calle, CalleAvenida_Table.secuencia, CalleAvenida_Table.sector)
+                .from(ProgramacionCalle.class).as("C")
+                .innerJoin(CalleAvenida.class).as("R")
+                .on(ProgramacionCalle_Table.id_calle_avenida.withTable(NameAlias.builder("C").build())
+                        .eq(CalleAvenida_Table.id.withTable(NameAlias.builder("R").build())))
+                .queryCustomList(QueryRutas.class);
+
+
+        for (QueryRutas item: list) {
+            Log.e(TAG, "item "+item.getFch_programa());
+
+        }
 
     }
 
