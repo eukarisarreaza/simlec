@@ -54,11 +54,11 @@ public class RutasAsignadasEvent {
     }
 
 
-    public List<QueryRutas> getList() {
+    public List<QueryRutas> getListRutas() {
         return list;
     }
 
-    public void setList(List<QueryRutas> list) {
+    public void setListRutas(List<QueryRutas> list) {
         this.list = list;
     }
 }

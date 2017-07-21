@@ -21,7 +21,9 @@ import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import ve.gob.fundelec.simlec.DataBase.entities.Ruta;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.RutasAsignadasPresenter;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.adapter.AdapterRutasAsignadas;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.di.RutasAsignadasComponent;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 
@@ -56,7 +58,7 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
     @Inject
     RutasAsignadasPresenter presenter;
 
-
+    AdapterRutasAsignadas adapter;
 
     public RutasAsignadasFragment() {
     }
@@ -81,11 +83,18 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
         View view = inflater.inflate(R.layout.fragment_rutas_asignadas, container, false);
         unbinder = ButterKnife.bind(this, view);
         setupInject();
+        setupRecycler();
         presenter.onCreate();
         presenter.getInfoUser();
         presenter.getVersionApp();
         presenter.getListRutas();
         return view;
+    }
+
+    private void setupRecycler() {
+
+
+
     }
 
     private void setupInject() {
@@ -114,7 +123,7 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
     }
 
     @Override
-    public void showListRutasCurso(List<Ruta> list) {
+    public void showListRutasCurso(List<QueryRutas> list) {
 
     }
 }

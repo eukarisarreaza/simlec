@@ -55,6 +55,7 @@ public class RutasAsignadasPresenterImpl implements RutasAsignadasPresenter{
             case RutasAsignadasEvent.showListRutasBloquedas:
                 break;
             case RutasAsignadasEvent.showListRutasEnCurso:
+                view.showListRutasCurso(event.getListRutas());
                 break;
             case RutasAsignadasEvent.showVersionApp:
                 view.showVersionName(event.getVersionApp());

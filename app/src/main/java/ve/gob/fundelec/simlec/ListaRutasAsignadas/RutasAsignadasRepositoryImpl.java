@@ -74,11 +74,7 @@ public class RutasAsignadasRepositoryImpl implements RutasAsignadasRepository{
 
         Log.e(TAG, "size "+list.size());
 
-        for (QueryRutas item: list) {
-            Log.e(TAG, "item "+item.getNom_ruta());
-            Log.e(TAG, "item "+item.getCod_ruta());
-            Log.e(TAG, "item "+item.getId_ruta());
-        }
+        postEvent(RutasAsignadasEvent.showListRutasEnCurso, list);
 
     }
 
@@ -100,6 +96,15 @@ public class RutasAsignadasRepositoryImpl implements RutasAsignadasRepository{
     @Override
     public void getVersionApp() {
         postEvent(RutasAsignadasEvent.showVersionApp, "v. 1.0.2");
+    }
+
+
+
+    private void postEvent(int type, List<QueryRutas> listRutas){
+        RutasAsignadasEvent event= new RutasAsignadasEvent();
+        event.setEventType(type);
+        event.setListRutas(listRutas);
+        eventBus.post(event);
     }
 
     private void postEvent(int type, Lector lector){
