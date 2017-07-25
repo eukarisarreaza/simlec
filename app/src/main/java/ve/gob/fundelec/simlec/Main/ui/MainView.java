@@ -2,6 +2,7 @@ package ve.gob.fundelec.simlec.Main.ui;
 
 import java.util.List;
 
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
 
 /**

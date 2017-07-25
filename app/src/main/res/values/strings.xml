@@ -37,9 +37,6 @@
     <string name="lista_de_centros">Listado de Centros de Medición</string>
     <string name="hint_usuario">ID USUARIO</string>
     <string name="hint_password">CLAVE</string>
-    <string name="lector">LECTOR</string>
-    <string name="supervisor">SUPERVISOR</string>
-    <string name="administrador">ADMINISTRADOR</string>
     <string name="iniciar">INICIAR</string>
     <string name="kwh">kWh</string>
     <string name="loading">Cargando...</string>
@@ -48,36 +45,8 @@
     <string name="cargar">Cerrar Ruta y Actualizar Sistema</string>
     <string name="preparar_dispositivo">Preparar Dispositivo</string>
 
-    <string-array name="nota_lectura">
-        <item>Imposible Accesar Objeto Conexion</item>
-        <item>Liberado por Responsable - Estimación Automática</item>
-        <item>Decreto 46</item>
-        <item>Antisociales en la zona</item>
-    </string-array>
 
-    <string-array name="notaLectura">
-        <item>Imposible Accesar Ubicación Aparato</item>
-        <item>Posible Irregularidad en Medidor</item>
-        <item>Medidor Averiado</item>
-        <item>Medidor No Encontrado</item>
-        <item>Medidor Mal Ubicado</item>
-        <item>Numero de Serie Borrado Medidor</item>
-        <item>Medidor Registro InversiÃ³n</item>
-        <item>Imposible Lectura Medidor</item>
-        <item>Leido por Cliente</item>
-        <item>Cerradura / Candado daÃ±ado</item>
-        <item>Casa Cerrada</item>
-        <item>Aparato Apagado</item>
-        <item>Conexión Directa</item>
-        <item>Pto. Med. Sin Hig y Seg.</item>
-        <item>Dirección Errada</item>
-        <item>Objeto de conexión inválido</item>
-        <item>Modulo Fuera de Norma</item>
-    </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tittle_sistema">Sistema Movil para la Lectura de Medidores</string>
+    <string name="tittle_sistema">Sistema Móvil para la Lectura de Medidores</string>
 
 
 </resources>

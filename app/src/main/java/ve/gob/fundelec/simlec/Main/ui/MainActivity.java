@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
 import ve.gob.fundelec.simlec.Campaña.ui.CampanaFragment;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.ui.RutasAsignadasFragment;
 import ve.gob.fundelec.simlec.Login.ui.LoginActivity;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
@@ -31,6 +32,8 @@ import ve.gob.fundelec.simlec.SimlecApplication;
 public class MainActivity extends AppCompatActivity implements MainView, AdapterView.OnItemClickListener{
     private static final String TAG=MainActivity.class.getName();
     private AdaterMenuItem adaterMenuItem;
+    private boolean isChecked;
+
 
     @BindView(R.id.list_item)
     ListView listItem;
@@ -40,12 +43,13 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Inject
     MainPressenter pressenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        isChecked= true;
+
         sertDrawer();
         setupInject();
         pressenter.onCreate();
@@ -80,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void listaRutasAsignadas() {
+        isChecked=true;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.framelayout, RutasAsignadasFragment.newInstance())
                 .commit();
@@ -87,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void listaCallesAvenidas() {
+        isChecked=true;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
                 .commit();
@@ -94,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void listaObjetosConexion() {
+        isChecked=true;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
                 .commit();
@@ -101,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void lecturaGestionar() {
+        isChecked=true;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
                 .commit();
@@ -109,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void aparatoSobrante() {
+        isChecked=false;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
                 .commit();
@@ -116,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void campaña() {
+        isChecked=false;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.framelayout, CampanaFragment.newInstance())
                 .commit();
@@ -123,11 +133,13 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void reporte() {
+        isChecked=false;
 
     }
 
     @Override
     public void sincronizar() {
+        isChecked=false;
 
     }
 
@@ -156,7 +168,14 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void onBackPress() {
+        if(drawer.isDrawerOpen(Gravity.RIGHT)){
+            drawer.closeDrawer(Gravity.RIGHT);
+            return;
+        }
+        if (isChecked){
 
+        }else
+            super.onBackPressed();
     }
 
     @Override
@@ -216,5 +235,10 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     protected void onDestroy() {
         super.onDestroy();
         pressenter.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        onBackPress();
     }
 }
