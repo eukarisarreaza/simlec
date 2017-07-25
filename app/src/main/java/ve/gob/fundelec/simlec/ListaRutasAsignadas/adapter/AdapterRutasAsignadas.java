@@ -24,9 +24,10 @@ public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsig
     private OnItemClickListener onItemClickListener;
     private LectorSessionManager sessionManager;
 
-    public AdapterRutasAsignadas(List<QueryRutas> datos, OnItemClickListener onItemClickListener) {
+    public AdapterRutasAsignadas(List<QueryRutas> datos, OnItemClickListener onItemClickListener, LectorSessionManager sessionManager) {
         this.datos = datos;
         this.onItemClickListener = onItemClickListener;
+        this.sessionManager = sessionManager;
     }
 
     @Override
@@ -43,6 +44,13 @@ public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsig
         holder.bindRuta(item);
         holder.setOnItemClickListener(item, onItemClickListener);
     }
+
+        public void setList(List<QueryRutas> rutasList) {
+        datos.clear();
+        datos.addAll(rutasList);
+        notifyDataSetChanged();
+    }
+
 
     public void add(QueryRutas route){
         datos.add(0, route);
@@ -73,8 +81,10 @@ public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsig
         }
 
         public void bindRuta(QueryRutas item){
+
             switch (sessionManager.getUser().getRol_operador()){
                 case 1: //LECTOR
+                    lector.setVisibility(View.GONE);
                     break;
                 case 2: //SUPERVISOR
                     lector.setVisibility(View.VISIBLE);
@@ -86,13 +96,10 @@ public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsig
         }
 
         public void setOnItemClickListener(final QueryRutas element, final OnItemClickListener onItemClickListener){
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LinearLayout myBackground=(LinearLayout)v.findViewById(R.id.content);
-                    myBackground.setSelected(true);
-                    onItemClickListener.onClickRuta(element);
-                }
+            itemView.setOnClickListener(v -> {
+                LinearLayout myBackground=(LinearLayout)v.findViewById(R.id.content);
+                myBackground.setSelected(true);
+                onItemClickListener.onClickRuta(element);
             });
         }
     }

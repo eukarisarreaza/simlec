@@ -23,4 +23,12 @@ public interface MainView {
     void salir();
     void bateria();
     void linterna();
+
+    void onBackPress();
+    void onButtonMenu();
+    void onClickPresinto();
+    void onClickSobrante();
+    void onSearch();
+
+
 }

@@ -43,6 +43,7 @@ public class RutasAsignadasPresenterImpl implements RutasAsignadasPresenter{
                 switch (lector.getRol_operador()){
                     case 1:
                         view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.LECTOR.name());
+
                         break;
                     case 2:
                         view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.SUPERVISOR.name());

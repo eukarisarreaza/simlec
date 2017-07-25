@@ -2,13 +2,9 @@ package ve.gob.fundelec.simlec.Main.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.LoginFilter;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -113,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void aparatoSobrante() {
-
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
                 .commit();
@@ -156,6 +151,31 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void linterna() {
+
+    }
+
+    @Override
+    public void onBackPress() {
+
+    }
+
+    @Override
+    public void onButtonMenu() {
+
+    }
+
+    @Override
+    public void onClickPresinto() {
+
+    }
+
+    @Override
+    public void onClickSobrante() {
+
+    }
+
+    @Override
+    public void onSearch() {
 
     }
 

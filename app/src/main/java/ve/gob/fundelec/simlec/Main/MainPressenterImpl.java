@@ -1,11 +1,12 @@
 package ve.gob.fundelec.simlec.Main;
 
-import android.icu.util.ValueIterator;
+import android.util.Log;
 
 import org.greenrobot.eventbus.Subscribe;
 
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.Main.event.MainEvent;
+import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
 import ve.gob.fundelec.simlec.Main.ui.MainView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -17,6 +18,8 @@ public class MainPressenterImpl implements MainPressenter {
     private EventBus eventBus;
     private MainView view;
     private MainIteractor iteractor;
+    private static final String TAG= MainPressenterImpl.class.getName();
+
 
     public MainPressenterImpl(EventBus eventBus, MainView view, MainIteractor interactor) {
         this.eventBus = eventBus;
@@ -40,20 +43,46 @@ public class MainPressenterImpl implements MainPressenter {
     public void onEventMainThread(MainEvent event) {
         switch (event.getEventType()){
             case MainEvent.onBackPress:
+                Log.e(TAG, "onBackPress");
+                view.onBackPress();
                 break;
             case MainEvent.onButtonMenu:
+                Log.e(TAG, "onButtonMenu");
+                view.onButtonMenu();
                 break;
             case MainEvent.onClickPresinto:
+                Log.e(TAG, "onClickPresinto");
+                view.onClickPresinto();
                 break;
             case MainEvent.onClickSobrante:
+                Log.e(TAG, "onClickSobrante");
+                view.onClickSobrante();
                 break;
             case MainEvent.onSearch:
+                Log.e(TAG, "onSearch");
+                view.onSearch();
                 break;
             case MainEvent.showListMenu:
                 view.showListOpciones(event.getList());
                 break;
             case MainEvent.showFragmentInicio:
                 showFragmentInicio(event.getFragment());
+                break;
+        }
+    }
+
+    @Subscribe
+    @Override
+    public void onEventRecorrido(RecorridoEvent event) {
+
+        switch (event.getEventType()){
+            case RecorridoEvent.onClickCalleAv:
+                Log.e(TAG, "onClickCalleAv");
+
+                break;
+            case RecorridoEvent.onClickRuta:
+                Log.e(TAG, "onClickRuta");
+
                 break;
         }
     }
