@@ -172,7 +172,7 @@
 
             <TextView
                 android:text="Lista de Rutas Asignadas"
-                android:textColor="@android:color/black"
+                android:textColor="@color/opcion1_1"
                 android:layout_marginLeft="@dimen/margi_extra_corto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

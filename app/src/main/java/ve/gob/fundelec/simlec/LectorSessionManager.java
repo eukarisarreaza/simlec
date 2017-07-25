@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 import ve.gob.fundelec.simlec.DataBase.entities.Lector;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 
 /**
  * Created by fundelec on 11/07/17.
@@ -14,8 +15,11 @@ public class LectorSessionManager {
 
     private static final String KEY_USER = "key_user";
     private static final String KEY_LOGGED = "key_logged";
-    private static final String KEY_TYPE_USER = "key_type_user";
-    private static final String KEY_RUTA = "key_ruta"; // almacenar el ultimo fragment que utilizo en la opcion Rutas Asignadas
+    private static final String KEY_RECORRIDO = "key_recorrido"; // almacenar el ultimo fragment que utilizo en la opcion Rutas Asignadas
+
+    private static final String KEY_RUTA = "key_ruta";
+    private static final String KEY_CALLE = "key_calle";
+    private static final String KEY_CENTROS_MEDICION = "key_centros_medicion";
 
 
     private SharedPreferences settings;
@@ -60,23 +64,33 @@ public class LectorSessionManager {
         editor.apply();
     }
 
-    public String getTipoUser(){
-        return settings.getString(KEY_TYPE_USER, Configuracion.TipoUsuario.LECTOR.name());
-    }
-
-    public void setTipoUser(Configuracion.TipoUsuario tipoUsuario){
-        SharedPreferences.Editor editor= settings.edit();
-        editor.putString(KEY_TYPE_USER, tipoUsuario.name());
-        editor.apply();
-    }
-
     public String getKeyRuta() {
-        return settings.getString(KEY_RUTA, Configuracion.PantallasRecorridoRutas.LISTA_RUTAS_ASIGNADAS.name() );
+        return settings.getString(KEY_RECORRIDO, Configuracion.PantallasRecorridoRutas.LISTA_RUTAS_ASIGNADAS.name() );
     }
 
-    public void setRuta(Configuracion.PantallasRecorridoRutas fragment){
+    public void setRecorrido(Configuracion.PantallasRecorridoRutas fragment){
         SharedPreferences.Editor editor= settings.edit();
-        editor.putString(KEY_RUTA, fragment.name());
+        editor.putString(KEY_RECORRIDO, fragment.name());
         editor.apply();
     }
+
+    public void setRuta(QueryRutas ruta){
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(ruta);
+        SharedPreferences.Editor editor= settings.edit();
+        editor.putString(KEY_RUTA, jsonString);
+        editor.apply();
+    }
+
+    public QueryRutas getRuta(){
+        String json_ruta= settings.getString(KEY_RUTA, null);
+        if(json_ruta==null)
+            return null;
+        else {
+            Gson gson = new Gson();
+            QueryRutas ruta = gson.fromJson(json_ruta, QueryRutas.class);
+            return ruta;
+        }
+    }
+
 }

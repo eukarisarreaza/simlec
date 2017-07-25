@@ -6,6 +6,10 @@ import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.di.CallesAvenidasComponent;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.di.CallesAvenidasModule;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.di.DaggerCallesAvenidasComponent;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.ui.CallesAvenidasView;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.adapter.OnItemClickListener;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.di.DaggerRutasAsignadasComponent;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.di.RutasAsignadasComponent;
@@ -64,6 +68,16 @@ public class SimlecApplication extends Application {
                 .builder()
                 .rutasAsignadasModule(new RutasAsignadasModule(view, listener))
                 .libsModule(new LibsModule())
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
+
+    public CallesAvenidasComponent getCallesAvenidasComponent(CallesAvenidasView view){
+        return DaggerCallesAvenidasComponent
+                .builder()
+                .libsModule(new LibsModule())
+                .callesAvenidasModule(new CallesAvenidasModule(view))
                 .sesionModule(new SesionModule())
                 .contextModule(new ContextModule(getApplicationContext()))
                 .build();

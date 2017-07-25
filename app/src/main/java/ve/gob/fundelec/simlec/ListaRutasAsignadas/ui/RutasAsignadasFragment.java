@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
  * create an instance of this fragment.
  */
 public class RutasAsignadasFragment extends Fragment implements RutasAsignadasView, OnItemClickListener {
-
+    private static final String TAG= RutasAsignadasFragment.class.getName();
     @BindView(R.id.profile_image)
     CircleImageView profileImage;
     @BindView(R.id.perfil)
@@ -126,8 +127,8 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
     }
 
     @Override
-    public void showVersionName(String version) {
-
+    public void showVersionName(String version_text) {
+        version.setText(version_text);
     }
 
     @Override
@@ -152,27 +153,13 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
         eventBus.post(event);
     }
 
-    @OnClick(R.id.letter_p)
-    @Override
-    public void presinto() {
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onClickPresinto);
-        eventBus.post(event);
-    }
-
-    @OnClick(R.id.letter_s)
-    @Override
-    public void sobrante() {
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onClickSobrante);
-        eventBus.post(event);
-    }
-
     @Override
     public void onClickRuta(QueryRutas ruta) {
-        RecorridoEvent event= new RecorridoEvent();
-        event.setEventType(RecorridoEvent.onClickRuta);
-        event.setRuta(ruta);
-        eventBus.post(event);
+        presenter.onClickRuta(ruta);
+    }
+
+    @Override
+    public void onClickRutaMap(QueryRutas ruta) {
+        Log.e(TAG, "map de la ruta "+ruta.getNom_ruta());
     }
 }

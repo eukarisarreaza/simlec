@@ -53,7 +53,7 @@ public class MainRepositoryImpl implements MainRepository {
     public void getListMenu() {
         List<ItemMenu> menu = new ArrayList<>();
 
-        if(sessionManager.getTipoUser().equals(Configuracion.TipoUsuario.LECTOR.name())){
+        if(sessionManager.getUser().getRol_operador()==1){ /** LECTOR **/
             menu.add(new ItemMenu(R.drawable.map_marker_radius, R.color.colorPrimary, context.getString(R.string.rutas_asignadas)));
             menu.add(new ItemMenu(R.drawable.clock_in, R.color.opcion1_2, context.getString(R.string.aparato_sobrante)));
             menu.add(new ItemMenu(R.drawable.campana, R.color.opcion1_3, context.getString(R.string.campa_a)));
@@ -63,7 +63,7 @@ public class MainRepositoryImpl implements MainRepository {
             menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
             menu.add(new ItemMenu(R.drawable.linterna, R.color.opcion2_4, context.getString(R.string.linterna)));
         }else
-        if(sessionManager.getTipoUser().equals(Configuracion.TipoUsuario.SUPERVISOR.name())){
+        if(sessionManager.getUser().getRol_operador()==2){ /** SUPERVISOR */
             menu.add(new ItemMenu(R.drawable.map_marker_radius, R.color.colorPrimary, context.getString(R.string.rutas_asignadas)));
             menu.add(new ItemMenu(R.drawable.chart_pie, R.color.opcion1_4,context. getString(R.string.reporte)));
             menu.add(new ItemMenu(R.drawable.cloud_sync, R.color.opcion1_5, context.getString(R.string.sincronizar)));
@@ -72,7 +72,7 @@ public class MainRepositoryImpl implements MainRepository {
             menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
             menu.add(new ItemMenu(R.drawable.linterna, R.color.opcion2_4, context.getString(R.string.linterna)));
         }else
-        if(sessionManager.getTipoUser().equals(Configuracion.TipoUsuario.ADMINISTRADOR.name())){
+        if(sessionManager.getUser().getRol_operador()==3){ /** ADMINISTRADOR */
             menu.add(new ItemMenu(R.drawable.cloud_sync, R.color.opcion1_5, context.getString(R.string.sincronizar)));
             menu.add(new ItemMenu(R.drawable.exit_to_app, R.color.opcion2_2, context.getString(R.string.salir)));
             menu.add(new ItemMenu(R.drawable.settings, R.color.opcion2_2, context.getString(R.string.ajustes)));

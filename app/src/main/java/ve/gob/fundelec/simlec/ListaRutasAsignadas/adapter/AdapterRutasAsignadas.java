@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,7 +20,7 @@ import ve.gob.fundelec.simlec.R;
  * Created by root on 08/04/17.
  */
 
-public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsignadas.RutasViewHolder>{
+public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsignadas.RutasViewHolder> {
     private List<QueryRutas> datos;
     private OnItemClickListener onItemClickListener;
     private LectorSessionManager sessionManager;
@@ -45,19 +46,19 @@ public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsig
         holder.setOnItemClickListener(item, onItemClickListener);
     }
 
-        public void setList(List<QueryRutas> rutasList) {
+    public void setList(List<QueryRutas> rutasList) {
         datos.clear();
         datos.addAll(rutasList);
         notifyDataSetChanged();
     }
 
 
-    public void add(QueryRutas route){
+    public void add(QueryRutas route) {
         datos.add(0, route);
         notifyDataSetChanged();
     }
 
-    public void clear(){
+    public void clear() {
         datos.clear();
         notifyDataSetChanged();
     }
@@ -74,15 +75,21 @@ public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsig
         TextView route;
         @BindView(R.id.lector)
         TextView lector;
+        @BindView(R.id.map_route)
+        ImageButton mapRoute;
+
+        View itemView;
+
 
         public RutasViewHolder(View itemView) {
             super(itemView);
+            this.itemView= itemView;
             ButterKnife.bind(this, itemView);
         }
 
-        public void bindRuta(QueryRutas item){
+        public void bindRuta(QueryRutas item) {
 
-            switch (sessionManager.getUser().getRol_operador()){
+            switch (sessionManager.getUser().getRol_operador()) {
                 case 1: //LECTOR
                     lector.setVisibility(View.GONE);
                     break;
@@ -93,14 +100,20 @@ public class AdapterRutasAsignadas extends RecyclerView.Adapter<AdapterRutasAsig
                     lector.setVisibility(View.VISIBLE);
                     break;
             }
+
+            route.setText(item.getNom_ruta());
+            //area
         }
 
-        public void setOnItemClickListener(final QueryRutas element, final OnItemClickListener onItemClickListener){
+        public void setOnItemClickListener(final QueryRutas element, final OnItemClickListener onItemClickListener) {
+
             itemView.setOnClickListener(v -> {
-                LinearLayout myBackground=(LinearLayout)v.findViewById(R.id.content);
+                LinearLayout myBackground = (LinearLayout) v.findViewById(R.id.content);
                 myBackground.setSelected(true);
                 onItemClickListener.onClickRuta(element);
             });
+
+            mapRoute.setOnClickListener(v -> onItemClickListener.onClickRutaMap(element));
         }
     }
 }

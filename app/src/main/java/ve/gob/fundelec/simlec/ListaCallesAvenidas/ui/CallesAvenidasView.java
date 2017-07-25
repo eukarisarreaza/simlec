@@ -5,4 +5,11 @@ package ve.gob.fundelec.simlec.ListaCallesAvenidas.ui;
  */
 
 public interface CallesAvenidasView {
+
+    void onBackPress();
+    void onButtonMenu();
+    void onSearch();
+
+    void showInfoRuta(String nom_ruta, String area);
+    void onSelectCalle();
 }

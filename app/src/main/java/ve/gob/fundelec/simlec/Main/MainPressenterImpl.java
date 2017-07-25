@@ -82,7 +82,7 @@ public class MainPressenterImpl implements MainPressenter {
                 break;
             case RecorridoEvent.onClickRuta:
                 Log.e(TAG, "onClickRuta");
-
+                view.listaCallesAvenidas();
                 break;
         }
     }

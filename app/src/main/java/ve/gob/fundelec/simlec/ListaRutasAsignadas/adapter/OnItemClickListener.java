@@ -9,4 +9,6 @@ import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 
 public interface OnItemClickListener {
     void onClickRuta(QueryRutas ruta);
+    void onClickRutaMap(QueryRutas ruta);
+
 }

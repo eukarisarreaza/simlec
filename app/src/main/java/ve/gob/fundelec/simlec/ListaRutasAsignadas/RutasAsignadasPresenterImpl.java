@@ -4,6 +4,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.DataBase.entities.Lector;
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.event.RutasAsignadasEvent;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.ui.RutasAsignadasView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -27,6 +28,7 @@ public class RutasAsignadasPresenterImpl implements RutasAsignadasPresenter{
     @Override
     public void onCreate() {
         eventBus.register(this);
+        interactor.registerHistory();
     }
 
     @Override
@@ -82,5 +84,10 @@ public class RutasAsignadasPresenterImpl implements RutasAsignadasPresenter{
     @Override
     public void getUltimoInicio() {
         interactor.getUltimoInicio();
+    }
+
+    @Override
+    public void onClickRuta(QueryRutas ruta) {
+        interactor.onClickRuta(ruta);
     }
 }

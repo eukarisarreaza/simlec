@@ -5,4 +5,5 @@ package ve.gob.fundelec.simlec.ListaCallesAvenidas;
  */
 
 public interface CallesAvenidasInteractor {
+    void getListCalles();
 }

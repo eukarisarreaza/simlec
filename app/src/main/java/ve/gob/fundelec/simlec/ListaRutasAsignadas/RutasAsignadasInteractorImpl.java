@@ -1,5 +1,7 @@
 package ve.gob.fundelec.simlec.ListaRutasAsignadas;
 
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
+
 /**
  * Created by fundelec on 19/07/17.
  */
@@ -30,5 +32,15 @@ public class RutasAsignadasInteractorImpl implements RutasAsignadasInteractor {
     @Override
     public void getVersionApp() {
         this.repository.getVersionApp();
+    }
+
+    @Override
+    public void onClickRuta(QueryRutas ruta) {
+        this.repository.onClickRuta(ruta);
+    }
+
+    @Override
+    public void registerHistory() {
+        repository.registerHistory();
     }
 }

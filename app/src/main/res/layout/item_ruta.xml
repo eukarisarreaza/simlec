@@ -76,6 +76,7 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/map_route"
             android:layout_gravity="center_vertical"
             android:padding="@dimen/margi_extra_corto"
             android:tint="@android:color/holo_red_dark"

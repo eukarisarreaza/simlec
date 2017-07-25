@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.ListaRutasAsignadas;
 
+import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.event.RutasAsignadasEvent;
 
 /**
@@ -17,4 +18,5 @@ public interface RutasAsignadasPresenter {
     void getVersionApp();
     void getUltimoInicio();
 
+    void onClickRuta(QueryRutas ruta);
 }

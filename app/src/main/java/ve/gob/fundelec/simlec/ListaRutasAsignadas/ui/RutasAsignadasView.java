@@ -17,6 +17,4 @@ public interface RutasAsignadasView {
 
     void search();
     void menu();
-    void presinto();
-    void sobrante();
 }

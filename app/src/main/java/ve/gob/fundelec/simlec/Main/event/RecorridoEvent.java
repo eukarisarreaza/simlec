@@ -1,6 +1,5 @@
 package ve.gob.fundelec.simlec.Main.event;
 
-import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 
 /**
  * Created by fundelec on 25/07/17.
@@ -11,7 +10,6 @@ public class RecorridoEvent {
     public final static int onClickCalleAv = 4;
 
     private int eventType;
-    private QueryRutas ruta;
 
 
     public int getEventType() {
@@ -22,11 +20,4 @@ public class RecorridoEvent {
         this.eventType = eventType;
     }
 
-    public QueryRutas getRuta() {
-        return ruta;
-    }
-
-    public void setRuta(QueryRutas ruta) {
-        this.ruta = ruta;
-    }
 }

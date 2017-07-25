@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
 import ve.gob.fundelec.simlec.Campaña.ui.CampanaFragment;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.ui.CallesAvenidasFragment;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.ui.RutasAsignadasFragment;
 import ve.gob.fundelec.simlec.Login.ui.LoginActivity;
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     public void listaCallesAvenidas() {
         isChecked=true;
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .replace(R.id.framelayout, CallesAvenidasFragment.newInstance())
                 .commit();
     }
 
@@ -180,7 +181,9 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void onButtonMenu() {
-
+        if(!drawer.isDrawerOpen(Gravity.RIGHT)){
+            drawer.openDrawer(Gravity.RIGHT);
+        }
     }
 
     @Override
@@ -200,6 +203,9 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if(position==0)
+            return;
+
         drawer.closeDrawer(Gravity.RIGHT);
 
         ItemMenu menu= adaterMenuItem.getItem(position-1);

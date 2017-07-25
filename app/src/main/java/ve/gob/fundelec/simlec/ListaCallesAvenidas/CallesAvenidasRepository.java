@@ -6,5 +6,7 @@ package ve.gob.fundelec.simlec.ListaCallesAvenidas;
 
 public interface CallesAvenidasRepository {
 
+    void getInfoRuta();
+    void getListCalles();
 
 }

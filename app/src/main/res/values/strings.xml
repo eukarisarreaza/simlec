@@ -37,6 +37,9 @@
     <string name="lista_de_centros">Listado de Centros de Medición</string>
     <string name="hint_usuario">ID USUARIO</string>
     <string name="hint_password">CLAVE</string>
+    <string name="lector">LECTOR</string>
+    <string name="supervisor">SUPERVISOR</string>
+    <string name="administrador">ADMINISTRADOR</string>
     <string name="iniciar">INICIAR</string>
     <string name="kwh">kWh</string>
     <string name="loading">Cargando...</string>
