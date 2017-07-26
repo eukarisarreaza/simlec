@@ -2,6 +2,7 @@ package ve.gob.fundelec.simlec.ObjetosConexion;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.ObjetosConexion.event.ObjetosConexionEvent;
 import ve.gob.fundelec.simlec.ObjetosConexion.ui.ObjetosConexionView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -35,7 +36,24 @@ public class ObjetosConexionPressenterImpl implements ObjetosConexionPressenter 
     @Override
     public void onEventMainThread(ObjetosConexionEvent event) {
         switch (event.getEventType()){
-
+            case ObjetosConexionEvent.showInfoCalle:
+                break;
+            case ObjetosConexionEvent.showInfoRuta:
+                break;
+            case ObjetosConexionEvent.showListasObjetos:
+                break;
         }
     }
+
+    @Override
+    public void getInfoRuta() {
+        interactor.getInfoRuta();
+    }
+
+    @Override
+    public void onSelectObjeto(QueryObjetoConexion objeto) {
+        interactor.onSelectObjeto(objeto);
+    }
+
+
 }

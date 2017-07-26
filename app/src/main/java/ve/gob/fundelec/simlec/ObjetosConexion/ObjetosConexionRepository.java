@@ -1,5 +1,7 @@
 package ve.gob.fundelec.simlec.ObjetosConexion;
 
+import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
+
 /**
  * Created by fundelec on 26/07/17.
  */
@@ -7,7 +9,9 @@ package ve.gob.fundelec.simlec.ObjetosConexion;
 public interface ObjetosConexionRepository {
 
     void getRuta();
-    void getCalleAvenidas();
+    void getInfoCalle();
+
     void getListObjetosConexion();
-    void voidSelectObjetoConexion();
+    void onSelectObjeto(QueryObjetoConexion objeto);
+
 }

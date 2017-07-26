@@ -1,9 +1,8 @@
 package ve.gob.fundelec.simlec.ObjetosConexion;
 
-import java.util.List;
-
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ObjetosConexion.event.ObjetosConexionEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -21,27 +20,32 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
 
     @Override
     public void getRuta() {
-
+        ObjetosConexionEvent event= new ObjetosConexionEvent();
+        event.setRuta(sessionManager.getRuta());
+        eventBus.post(event);
     }
 
     @Override
-    public void getCalleAvenidas() {
-
+    public void getInfoCalle() {
+        ObjetosConexionEvent event= new ObjetosConexionEvent();
+        event.setCalles(sessionManager.getCalle());
+        eventBus.post(event);
     }
 
     @Override
     public void getListObjetosConexion() {
 
+
+        /**
+        ObjetosConexionEvent event= new ObjetosConexionEvent();
+        event.setLista();
+        eventBus.post(event);
+         */
     }
 
     @Override
-    public void voidSelectObjetoConexion() {
+    public void onSelectObjeto(QueryObjetoConexion objeto) {
 
     }
 
-    private void postEvent(int type, List<QueryObjetoConexion> list){
-
-
-
-    }
 }
