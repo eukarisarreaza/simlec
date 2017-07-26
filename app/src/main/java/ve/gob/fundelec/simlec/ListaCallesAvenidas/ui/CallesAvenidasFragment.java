@@ -47,6 +47,7 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
     RecyclerView recyclerView;
     @BindView(R.id.iniciarRuta)
     TextView iniciarRuta;
+
     Unbinder unbinder;
 
     @Inject
@@ -131,7 +132,7 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
 
     @Override
     public void showInfoRuta(String nom_ruta, String area) {
-
+        route.setText(nom_ruta);
     }
 
     @Override
@@ -141,7 +142,21 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
 
     @Override
     public void onSelectCalle() {
+        if(iniciarRuta.getVisibility()==View.VISIBLE){
+            iniciarRuta.setVisibility(View.GONE);
+        }else {
+            iniciarRuta.setVisibility(View.VISIBLE);
+        }
+    }
 
+    @Override
+    public void onClickUnidadLectura(QueryCalles unidadLectura) {
+        onSelectCalle();
+    }
+
+    @OnClick(R.id.iniciarRuta)
+    public void iniciarRuta(){
+        pressenter.onClickCalle(adapter.getItem(adapter.getPosSeleccionado()));
     }
 
     @Override
@@ -150,8 +165,5 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
         unbinder.unbind();
     }
 
-    @Override
-    public void onClickUnidadLectura(QueryCalles unidadLectura) {
 
-    }
 }

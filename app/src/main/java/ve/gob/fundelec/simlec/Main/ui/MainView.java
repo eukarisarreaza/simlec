@@ -31,5 +31,4 @@ public interface MainView {
     void onClickSobrante();
     void onSearch();
 
-
 }

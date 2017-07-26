@@ -78,7 +78,7 @@ public class MainPressenterImpl implements MainPressenter {
         switch (event.getEventType()){
             case RecorridoEvent.onClickCalleAv:
                 Log.e(TAG, "onClickCalleAv");
-
+                view.listaObjetosConexion();
                 break;
             case RecorridoEvent.onClickRuta:
                 Log.e(TAG, "onClickRuta");

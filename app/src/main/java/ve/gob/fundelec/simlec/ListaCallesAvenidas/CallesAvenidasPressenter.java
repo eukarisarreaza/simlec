@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.ListaCallesAvenidas;
 
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.event.CallesAvenidasEvent;
 
 /**
@@ -12,6 +13,5 @@ public interface CallesAvenidasPressenter {
     void onEventMainThread(CallesAvenidasEvent event);
 
     void getListCalles();
-
-
+    void onClickCalle(QueryCalles item);
 }

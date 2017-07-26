@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 import ve.gob.fundelec.simlec.DataBase.entities.Lector;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 
 /**
@@ -90,6 +91,25 @@ public class LectorSessionManager {
             Gson gson = new Gson();
             QueryRutas ruta = gson.fromJson(json_ruta, QueryRutas.class);
             return ruta;
+        }
+    }
+
+    public void setCalle(QueryCalles calle){
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(calle);
+        SharedPreferences.Editor editor= settings.edit();
+        editor.putString(KEY_CALLE, jsonString);
+        editor.apply();
+    }
+
+    public QueryCalles getCalle(){
+        String json= settings.getString(KEY_CALLE, null);
+        if(json==null)
+            return null;
+        else {
+            Gson gson = new Gson();
+            QueryCalles calle = gson.fromJson(json, QueryCalles.class);
+            return calle;
         }
     }
 

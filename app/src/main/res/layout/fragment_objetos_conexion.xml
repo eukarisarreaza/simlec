@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        layout="@layout/toolbar_layout_subtitulo"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margi_extra_corto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/margi_extra_corto"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="RUTA"
+                        android:layout_marginRight="@dimen/margi_extra_corto"
+                        android:textColor="@color/opcion1_1"
+                        android:textStyle="bold"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/subtitulo_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/route"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="SRA82001"
+                        android:textSize="@dimen/subtitulo_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="AREA"
+                        android:layout_marginRight="@dimen/margi_extra_corto"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/opcion1_1"
+                        android:textSize="@dimen/subtitulo_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/area"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="C.C.C. T 0001"
+                        android:textSize="@dimen/subtitulo_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/map"
+                android:tint="@color/colorPrimary"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@android:drawable/ic_dialog_map"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="U. de Lectura"
+                android:layout_marginRight="@dimen/margi_extra_corto"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="@dimen/subtitulo_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/unidadLectura"
+                android:padding="5dp"
+                android:text="CARACAS-BARUTA"
+                android:textSize="@dimen/subtitulo_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/progreso_de_recorrido"
+                android:layout_marginRight="@dimen/margi_extra_corto"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="@dimen/subtitulo_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:gravity="end"
+                android:layout_weight="1"
+                android:id="@+id/progreso"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="10/84"
+                android:textSize="@dimen/subtitulo_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/lista_de_centros"
+            android:textColor="@color/colorPrimary"
+            android:paddingTop="@dimen/margi_extra_corto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_marginRight="@dimen/margi_extra_corto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

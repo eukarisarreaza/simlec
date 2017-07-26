@@ -2,6 +2,7 @@ package ve.gob.fundelec.simlec.ListaCallesAvenidas;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.event.CallesAvenidasEvent;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.ui.CallesAvenidasView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -37,9 +38,10 @@ public class CallesAvenidasPressenterImpl implements CallesAvenidasPressenter{
     public void onEventMainThread(CallesAvenidasEvent event) {
         switch (event.getEventType()){
             case CallesAvenidasEvent.showListCalles:
-
+                view.showListCalles(event.getListCallesAv());
                 break;
             case CallesAvenidasEvent.showInfoRuta:
+                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
                 break;
         }
     }
@@ -47,5 +49,10 @@ public class CallesAvenidasPressenterImpl implements CallesAvenidasPressenter{
     @Override
     public void getListCalles() {
         this.interactor.getListCalles();
+    }
+
+    @Override
+    public void onClickCalle(QueryCalles item) {
+        interactor.onClickCalle(item);
     }
 }

@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     private AdaterMenuItem adaterMenuItem;
     private boolean isChecked;
 
-
     @BindView(R.id.list_item)
     ListView listItem;
     @BindView(R.id.drawer_layout)

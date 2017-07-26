@@ -16,6 +16,7 @@ import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.event.CallesAvenidasEvent;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
+import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -79,6 +80,14 @@ public class CallesAvenidasRepositoryImpl implements CallesAvenidasRepository{
 
         postEvent(CallesAvenidasEvent.showListCalles, list);
 
+    }
+
+    @Override
+    public void onClickCalle(QueryCalles item) {
+        sessionManager.setCalle(item);
+        RecorridoEvent event= new RecorridoEvent();
+        event.setEventType(RecorridoEvent.onClickCalleAv);
+        eventBus.post(event);
     }
 
 

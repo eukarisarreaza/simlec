@@ -1,5 +1,7 @@
 package ve.gob.fundelec.simlec.ListaCallesAvenidas;
 
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
+
 /**
  * Created by fundelec on 25/07/17.
  */
@@ -14,5 +16,10 @@ public class CallesAvenidasInteractorImpl implements CallesAvenidasInteractor{
     @Override
     public void getListCalles() {
         this.repository.getListCalles();
+    }
+
+    @Override
+    public void onClickCalle(QueryCalles item) {
+        repository.onClickCalle(item);
     }
 }
