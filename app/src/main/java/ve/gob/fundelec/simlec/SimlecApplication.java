@@ -26,6 +26,10 @@ import ve.gob.fundelec.simlec.Main.di.DaggerMainComponent;
 import ve.gob.fundelec.simlec.Main.di.MainComponent;
 import ve.gob.fundelec.simlec.Main.di.MainModule;
 import ve.gob.fundelec.simlec.Main.ui.MainView;
+import ve.gob.fundelec.simlec.ObjetosConexion.di.DaggerObjetosConexionComponent;
+import ve.gob.fundelec.simlec.ObjetosConexion.di.ObjetosConexionComponent;
+import ve.gob.fundelec.simlec.ObjetosConexion.di.ObjetosConexionModule;
+import ve.gob.fundelec.simlec.ObjetosConexion.ui.ObjetosConexionView;
 import ve.gob.fundelec.simlec.Services.di.ServiceModule;
 import ve.gob.fundelec.simlec.lib.di.LibsModule;
 
@@ -79,6 +83,16 @@ public class SimlecApplication extends Application {
                 .builder()
                 .libsModule(new LibsModule())
                 .callesAvenidasModule(new CallesAvenidasModule(view, listener))
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
+
+    public ObjetosConexionComponent getObjetosConexionComponent(ObjetosConexionView view){
+        return DaggerObjetosConexionComponent
+                .builder()
+                .objetosConexionModule(new ObjetosConexionModule(view))
+                .libsModule(new LibsModule())
                 .sesionModule(new SesionModule())
                 .contextModule(new ContextModule(getApplicationContext()))
                 .build();

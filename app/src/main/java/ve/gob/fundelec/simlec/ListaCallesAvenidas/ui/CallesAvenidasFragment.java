@@ -141,17 +141,20 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
     }
 
     @Override
-    public void onSelectCalle() {
+    public void onSelectCalle(QueryCalles calles) {
         if(iniciarRuta.getVisibility()==View.VISIBLE){
             iniciarRuta.setVisibility(View.GONE);
         }else {
             iniciarRuta.setVisibility(View.VISIBLE);
+            if(calles.getCant_lect_gestionadasŗ()>0){
+                iniciarRuta.setText(getString(R.string.continuar_recorrido));
+            }
         }
     }
 
     @Override
     public void onClickUnidadLectura(QueryCalles unidadLectura) {
-        onSelectCalle();
+        onSelectCalle(unidadLectura);
     }
 
     @OnClick(R.id.iniciarRuta)

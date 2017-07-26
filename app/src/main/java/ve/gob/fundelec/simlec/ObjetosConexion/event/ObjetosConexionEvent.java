@@ -5,7 +5,7 @@ package ve.gob.fundelec.simlec.ObjetosConexion.event;
  */
 
 public class ObjetosConexionEvent {
-
+    
     private int eventType;
 
     public int getEventType() {

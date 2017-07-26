@@ -6,5 +6,8 @@ package ve.gob.fundelec.simlec.ObjetosConexion;
 
 public interface ObjetosConexionRepository {
 
-
+    void getRuta();
+    void getCalleAvenidas();
+    void getListObjetosConexion();
+    void voidSelectObjetoConexion();
 }
