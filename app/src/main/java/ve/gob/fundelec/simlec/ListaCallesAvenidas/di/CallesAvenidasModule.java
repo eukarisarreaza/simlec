@@ -1,5 +1,8 @@
 package ve.gob.fundelec.simlec.ListaCallesAvenidas.di;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -11,6 +14,9 @@ import ve.gob.fundelec.simlec.ListaCallesAvenidas.CallesAvenidasPressenter;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.CallesAvenidasPressenterImpl;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.CallesAvenidasRepository;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.CallesAvenidasRepositoryImpl;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter.AdapterCallesAvenidas;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter.OnClickCallesAvenidas;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.ui.CallesAvenidasView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -21,10 +27,11 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
 @Module
 public class CallesAvenidasModule {
     private CallesAvenidasView view;
+    private OnClickCallesAvenidas listener;
 
-
-    public CallesAvenidasModule(CallesAvenidasView view) {
+    public CallesAvenidasModule(CallesAvenidasView view, OnClickCallesAvenidas listener) {
         this.view = view;
+        this.listener = listener;
     }
 
     @Provides
@@ -45,7 +52,23 @@ public class CallesAvenidasModule {
         return new CallesAvenidasRepositoryImpl(sessionManager, eventBus);
     }
 
+    @Provides
+    @Singleton
+    AdapterCallesAvenidas providesAdapterCallesAvenidas(List<QueryCalles> datos, OnClickCallesAvenidas onItemClickListener){
+        return new AdapterCallesAvenidas(datos, onItemClickListener);
+    }
 
+    @Provides
+    @Singleton
+    OnClickCallesAvenidas providesOnClickCallesAvenidas(){
+        return this.listener;
+    }
+
+    @Provides
+    @Singleton
+    List<QueryCalles> providesQueryCallesList(){
+        return new ArrayList<QueryCalles>();
+    }
     @Provides
     @Singleton
     CallesAvenidasView providesCallesAvenidasView(){

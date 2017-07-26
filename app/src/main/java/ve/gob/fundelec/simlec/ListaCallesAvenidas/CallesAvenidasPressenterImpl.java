@@ -36,10 +36,11 @@ public class CallesAvenidasPressenterImpl implements CallesAvenidasPressenter{
     @Override
     public void onEventMainThread(CallesAvenidasEvent event) {
         switch (event.getEventType()){
+            case CallesAvenidasEvent.showListCalles:
 
-
-
-
+                break;
+            case CallesAvenidasEvent.showInfoRuta:
+                break;
         }
     }
 

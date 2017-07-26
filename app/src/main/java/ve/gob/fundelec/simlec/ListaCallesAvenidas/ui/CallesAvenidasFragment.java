@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -19,14 +21,17 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.CallesAvenidasPressenter;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter.AdapterCallesAvenidas;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter.OnClickCallesAvenidas;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.di.CallesAvenidasComponent;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.Main.event.MainEvent;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 
-public class CallesAvenidasFragment extends Fragment implements CallesAvenidasView {
+public class CallesAvenidasFragment extends Fragment implements CallesAvenidasView, OnClickCallesAvenidas {
 
     @BindView(R.id.subtitulo)
     TextView subtitulo;
@@ -46,6 +51,8 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
 
     @Inject
     CallesAvenidasPressenter pressenter;
+    @Inject
+    AdapterCallesAvenidas adapter;
     @Inject
     EventBus eventBus;
 
@@ -88,14 +95,14 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
 
     private void setupInject() {
         SimlecApplication application= (SimlecApplication)getActivity().getApplication();
-        CallesAvenidasComponent component= application.getCallesAvenidasComponent(this);
+        CallesAvenidasComponent component= application.getCallesAvenidasComponent(this, this);
         component.inject(this);
     }
 
     private void setupRecycler() {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
     }
 
     @OnClick(R.id.back)
@@ -128,6 +135,11 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
     }
 
     @Override
+    public void showListCalles(List<QueryCalles> callesList) {
+        adapter.setList(callesList);
+    }
+
+    @Override
     public void onSelectCalle() {
 
     }
@@ -136,5 +148,10 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onClickUnidadLectura(QueryCalles unidadLectura) {
+
     }
 }
