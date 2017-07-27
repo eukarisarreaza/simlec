@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import ve.gob.fundelec.simlec.DataBase.entities.Lector;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
+import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
 
 /**
  * Created by fundelec on 11/07/17.
@@ -112,5 +113,25 @@ public class LectorSessionManager {
             return calle;
         }
     }
+
+    public void setObjetoConexion(QueryObjetoConexion objetoConexion){
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(objetoConexion);
+        SharedPreferences.Editor editor= settings.edit();
+        editor.putString(KEY_CENTROS_MEDICION, jsonString);
+        editor.apply();
+    }
+
+    public QueryObjetoConexion getObjetConexion(){
+        String json= settings.getString(KEY_CENTROS_MEDICION, null);
+        if(json==null)
+            return null;
+        else {
+            Gson gson = new Gson();
+            QueryObjetoConexion centro= gson.fromJson(json, QueryObjetoConexion.class);
+            return centro;
+        }
+    }
+
 
 }

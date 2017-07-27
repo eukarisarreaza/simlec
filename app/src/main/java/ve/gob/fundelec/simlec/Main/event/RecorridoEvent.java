@@ -8,6 +8,7 @@ package ve.gob.fundelec.simlec.Main.event;
 public class RecorridoEvent {
     public final static int onClickRuta = 3;
     public final static int onClickCalleAv = 4;
+    public final static int onClickObjetoConexion = 5;
 
     private int eventType;
 

@@ -19,6 +19,7 @@ import ve.gob.fundelec.simlec.DataBase.entities.Parroquias_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Ruta;
 import ve.gob.fundelec.simlec.DataBase.entities.Ruta_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
+import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
 import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.ObjetosConexion.event.ObjetosConexionEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -90,7 +91,11 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
 
     @Override
     public void onSelectObjeto(QueryObjetoConexion objeto) {
+        sessionManager.setObjetoConexion(objeto);
 
+        RecorridoEvent event= new RecorridoEvent();
+        event.setEventType(RecorridoEvent.onClickObjetoConexion);
+        eventBus.post(event);
     }
 
 }
