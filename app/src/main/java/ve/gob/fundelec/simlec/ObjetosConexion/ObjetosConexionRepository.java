@@ -7,10 +7,9 @@ import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
  */
 
 public interface ObjetosConexionRepository {
-
+    void registerHistory();
     void getRuta();
     void getInfoCalle();
-
     void getListObjetosConexion();
     void onSelectObjeto(QueryObjetoConexion objeto);
 

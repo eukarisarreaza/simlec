@@ -7,6 +7,7 @@ import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
  */
 
 public interface CallesAvenidasRepository {
+    void registerHistory();
     void getInfoRuta();
     void getListCalles();
     void onClickCalle(QueryCalles item);

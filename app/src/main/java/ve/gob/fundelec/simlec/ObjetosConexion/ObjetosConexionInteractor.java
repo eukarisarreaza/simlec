@@ -8,5 +8,6 @@ import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
 
 public interface ObjetosConexionInteractor {
     void getInfoRuta();
+    void getListObjetosConexion();
     void onSelectObjeto(QueryObjetoConexion objeto);
 }

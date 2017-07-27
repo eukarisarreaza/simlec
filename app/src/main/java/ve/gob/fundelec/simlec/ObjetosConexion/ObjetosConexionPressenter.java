@@ -13,6 +13,7 @@ public interface ObjetosConexionPressenter {
     void onEventMainThread(ObjetosConexionEvent event);
 
     void getInfoRuta();
+    void getListObjetosConexion();
     void onSelectObjeto(QueryObjetoConexion objeto);
 
 }

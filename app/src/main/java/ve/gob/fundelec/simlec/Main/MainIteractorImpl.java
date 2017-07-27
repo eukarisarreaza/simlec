@@ -24,6 +24,11 @@ public class MainIteractorImpl implements MainIteractor {
     }
 
     @Override
+    public void onBackPress() {
+        repository.onBackPress();
+    }
+
+    @Override
     public void salir() {
         userRepository.logout();
     }

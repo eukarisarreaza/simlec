@@ -44,9 +44,7 @@ public class MainRepositoryImpl implements MainRepository {
             Log.e(TAG, "parroquia "+item.getParroquia());
         }
         */
-
         postEventInicio(MainEvent.showFragmentInicio, sessionManager.getKeyRuta());
-
     }
 
     @Override
@@ -84,6 +82,13 @@ public class MainRepositoryImpl implements MainRepository {
         event.setEventType(MainEvent.showListMenu);
         event.setList(menu);
         eventBus.postSticky(event);
+    }
+
+    @Override
+    public void onBackPress() {
+
+
+
     }
 
 

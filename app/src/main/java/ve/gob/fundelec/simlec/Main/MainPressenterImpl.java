@@ -113,6 +113,11 @@ public class MainPressenterImpl implements MainPressenter {
     }
 
     @Override
+    public void onBackPress() {
+        iteractor.onBackPress();
+    }
+
+    @Override
     public void salir() {
         iteractor.salir();
     }

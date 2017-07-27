@@ -20,13 +20,13 @@ import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
 import ve.gob.fundelec.simlec.Campaña.ui.CampanaFragment;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.ui.CallesAvenidasFragment;
-import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.ui.RutasAsignadasFragment;
 import ve.gob.fundelec.simlec.Login.ui.LoginActivity;
 import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.adapter.AdaterMenuItem;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
 import ve.gob.fundelec.simlec.Main.di.MainComponent;
+import ve.gob.fundelec.simlec.ObjetosConexion.ui.ObjetosConexionFragment;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     public void listaObjetosConexion() {
         isChecked=true;
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .replace(R.id.framelayout, ObjetosConexionFragment.newInstance())
                 .commit();
     }
 
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
             return;
         }
         if (isChecked){
-
+            pressenter.onBackPress();
         }else
             super.onBackPressed();
     }

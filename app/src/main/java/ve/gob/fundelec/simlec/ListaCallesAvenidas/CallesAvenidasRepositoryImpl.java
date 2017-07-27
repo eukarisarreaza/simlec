@@ -8,6 +8,7 @@ import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
 
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida;
 import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle;
@@ -33,6 +34,11 @@ public class CallesAvenidasRepositoryImpl implements CallesAvenidasRepository{
     public CallesAvenidasRepositoryImpl(LectorSessionManager sessionManager, EventBus eventBus) {
         this.sessionManager = sessionManager;
         this.eventBus = eventBus;
+    }
+
+    @Override
+    public void registerHistory() {
+        sessionManager.setRecorrido(Configuracion.PantallasRecorridoRutas.LISTA_CALLES_AVENIDAS);
     }
 
     @Override

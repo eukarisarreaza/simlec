@@ -15,6 +15,7 @@ public class CallesAvenidasInteractorImpl implements CallesAvenidasInteractor{
 
     @Override
     public void getListCalles() {
+        this.repository.registerHistory();
         this.repository.getListCalles();
     }
 

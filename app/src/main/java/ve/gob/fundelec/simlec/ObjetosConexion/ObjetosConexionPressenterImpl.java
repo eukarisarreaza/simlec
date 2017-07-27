@@ -41,6 +41,7 @@ public class ObjetosConexionPressenterImpl implements ObjetosConexionPressenter 
             case ObjetosConexionEvent.showInfoRuta:
                 break;
             case ObjetosConexionEvent.showListasObjetos:
+                view.showListObjetosConexion(event.getLista());
                 break;
         }
     }
@@ -51,9 +52,13 @@ public class ObjetosConexionPressenterImpl implements ObjetosConexionPressenter 
     }
 
     @Override
+    public void getListObjetosConexion() {
+        interactor.getListObjetosConexion();
+    }
+
+    @Override
     public void onSelectObjeto(QueryObjetoConexion objeto) {
         interactor.onSelectObjeto(objeto);
     }
-
 
 }

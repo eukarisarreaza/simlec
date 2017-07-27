@@ -6,6 +6,6 @@ package ve.gob.fundelec.simlec.Main;
 
 public interface MainRepository {
     void getInicio();
-
     void getListMenu();
+    void onBackPress();
 }

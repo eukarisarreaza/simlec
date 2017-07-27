@@ -74,7 +74,8 @@ public class ObjetosConexionFragment extends Fragment implements ObjetosConexion
         setupRecycler();
 
         pressenter.onCreate();
-
+        pressenter.getInfoRuta();
+        pressenter.getListObjetosConexion();
 
         return view;
     }

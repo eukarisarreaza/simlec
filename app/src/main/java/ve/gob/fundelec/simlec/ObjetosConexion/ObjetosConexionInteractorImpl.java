@@ -15,8 +15,14 @@ public class ObjetosConexionInteractorImpl implements ObjetosConexionInteractor{
 
     @Override
     public void getInfoRuta() {
+        repository.registerHistory();
         repository.getRuta();
         repository.getInfoCalle();
+    }
+
+    @Override
+    public void getListObjetosConexion() {
+        repository.getListObjetosConexion();
     }
 
     @Override

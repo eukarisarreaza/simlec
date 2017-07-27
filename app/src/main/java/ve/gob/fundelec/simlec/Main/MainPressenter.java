@@ -15,6 +15,8 @@ public interface MainPressenter {
 
     void getListItenMenu();
     void getInicio();
+    void onBackPress();
 
     void salir();
+
 }
