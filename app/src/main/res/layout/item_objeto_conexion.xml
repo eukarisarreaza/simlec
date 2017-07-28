@@ -46,7 +46,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/identificador"
+                android:id="@+id/codigo"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="AD354272"
@@ -57,7 +57,7 @@
 
             <TextView
                 android:layout_marginLeft="5dp"
-                android:id="@+id/objConexion"
+                android:id="@+id/nombre_objeto"
                 android:text="CCAL CIUDAD TAMANACO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

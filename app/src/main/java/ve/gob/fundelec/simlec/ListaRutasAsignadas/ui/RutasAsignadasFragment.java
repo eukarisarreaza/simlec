@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.DataBase.entities.Ruta;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.RutasAsignadasPresenter;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.adapter.AdapterRutasAsignadas;
@@ -140,17 +141,13 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
     @OnClick(R.id.search)
     @Override
     public void search() {
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onSearch);
-        eventBus.post(event);
+        Configuracion.searh(eventBus);
     }
 
     @OnClick(R.id.menu)
     @Override
     public void menu() {
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onButtonMenu);
-        eventBus.post(event);
+        Configuracion.menu(eventBus);
     }
 
     @Override

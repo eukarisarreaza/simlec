@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,7 +18,9 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.ObjetosConexion.ObjetosConexionPressenter;
 import ve.gob.fundelec.simlec.ObjetosConexion.adapter.AdapterObjetosConexion;
 import ve.gob.fundelec.simlec.ObjetosConexion.adapter.OnClickObjetosConexion;
@@ -25,8 +28,10 @@ import ve.gob.fundelec.simlec.ObjetosConexion.di.ObjetosConexionComponent;
 import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
+import ve.gob.fundelec.simlec.lib.base.EventBus;
 
-public class ObjetosConexionFragment extends Fragment implements ObjetosConexionView, OnClickObjetosConexion {
+public class ObjetosConexionFragment extends Fragment
+        implements ObjetosConexionView, OnClickObjetosConexion {
 
     @BindView(R.id.subtitulo)
     TextView subtitulo;
@@ -40,12 +45,17 @@ public class ObjetosConexionFragment extends Fragment implements ObjetosConexion
     TextView progreso;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.search)
+    ImageView search;
     Unbinder unbinder;
 
     @Inject
     ObjetosConexionPressenter pressenter;
+    @Inject
+    EventBus eventBus;
 
     AdapterObjetosConexion adapter;
+
 
     public ObjetosConexionFragment() {
         // Required empty public constructor
@@ -72,6 +82,7 @@ public class ObjetosConexionFragment extends Fragment implements ObjetosConexion
         unbinder = ButterKnife.bind(this, view);
         setupInject();
         setupRecycler();
+        setupToolbar();
 
         pressenter.onCreate();
         pressenter.getInfoRuta();
@@ -80,9 +91,15 @@ public class ObjetosConexionFragment extends Fragment implements ObjetosConexion
         return view;
     }
 
+    private void setupToolbar() {
+        /** MOSTRAR ICONO BUSCAR  */
+        search.setVisibility(View.VISIBLE);
+        subtitulo.setText(R.string.lista_de_centros);
+    }
+
     private void setupRecycler() {
-        List<QueryObjetoConexion> list= new ArrayList<>();
-        adapter= new AdapterObjetosConexion(list, this);
+        List<QueryObjetoConexion> list = new ArrayList<>();
+        adapter = new AdapterObjetosConexion(list, this);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -90,8 +107,8 @@ public class ObjetosConexionFragment extends Fragment implements ObjetosConexion
     }
 
     private void setupInject() {
-        SimlecApplication application= (SimlecApplication)getActivity().getApplication();
-        ObjetosConexionComponent component= application.getObjetosConexionComponent(this);
+        SimlecApplication application = (SimlecApplication) getActivity().getApplication();
+        ObjetosConexionComponent component = application.getObjetosConexionComponent(this);
         component.inject(this);
     }
 
@@ -121,5 +138,23 @@ public class ObjetosConexionFragment extends Fragment implements ObjetosConexion
     public void showInfoCalle(String nom_calle, String avance) {
         unidadLectura.setText(nom_calle);
         progreso.setText(avance);
+    }
+
+    @OnClick(R.id.search)
+    @Override
+    public void search() {
+        Configuracion.searh(eventBus);
+    }
+
+    @OnClick(R.id.menu)
+    @Override
+    public void menu() {
+        Configuracion.menu(eventBus);
+    }
+
+    @OnClick(R.id.back)
+    @Override
+    public void back() {
+        Configuracion.back(eventBus);
     }
 }

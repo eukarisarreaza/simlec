@@ -14,4 +14,9 @@ public interface ObjetosConexionView {
     void showInfoRuta(String ruta, String area);
     void showInfoCalle(String nom_calle, String avance);
 
+
+    void search();
+    void menu();
+    void back();
+
 }

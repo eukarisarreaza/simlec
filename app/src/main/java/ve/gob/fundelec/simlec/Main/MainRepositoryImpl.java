@@ -85,10 +85,16 @@ public class MainRepositoryImpl implements MainRepository {
     }
 
     @Override
-    public void onBackPress() {
-
-
-
+    public void retroceder() {
+        if(sessionManager.getKeyRuta().equals(Configuracion.PantallasRecorridoRutas.LISTA_CALLES_AVENIDAS.name())){
+            sessionManager.setRecorrido(Configuracion.PantallasRecorridoRutas.LISTA_RUTAS_ASIGNADAS);
+        }else
+        if(sessionManager.getKeyRuta().equals(Configuracion.PantallasRecorridoRutas.LISTA_CENTROS_MEDICION.name())){
+            sessionManager.setRecorrido(Configuracion.PantallasRecorridoRutas.LISTA_CALLES_AVENIDAS);
+        }else
+        if(sessionManager.getKeyRuta().equals(Configuracion.PantallasRecorridoRutas.LECTURA_GESTIONAR.name())){
+            sessionManager.setRecorrido(Configuracion.PantallasRecorridoRutas.LISTA_CENTROS_MEDICION);
+        }
     }
 
 

@@ -17,10 +17,10 @@ import ve.gob.fundelec.simlec.R;
  * Created by root on 08/04/17.
  */
 
-public class AdapterObjetosConexion extends RecyclerView.Adapter<AdapterObjetosConexion.ObjetoConexionViewHolder>{
+public class AdapterObjetosConexion extends RecyclerView.Adapter<AdapterObjetosConexion.ObjetoConexionViewHolder> {
     private List<QueryObjetoConexion> datos;
     private OnClickObjetosConexion onItemClickListener;
-    private static final String TAG= AdapterObjetosConexion.class.getName();
+    private static final String TAG = AdapterObjetosConexion.class.getName();
 
 
     public AdapterObjetosConexion(List<QueryObjetoConexion> datos, OnClickObjetosConexion onItemClickListener) {
@@ -43,18 +43,18 @@ public class AdapterObjetosConexion extends RecyclerView.Adapter<AdapterObjetosC
         holder.setOnItemClickListener(item, onItemClickListener);
     }
 
-    public void setList(List<QueryObjetoConexion> list){
+    public void setList(List<QueryObjetoConexion> list) {
         datos.clear();
         datos.addAll(list);
         notifyDataSetChanged();
     }
 
-    public void add(QueryObjetoConexion objetoConexion){
+    public void add(QueryObjetoConexion objetoConexion) {
         datos.add(0, objetoConexion);
         notifyDataSetChanged();
     }
 
-    public void clear(){
+    public void clear() {
         datos.clear();
         notifyDataSetChanged();
     }
@@ -67,20 +67,25 @@ public class AdapterObjetosConexion extends RecyclerView.Adapter<AdapterObjetosC
     public class ObjetoConexionViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.num)
         TextView num;
-        @BindView(R.id.objConexion)
-        TextView objConexion;
-        @BindView(R.id.identificador)
-        TextView identificador;
+        @BindView(R.id.codigo)
+        TextView codigo;
+        @BindView(R.id.nombre_objeto)
+        TextView nombreObjeto;
         @BindView(R.id.status)
         TextView status;
+
 
         public ObjetoConexionViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
-        public void bindObjetoConexion(QueryObjetoConexion item, int pos){
-            num.setText(String.valueOf(pos+1));
+        public void bindObjetoConexion(QueryObjetoConexion item, int pos) {
+            num.setText(String.valueOf(pos + 1));
+            codigo.setText(item.getCod_obj_conex());
+            nombreObjeto.setText(item.getNom_obj_conex());
+
+
 
             /*
             if(pos==4){
@@ -93,7 +98,7 @@ public class AdapterObjetosConexion extends RecyclerView.Adapter<AdapterObjetosC
             }*/
         }
 
-        public void setOnItemClickListener(final QueryObjetoConexion element, final OnClickObjetosConexion onItemClickListener){
+        public void setOnItemClickListener(final QueryObjetoConexion element, final OnClickObjetosConexion onItemClickListener) {
             itemView.setOnClickListener(v -> onItemClickListener.onClickObjetosConexion(element));
         }
     }

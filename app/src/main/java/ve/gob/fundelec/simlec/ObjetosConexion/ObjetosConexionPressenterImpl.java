@@ -37,8 +37,11 @@ public class ObjetosConexionPressenterImpl implements ObjetosConexionPressenter 
     public void onEventMainThread(ObjetosConexionEvent event) {
         switch (event.getEventType()){
             case ObjetosConexionEvent.showInfoCalle:
+                view.showInfoCalle(event.getCalles().getNom_calle(),
+                        event.getCalles().getCant_lect_gestionadasŗ()+"/"+event.getCalles().getCant_lect_progr());
                 break;
             case ObjetosConexionEvent.showInfoRuta:
+                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
                 break;
             case ObjetosConexionEvent.showListasObjetos:
                 view.showListObjetosConexion(event.getLista());

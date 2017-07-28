@@ -20,12 +20,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.CallesAvenidasPressenter;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter.AdapterCallesAvenidas;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter.OnClickCallesAvenidas;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.di.CallesAvenidasComponent;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
-import ve.gob.fundelec.simlec.Main.event.MainEvent;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -109,25 +109,19 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
     @OnClick(R.id.back)
     @Override
     public void onBackPress() {
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onBackPress);
-        eventBus.post(event);
+        Configuracion.back(eventBus);
     }
 
     @OnClick(R.id.menu)
     @Override
     public void onButtonMenu() {
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onButtonMenu);
-        eventBus.post(event);
+        Configuracion.menu(eventBus);
     }
 
     @OnClick(R.id.search)
     @Override
     public void onSearch() {
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onSearch);
-        eventBus.post(event);
+        Configuracion.searh(eventBus);
     }
 
     @Override

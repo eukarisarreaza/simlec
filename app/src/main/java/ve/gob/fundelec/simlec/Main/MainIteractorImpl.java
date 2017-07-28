@@ -25,7 +25,8 @@ public class MainIteractorImpl implements MainIteractor {
 
     @Override
     public void onBackPress() {
-        repository.onBackPress();
+        repository.retroceder();
+        repository.getInicio();
     }
 
     @Override

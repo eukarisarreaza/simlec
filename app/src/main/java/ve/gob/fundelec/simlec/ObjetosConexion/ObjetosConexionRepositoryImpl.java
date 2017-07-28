@@ -47,6 +47,7 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
     public void getRuta() {
         ObjetosConexionEvent event= new ObjetosConexionEvent();
         event.setRuta(sessionManager.getRuta());
+        event.setEventType(ObjetosConexionEvent.showInfoRuta);
         eventBus.post(event);
     }
 
@@ -54,6 +55,7 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
     public void getInfoCalle() {
         ObjetosConexionEvent event= new ObjetosConexionEvent();
         event.setCalles(sessionManager.getCalle());
+        event.setEventType(ObjetosConexionEvent.showInfoCalle);
         eventBus.post(event);
     }
 
