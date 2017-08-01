@@ -26,7 +26,7 @@ import ve.gob.fundelec.simlec.Main.MainPressenter;
 import ve.gob.fundelec.simlec.Main.adapter.AdaterMenuItem;
 import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
 import ve.gob.fundelec.simlec.Main.di.MainComponent;
-import ve.gob.fundelec.simlec.ObjetosConexion.ui.ObjetosConexionFragment;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionFragment;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 

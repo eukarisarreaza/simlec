@@ -26,10 +26,14 @@ import ve.gob.fundelec.simlec.Main.di.DaggerMainComponent;
 import ve.gob.fundelec.simlec.Main.di.MainComponent;
 import ve.gob.fundelec.simlec.Main.di.MainModule;
 import ve.gob.fundelec.simlec.Main.ui.MainView;
-import ve.gob.fundelec.simlec.ObjetosConexion.di.DaggerObjetosConexionComponent;
-import ve.gob.fundelec.simlec.ObjetosConexion.di.ObjetosConexionComponent;
-import ve.gob.fundelec.simlec.ObjetosConexion.di.ObjetosConexionModule;
-import ve.gob.fundelec.simlec.ObjetosConexion.ui.ObjetosConexionView;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.di.DaggerObjetosConexionComponent;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.di.ObjetosConexionComponent;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.di.ObjetosConexionModule;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionView;
+import ve.gob.fundelec.simlec.Recorrido.di.DaggerRecorridoComponent;
+import ve.gob.fundelec.simlec.Recorrido.di.RecorridoComponent;
+import ve.gob.fundelec.simlec.Recorrido.di.RecorridoModule;
+import ve.gob.fundelec.simlec.Recorrido.ui.RecorridoView;
 import ve.gob.fundelec.simlec.Services.di.ServiceModule;
 import ve.gob.fundelec.simlec.lib.di.LibsModule;
 
@@ -97,5 +101,17 @@ public class SimlecApplication extends Application {
                 .contextModule(new ContextModule(getApplicationContext()))
                 .build();
     }
+
+    public RecorridoComponent getRecorridoComponent(RecorridoView view){
+        return DaggerRecorridoComponent
+                .builder()
+                .recorridoModule(new RecorridoModule(view))
+                .libsModule(new LibsModule())
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
+
+
 
 }

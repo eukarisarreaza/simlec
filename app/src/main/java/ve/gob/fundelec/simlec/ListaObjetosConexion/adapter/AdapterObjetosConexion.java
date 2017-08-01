@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.ObjetosConexion.adapter;
+package ve.gob.fundelec.simlec.ListaObjetosConexion.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.R;
 
 /**

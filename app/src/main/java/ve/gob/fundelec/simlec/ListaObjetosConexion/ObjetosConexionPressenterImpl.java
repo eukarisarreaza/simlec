@@ -1,10 +1,10 @@
-package ve.gob.fundelec.simlec.ObjetosConexion;
+package ve.gob.fundelec.simlec.ListaObjetosConexion;
 
 import org.greenrobot.eventbus.Subscribe;
 
-import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
-import ve.gob.fundelec.simlec.ObjetosConexion.event.ObjetosConexionEvent;
-import ve.gob.fundelec.simlec.ObjetosConexion.ui.ObjetosConexionView;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.event.ObjetosConexionEvent;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -37,6 +37,7 @@ public class ObjetosConexionPressenterImpl implements ObjetosConexionPressenter 
     public void onEventMainThread(ObjetosConexionEvent event) {
         switch (event.getEventType()){
             case ObjetosConexionEvent.showInfoCalle:
+                /**  PROGRESO Y UNIDAD DE LECTURA  */
                 view.showInfoCalle(event.getCalles().getNom_calle(),
                         event.getCalles().getCant_lect_gestionadasŗ()+"/"+event.getCalles().getCant_lect_progr());
                 break;

@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.ObjetosConexion.entities;
+package ve.gob.fundelec.simlec.ListaObjetosConexion.entities;
 
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.QueryModel;

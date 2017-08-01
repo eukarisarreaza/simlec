@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.ObjetosConexion;
+package ve.gob.fundelec.simlec.ListaObjetosConexion;
 
 import android.util.Log;
 
@@ -20,8 +20,8 @@ import ve.gob.fundelec.simlec.DataBase.entities.Ruta;
 import ve.gob.fundelec.simlec.DataBase.entities.Ruta_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
-import ve.gob.fundelec.simlec.ObjetosConexion.entities.QueryObjetoConexion;
-import ve.gob.fundelec.simlec.ObjetosConexion.event.ObjetosConexionEvent;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListaObjetosConexion.event.ObjetosConexionEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
