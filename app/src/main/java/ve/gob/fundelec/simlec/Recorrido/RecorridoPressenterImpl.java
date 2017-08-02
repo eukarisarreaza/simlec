@@ -1,5 +1,9 @@
 package ve.gob.fundelec.simlec.Recorrido;
 
+import org.greenrobot.eventbus.Subscribe;
+
+import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
+import ve.gob.fundelec.simlec.Recorrido.event.LecturasEvent;
 import ve.gob.fundelec.simlec.Recorrido.ui.RecorridoView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -22,11 +26,34 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
 
     @Override
     public void onCreate() {
+        eventBus.register(this);
 
     }
 
     @Override
     public void onDestroy() {
+        eventBus.unregister(this);
+    }
 
+    @Subscribe
+    @Override
+    public void onEventMainThread(LecturasEvent event) {
+        switch (event.getEventType()){
+            case LecturasEvent.showNombreObjetoConexion:
+                view.showNombreObjConexion(event.getNom_medidor());
+                break;
+
+        }
+    }
+
+
+    @Override
+    public void getFragmentInicio() {
+        interactor.getFragmentInicio();
+    }
+
+    @Override
+    public void registrarFragment() {
+        interactor.registrarFragment();
     }
 }

@@ -1,6 +1,10 @@
 package ve.gob.fundelec.simlec.Recorrido;
 
+import android.util.Log;
+
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.LectorSessionManager;
+import ve.gob.fundelec.simlec.Recorrido.event.LecturasEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -18,9 +22,17 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     }
 
     @Override
+    public void registerHistory() {
+        sessionManager.setRecorrido(Configuracion.PantallasRecorridoRutas.LECTURA_GESTIONAR);
+    }
+
+    @Override
     public void getMedidorInicio() {
+        Log.e(TAG, "OBEJETO "+sessionManager.getObjetConexion().getNom_obj_conex());
+        postEventNomMedidor(LecturasEvent.showNombreObjetoConexion, sessionManager.getObjetConexion().getNom_obj_conex());
 
     }
+
 
     @Override
     public void getProximoMedidor() {
@@ -40,5 +52,12 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     @Override
     public void actualizarPresinto() {
 
+    }
+
+    private void postEventNomMedidor(int eventType, String message) {
+        LecturasEvent event= new LecturasEvent();
+        event.setEventType(eventType);
+        event.setNom_medidor(message);
+        eventBus.post(event);
     }
 }

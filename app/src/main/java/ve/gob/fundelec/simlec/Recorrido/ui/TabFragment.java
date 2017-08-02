@@ -3,7 +3,6 @@ package ve.gob.fundelec.simlec.Recorrido.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +32,8 @@ public class TabFragment extends Fragment implements RecorridoView {
     ImageView letterP;
     @BindView(R.id.search)
     ImageView search;
-    @BindView(R.id.pager)
-    ViewPager pager;
+
+
     Unbinder unbinder;
 
     @Inject
@@ -67,10 +66,11 @@ public class TabFragment extends Fragment implements RecorridoView {
         View view = inflater.inflate(R.layout.fragment_tab, container, false);
         unbinder = ButterKnife.bind(this, view);
         setupToolbar();
-        setupPagerAdapter();
         setupInject();
 
-
+        pressenter.onCreate();
+        pressenter.getFragmentInicio();
+        pressenter.registrarFragment();
 
         return view;
     }
@@ -81,9 +81,6 @@ public class TabFragment extends Fragment implements RecorridoView {
         component.inject(this);
     }
 
-    private void setupPagerAdapter() {
-
-    }
 
     private void setupToolbar() {
         letterS.setVisibility(View.VISIBLE);
@@ -132,17 +129,18 @@ public class TabFragment extends Fragment implements RecorridoView {
 
     @Override
     public void letter_p() {
-
+        Configuracion.letterP(eventBus);
     }
 
     @Override
     public void letter_s() {
-
+        Configuracion.letterS(eventBus);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        pressenter.onDestroy();
     }
 }

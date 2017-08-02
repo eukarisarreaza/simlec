@@ -5,4 +5,7 @@ package ve.gob.fundelec.simlec.Recorrido;
  */
 
 public interface RecorridoInteractor {
+    void getFragmentInicio();
+
+    void registrarFragment();
 }

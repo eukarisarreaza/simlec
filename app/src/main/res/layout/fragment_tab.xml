@@ -12,11 +12,18 @@
         <include
             layout="@layout/toolbar_layout_subtitulo"/>
 
+        <!--
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
+        -->
+        <FrameLayout
+            android:layout_weight="1"
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <View
             android:id="@+id/divider"
@@ -25,6 +32,7 @@
             android:background="?android:attr/listDivider" />
 
         <LinearLayout
+            android:layout_weight="0"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

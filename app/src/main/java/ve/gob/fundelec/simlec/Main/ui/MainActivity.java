@@ -28,6 +28,8 @@ import ve.gob.fundelec.simlec.Main.adapter.ItemMenu;
 import ve.gob.fundelec.simlec.Main.di.MainComponent;
 import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionFragment;
 import ve.gob.fundelec.simlec.R;
+import ve.gob.fundelec.simlec.Recorrido.ui.LecturaGestionarFragment;
+import ve.gob.fundelec.simlec.Recorrido.ui.TabFragment;
 import ve.gob.fundelec.simlec.SimlecApplication;
 
 public class MainActivity extends AppCompatActivity implements MainView, AdapterView.OnItemClickListener{
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     public void lecturaGestionar() {
         isChecked=true;
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.framelayout, AparatoSobranteFragment.newInstance())
+                .replace(R.id.framelayout, TabFragment.newInstance())
                 .commit();
     }
 

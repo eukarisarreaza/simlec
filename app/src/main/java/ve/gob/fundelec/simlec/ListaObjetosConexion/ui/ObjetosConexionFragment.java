@@ -121,7 +121,7 @@ public class ObjetosConexionFragment extends Fragment
 
     @Override
     public void onClickObjetosConexion(QueryObjetoConexion objetoConexion) {
-
+        pressenter.onSelectObjeto(objetoConexion);
     }
 
     @Override

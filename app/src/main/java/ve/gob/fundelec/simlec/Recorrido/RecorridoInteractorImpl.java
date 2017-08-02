@@ -10,4 +10,14 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
     public RecorridoInteractorImpl(RecorridoRepository repository) {
         this.repository = repository;
     }
+
+    @Override
+    public void getFragmentInicio() {
+        repository.getMedidorInicio();
+    }
+
+    @Override
+    public void registrarFragment() {
+        repository.registerHistory();
+    }
 }

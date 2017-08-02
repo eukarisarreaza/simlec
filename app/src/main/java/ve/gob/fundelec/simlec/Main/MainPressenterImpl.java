@@ -80,12 +80,19 @@ public class MainPressenterImpl implements MainPressenter {
                 Log.e(TAG, "onClickCalleAv");
                 view.listaObjetosConexion();
                 break;
+
             case RecorridoEvent.onClickRuta:
                 Log.e(TAG, "onClickRuta");
                 view.listaCallesAvenidas();
                 break;
+
+            case RecorridoEvent.onClickObjetoConexion:
+                Log.e(TAG, "onClickObjetoConexion");
+                view.lecturaGestionar();
+                break;
         }
     }
+
 
     private void showFragmentInicio(String ruta_fragment){
         if(ruta_fragment.equals(Configuracion.PantallasRecorridoRutas.LISTA_RUTAS_ASIGNADAS.name())){
