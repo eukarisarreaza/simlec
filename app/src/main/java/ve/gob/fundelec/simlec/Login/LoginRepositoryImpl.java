@@ -1617,7 +1617,8 @@ public class LoginRepositoryImpl implements LoginRepository{
     }
 
     private void setIndicadoresLectura() {
-        IndicadoresLectura indicador1 = new IndicadoresLectura(1,1,2,"",548,1962,245,1659,680.166666666667,0,0,1,1,0,"");
+        /**
+        IndicadoresLectura indicador1 = new IndicadoresLectura(1,1,2,"",0, 548,1962,245,1659,680.166666666667,0,0,1,1,0);
         indicador1.save();
 
         IndicadoresLectura indicador2 = new IndicadoresLectura(2,2,1, "",32765,33345,413,993,32903.8681318681,0,0,1,1,0,"");
@@ -1628,6 +1629,7 @@ public class LoginRepositoryImpl implements LoginRepository{
 
         IndicadoresLectura indicador4 = new IndicadoresLectura(4,4,1,"",396,1548,199,1351,504.104395604396,0,0,1,1,0, "");
         indicador4.save();
+         */
     }
 
     private void setEstados() {

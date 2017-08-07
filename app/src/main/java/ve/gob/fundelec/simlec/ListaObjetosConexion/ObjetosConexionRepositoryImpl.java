@@ -1,23 +1,13 @@
 package ve.gob.fundelec.simlec.ListaObjetosConexion;
 
-import android.util.Log;
-
 import com.raizlabs.android.dbflow.sql.language.NameAlias;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
 
 import ve.gob.fundelec.simlec.Configuracion;
-import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida;
-import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida_Table;
-import ve.gob.fundelec.simlec.DataBase.entities.Municipios;
-import ve.gob.fundelec.simlec.DataBase.entities.Municipios_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion_Table;
-import ve.gob.fundelec.simlec.DataBase.entities.Parroquias;
-import ve.gob.fundelec.simlec.DataBase.entities.Parroquias_Table;
-import ve.gob.fundelec.simlec.DataBase.entities.Ruta;
-import ve.gob.fundelec.simlec.DataBase.entities.Ruta_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
 import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
@@ -65,6 +55,41 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
         List<QueryObjetoConexion> list= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
                 ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex)
                 .from(ObjetoConexion.class).as("A")
+                .where(ObjetoConexion_Table.id_calle_avenida.is(sessionManager.getCalle().getId_calle()))
+                .groupBy(ObjetoConexion_Table.id)
+                .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
+                .queryCustomList(QueryObjetoConexion.class);
+
+        /**
+         *
+         *                     .where(Medidores_Table.id_objeto_conexion.is(objetoConexion.getId_objeto_conexion()))
+         for (QueryObjetoConexion objetoConexion : list) {
+
+         Log.e(TAG, objetoConexion.getNom_obj_conex());
+
+         List<QueryMedidores> medidoresList= new Select()
+         .from(Medidores.class).as("A")
+         .innerJoin(IndicadoresLectura.class).as("B")
+         .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("B").build())
+         .eq(Medidores_Table.id.withTable(NameAlias.builder("A").build())))
+         .where(Medidores_Table.id_objeto_conexion.is(objetoConexion.getId_objeto_conexion()))
+         .queryCustomList(QueryMedidores.class);
+         }
+
+
+
+         .innerJoin(Medidores.class).as("B")
+         .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
+         .eq(Medidores_Table.id_objeto_conexion.withTable(NameAlias.builder("B").build())))
+
+         .innerJoin(IndicadoresLectura.class).as("C")
+         .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("C").build())
+         .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
+
+
+        List<QueryObjetoConexion> list= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
+                ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex)
+                .from(ObjetoConexion.class).as("A")
                 .innerJoin(CalleAvenida.class).as("B")
                 .on(ObjetoConexion_Table.id_calle_avenida.withTable(NameAlias.builder("A").build())
                         .eq(CalleAvenida_Table.id.withTable(NameAlias.builder("B").build())))
@@ -77,12 +102,14 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
                 .innerJoin(Municipios.class).as("E")
                 .on(Parroquias_Table.id_municipio.withTable(NameAlias.builder("D").build())
                         .eq(Municipios_Table.id_municipio.withTable(NameAlias.builder("E").build())))
+                .innerJoin(IndicadoresLectura.class).as("F")
+                .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
+                        .eq(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("F").build())))
                 .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
                 .queryCustomList(QueryObjetoConexion.class);
+        */
 
-        for (QueryObjetoConexion objetoConexion : list) {
-            Log.e(TAG, objetoConexion.getNom_obj_conex());
-        }
+
 
         ObjetosConexionEvent event= new ObjetosConexionEvent();
         event.setLista(list);

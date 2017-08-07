@@ -28,9 +28,13 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
 
     @Override
     public void getMedidorInicio() {
+
+    }
+
+    @Override
+    public void getNombreObjetoConexionSeleccionado() {
         Log.e(TAG, "OBEJETO "+sessionManager.getObjetConexion().getNom_obj_conex());
         postEventNomMedidor(LecturasEvent.showNombreObjetoConexion, sessionManager.getObjetConexion().getNom_obj_conex());
-
     }
 
 

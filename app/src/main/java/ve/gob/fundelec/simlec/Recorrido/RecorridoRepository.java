@@ -7,7 +7,7 @@ package ve.gob.fundelec.simlec.Recorrido;
 public interface RecorridoRepository {
     void registerHistory();
     void getMedidorInicio();
-
+    void getNombreObjetoConexionSeleccionado();
 
     void getProximoMedidor();
     void getPrevioMedidor();

@@ -69,8 +69,8 @@ public class TabFragment extends Fragment implements RecorridoView {
         setupInject();
 
         pressenter.onCreate();
-        pressenter.getFragmentInicio();
         pressenter.registrarFragment();
+        pressenter.getFragmentInicio();
 
         return view;
     }

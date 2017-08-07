@@ -5,6 +5,9 @@ import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
 
 /**
@@ -52,6 +55,8 @@ public class IndicadoresLectura extends BaseModel {
     @Column
     String cod_nota_lectura;    //2
     @Column
+    int status_lectura;
+    @Column
     double lim_super_kwh;
     @Column
     double lim_infer_kwh;
@@ -75,21 +80,23 @@ public class IndicadoresLectura extends BaseModel {
     public IndicadoresLectura() {
     }
 
-    public IndicadoresLectura(int id, int id_medidores, int id_programacion_calle, String cod_nota_lectura,
-                              double lim_super_kwh, double lim_infer_kwh, double lim_super_va, double lim_infer_va,
-                              double lectura_prevista, double consumo_kwh, double demanda_va, int version, int accion,
-                              int orden_lectura, String fch_toma_lectura) {
+    public IndicadoresLectura(int id, int id_medidores, int id_programacion_calle, int orden_lectura,
+                              String cod_nota_lectura, int status_lectura, double lim_super_kwh,
+                              double lim_infer_kwh, double lim_super_va, double lim_infer_va,
+                              double lectura_prevista, double consumo_kwh,
+                              double demanda_va, int version, int accion) {
         this.id = id;
         this.id_medidores = id_medidores;
         this.id_programacion_calle = id_programacion_calle;
         this.orden_lectura = orden_lectura;
         this.cod_nota_lectura = cod_nota_lectura;
+        this.status_lectura = status_lectura;
         this.lim_super_kwh = lim_super_kwh;
         this.lim_infer_kwh = lim_infer_kwh;
         this.lim_super_va = lim_super_va;
         this.lim_infer_va = lim_infer_va;
         this.lectura_prevista = lectura_prevista;
-        this.fch_toma_lectura = fch_toma_lectura;
+        //this.fch_toma_lectura = fch_toma_lectura;
         this.consumo_kwh = consumo_kwh;
         this.demanda_va = demanda_va;
         this.version = version;
@@ -176,12 +183,21 @@ public class IndicadoresLectura extends BaseModel {
         this.lectura_prevista = lectura_prevista;
     }
 
+    public int getStatus_lectura() {
+        return status_lectura;
+    }
+
+    public void setStatus_lectura(int status_lectura) {
+        this.status_lectura = status_lectura;
+    }
+
     public String getFch_toma_lectura() {
         return fch_toma_lectura;
     }
 
-    public void setFch_toma_lectura(String fch_toma_lectura) {
-        this.fch_toma_lectura = fch_toma_lectura;
+    public void setFch_toma_lectura() {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.fch_toma_lectura = sf.format(new Date());
     }
 
     public double getConsumo_kwh() {
