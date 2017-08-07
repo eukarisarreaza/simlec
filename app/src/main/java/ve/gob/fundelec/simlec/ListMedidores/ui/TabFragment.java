@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.Recorrido.ui;
+package ve.gob.fundelec.simlec.ListMedidores.ui;
 
 
 import android.os.Bundle;
@@ -17,8 +17,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.R;
-import ve.gob.fundelec.simlec.Recorrido.RecorridoPressenter;
-import ve.gob.fundelec.simlec.Recorrido.di.RecorridoComponent;
+import ve.gob.fundelec.simlec.ListMedidores.RecorridoPressenter;
+import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoComponent;
 import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -81,7 +81,6 @@ public class TabFragment extends Fragment implements RecorridoView {
         component.inject(this);
     }
 
-
     private void setupToolbar() {
         letterS.setVisibility(View.VISIBLE);
         letterP.setVisibility(View.VISIBLE);
@@ -93,48 +92,71 @@ public class TabFragment extends Fragment implements RecorridoView {
         subtitulo.setText(nombre);
     }
 
+    @Override
+    public void lecturaGestionar() {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frameMedidor, LecturaGestionarFragment.newInstance())
+                .commit();
+    }
+
+    @Override
+    public void valorLectura() {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frameMedidor, LecturaGestionarFragment.newInstance())
+                .commit();
+    }
+
     @OnClick(R.id.next_button)
     @Override
-    public void next() {
+    public void nextMedidor() {
 
     }
 
     @OnClick(R.id.prev_button)
     @Override
-    public void prev() {
+    public void prevMedidor() {
 
     }
-
-    @OnClick(R.id.next_medidor)
+    @OnClick(R.id.next_objeto)
     @Override
-    public void sigFragment() {
+    public void sigObjetoConexion() {
 
     }
 
-    @OnClick(R.id.prev_medidor)
+    @OnClick(R.id.prev_objeto)
     @Override
-    public void prevFragment() {
+    public void prevObjetoConexion() {
 
     }
 
+    @OnClick(R.id.search)
     @Override
     public void search() {
         Configuracion.searh(eventBus);
     }
 
+    @OnClick(R.id.menu)
     @Override
     public void menu() {
         Configuracion.menu(eventBus);
     }
 
+    @OnClick(R.id.letter_p)
     @Override
     public void letter_p() {
         Configuracion.letterP(eventBus);
     }
 
+    @OnClick(R.id.letter_s)
     @Override
     public void letter_s() {
         Configuracion.letterS(eventBus);
+    }
+
+    @OnClick(R.id.back)
+    @Override
+    public void back() {
+        Configuracion.back(eventBus);
     }
 
     @Override

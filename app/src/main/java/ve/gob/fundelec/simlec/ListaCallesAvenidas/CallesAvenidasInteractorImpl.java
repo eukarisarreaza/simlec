@@ -23,4 +23,12 @@ public class CallesAvenidasInteractorImpl implements CallesAvenidasInteractor{
     public void onClickCalle(QueryCalles item) {
         repository.onClickCalle(item);
     }
+
+    @Override
+    public void getInfoRuta() {
+        repository.getInfoRuta();
+
+
+
+    }
 }

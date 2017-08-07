@@ -25,7 +25,7 @@ public class QueryObjetoConexion {
     @Column
     int cant_lect_ejecutadas;
     @Column
-    List<Medidores> medidoresList;
+    int numMedidores;
 
 
 
@@ -69,11 +69,11 @@ public class QueryObjetoConexion {
         this.cant_lect_ejecutadas = cant_lect_ejecutadas;
     }
 
-    public List<Medidores> getMedidoresList() {
-        return medidoresList;
+    public int getNumMedidores() {
+        return numMedidores;
     }
 
-    public void setMedidoresList(List<Medidores> medidoresList) {
-        this.medidoresList = medidoresList;
+    public void setNumMedidores(int numMedidores) {
+        this.numMedidores = numMedidores;
     }
 }

@@ -16,6 +16,10 @@ public class Configuracion {
         LISTA_RUTAS_ASIGNADAS, LISTA_CALLES_AVENIDAS, LISTA_CENTROS_MEDICION, LECTURA_GESTIONAR,
     }
 
+    public enum StatusObjetoConexion{
+        LEIDO, POR_LEER, EN_ESPERA,
+    }
+
     public static void searh(EventBus eventBus){
         MainEvent event= new MainEvent();
         event.setEventType(MainEvent.onSearch);

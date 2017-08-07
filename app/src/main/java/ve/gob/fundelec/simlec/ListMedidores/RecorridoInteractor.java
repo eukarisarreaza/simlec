@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.Recorrido;
+package ve.gob.fundelec.simlec.ListMedidores;
 
 /**
  * Created by fundelec on 01/08/17.

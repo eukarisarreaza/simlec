@@ -1,11 +1,18 @@
 package ve.gob.fundelec.simlec.ListaObjetosConexion;
 
+import android.util.Log;
+
+import com.raizlabs.android.dbflow.sql.language.Method;
 import com.raizlabs.android.dbflow.sql.language.NameAlias;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
 
 import ve.gob.fundelec.simlec.Configuracion;
+import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura;
+import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura_Table;
+import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
+import ve.gob.fundelec.simlec.DataBase.entities.Medidores_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
@@ -53,39 +60,33 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
     public void getListObjetosConexion() {
 
         List<QueryObjetoConexion> list= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
-                ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex)
+                ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex,
+                Method.count(Medidores_Table.id.withTable(NameAlias.builder("B").build())).as("numMedidores"), Method.sum(IndicadoresLectura_Table.status_lectura).as("cant_lect_ejecutadas"))
                 .from(ObjetoConexion.class).as("A")
+
+                .innerJoin(Medidores.class).as("B")
+                .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
+                        .eq(Medidores_Table.id_objeto_conexion.withTable(NameAlias.builder("B").build())))
+
+                .innerJoin(IndicadoresLectura.class).as("C")
+                .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("C").build())
+                        .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
+
                 .where(ObjetoConexion_Table.id_calle_avenida.is(sessionManager.getCalle().getId_calle()))
-                .groupBy(ObjetoConexion_Table.id)
+                .groupBy(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()))
                 .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
                 .queryCustomList(QueryObjetoConexion.class);
 
+
+
+        for (QueryObjetoConexion objetoConexion :
+                list) {
+            Log.e(TAG, "NUM MEDIDORES "+objetoConexion.getCant_lect_ejecutadas());
+        }
+
+
+
         /**
-         *
-         *                     .where(Medidores_Table.id_objeto_conexion.is(objetoConexion.getId_objeto_conexion()))
-         for (QueryObjetoConexion objetoConexion : list) {
-
-         Log.e(TAG, objetoConexion.getNom_obj_conex());
-
-         List<QueryMedidores> medidoresList= new Select()
-         .from(Medidores.class).as("A")
-         .innerJoin(IndicadoresLectura.class).as("B")
-         .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("B").build())
-         .eq(Medidores_Table.id.withTable(NameAlias.builder("A").build())))
-         .where(Medidores_Table.id_objeto_conexion.is(objetoConexion.getId_objeto_conexion()))
-         .queryCustomList(QueryMedidores.class);
-         }
-
-
-
-         .innerJoin(Medidores.class).as("B")
-         .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
-         .eq(Medidores_Table.id_objeto_conexion.withTable(NameAlias.builder("B").build())))
-
-         .innerJoin(IndicadoresLectura.class).as("C")
-         .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("C").build())
-         .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
-
 
         List<QueryObjetoConexion> list= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
                 ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex)
@@ -108,8 +109,6 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
                 .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
                 .queryCustomList(QueryObjetoConexion.class);
         */
-
-
 
         ObjetosConexionEvent event= new ObjetosConexionEvent();
         event.setLista(list);

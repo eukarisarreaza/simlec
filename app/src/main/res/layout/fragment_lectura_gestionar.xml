@@ -2,12 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ve.gob.fundelec.simlec.Recorrido.ui.LecturaGestionarFragment">
+    tools:context="ve.gob.fundelec.simlec.ListMedidores.ui.LecturaGestionarFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Fargament Lectura a Gestionar" />
 
 </FrameLayout>

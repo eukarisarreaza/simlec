@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 import ve.gob.fundelec.simlec.DataBase.entities.Lector;
+import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
@@ -22,6 +23,7 @@ public class LectorSessionManager {
     private static final String KEY_RUTA = "key_ruta";
     private static final String KEY_CALLE = "key_calle";
     private static final String KEY_CENTROS_MEDICION = "key_centros_medicion";
+    private static final String KEY_MEDIDOR = "key_medidor";
 
 
     private SharedPreferences settings;
@@ -132,5 +134,25 @@ public class LectorSessionManager {
             return centro;
         }
     }
+
+    public void setMedidor(QueryMedidores medidor){
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(medidor);
+        SharedPreferences.Editor editor= settings.edit();
+        editor.putString(KEY_MEDIDOR, jsonString);
+        editor.apply();
+    }
+
+    public QueryMedidores getMedidor(){
+        String json= settings.getString(KEY_MEDIDOR, null);
+        if(json==null)
+            return null;
+        else {
+            Gson gson = new Gson();
+            QueryMedidores medidor= gson.fromJson(json, QueryMedidores.class);
+            return medidor;
+        }
+    }
+
 
 }

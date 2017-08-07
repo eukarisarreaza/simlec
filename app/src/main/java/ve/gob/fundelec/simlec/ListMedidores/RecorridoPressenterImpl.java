@@ -1,10 +1,9 @@
-package ve.gob.fundelec.simlec.Recorrido;
+package ve.gob.fundelec.simlec.ListMedidores;
 
 import org.greenrobot.eventbus.Subscribe;
 
-import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
-import ve.gob.fundelec.simlec.Recorrido.event.LecturasEvent;
-import ve.gob.fundelec.simlec.Recorrido.ui.RecorridoView;
+import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
+import ve.gob.fundelec.simlec.ListMedidores.ui.RecorridoView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -41,6 +40,12 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
         switch (event.getEventType()){
             case LecturasEvent.showNombreObjetoConexion:
                 view.showNombreObjConexion(event.getNom_medidor());
+                break;
+            case LecturasEvent.showUnidadLecturaGestionar:
+                view.lecturaGestionar();
+                break;
+            case LecturasEvent.valorLectura:
+                view.valorLectura();
                 break;
 
         }

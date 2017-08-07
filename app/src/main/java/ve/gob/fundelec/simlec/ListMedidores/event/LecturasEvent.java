@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.Recorrido.event;
+package ve.gob.fundelec.simlec.ListMedidores.event;
 
 /**
  * Created by fundelec on 01/08/17.
@@ -7,7 +7,8 @@ package ve.gob.fundelec.simlec.Recorrido.event;
 public class LecturasEvent {
 
     public final static int showNombreObjetoConexion= 1;
-
+    public final static int showUnidadLecturaGestionar= 2;
+    public final static int valorLectura= 3;
 
     private int eventType;
     private String nom_medidor;

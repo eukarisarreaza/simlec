@@ -30,10 +30,10 @@ import ve.gob.fundelec.simlec.ListaObjetosConexion.di.DaggerObjetosConexionCompo
 import ve.gob.fundelec.simlec.ListaObjetosConexion.di.ObjetosConexionComponent;
 import ve.gob.fundelec.simlec.ListaObjetosConexion.di.ObjetosConexionModule;
 import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionView;
-import ve.gob.fundelec.simlec.Recorrido.di.DaggerRecorridoComponent;
-import ve.gob.fundelec.simlec.Recorrido.di.RecorridoComponent;
-import ve.gob.fundelec.simlec.Recorrido.di.RecorridoModule;
-import ve.gob.fundelec.simlec.Recorrido.ui.RecorridoView;
+import ve.gob.fundelec.simlec.ListMedidores.di.DaggerRecorridoComponent;
+import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoComponent;
+import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoModule;
+import ve.gob.fundelec.simlec.ListMedidores.ui.RecorridoView;
 import ve.gob.fundelec.simlec.Services.di.ServiceModule;
 import ve.gob.fundelec.simlec.lib.di.LibsModule;
 

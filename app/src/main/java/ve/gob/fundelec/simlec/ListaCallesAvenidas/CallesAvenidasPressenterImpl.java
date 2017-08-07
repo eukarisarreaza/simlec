@@ -47,6 +47,11 @@ public class CallesAvenidasPressenterImpl implements CallesAvenidasPressenter{
     }
 
     @Override
+    public void getInfoRuta() {
+        interactor.getInfoRuta();
+    }
+
+    @Override
     public void getListCalles() {
         this.interactor.getListCalles();
     }

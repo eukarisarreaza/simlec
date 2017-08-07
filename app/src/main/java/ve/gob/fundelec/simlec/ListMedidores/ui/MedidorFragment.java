@@ -1,5 +1,4 @@
-package ve.gob.fundelec.simlec.Recorrido.ui;
-
+package ve.gob.fundelec.simlec.ListMedidores.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,16 +8,16 @@ import android.view.ViewGroup;
 
 import ve.gob.fundelec.simlec.R;
 
-public class LecturaGestionarFragment extends Fragment {
+
+public class MedidorFragment extends Fragment {
 
 
-    public LecturaGestionarFragment() {
+    public MedidorFragment() {
         // Required empty public constructor
     }
 
-
-    public static LecturaGestionarFragment newInstance() {
-        LecturaGestionarFragment fragment = new LecturaGestionarFragment();
+    public static MedidorFragment newInstance() {
+        MedidorFragment fragment = new MedidorFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -27,19 +26,14 @@ public class LecturaGestionarFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_lectura_gestionar, container, false);;
-
-
-
+        View view=inflater.inflate(R.layout.fragment_medidor, container, false);
 
 
         return view;
     }
-
 }

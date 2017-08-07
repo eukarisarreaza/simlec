@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ve.gob.fundelec.simlec.Recorrido.ui.TabFragment">
+    tools:context="ve.gob.fundelec.simlec.ListMedidores.ui.TabFragment">
 
     <LinearLayout
         android:orientation="vertical"
@@ -21,7 +21,7 @@
         -->
         <FrameLayout
             android:layout_weight="1"
-            android:id="@+id/framelayout"
+            android:id="@+id/frameMedidor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -45,7 +45,7 @@
 
                 <ImageButton
                     android:tint="@color/colorPrimary"
-                    android:id="@+id/prev_medidor"
+                    android:id="@+id/prev_objeto"
                     android:src="@drawable/left_circle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -94,7 +94,7 @@
 
                 <ImageButton
                     android:tint="@color/colorPrimary"
-                    android:id="@+id/next_medidor"
+                    android:id="@+id/next_objeto"
                     android:src="@drawable/right_circle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

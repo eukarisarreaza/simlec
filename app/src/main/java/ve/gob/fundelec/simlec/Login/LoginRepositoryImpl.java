@@ -1617,19 +1617,25 @@ public class LoginRepositoryImpl implements LoginRepository{
     }
 
     private void setIndicadoresLectura() {
-        /**
-        IndicadoresLectura indicador1 = new IndicadoresLectura(1,1,2,"",0, 548,1962,245,1659,680.166666666667,0,0,1,1,0);
+
+        IndicadoresLectura indicador1 = new IndicadoresLectura(1,1,2,1,"", 0, 548 /**LIMITE SUPERIOR*/,1962 /** LIMITE INFERIRO*/,
+                245/**lim_super_va*/, 1659/** lim_infer_va*/,680.166666666667/** lectura_prevista */,
+                "", 0d,0d,1,1);
         indicador1.save();
 
-        IndicadoresLectura indicador2 = new IndicadoresLectura(2,2,1, "",32765,33345,413,993,32903.8681318681,0,0,1,1,0,"");
+        IndicadoresLectura indicador2 = new IndicadoresLectura(2,2,1,2,"", 0, 32765, 33345,
+                413, 993, 32903.8681318681, "", 0,0,1,1);
         indicador2.save();
 
-        IndicadoresLectura indicador3 = new IndicadoresLectura(3,3,1,"",67943,68622,485,1164,68105.0824175824,0,0,1,1,0,"");
+        IndicadoresLectura indicador3 = new IndicadoresLectura(3,3,1,3,"",0,67943,68622,
+                485,1164,68105.0824175824, "", 0,0,1,1);
         indicador3.save();
 
-        IndicadoresLectura indicador4 = new IndicadoresLectura(4,4,1,"",396,1548,199,1351,504.104395604396,0,0,1,1,0, "");
+        IndicadoresLectura indicador4 = new IndicadoresLectura(4,4,1,4,"",0,396,1548,
+                199,1351,504.104395604396,"",0,0,1,1);
+
         indicador4.save();
-         */
+
     }
 
     private void setEstados() {

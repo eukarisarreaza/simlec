@@ -1,6 +1,6 @@
-package ve.gob.fundelec.simlec.Recorrido;
+package ve.gob.fundelec.simlec.ListMedidores;
 
-import ve.gob.fundelec.simlec.Recorrido.event.LecturasEvent;
+import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
 
 /**
  * Created by fundelec on 01/08/17.

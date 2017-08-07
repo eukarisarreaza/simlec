@@ -83,7 +83,7 @@ public class IndicadoresLectura extends BaseModel {
     public IndicadoresLectura(int id, int id_medidores, int id_programacion_calle, int orden_lectura,
                               String cod_nota_lectura, int status_lectura, double lim_super_kwh,
                               double lim_infer_kwh, double lim_super_va, double lim_infer_va,
-                              double lectura_prevista, double consumo_kwh,
+                              double lectura_prevista, String fch_toma_lectura, double consumo_kwh,
                               double demanda_va, int version, int accion) {
         this.id = id;
         this.id_medidores = id_medidores;
@@ -96,7 +96,7 @@ public class IndicadoresLectura extends BaseModel {
         this.lim_super_va = lim_super_va;
         this.lim_infer_va = lim_infer_va;
         this.lectura_prevista = lectura_prevista;
-        //this.fch_toma_lectura = fch_toma_lectura;
+        this.fch_toma_lectura = fch_toma_lectura;
         this.consumo_kwh = consumo_kwh;
         this.demanda_va = demanda_va;
         this.version = version;
@@ -195,7 +195,7 @@ public class IndicadoresLectura extends BaseModel {
         return fch_toma_lectura;
     }
 
-    public void setFch_toma_lectura() {
+    public void setFch_toma_lectura(Date fch_toma_lectura) {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.fch_toma_lectura = sf.format(new Date());
     }

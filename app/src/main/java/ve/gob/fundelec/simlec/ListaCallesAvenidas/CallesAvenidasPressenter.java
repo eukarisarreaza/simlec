@@ -12,6 +12,8 @@ public interface CallesAvenidasPressenter {
     void onDestroy();
     void onEventMainThread(CallesAvenidasEvent event);
 
+    void getInfoRuta();
     void getListCalles();
     void onClickCalle(QueryCalles item);
+
 }

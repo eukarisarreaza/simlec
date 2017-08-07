@@ -9,4 +9,5 @@ import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 public interface CallesAvenidasInteractor {
     void getListCalles();
     void onClickCalle(QueryCalles item);
+    void getInfoRuta();
 }

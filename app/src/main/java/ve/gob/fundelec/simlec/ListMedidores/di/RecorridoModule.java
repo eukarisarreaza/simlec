@@ -1,17 +1,17 @@
-package ve.gob.fundelec.simlec.Recorrido.di;
+package ve.gob.fundelec.simlec.ListMedidores.di;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import ve.gob.fundelec.simlec.LectorSessionManager;
-import ve.gob.fundelec.simlec.Recorrido.RecorridoInteractor;
-import ve.gob.fundelec.simlec.Recorrido.RecorridoInteractorImpl;
-import ve.gob.fundelec.simlec.Recorrido.RecorridoPressenter;
-import ve.gob.fundelec.simlec.Recorrido.RecorridoPressenterImpl;
-import ve.gob.fundelec.simlec.Recorrido.RecorridoRepository;
-import ve.gob.fundelec.simlec.Recorrido.RecorridoRepositoryImpl;
-import ve.gob.fundelec.simlec.Recorrido.ui.RecorridoView;
+import ve.gob.fundelec.simlec.ListMedidores.RecorridoInteractor;
+import ve.gob.fundelec.simlec.ListMedidores.RecorridoInteractorImpl;
+import ve.gob.fundelec.simlec.ListMedidores.RecorridoPressenter;
+import ve.gob.fundelec.simlec.ListMedidores.RecorridoPressenterImpl;
+import ve.gob.fundelec.simlec.ListMedidores.RecorridoRepository;
+import ve.gob.fundelec.simlec.ListMedidores.RecorridoRepositoryImpl;
+import ve.gob.fundelec.simlec.ListMedidores.ui.RecorridoView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**

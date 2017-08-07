@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.ListaObjetosConexion.adapter;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.R;
 
@@ -85,17 +87,18 @@ public class AdapterObjetosConexion extends RecyclerView.Adapter<AdapterObjetosC
             codigo.setText(item.getCod_obj_conex());
             nombreObjeto.setText(item.getNom_obj_conex());
 
-
-
-            /*
-            if(pos==4){
-                status.setText("por leer");
-                status.setBackgroundResource(R.color.opcion1_2);
+            if(item.getCant_lect_ejecutadas()==item.getNumMedidores()){
+                status.setText(Configuracion.StatusObjetoConexion.LEIDO.name());
+                status.setBackgroundColor(Color.GREEN);
+                //status.setBackgroundResource(R.color.opcion1_2);
+            }else
+            if(item.getCant_lect_ejecutadas()==0){
+                status.setText(Configuracion.StatusObjetoConexion.EN_ESPERA.name().replace("_", " "));
+                status.setBackgroundColor(Color.RED);
+            }else {
+                status.setText(Configuracion.StatusObjetoConexion.POR_LEER.name().replace("_", " "));
+                status.setBackgroundColor(Color.YELLOW);
             }
-            if(pos==5){
-                status.setText("en espera");
-                status.setBackgroundResource(R.color.opcion1_5);
-            }*/
         }
 
         public void setOnItemClickListener(final QueryObjetoConexion element, final OnClickObjetosConexion onItemClickListener) {

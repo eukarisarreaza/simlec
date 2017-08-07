@@ -83,6 +83,7 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
         setupToolbar();
 
         pressenter.onCreate();
+        pressenter.getInfoRuta();
         pressenter.getListCalles();
 
         return view;
