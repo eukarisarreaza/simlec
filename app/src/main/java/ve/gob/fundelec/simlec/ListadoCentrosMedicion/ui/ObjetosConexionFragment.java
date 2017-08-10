@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion.ui;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion.ui;
 
 
 import android.os.Bundle;
@@ -21,11 +21,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.Configuracion;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ObjetosConexionPressenter;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.adapter.AdapterObjetosConexion;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.adapter.OnClickObjetosConexion;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.di.ObjetosConexionComponent;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionPressenter;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.adapter.AdapterObjetosConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.adapter.OnClickObjetosConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.di.ObjetosConexionComponent;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.lib.base.EventBus;

@@ -6,6 +6,10 @@ import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
+import ve.gob.fundelec.simlec.LecturaGestionar.di.DaggerLecturaGestionarComponent;
+import ve.gob.fundelec.simlec.LecturaGestionar.di.LecturaGestionarComponent;
+import ve.gob.fundelec.simlec.LecturaGestionar.di.LecturaGestionarModule;
+import ve.gob.fundelec.simlec.LecturaGestionar.ui.LecturaGestionarView;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter.OnClickCallesAvenidas;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.di.CallesAvenidasComponent;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.di.CallesAvenidasModule;
@@ -26,10 +30,10 @@ import ve.gob.fundelec.simlec.Main.di.DaggerMainComponent;
 import ve.gob.fundelec.simlec.Main.di.MainComponent;
 import ve.gob.fundelec.simlec.Main.di.MainModule;
 import ve.gob.fundelec.simlec.Main.ui.MainView;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.di.DaggerObjetosConexionComponent;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.di.ObjetosConexionComponent;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.di.ObjetosConexionModule;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionView;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.di.DaggerObjetosConexionComponent;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.di.ObjetosConexionComponent;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.di.ObjetosConexionModule;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ui.ObjetosConexionView;
 import ve.gob.fundelec.simlec.ListMedidores.di.DaggerRecorridoComponent;
 import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoComponent;
 import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoModule;
@@ -113,5 +117,14 @@ public class SimlecApplication extends Application {
     }
 
 
+    public LecturaGestionarComponent getLecturaGestionarComponent(LecturaGestionarView view) {
 
+        return DaggerLecturaGestionarComponent
+                .builder()
+                .lecturaGestionarModule(new LecturaGestionarModule(view))
+                .libsModule(new LibsModule())
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
 }

@@ -1,17 +1,17 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion.di;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion.di;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import ve.gob.fundelec.simlec.LectorSessionManager;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ObjetosConexionInteractor;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ObjetosConexionInteractorImpl;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ObjetosConexionPressenter;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ObjetosConexionPressenterImpl;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ObjetosConexionRepository;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ObjetosConexionRepositoryImpl;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionView;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionInteractor;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionInteractorImpl;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionPressenter;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionPressenterImpl;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionRepository;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionRepositoryImpl;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ui.ObjetosConexionView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**

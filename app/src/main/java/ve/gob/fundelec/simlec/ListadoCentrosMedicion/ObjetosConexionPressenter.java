@@ -1,7 +1,7 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion;
 
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.event.ObjetosConexionEvent;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.event.ObjetosConexionEvent;
 
 /**
  * Created by fundelec on 26/07/17.

@@ -1,10 +1,10 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion.event;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion.event;
 
 import java.util.List;
 
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 
 /**
  * Created by fundelec on 26/07/17.

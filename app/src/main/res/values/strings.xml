@@ -48,6 +48,7 @@
     <string name="cargar">Cerrar Ruta y Actualizar Sistema</string>
     <string name="preparar_dispositivo">Preparar Dispositivo</string>
 
+    <string name="spinner_hint">Seleccione...</string>
 
     <string name="tittle_sistema">Sistema Móvil para la Lectura de Medidores</string>
 

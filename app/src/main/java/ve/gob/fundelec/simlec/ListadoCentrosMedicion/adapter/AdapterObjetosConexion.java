@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion.adapter;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion.adapter;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +12,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.Configuracion;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.R;
 
 /**

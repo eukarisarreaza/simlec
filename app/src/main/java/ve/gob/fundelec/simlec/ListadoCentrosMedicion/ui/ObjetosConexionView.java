@@ -1,8 +1,8 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion.ui;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion.ui;
 
 import java.util.List;
 
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 
 /**
  * Created by fundelec on 26/07/17.

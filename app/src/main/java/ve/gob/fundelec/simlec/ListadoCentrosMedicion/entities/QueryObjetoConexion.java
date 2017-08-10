@@ -1,12 +1,9 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion.entities;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities;
 
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.QueryModel;
 
-import java.util.List;
-
 import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
-import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
 
 /**
  * Created by fundelec on 26/07/17.

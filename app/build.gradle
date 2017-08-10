@@ -60,6 +60,7 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
 
+    compile 'com.github.piotrek1543:CustomSpinner:0.1'
 
 
 

@@ -1,10 +1,10 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion;
 
 import org.greenrobot.eventbus.Subscribe;
 
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.event.ObjetosConexionEvent;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.ui.ObjetosConexionView;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.event.ObjetosConexionEvent;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ui.ObjetosConexionView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**

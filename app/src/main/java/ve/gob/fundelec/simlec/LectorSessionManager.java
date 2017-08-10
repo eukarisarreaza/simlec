@@ -8,7 +8,7 @@ import ve.gob.fundelec.simlec.DataBase.entities.Lector;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 
 /**
  * Created by fundelec on 11/07/17.

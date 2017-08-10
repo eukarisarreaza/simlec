@@ -12,11 +12,9 @@ import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura;
 import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
 import ve.gob.fundelec.simlec.DataBase.entities.Medidores_Table;
-import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**

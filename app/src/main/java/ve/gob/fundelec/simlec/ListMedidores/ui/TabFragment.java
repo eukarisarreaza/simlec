@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.Configuracion;
+import ve.gob.fundelec.simlec.LecturaGestionar.ui.LecturaGestionarFragment;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.ListMedidores.RecorridoPressenter;
 import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoComponent;

@@ -1,6 +1,6 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion.adapter;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion.adapter;
 
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 
 /**
  * Created by fundelec on 26/07/17.

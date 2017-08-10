@@ -7,6 +7,8 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
  * Created by Eukaris on 12/04/2017.
  */
 public class Configuracion {
+    public static final int NOTASLECTURAUNIDADGESTIONAR=1;
+    public static final int NOTASLECTURASTOMALECTURA=2;
 
     public enum TipoUsuario{
         LECTOR, ADMINISTRADOR, SUPERVISOR,

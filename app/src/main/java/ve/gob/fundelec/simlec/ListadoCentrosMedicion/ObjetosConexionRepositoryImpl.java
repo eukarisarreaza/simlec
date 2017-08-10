@@ -1,4 +1,4 @@
-package ve.gob.fundelec.simlec.ListaObjetosConexion;
+package ve.gob.fundelec.simlec.ListadoCentrosMedicion;
 
 import android.util.Log;
 
@@ -17,8 +17,8 @@ import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.Main.event.RecorridoEvent;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.entities.QueryObjetoConexion;
-import ve.gob.fundelec.simlec.ListaObjetosConexion.event.ObjetosConexionEvent;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.event.ObjetosConexionEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
