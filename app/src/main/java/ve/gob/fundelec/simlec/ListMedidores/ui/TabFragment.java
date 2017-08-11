@@ -107,27 +107,33 @@ public class TabFragment extends Fragment implements RecorridoView {
                 .commit();
     }
 
+    @Override
+    public void showNotify(String message) {
+
+    }
+
     @OnClick(R.id.next_button)
     @Override
     public void nextMedidor() {
-
+        pressenter.proximoMedidor();
     }
 
     @OnClick(R.id.prev_button)
     @Override
     public void prevMedidor() {
-
+        pressenter.anteriorMedidor();
     }
+
     @OnClick(R.id.next_objeto)
     @Override
     public void sigObjetoConexion() {
-
+        pressenter.proximoObjetoConexion();
     }
 
     @OnClick(R.id.prev_objeto)
     @Override
     public void prevObjetoConexion() {
-
+        pressenter.anteriorObjetoConexion();
     }
 
     @OnClick(R.id.search)

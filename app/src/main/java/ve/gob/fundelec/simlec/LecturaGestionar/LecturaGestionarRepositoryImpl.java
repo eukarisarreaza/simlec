@@ -7,9 +7,10 @@ import java.util.List;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.DataBase.entities.FNotaLectura;
 import ve.gob.fundelec.simlec.DataBase.entities.FNotaLectura_Table;
+import ve.gob.fundelec.simlec.DataBase.entities.ObjetosConexionNotas;
+import ve.gob.fundelec.simlec.DataBase.entities.ObjetosConexionNotas_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.LecturaGestionar.event.LecturaGestionarEvent;
-import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -19,7 +20,7 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
 public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepository {
     private EventBus eventBus;
     private LectorSessionManager sessionManager;
-
+    private List<FNotaLectura> notasLectura; /** NOTAS DE LECTURA PARA LA UNIDADES DE LECTURA A GESTIONAR */
 
     public LecturaGestionarRepositoryImpl(EventBus eventBus, LectorSessionManager sessionManager) {
         this.eventBus = eventBus;
@@ -31,13 +32,18 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
         /** OBTENER LA SIG INFORMACION: COD-RUTA, AREA, UNIDAD-LECTURA, MUNICIPIO, PARROQUIA, URBANIZACION,
          * CALLE, TEXTO-EXPLICATIVO
          **/
-
+        LecturaGestionarEvent event= new LecturaGestionarEvent();
+        event.setEventType(LecturaGestionarEvent.showInfoRuta);
+        event.setRuta(sessionManager.getRuta());
+        event.setCalle(sessionManager.getCalle());
+        event.setObjetoConexion(sessionManager.getObjetConexion());
+        eventBus.post(event);
     }
 
     @Override
     public void getNotasLectura() {
 
-        List<FNotaLectura> notasLectura= new Select()
+        notasLectura= new Select()
                 .from(FNotaLectura.class)
                 .where(FNotaLectura_Table.clas_nota_lectura.is(Configuracion.NOTASLECTURAUNIDADGESTIONAR))
                 .queryList();
@@ -57,9 +63,18 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
     @Override
     public void grabarNotaUnidadLectura(int pos) {
 
+        ObjetosConexionNotas notaObjetoConexion= new Select()
+                .from(ObjetosConexionNotas.class)
+                .where(ObjetosConexionNotas_Table.id_objeto_conexion.is(sessionManager.getObjetConexion().getId_objeto_conexion()))
+                .querySingle();
+
+        notaObjetoConexion.setCod_nota_lectura(notasLectura.get(pos-1).getCod_nota_letura());
+        notaObjetoConexion.save();
+
+        LecturaGestionarEvent event= new LecturaGestionarEvent();
+        event.setEventType(LecturaGestionarEvent.onSussesGrabarNota);
+        eventBus.post(event);
+
     }
 
-    private void postEvent(){
-
-    }
 }

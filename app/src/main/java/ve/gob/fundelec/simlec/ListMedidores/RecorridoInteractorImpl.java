@@ -21,4 +21,24 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
     public void registrarFragment() {
         repository.registerHistory();
     }
+
+    @Override
+    public void proximoMedidor() {
+        repository.getProximoMedidor();
+    }
+
+    @Override
+    public void anteriorMedidor() {
+        repository.getPrevioMedidor();
+    }
+
+    @Override
+    public void proximoObjetoConexion() {
+
+    }
+
+    @Override
+    public void anteriorObjetoConexion() {
+
+    }
 }

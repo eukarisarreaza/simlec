@@ -8,6 +8,7 @@ public interface RecorridoView {
     void showNombreObjConexion(String nombre);
     void lecturaGestionar();
     void valorLectura();
+    void showNotify(String message);
 
     void nextMedidor();
     void prevMedidor();

@@ -35,6 +35,18 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
     TextView nomRuta;
     @BindView(R.id.area)
     TextView area;
+    @BindView(R.id.municipio)
+    TextView municipio;
+    @BindView(R.id.parroquia)
+    TextView parroquia;
+    @BindView(R.id.urbanizacion)
+    TextView urbanizacion;
+    @BindView(R.id.calle)
+    TextView calle;
+    @BindView(R.id.unidadLectura)
+    TextView unidadLectura;
+    @BindView(R.id.objConexion)
+    TextView objConexion;
 
     public LecturaGestionarFragment() {
         // Required empty public constructor
@@ -78,7 +90,7 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 if (!adapterView.getSelectedItem().equals(getString(R.string.spinner_hint))) {
                     String notaSelected = adapterView.getSelectedItem().toString();
-                    Toast.makeText(getContext(), "nota  " + notaSelected, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), notaSelected, Toast.LENGTH_LONG).show();
                     Log.e(TAG, "posicion " + position);
                     presenter.grabarNotaUnidadLectura(position);
                 }
@@ -100,6 +112,24 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
     public void showInfoRuta(String nom_ruta, String area_t) {
         nomRuta.setText(nom_ruta);
         area.setText(area_t);
+    }
+
+    @Override
+    public void showUnidadLectura(String unidad_lectura) {
+        unidadLectura.setText(unidad_lectura);
+    }
+
+    @Override
+    public void showObjetivoConexion(String objConexion_t) {
+        objConexion.setText(objConexion_t);
+    }
+
+    @Override
+    public void showDireccion(String municipio_t, String parroquia_t, String urbanizacion_t, String calle_t) {
+        municipio.setText(municipio_t);
+        parroquia.setText(parroquia_t);
+        urbanizacion.setText(urbanizacion_t);
+        calle.setText(calle_t);
     }
 
     @Override

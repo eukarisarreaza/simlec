@@ -11,6 +11,11 @@ public interface RecorridoPressenter {
     void onDestroy();
     void onEventMainThread(LecturasEvent event);
     void getFragmentInicio();
-
     void registrarFragment();
+
+    void proximoMedidor();
+    void anteriorMedidor();
+
+    void proximoObjetoConexion();
+    void anteriorObjetoConexion();
 }

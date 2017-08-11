@@ -61,4 +61,24 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
     public void registrarFragment() {
         interactor.registrarFragment();
     }
+
+    @Override
+    public void proximoMedidor() {
+        interactor.proximoMedidor();
+    }
+
+    @Override
+    public void anteriorMedidor() {
+        interactor.anteriorMedidor();
+    }
+
+    @Override
+    public void proximoObjetoConexion() {
+
+    }
+
+    @Override
+    public void anteriorObjetoConexion() {
+
+    }
 }

@@ -5,6 +5,8 @@ package ve.gob.fundelec.simlec.Login.ui;
  */
 
 public interface LoginView {
+    void showNotify(String message);
+
     void onSelectLector();
     void onSelectSupervisor();
     void onSelectAdministrador();

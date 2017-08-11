@@ -140,6 +140,11 @@ public class ObjetosConexionFragment extends Fragment
         progreso.setText(avance);
     }
 
+    @Override
+    public void showNotify(String message) {
+
+    }
+
     @OnClick(R.id.search)
     @Override
     public void search() {

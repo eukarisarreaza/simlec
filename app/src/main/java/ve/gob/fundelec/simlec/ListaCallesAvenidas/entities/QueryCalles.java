@@ -33,6 +33,14 @@ public class QueryCalles {
     int porcentaje_avance;
 
 
+    @Column
+    String parroquia;
+    @Column
+    String municipio;
+    @Column
+    String estado;
+
+
     public int getId_calle() {
         return id_calle;
     }
@@ -87,5 +95,38 @@ public class QueryCalles {
 
     public void setCant_lect_progr(int cant_lect_progr) {
         this.cant_lect_programadas = cant_lect_progr;
+    }
+
+
+    public int getCant_lect_programadas() {
+        return cant_lect_programadas;
+    }
+
+    public void setCant_lect_programadas(int cant_lect_programadas) {
+        this.cant_lect_programadas = cant_lect_programadas;
+    }
+
+    public String getParroquia() {
+        return parroquia;
+    }
+
+    public void setParroquia(String parroquia) {
+        this.parroquia = parroquia;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

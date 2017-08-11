@@ -67,6 +67,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         presenter.onDestroy();
     }
 
+    @Override
+    public void showNotify(String message) {
+
+    }
+
     @OnClick(R.id.lector)
     @Override
     public void onSelectLector() {

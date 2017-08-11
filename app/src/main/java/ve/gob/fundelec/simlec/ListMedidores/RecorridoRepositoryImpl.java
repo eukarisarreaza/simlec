@@ -71,14 +71,18 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         /** OBTENGO LA LISTA DE MEDIDORES */
         if( sessionManager.getObjetConexion().getCant_lect_ejecutadas()==0){
             /** MOSTRAR UNIDAD DE LECTURA A GESTIONAR */
-            postEvent(LecturasEvent.showUnidadLecturaGestionar);
+            LecturasEvent event= new LecturasEvent();
+            event.setEventType(LecturasEvent.showUnidadLecturaGestionar);
+            eventBus.post(event);
 
         }else {
             /** ALMACENAR EN PREFERENCIAS EL MEDIDOR A TOMAR LECTURA*/
             QueryMedidores current=buscarMedidorProxLeer();
             sessionManager.setMedidor(current);
 
-            postEvent(LecturasEvent.showUnidadLecturaGestionar);
+            LecturasEvent event= new LecturasEvent();
+            event.setEventType(LecturasEvent.valorLectura);
+            eventBus.post(event);
         }
 
     }
@@ -131,7 +135,9 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         QueryMedidores current=buscarMedidorProxLeer();
         sessionManager.setMedidor(current);
 
-        postEvent(LecturasEvent.showUnidadLecturaGestionar);
+        LecturasEvent event= new LecturasEvent();
+        event.setEventType(LecturasEvent.valorLectura);
+        eventBus.post(event);
     }
 
     @Override
@@ -139,7 +145,10 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         QueryMedidores current=buscarMedidorPrevLeer();
         sessionManager.setMedidor(current);
 
-        postEvent(LecturasEvent.showUnidadLecturaGestionar);
+        LecturasEvent event= new LecturasEvent();
+        event.setEventType(LecturasEvent.valorLectura);
+        eventBus.post(event);
+
     }
 
     @Override
@@ -159,9 +168,4 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         eventBus.post(event);
     }
 
-    private void postEvent(int eventType) {
-        LecturasEvent event= new LecturasEvent();
-        event.setEventType(eventType);
-        eventBus.post(event);
-    }
 }

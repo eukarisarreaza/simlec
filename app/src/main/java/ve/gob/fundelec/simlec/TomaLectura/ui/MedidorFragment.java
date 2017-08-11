@@ -14,6 +14,9 @@ import ve.gob.fundelec.simlec.TomaLectura.di.TomaLecturaComponent;
 public class MedidorFragment extends Fragment implements TomaLecturaView{
 
 
+
+
+
     public MedidorFragment() {
         // Required empty public constructor
     }
@@ -55,6 +58,13 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
 
     @Override
     public void showInfoRuta(String nom_ruta, String area) {
+
+
+
+    }
+
+    @Override
+    public void showNotify(String message) {
 
     }
 }

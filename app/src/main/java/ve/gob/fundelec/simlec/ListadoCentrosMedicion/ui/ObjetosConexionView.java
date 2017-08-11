@@ -13,6 +13,7 @@ public interface ObjetosConexionView {
     void showListObjetosConexion(List<QueryObjetoConexion> list);
     void showInfoRuta(String ruta, String area);
     void showInfoCalle(String nom_calle, String avance);
+    void showNotify(String message);
 
 
     void search();

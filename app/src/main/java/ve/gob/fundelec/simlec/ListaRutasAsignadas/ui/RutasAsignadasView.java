@@ -13,6 +13,7 @@ public interface RutasAsignadasView {
     void showInfoUser(String nombre, String perfil);
     void showVersionName(String version);
     void showListRutasCurso(List<QueryRutas> list);
+    void showNotify(String message);
 
 
     void search();

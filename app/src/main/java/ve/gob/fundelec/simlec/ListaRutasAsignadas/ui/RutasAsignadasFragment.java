@@ -138,6 +138,11 @@ public class RutasAsignadasFragment extends Fragment implements RutasAsignadasVi
 
     }
 
+    @Override
+    public void showNotify(String message) {
+
+    }
+
     @OnClick(R.id.search)
     @Override
     public void search() {

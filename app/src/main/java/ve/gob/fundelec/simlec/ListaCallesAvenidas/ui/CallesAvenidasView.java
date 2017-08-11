@@ -17,4 +17,6 @@ public interface CallesAvenidasView {
     void showInfoRuta(String nom_ruta, String area);
     void showListCalles(List<QueryCalles> callesList);
     void onSelectCalle(QueryCalles calle);
+    void showNotify(String message);
+
 }

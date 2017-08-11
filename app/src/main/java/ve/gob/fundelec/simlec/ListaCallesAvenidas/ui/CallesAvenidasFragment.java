@@ -148,6 +148,11 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
     }
 
     @Override
+    public void showNotify(String message) {
+
+    }
+
+    @Override
     public void onClickUnidadLectura(QueryCalles unidadLectura) {
         onSelectCalle(unidadLectura);
     }

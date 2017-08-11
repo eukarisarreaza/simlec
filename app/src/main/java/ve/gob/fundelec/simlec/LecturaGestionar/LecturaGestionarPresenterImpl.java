@@ -4,6 +4,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import ve.gob.fundelec.simlec.LecturaGestionar.event.LecturaGestionarEvent;
 import ve.gob.fundelec.simlec.LecturaGestionar.ui.LecturaGestionarView;
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -55,7 +56,10 @@ public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
                 view.showListNotas(event.getNotasLectura());
                 break;
             case LecturaGestionarEvent.showInfoRuta:
-
+                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
+                QueryCalles calle=event.getCalle();
+                view.showDireccion(calle.getMunicipio(), calle.getParroquia(), "", calle.getNom_calle());
+                view.showObjetivoConexion(event.getObjetoConexion().getNom_obj_conex());
                 break;
         }
     }
