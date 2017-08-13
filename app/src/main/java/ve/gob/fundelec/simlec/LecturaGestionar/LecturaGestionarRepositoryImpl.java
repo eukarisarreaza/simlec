@@ -1,5 +1,8 @@
 package ve.gob.fundelec.simlec.LecturaGestionar;
 
+import android.util.Log;
+
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
@@ -18,6 +21,7 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
  */
 
 public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepository {
+    private static final String TAG= LecturaGestionarRepositoryImpl.class.getName();
     private EventBus eventBus;
     private LectorSessionManager sessionManager;
     private List<FNotaLectura> notasLectura; /** NOTAS DE LECTURA PARA LA UNIDADES DE LECTURA A GESTIONAR */
@@ -62,7 +66,10 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
 
     @Override
     public void grabarNotaUnidadLectura(int pos) {
+        Log.e(TAG, "objeto de conexion actual "+sessionManager.getObjetConexion().getNom_obj_conex());
+        Log.e(TAG, "nota lectura "+notasLectura.get(pos-1).getCod_nota_letura());
 
+        /**
         ObjetosConexionNotas notaObjetoConexion= new Select()
                 .from(ObjetosConexionNotas.class)
                 .where(ObjetosConexionNotas_Table.id_objeto_conexion.is(sessionManager.getObjetConexion().getId_objeto_conexion()))
@@ -73,7 +80,7 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
 
         LecturaGestionarEvent event= new LecturaGestionarEvent();
         event.setEventType(LecturaGestionarEvent.onSussesGrabarNota);
-        eventBus.post(event);
+        eventBus.post(event);*/
 
     }
 

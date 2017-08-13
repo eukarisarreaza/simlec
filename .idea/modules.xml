@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SIMLEC-FUND-COR.iml" filepath="$PROJECT_DIR$/SIMLEC-FUND-COR.iml" />
       <module fileurl="file://$PROJECT_DIR$/SIMLEC-FUND-CORPO.iml" filepath="$PROJECT_DIR$/SIMLEC-FUND-CORPO.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

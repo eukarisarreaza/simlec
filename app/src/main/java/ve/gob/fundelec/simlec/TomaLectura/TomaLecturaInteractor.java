@@ -5,4 +5,7 @@ package ve.gob.fundelec.simlec.TomaLectura;
  */
 
 public interface TomaLecturaInteractor {
+    void getNotasLectura();
+    void grabarNotaLectura(int pos);
+    void grabarLectura(String lectura);
 }
