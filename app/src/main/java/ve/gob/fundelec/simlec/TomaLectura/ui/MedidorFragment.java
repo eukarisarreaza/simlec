@@ -114,10 +114,9 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     }
 
     @Override
-    public void showInfoRuta(String nom_ruta, String area) {
-
-
-
+    public void showInfoRuta(String nom_ruta, String area_t) {
+        ruta.setText(nom_ruta);
+        area.setText(area_t);
     }
 
     @Override

@@ -21,6 +21,7 @@ import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.ListMedidores.RecorridoPressenter;
 import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoComponent;
 import ve.gob.fundelec.simlec.SimlecApplication;
+import ve.gob.fundelec.simlec.TomaLectura.ui.MedidorFragment;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 public class TabFragment extends Fragment implements RecorridoView {
@@ -103,7 +104,7 @@ public class TabFragment extends Fragment implements RecorridoView {
     @Override
     public void valorLectura() {
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frameMedidor, LecturaGestionarFragment.newInstance())
+                .replace(R.id.frameMedidor, MedidorFragment.newInstance())
                 .commit();
     }
 

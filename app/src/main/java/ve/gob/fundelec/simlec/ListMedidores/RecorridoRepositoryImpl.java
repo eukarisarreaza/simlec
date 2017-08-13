@@ -88,7 +88,13 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     }
 
     private QueryMedidores buscarMedidorProxLeer(){
-        listMedidores= new Select()
+        listMedidores= new Select(Medidores_Table.id.withTable(NameAlias.builder("A").build()).as("id_medidor"), Medidores_Table.long_lat,
+                Medidores_Table.dig_entero, Medidores_Table.dig_decimal, Medidores_Table.modelo, Medidores_Table.numero,
+                Medidores_Table.ubicacion, IndicadoresLectura_Table.id.withTable(NameAlias.builder("C").build()).as("id_indicador_lectura"),
+                IndicadoresLectura_Table.id_programacion_calle, IndicadoresLectura_Table.orden_lectura, IndicadoresLectura_Table.cod_nota_lectura,
+                IndicadoresLectura_Table.status_lectura, IndicadoresLectura_Table.lim_super_kwh, IndicadoresLectura_Table.lim_infer_kwh,
+                IndicadoresLectura_Table.lim_infer_va, IndicadoresLectura_Table.lim_infer_va, IndicadoresLectura_Table.lectura_prevista,
+                IndicadoresLectura_Table.fch_toma_lectura, IndicadoresLectura_Table.consumo_kwh, IndicadoresLectura_Table.demanda_va)
                 .from(Medidores.class).as("A")
 
                 .innerJoin(IndicadoresLectura.class).as("C")
@@ -98,34 +104,24 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
                 .where(Medidores_Table.id_objeto_conexion.is(sessionManager.getObjetConexion().getId_objeto_conexion()))
                 .queryCustomList(QueryMedidores.class);
 
+
         for (QueryMedidores medidor: listMedidores) {
-            if(medidor.getStatus_lectura()==0)
+            if(medidor.getStatus_lectura()==0){
+                Log.e(TAG, "PROXIMO MEDIDOR "+medidor.getId_medidor());
                 return medidor;
+            }
         }
         return null;
     }
 
     private QueryMedidores buscarMedidorPrevLeer(){
-        listMedidores= new Select()
-                .from(Medidores.class).as("A")
 
-                .innerJoin(IndicadoresLectura.class).as("C")
-                .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("C").build())
-                        .eq(Medidores_Table.id.withTable(NameAlias.builder("A").build())))
-
-                .where(Medidores_Table.id_objeto_conexion.is(sessionManager.getObjetConexion().getId_objeto_conexion()))
-                .queryCustomList(QueryMedidores.class);
-
-        for (QueryMedidores medidor: listMedidores) {
-            if(medidor.getStatus_lectura()==0)
-                return medidor;
-        }
         return null;
     }
 
     @Override
     public void getNombreObjetoConexionSeleccionado() {
-        Log.e(TAG, "OBEJETO "+sessionManager.getObjetConexion().getNom_obj_conex());
+        Log.e(TAG, "OBEJETO "+sessionManager.getObjetConexion().getId_objeto_conexion());
         postEventNomMedidor(LecturasEvent.showNombreObjetoConexion, sessionManager.getObjetConexion().getNom_obj_conex());
     }
 
@@ -133,6 +129,7 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     @Override
     public void getProximoMedidor() {
         QueryMedidores current=buscarMedidorProxLeer();
+        Log.e(TAG, "proximo medidor a leer "+current.getId_medidor());
         sessionManager.setMedidor(current);
 
         LecturasEvent event= new LecturasEvent();

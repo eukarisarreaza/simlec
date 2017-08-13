@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.ListMedidores.entities;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.QueryModel;
 
@@ -15,9 +16,8 @@ public class QueryMedidores {
     @Column
     int id_medidor;
     @Column
-    int tip_medidor;
-    @Column
     String long_lat; // limite de 30
+
     @Column
     int dig_entero;
     @Column
@@ -28,12 +28,7 @@ public class QueryMedidores {
     String numero; //255
     @Column
     String ubicacion;//255
-    @Column
-    String contrato; //255
-    @Column
-    String pre_medidor; //limite de 20
-    @Column
-    int edo_medidor;
+
 
     @Column
     int id_indicador_lectura;
@@ -55,6 +50,7 @@ public class QueryMedidores {
     double lim_infer_va;
     @Column
     double lectura_prevista;
+
     @Column
     String fch_toma_lectura; // timestamp without time zone,
     @Column
@@ -68,14 +64,6 @@ public class QueryMedidores {
 
     public void setId_medidor(int id_medidor) {
         this.id_medidor = id_medidor;
-    }
-
-    public int getTip_medidor() {
-        return tip_medidor;
-    }
-
-    public void setTip_medidor(int tip_medidor) {
-        this.tip_medidor = tip_medidor;
     }
 
     public String getLong_lat() {
@@ -124,30 +112,6 @@ public class QueryMedidores {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
-    }
-
-    public String getContrato() {
-        return contrato;
-    }
-
-    public void setContrato(String contrato) {
-        this.contrato = contrato;
-    }
-
-    public String getPre_medidor() {
-        return pre_medidor;
-    }
-
-    public void setPre_medidor(String pre_medidor) {
-        this.pre_medidor = pre_medidor;
-    }
-
-    public int getEdo_medidor() {
-        return edo_medidor;
-    }
-
-    public void setEdo_medidor(int edo_medidor) {
-        this.edo_medidor = edo_medidor;
     }
 
     public int getId_indicador_lectura() {
@@ -252,5 +216,10 @@ public class QueryMedidores {
 
     public void setDemanda_va(double demanda_va) {
         this.demanda_va = demanda_va;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }
