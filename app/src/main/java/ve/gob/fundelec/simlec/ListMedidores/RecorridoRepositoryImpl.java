@@ -129,10 +129,19 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     @Override
     public void getProximoMedidor() {
         QueryMedidores current=buscarMedidorProxLeer();
+
+        LecturasEvent event= new LecturasEvent();
+        if(current==null){
+            Log.e(TAG, "NO HAY MAS MEDIDORES EN LA LISTA");
+            event.setEventType(LecturasEvent.notifyError);
+            event.setMessage("FIN DE LA LISTA DE MEDIDORES");
+            eventBus.post(event);
+            return;
+        }
+
         Log.e(TAG, "proximo medidor a leer "+current.getId_medidor());
         sessionManager.setMedidor(current);
 
-        LecturasEvent event= new LecturasEvent();
         event.setEventType(LecturasEvent.valorLectura);
         eventBus.post(event);
     }

@@ -41,6 +41,7 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
             case TomaLecturaEvent.onSussesGrabarNota:
                 break;
             case TomaLecturaEvent.showInfoRuta:
+                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
                 break;
             case TomaLecturaEvent.showListNotas:
                 view.showNotaLectura(event.getNotasLectura());
@@ -51,6 +52,11 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
     @Override
     public void getNotasTomaLectura() {
         interactor.getNotasLectura();
+    }
+
+    @Override
+    public void getInfoRuta() {
+        interactor.getInfoRuta();
     }
 
     @Override

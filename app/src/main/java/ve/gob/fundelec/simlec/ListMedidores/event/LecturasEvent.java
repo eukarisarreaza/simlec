@@ -9,8 +9,10 @@ public class LecturasEvent {
     public final static int showNombreObjetoConexion= 1;
     public final static int showUnidadLecturaGestionar= 2;
     public final static int valorLectura= 3;
+    public final static int notifyError= 4;
 
     private int eventType;
+    private String message;
     private String nom_medidor;
 
 
@@ -28,5 +30,13 @@ public class LecturasEvent {
 
     public void setNom_medidor(String nom_medidor) {
         this.nom_medidor = nom_medidor;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

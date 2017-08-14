@@ -2,6 +2,8 @@ package ve.gob.fundelec.simlec.TomaLectura.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,9 +44,9 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     @BindView(R.id.aparato)
     TextView aparato;
     @BindView(R.id.lectura1)
-    EditText lectura1;
+    TextView lectura1;
     @BindView(R.id.lectura2)
-    EditText lectura2;
+    TextView lectura2;
     @BindView(R.id.notasLectura)
     CustomSpinner notasLectura;
     Unbinder unbinder;
@@ -120,7 +122,85 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     }
 
     @Override
+    public void showUnidadLecturua(String text) {
+        unidadLectura.setText(text);
+    }
+
+    @Override
+    public void showSumEnergCall1(String text) {
+        sumEnergCall1.setText(text);
+    }
+
+    @Override
+    public void showPuntoSuministro(String text) {
+        ptoSuministro.setText(text);
+    }
+
+    @Override
+    public void showEmplazamiento(String text) {
+        emplazamiento.setText(text);
+    }
+
+    @Override
+    public void showAparato(String text) {
+        aparato.setText(text);
+    }
+
+    @Override
+    public void showLectura1(String text) {
+        lectura1.setText(text);
+    }
+
+    @Override
+    public void showLectura2(String text) {
+        lectura2.setText(text);
+    }
+
+    @Override
+    public void setNumeroDecimalesEnteros(int decimales, int num_enteros) {
+
+        lectura1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                Log.e(TAG, "LECTURA 1 "+s.toString());
+                String[] parts = s.toString().split(".");
+                String part1 = parts[0]; // parte entera
+                String part2 = parts[1]; // parte decimal
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+            }
+        });
+
+
+        lectura2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                Log.e(TAG, "LECTURA 1 "+s.toString());
+                String[] parts = s.toString().split(".");
+                String part1 = parts[0]; // parte entera
+                String part2 = parts[1]; // parte decimal
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+            }
+        });
+    }
+
+    @Override
     public void showNotify(String message) {
+
+
 
     }
 

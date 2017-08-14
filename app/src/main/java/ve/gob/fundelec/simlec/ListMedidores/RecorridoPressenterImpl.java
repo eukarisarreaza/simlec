@@ -47,7 +47,9 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
             case LecturasEvent.valorLectura:
                 view.valorLectura();
                 break;
-
+            case LecturasEvent.notifyError:
+                view.showNotify(event.getMessage());
+                break;
         }
     }
 

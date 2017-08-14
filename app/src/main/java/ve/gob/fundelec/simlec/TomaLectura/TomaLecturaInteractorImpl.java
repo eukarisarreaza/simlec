@@ -17,6 +17,11 @@ public class TomaLecturaInteractorImpl implements TomaLecturaInteractor {
     }
 
     @Override
+    public void getInfoRuta() {
+        repository.getInfoRuta();
+    }
+
+    @Override
     public void grabarNotaLectura(int pos) {
         this.grabarNotaLectura(pos);
     }

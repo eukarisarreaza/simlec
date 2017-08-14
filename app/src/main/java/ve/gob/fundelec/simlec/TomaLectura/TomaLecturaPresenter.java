@@ -11,6 +11,7 @@ public interface TomaLecturaPresenter {
     void onDestroy();
     void onEventMainThread(TomaLecturaEvent event);
     void getNotasTomaLectura();
+    void getInfoRuta();
     void grabarNota(int post);
     void grabarLectura(String lectura);
 }

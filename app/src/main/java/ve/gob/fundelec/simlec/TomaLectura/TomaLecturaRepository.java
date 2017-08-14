@@ -6,6 +6,8 @@ package ve.gob.fundelec.simlec.TomaLectura;
 
 public interface TomaLecturaRepository {
     void getNotasLectura();
+    void getInfoRuta();
+
     void grabarNotaLectura(int pos);
     void grabarLectura(String lectura);
 }

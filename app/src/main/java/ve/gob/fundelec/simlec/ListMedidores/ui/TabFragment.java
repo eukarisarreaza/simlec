@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -110,7 +111,7 @@ public class TabFragment extends Fragment implements RecorridoView {
 
     @Override
     public void showNotify(String message) {
-
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.next_button)

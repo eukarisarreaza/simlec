@@ -48,6 +48,14 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
     }
 
     @Override
+    public void getInfoRuta() {
+        TomaLecturaEvent event= new TomaLecturaEvent();
+        event.setEventType(TomaLecturaEvent.showInfoRuta);
+        event.setRuta(sessionManager.getRuta());
+        eventBus.post(event);
+    }
+
+    @Override
     public void grabarNotaLectura(int pos) {
 
 
