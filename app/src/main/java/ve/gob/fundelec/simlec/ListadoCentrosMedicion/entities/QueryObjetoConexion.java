@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities;
 
+import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.QueryModel;
 
@@ -83,5 +84,11 @@ public class QueryObjetoConexion {
 
     public void setEmplazamiento(String emplazamiento) {
         this.emplazamiento = emplazamiento;
+    }
+    @Override
+    public String toString() {
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
 }

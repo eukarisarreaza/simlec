@@ -90,13 +90,12 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
             objetosConexionNotas.setVersion(1);
             objetosConexionNotas.save();
             Log.e(TAG, "objeto conexion nota no existe, creado ");
-        }
-
-        Log.e(TAG, "objeto conexion nota "+notaObjetoConexion.toString());
+        }else
+            Log.e(TAG, "objeto conexion nota "+notaObjetoConexion.toString());
 
         /**
 
-        notaObjetoConexion.setCod_nota_lectura(notasLectura.get(pos-1).getCod_nota_letura());
+        notaObjetoConexion.setCod_nota_lectura(notasLectura.get(pos-/1).getCod_nota_letura());
         notaObjetoConexion.save();
 
         LecturaGestionarEvent event= new LecturaGestionarEvent();

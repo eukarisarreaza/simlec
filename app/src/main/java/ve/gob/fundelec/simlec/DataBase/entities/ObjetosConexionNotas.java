@@ -1,11 +1,10 @@
 package ve.gob.fundelec.simlec.DataBase.entities;
 
+import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
-
-import org.apache.commons.lang.builder.ToStringBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -112,8 +111,10 @@ public class ObjetosConexionNotas extends BaseModel{
         this.accion = accion;
     }
 
+    @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
-
 }

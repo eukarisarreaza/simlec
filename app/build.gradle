@@ -61,7 +61,6 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
 
     compile 'com.github.piotrek1543:CustomSpinner:0.1'
-    compile group: 'commons-lang', name: 'commons-lang', version: '2.3'
 
 
 

@@ -1,6 +1,6 @@
 package ve.gob.fundelec.simlec.ListMedidores.entities;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.QueryModel;
 
@@ -220,6 +220,8 @@ public class QueryMedidores {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
 }

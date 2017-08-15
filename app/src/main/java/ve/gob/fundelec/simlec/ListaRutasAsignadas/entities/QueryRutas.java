@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.ListaRutasAsignadas.entities;
 
+import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.QueryModel;
 
@@ -154,5 +155,12 @@ public class QueryRutas {
 
     public void setId_ruta(int id_ruta_tabla) {
         this.id_ruta = id_ruta_tabla;
+    }
+
+    @Override
+    public String toString() {
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
 }

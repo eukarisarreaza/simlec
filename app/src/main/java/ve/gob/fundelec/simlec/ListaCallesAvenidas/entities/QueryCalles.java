@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.ListaCallesAvenidas.entities;
 
+import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.QueryModel;
 
@@ -132,5 +133,12 @@ public class QueryCalles {
 
     public void setId_programacion_calle(int id_programacion_calle) {
         this.id_programacion_calle = id_programacion_calle;
+    }
+
+    @Override
+    public String toString() {
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
 }
