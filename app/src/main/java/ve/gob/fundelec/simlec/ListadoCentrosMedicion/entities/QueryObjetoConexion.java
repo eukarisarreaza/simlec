@@ -24,6 +24,9 @@ public class QueryObjetoConexion {
     @Column
     int numMedidores;
 
+    @Column
+    String emplazamiento;//10
+
 
 
     public int getId_objeto_conexion() {
@@ -72,5 +75,13 @@ public class QueryObjetoConexion {
 
     public void setNumMedidores(int numMedidores) {
         this.numMedidores = numMedidores;
+    }
+
+    public String getEmplazamiento() {
+        return emplazamiento;
+    }
+
+    public void setEmplazamiento(String emplazamiento) {
+        this.emplazamiento = emplazamiento;
     }
 }

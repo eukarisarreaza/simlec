@@ -5,6 +5,11 @@ import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
 
 /**
@@ -70,8 +75,9 @@ public class ObjetosConexionNotas extends BaseModel{
         return fch_lectura;
     }
 
-    public void setFch_lectura(String fch_lectura) {
-        this.fch_lectura = fch_lectura;
+    public void setFch_lectura(Date fch_lectura) {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.fch_lectura = sf.format(fch_lectura);
     }
 
     public String getCod_nota_lectura() {
@@ -105,4 +111,9 @@ public class ObjetosConexionNotas extends BaseModel{
     public void setAccion(int accion) {
         this.accion = accion;
     }
+
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
+
 }

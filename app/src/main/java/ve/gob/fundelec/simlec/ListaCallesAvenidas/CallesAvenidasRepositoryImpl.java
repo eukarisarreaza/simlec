@@ -73,6 +73,7 @@ public class CallesAvenidasRepositoryImpl implements CallesAvenidasRepository{
 
         List<QueryCalles> list= new Select(CalleAvenida_Table.id.withTable(NameAlias.builder("B").build()).as("id_calle"),
                 CalleAvenida_Table.nom_calle, ProgramacionCalle_Table.id_lector, ProgramacionCalle_Table.id_dispositivo_movil,
+                ProgramacionCalle_Table.id.withTable(NameAlias.builder("A").build()).as("id_programacion_calle"),
                 Parroquias_Table.parroquia, Municipios_Table.municipio, Estados_Table.estado,
                 Method.sum(ProgramacionCalle_Table.cant_lect_programadas).as("cant_lect_programadas"),
                 Method.sum(ProgramacionCalle_Table.cant_lect_gestionada).as("cant_lect_gestionadasŗ"))

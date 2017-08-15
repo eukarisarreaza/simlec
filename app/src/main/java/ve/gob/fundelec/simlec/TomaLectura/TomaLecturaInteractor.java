@@ -8,5 +8,6 @@ public interface TomaLecturaInteractor {
     void getNotasLectura();
     void getInfoRuta();
     void grabarNotaLectura(int pos);
-    void grabarLectura(String lectura);
+    void grabarLectura(String lectura1, String lectura2);
+    void getParametrosLectura();
 }

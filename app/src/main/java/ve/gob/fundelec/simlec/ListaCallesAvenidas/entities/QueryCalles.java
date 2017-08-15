@@ -13,25 +13,20 @@ public class QueryCalles {
 
     @Column
     int id_calle;
-
     @Column
     String nom_calle;
-
     @Column
     int id_lector;
-
     @Column
     int id_dispositivo_movil;
-
     @Column
     int cant_lect_programadas;
-
     @Column
     int cant_lect_gestionadasŗ;
-
     @Column
     int porcentaje_avance;
-
+    @Column
+    int id_programacion_calle;
 
     @Column
     String parroquia;
@@ -128,5 +123,14 @@ public class QueryCalles {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+
+    public int getId_programacion_calle() {
+        return id_programacion_calle;
+    }
+
+    public void setId_programacion_calle(int id_programacion_calle) {
+        this.id_programacion_calle = id_programacion_calle;
     }
 }

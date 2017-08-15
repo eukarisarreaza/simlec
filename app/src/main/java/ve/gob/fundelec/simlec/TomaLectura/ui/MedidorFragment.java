@@ -79,7 +79,9 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
 
         setupInject();
         presenter.onCreate();
+        presenter.getInfoRuta();
         presenter.getNotasTomaLectura();
+        presenter.getParametrosLectura();
 
         return view;
     }

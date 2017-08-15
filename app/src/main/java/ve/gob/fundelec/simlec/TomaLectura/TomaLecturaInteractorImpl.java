@@ -23,11 +23,17 @@ public class TomaLecturaInteractorImpl implements TomaLecturaInteractor {
 
     @Override
     public void grabarNotaLectura(int pos) {
-        this.grabarNotaLectura(pos);
+        this.repository.grabarNotaLectura(pos);
     }
 
     @Override
-    public void grabarLectura(String lectura) {
-        this.repository.grabarLectura(lectura);
+    public void grabarLectura(String kva, String va) {
+        this.repository.grabarLecturaKva(kva);
+        this.repository.grabarLecturaVa(va);
+    }
+
+    @Override
+    public void getParametrosLectura() {
+        repository.getParametrosLectura();
     }
 }

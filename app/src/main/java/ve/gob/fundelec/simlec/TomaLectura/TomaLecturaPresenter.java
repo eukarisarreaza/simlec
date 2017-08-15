@@ -14,5 +14,6 @@ public interface TomaLecturaPresenter {
     void getInfoRuta();
     void grabarNota(int post);
     void grabarLectura(String lectura);
+    void getParametrosLectura();
 }
 

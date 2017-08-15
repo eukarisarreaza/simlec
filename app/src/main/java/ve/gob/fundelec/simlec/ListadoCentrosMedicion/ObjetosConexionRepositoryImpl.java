@@ -61,7 +61,9 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
 
         List<QueryObjetoConexion> list= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
                 ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex,
-                Method.count(Medidores_Table.id.withTable(NameAlias.builder("B").build())).as("numMedidores"), Method.sum(IndicadoresLectura_Table.status_lectura).as("cant_lect_ejecutadas"))
+                ObjetoConexion_Table.emplazamiento,
+                Method.count(Medidores_Table.id.withTable(NameAlias.builder("B").build())).as("numMedidores"),
+                Method.sum(IndicadoresLectura_Table.status_lectura).as("cant_lect_ejecutadas"))
                 .from(ObjetoConexion.class).as("A")
 
                 .innerJoin(Medidores.class).as("B")
@@ -79,8 +81,7 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
 
 
 
-        for (QueryObjetoConexion objetoConexion :
-                list) {
+        for (QueryObjetoConexion objetoConexion : list) {
             Log.e(TAG, "NUM MEDIDORES "+objetoConexion.getCant_lect_ejecutadas());
         }
 
