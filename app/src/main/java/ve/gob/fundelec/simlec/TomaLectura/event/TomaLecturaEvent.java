@@ -15,6 +15,7 @@ public class TomaLecturaEvent {
     public static final int showListNotas=3;
     public static final int showInfoRuta=4;
     public static final int showInfoMedidor=5;
+    public static final int actualizarPresinto=6;
 
     private int eventType;
     private String message;
@@ -22,6 +23,9 @@ public class TomaLecturaEvent {
     private QueryRutas ruta;
     private QueryObjetoConexion objetoConexion;
     private QueryMedidores medidor;
+
+    private String retirado;
+    private String actual;
 
 
     public int getEventType() {
@@ -71,5 +75,21 @@ public class TomaLecturaEvent {
 
     public void setObjetoConexion(QueryObjetoConexion objetoConexion) {
         this.objetoConexion = objetoConexion;
+    }
+
+    public String getRetirado() {
+        return retirado;
+    }
+
+    public void setRetirado(String retirado) {
+        this.retirado = retirado;
+    }
+
+    public String getActual() {
+        return actual;
+    }
+
+    public void setActual(String actual) {
+        this.actual = actual;
     }
 }

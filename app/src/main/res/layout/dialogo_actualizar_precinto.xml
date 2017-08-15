@@ -42,6 +42,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/retirado"
             android:paddingLeft="@dimen/margi_extra_corto"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -54,7 +55,7 @@
             android:layout_height="match_parent" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/actual"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

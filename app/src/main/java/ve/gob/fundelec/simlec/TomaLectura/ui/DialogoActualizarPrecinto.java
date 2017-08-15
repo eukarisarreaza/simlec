@@ -6,11 +6,17 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.R;
 
 /**
@@ -18,6 +24,14 @@ import ve.gob.fundelec.simlec.R;
  */
 
 public class DialogoActualizarPrecinto extends DialogFragment {
+
+    @BindView(R.id.retirado)
+    TextView retirado;
+    @BindView(R.id.actual)
+    EditText actual;
+    Unbinder unbinder;
+
+
 
     public static DialogoActualizarPrecinto newInstance() {
         Bundle args = new Bundle();
@@ -35,7 +49,9 @@ public class DialogoActualizarPrecinto extends DialogFragment {
         dialogo.setContentView(R.layout.dialogo_actualizar_precinto);
         dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogo.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        ButterKnife.bind(this, dialogo);
+        unbinder = ButterKnife.bind(this, dialogo);
+
+
 
         return dialogo;
     }
@@ -45,6 +61,12 @@ public class DialogoActualizarPrecinto extends DialogFragment {
         dismiss();
     }
 
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }
 
 
