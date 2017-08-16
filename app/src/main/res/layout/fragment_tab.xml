@@ -74,6 +74,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
+                android:padding="@dimen/margi_extra_corto"
                 android:tint="@color/colorPrimary"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/white"
