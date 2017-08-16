@@ -7,10 +7,10 @@ package ve.gob.fundelec.simlec.ListMedidores;
 public interface RecorridoInteractor {
     void getFragmentInicio();
     void registrarFragment();
-
     void proximoMedidor();
     void anteriorMedidor();
-
     void proximoObjetoConexion();
     void anteriorObjetoConexion();
+    void actualizarPresinto(String retirado, String actual);
+
 }

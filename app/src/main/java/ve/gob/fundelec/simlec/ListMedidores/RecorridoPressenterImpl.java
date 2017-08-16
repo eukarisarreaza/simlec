@@ -81,6 +81,10 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
 
     @Override
     public void anteriorObjetoConexion() {
+    }
 
+    @Override
+    public void actualizarPresinto(String retirado, String actual) {
+        interactor.actualizarPresinto(retirado, actual);
     }
 }

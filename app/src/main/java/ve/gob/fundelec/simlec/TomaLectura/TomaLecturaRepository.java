@@ -10,5 +10,6 @@ public interface TomaLecturaRepository {
     void grabarNotaLectura(int pos);
     void grabarLecturaKva(String lectura);
     void grabarLecturaVa(String lectura);
+    void actualizarFechaLectura();
     void getParametrosLectura();
 }

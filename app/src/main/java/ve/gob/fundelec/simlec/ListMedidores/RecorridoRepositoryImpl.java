@@ -163,7 +163,8 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     }
 
     @Override
-    public void actualizarPresinto() {
+    public void actualizarPresinto(String retirado, String actual) {
+
 
     }
 

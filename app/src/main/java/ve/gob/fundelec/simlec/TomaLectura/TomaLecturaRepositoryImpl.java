@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
 
+import java.util.Date;
 import java.util.List;
 
 import ve.gob.fundelec.simlec.Configuracion;
@@ -12,6 +13,8 @@ import ve.gob.fundelec.simlec.DataBase.entities.FNotaLectura_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura;
 import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
+import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle;
+import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.TomaLectura.event.TomaLecturaEvent;
@@ -27,14 +30,24 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
     private LectorSessionManager sessionManager;
     private List<FNotaLectura> notasLectura; /** NOTAS DE LECTURA PARA LA TOMA DE LECTURA */
     private QueryMedidores medidor;
+    private ProgramacionCalle programacionCalle;
 
     public TomaLecturaRepositoryImpl(EventBus eventBus, LectorSessionManager sessionManager) {
         this.eventBus = eventBus;
         this.sessionManager = sessionManager;
-        this.medidor= sessionManager.getMedidor();
+        this.medidor = sessionManager.getMedidor();
+        // obtener el objeto programacion calle
+        setProgramacion();
     }
 
+    public void setProgramacion() {
+        programacionCalle = new Select(ProgramacionCalle_Table.ALL_COLUMN_PROPERTIES)
+                .from(ProgramacionCalle.class)
+                .where(ProgramacionCalle_Table.id.is(sessionManager.getCalle().getId_programacion_calle()))
+                .querySingle();
 
+        Log.e(TAG, "programacion calle "+programacionCalle.toString());
+    }
     @Override
     public void getNotasLectura() {
 
@@ -68,9 +81,16 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
     @Override
     public void grabarNotaLectura(int pos) {
-        Log.e(TAG, "nota lectura "+notasLectura.get(pos-1).getCod_nota_letura());
+        //Log.e(TAG, "nota lectura "+notasLectura.get(pos-1).getCod_nota_letura());
 
+        IndicadoresLectura lectura_table= new Select()
+                .from(IndicadoresLectura.class)
+                .where(IndicadoresLectura_Table.id.is(medidor.getId_indicador_lectura()))
+                .querySingle();
+        lectura_table.setCod_nota_lectura(notasLectura.get(pos-1).getCod_nota_letura());
+        lectura_table.save();
 
+        Log.e(TAG, "nota lectura "+lectura_table.toString());
     }
 
     @Override
@@ -82,6 +102,8 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
         Log.e(TAG,"lectura a grabar (consumo kwh)"+Double.parseDouble(lectura));
         lectura_table.setConsumo_kwh(Double.parseDouble(lectura));
+        lectura_table.save();
+        Log.e(TAG,"lectura grabada"+lectura_table.toString());
     }
 
     @Override
@@ -93,6 +115,20 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
         Log.e(TAG,"lectura a grabar (demanda VA) "+Double.parseDouble(lectura));
         lectura_table.setDemanda_va(Double.parseDouble(lectura));
+        lectura_table.save();
+        Log.e(TAG,"lectura grabada"+lectura_table.toString());
+    }
+
+    @Override
+    public void actualizarFechaLectura() {
+        IndicadoresLectura lectura_table= new Select()
+                .from(IndicadoresLectura.class)
+                .where(IndicadoresLectura_Table.id.is(medidor.getId_indicador_lectura()))
+                .querySingle();
+
+        lectura_table.setFch_toma_lectura(new Date());
+        lectura_table.save();
+        Log.e(TAG,"lectura grabada"+lectura_table.toString());
 
     }
 
@@ -103,4 +139,6 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
         event.setMedidor(sessionManager.getMedidor());
         eventBus.post(event);
     }
+
+
 }

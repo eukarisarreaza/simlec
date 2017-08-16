@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.DataBase.entities;
 
+import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
@@ -283,5 +284,13 @@ public class ProgramacionCalle extends BaseModel{
 
     public void setAccion(int accion) {
         this.accion = accion;
+    }
+
+
+    @Override
+    public String toString() {
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
 }

@@ -25,7 +25,7 @@ import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.TomaLectura.ui.MedidorFragment;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
-public class TabFragment extends Fragment implements RecorridoView {
+public class TabFragment extends Fragment implements RecorridoView, ListenerActualizarPresinto {
 
     @BindView(R.id.subtitulo)
     TextView subtitulo;
@@ -153,13 +153,15 @@ public class TabFragment extends Fragment implements RecorridoView {
     @OnClick(R.id.letter_p)
     @Override
     public void letter_p() {
-        Configuracion.letterP(eventBus);
+        DialogoActualizarPrecinto dialogo= DialogoActualizarPrecinto.newInstance(this);
+        dialogo.show(getFragmentManager(), "");
     }
 
     @OnClick(R.id.letter_s)
     @Override
     public void letter_s() {
-        Configuracion.letterS(eventBus);
+
+
     }
 
     @OnClick(R.id.back)
@@ -173,5 +175,10 @@ public class TabFragment extends Fragment implements RecorridoView {
         super.onDestroyView();
         unbinder.unbind();
         pressenter.onDestroy();
+    }
+
+    @Override
+    public void onClickGrabar(String retirado, String actual) {
+        pressenter.actualizarPresinto(retirado, actual);
     }
 }

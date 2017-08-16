@@ -42,7 +42,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/retirado"
             android:paddingLeft="@dimen/margi_extra_corto"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -55,11 +54,12 @@
             android:layout_height="match_parent" />
 
         <EditText
-            android:id="@+id/actual"
+            android:id="@+id/retirado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="0000000"
+            android:background="@android:color/white"
             android:inputType="numberDecimal"
             android:padding="5dp" />
 
@@ -88,10 +88,12 @@
             android:id="@+id/textView5" />
 
         <EditText
+            android:id="@+id/actual"
             android:layout_weight="1"
             android:inputType="numberDecimal"
             android:padding="5dp"
             android:hint="0000000"
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

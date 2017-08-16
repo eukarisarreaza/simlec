@@ -41,4 +41,9 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
     public void anteriorObjetoConexion() {
 
     }
+
+    @Override
+    public void actualizarPresinto(String retirado, String actual) {
+        repository.actualizarPresinto(retirado, actual);
+    }
 }

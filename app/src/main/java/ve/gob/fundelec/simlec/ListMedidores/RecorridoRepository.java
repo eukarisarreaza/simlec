@@ -13,6 +13,7 @@ public interface RecorridoRepository {
     void getPrevioMedidor();
 
     void añadirSobrante();
-    void actualizarPresinto();
+    void actualizarPresinto(String retirado, String actual);
+
 
 }

@@ -230,9 +230,7 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
 
     @Override
     public void showNotify(String message) {
-
-
-
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

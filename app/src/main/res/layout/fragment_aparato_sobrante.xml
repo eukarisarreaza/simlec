@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
-        layout="@layout/toolbar_layout_subtitulo"/>
+        layout="@layout/toolbar_layout_subtitulo"
+        android:id="@+id/include" />
 
     <TextView
-        android:background="@color/opcion1_2"
+        android:background="@color/opcion1_1"
         android:text="GRABAR"
-        android:gravity="end"
+        android:gravity="center"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:padding="@dimen/margi_extra_corto"
@@ -18,10 +19,11 @@
         android:layout_height="wrap_content"/>
 
     <ScrollView
-        android:layout_below="@+id/toolbar"
-        android:layout_marginBottom="@dimen/margi_largo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:orientation="vertical"
@@ -114,13 +116,14 @@
                     android:layout_height="match_parent" />
 
                 <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"
-                    android:padding="5dp"
                     android:hint="1111"
                     android:background="@android:color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:inputType="number"
+                    android:padding="5dp" />
 
             </LinearLayout>
 
@@ -149,7 +152,7 @@
                     android:layout_weight="1"
                     android:inputType="number"
                     android:padding="5dp"
-                    android:hint="1111"
+                    android:hint="00000"
                     android:background="@android:color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -298,13 +301,14 @@
                         android:layout_height="wrap_content" />
 
                     <EditText
-                        android:layout_weight="1"
-                        android:inputType="numberDecimal"
-                        android:padding="5dp"
-                        android:hint="00000.00"
+                        android:id="@+id/editText2"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="00000.00"
                         android:background="@android:color/white"
-                        android:layout_height="wrap_content" />
+                        android:inputType="numberDecimal"
+                        android:padding="5dp" />
 
                     <TextView
                         android:text="@string/kwh"
@@ -328,15 +332,16 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/margi_extra_corto"
                     android:layout_weight="1"
                     android:background="@color/background_2"
-                    android:text=""
-                    android:layout_marginRight="@dimen/margi_extra_corto"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="@dimen/margi_extra_corto"
                     android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:text="" />
 
 
                 <LinearLayout
@@ -356,8 +361,8 @@
                         android:inputType="numberDecimal"
                         android:padding="5dp"
                         android:hint="00000.00"
-                        android:layout_width="match_parent"
                         android:background="@android:color/white"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
                     <TextView
@@ -377,9 +382,6 @@
                 android:layout_height="0.1dp"/>
 
         </LinearLayout>
-
-
-
 
     </ScrollView>
 
