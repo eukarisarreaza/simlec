@@ -160,8 +160,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     @OnClick(R.id.letter_s)
     @Override
     public void letter_s() {
-
-
+        Configuracion.letterS(eventBus);
     }
 
     @OnClick(R.id.back)

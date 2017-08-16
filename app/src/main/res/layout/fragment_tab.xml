@@ -57,7 +57,6 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="?android:attr/listDivider" />
-
                 <Button
                     android:id="@+id/prev_button"
                     android:layout_width="0dp"
@@ -72,6 +71,21 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="?android:attr/listDivider" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:tint="@color/colorPrimary"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/save" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
 
             <LinearLayout
                 android:layout_weight="1"

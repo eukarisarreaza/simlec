@@ -164,7 +164,7 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
 
     @Override
     public void actualizarPresinto(String retirado, String actual) {
-
+        Log.e(TAG, "ATUALIZAR PRESINTO "+retirado+" "+actual);
 
     }
 

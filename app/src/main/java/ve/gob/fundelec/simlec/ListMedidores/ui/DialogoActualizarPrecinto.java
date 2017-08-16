@@ -55,15 +55,18 @@ public class DialogoActualizarPrecinto extends DialogFragment {
         dialogo.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         unbinder = ButterKnife.bind(this, dialogo);
 
+
+
         return dialogo;
     }
 
     @OnClick(R.id.aceptar)
     public void cerrar() {
-        if(!retirado.getText().toString().isEmpty() && !retirado.getText().toString().isEmpty()){
+        if(!retirado.getText().toString().isEmpty() && !actual.getText().toString().isEmpty()){
             listener.onClickGrabar(retirado.getText().toString(), actual.getText().toString());
-        }else
+        }else {
             Toast.makeText(getContext(), "Datos Inválidos", Toast.LENGTH_SHORT).show();
+        }
         dismiss();
     }
 

@@ -10,10 +10,12 @@ public class LecturasEvent {
     public final static int showUnidadLecturaGestionar= 2;
     public final static int valorLectura= 3;
     public final static int notifyError= 4;
+    public final static int actualizarPresinto= 5;
 
     private int eventType;
     private String message;
     private String nom_medidor;
+    private String retirado, actual;
 
 
     public int getEventType() {
@@ -38,5 +40,21 @@ public class LecturasEvent {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getRetirado() {
+        return retirado;
+    }
+
+    public void setRetirado(String retirado) {
+        this.retirado = retirado;
+    }
+
+    public String getActual() {
+        return actual;
+    }
+
+    public void setActual(String actual) {
+        this.actual = actual;
     }
 }
