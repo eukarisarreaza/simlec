@@ -15,4 +15,5 @@ public interface RecorridoRepository {
     void añadirSobrante();
     void actualizarPresinto(String retirado, String actual);
 
+    void saveLectura();
 }

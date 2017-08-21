@@ -12,7 +12,7 @@ public interface RecorridoView {
 
     void nextMedidor();
     void prevMedidor();
-
+    void saveLectrura();
     void sigObjetoConexion();
     void prevObjetoConexion();
 

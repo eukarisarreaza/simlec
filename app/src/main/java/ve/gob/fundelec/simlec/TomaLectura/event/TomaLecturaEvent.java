@@ -15,7 +15,11 @@ public class TomaLecturaEvent {
     public static final int showListNotas=3;
     public static final int showInfoRuta=4;
     public static final int showInfoMedidor=5;
-    public static final int actualizarPresinto=6;
+    public static final int showInfoIndicadorLectura=6;
+
+    public static final int saveLectura=7;
+    public static final int onSussesGrabarLectura=8;
+    public static final int onFailedGrabarLcetura=9;
 
     private int eventType;
     private String message;
@@ -23,6 +27,8 @@ public class TomaLecturaEvent {
     private QueryRutas ruta;
     private QueryObjetoConexion objetoConexion;
     private QueryMedidores medidor;
+    private String kva;
+    private String va;
 
     private String retirado;
     private String actual;
@@ -91,5 +97,21 @@ public class TomaLecturaEvent {
 
     public void setActual(String actual) {
         this.actual = actual;
+    }
+
+    public String getKva() {
+        return kva;
+    }
+
+    public void setKva(String kva) {
+        this.kva = kva;
+    }
+
+    public String getVa() {
+        return va;
+    }
+
+    public void setVa(String va) {
+        this.va = va;
     }
 }

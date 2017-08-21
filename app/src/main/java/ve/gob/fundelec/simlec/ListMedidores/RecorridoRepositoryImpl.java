@@ -15,37 +15,10 @@ import ve.gob.fundelec.simlec.DataBase.entities.Medidores_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
+import ve.gob.fundelec.simlec.TomaLectura.event.TomaLecturaEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
- *
- /**
-
- .where(Medidores_Table.id_objeto_conexion.is(objetoConexion.getId_objeto_conexion()))
- for (QueryObjetoConexion objetoConexion : list) {
-
- Log.e(TAG, objetoConexion.getNom_obj_conex());
-
- List<QueryMedidores> medidoresList= new Select()
- .from(Medidores.class).as("A")
- .innerJoin(IndicadoresLectura.class).as("B")
- .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("B").build())
- .eq(Medidores_Table.id.withTable(NameAlias.builder("A").build())))
- .where(Medidores_Table.id_objeto_conexion.is(objetoConexion.getId_objeto_conexion()))
- .queryCustomList(QueryMedidores.class);
- }
-
-
-
- .innerJoin(Medidores.class).as("B")
- .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
- .eq(Medidores_Table.id_objeto_conexion.withTable(NameAlias.builder("B").build())))
-
- .innerJoin(IndicadoresLectura.class).as("C")
- .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("C").build())
- .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
-
-
  * Created by fundelec on 01/08/17.
  */
 
@@ -166,6 +139,16 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     public void actualizarPresinto(String retirado, String actual) {
         Log.e(TAG, "ATUALIZAR PRESINTO "+retirado+" "+actual);
 
+
+
+    }
+
+    @Override
+    public void saveLectura() {
+        /**VERIFICAR SI ESTA ACTIVA UNIDAD DE LECTURA A GECTIONAR O VALOR DE LECTURA */
+        TomaLecturaEvent event=new TomaLecturaEvent();
+        event.setEventType(TomaLecturaEvent.saveLectura);
+        eventBus.post(event);
     }
 
     private void postEventNomMedidor(int eventType, String message) {

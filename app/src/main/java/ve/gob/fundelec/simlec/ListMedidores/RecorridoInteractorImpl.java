@@ -46,4 +46,9 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
     public void actualizarPresinto(String retirado, String actual) {
         repository.actualizarPresinto(retirado, actual);
     }
+
+    @Override
+    public void saveLectura() {
+        repository.saveLectura();
+    }
 }

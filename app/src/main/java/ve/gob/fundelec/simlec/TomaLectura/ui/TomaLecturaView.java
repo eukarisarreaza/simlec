@@ -17,4 +17,11 @@ public interface TomaLecturaView {
 
     void showNotaLectura(String[] data);
     void showNotify(String message);
+
+    void onSuccesGrabarLectura();
+    void onFailedGrabarLectura();
+    String getLectura1();
+    String getLectura2();
+
+
 }

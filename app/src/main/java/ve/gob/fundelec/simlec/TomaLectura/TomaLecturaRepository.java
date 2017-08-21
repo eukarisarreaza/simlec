@@ -8,8 +8,9 @@ public interface TomaLecturaRepository {
     void getNotasLectura();
     void getInfoRuta();
     void grabarNotaLectura(int pos);
-    void grabarLecturaKva(String lectura);
-    void grabarLecturaVa(String lectura);
-    void actualizarFechaLectura();
     void getParametrosLectura();
+    void getIndicadoresLectura();
+
+
+    void saveLectura(String lectura1, String lectura2);
 }

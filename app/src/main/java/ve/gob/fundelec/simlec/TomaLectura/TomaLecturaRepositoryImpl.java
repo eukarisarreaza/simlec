@@ -30,23 +30,25 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
     private LectorSessionManager sessionManager;
     private List<FNotaLectura> notasLectura; /** NOTAS DE LECTURA PARA LA TOMA DE LECTURA */
     private QueryMedidores medidor;
-    private ProgramacionCalle programacionCalle;
 
     public TomaLecturaRepositoryImpl(EventBus eventBus, LectorSessionManager sessionManager) {
         this.eventBus = eventBus;
         this.sessionManager = sessionManager;
         this.medidor = sessionManager.getMedidor();
         // obtener el objeto programacion calle
-        setProgramacion();
     }
 
     public void setProgramacion() {
+        /*
         programacionCalle = new Select(ProgramacionCalle_Table.ALL_COLUMN_PROPERTIES)
                 .from(ProgramacionCalle.class)
                 .where(ProgramacionCalle_Table.id.is(sessionManager.getCalle().getId_programacion_calle()))
                 .querySingle();
-
         Log.e(TAG, "programacion calle "+programacionCalle.toString());
+
+                */
+        Log.e(TAG, "id programacion calle "+sessionManager.getCalle().getId_programacion_calle());
+
     }
     @Override
     public void getNotasLectura() {
@@ -93,44 +95,7 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
         Log.e(TAG, "nota lectura "+lectura_table.toString());
     }
 
-    @Override
-    public void grabarLecturaKva(String lectura) {
-        IndicadoresLectura lectura_table= new Select()
-                .from(IndicadoresLectura.class)
-                .where(IndicadoresLectura_Table.id.is(medidor.getId_indicador_lectura()))
-                .querySingle();
 
-        Log.e(TAG,"lectura a grabar (consumo kwh)"+Double.parseDouble(lectura));
-        lectura_table.setConsumo_kwh(Double.parseDouble(lectura));
-        lectura_table.save();
-        Log.e(TAG,"lectura grabada"+lectura_table.toString());
-    }
-
-    @Override
-    public void grabarLecturaVa(String lectura) {
-        IndicadoresLectura lectura_table= new Select()
-                .from(IndicadoresLectura.class)
-                .where(IndicadoresLectura_Table.id.is(medidor.getId_indicador_lectura()))
-                .querySingle();
-
-        Log.e(TAG,"lectura a grabar (demanda VA) "+Double.parseDouble(lectura));
-        lectura_table.setDemanda_va(Double.parseDouble(lectura));
-        lectura_table.save();
-        Log.e(TAG,"lectura grabada"+lectura_table.toString());
-    }
-
-    @Override
-    public void actualizarFechaLectura() {
-        IndicadoresLectura lectura_table= new Select()
-                .from(IndicadoresLectura.class)
-                .where(IndicadoresLectura_Table.id.is(medidor.getId_indicador_lectura()))
-                .querySingle();
-
-        lectura_table.setFch_toma_lectura(new Date());
-        lectura_table.save();
-        Log.e(TAG,"lectura grabada"+lectura_table.toString());
-
-    }
 
     @Override
     public void getParametrosLectura() {
@@ -138,6 +103,65 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
         event.setEventType(TomaLecturaEvent.showInfoMedidor);
         event.setMedidor(sessionManager.getMedidor());
         eventBus.post(event);
+    }
+
+    @Override
+    public void getIndicadoresLectura() {
+        IndicadoresLectura lectura= new Select(IndicadoresLectura_Table.ALL_COLUMN_PROPERTIES)
+                .from(IndicadoresLectura.class)
+                .where(IndicadoresLectura_Table.id_medidores.is(sessionManager.getMedidor().getId_medidor()))
+                .querySingle();
+
+        if(lectura.getConsumo_kwh()!= 0 && lectura.getDemanda_va()!= 0 ){
+            TomaLecturaEvent event= new TomaLecturaEvent();
+            event.setEventType(TomaLecturaEvent.showInfoIndicadorLectura);
+            event.setKva(String.valueOf(lectura.getConsumo_kwh()));
+            event.setVa(String.valueOf(lectura.getDemanda_va()));
+            eventBus.post(event);
+        }
+    }
+
+    @Override
+    public void saveLectura(String lectura1, String lectura2) {
+        if(lectura1.isEmpty() || lectura2.isEmpty()){
+            TomaLecturaEvent event= new TomaLecturaEvent();
+            event.setEventType(TomaLecturaEvent.onFailedGrabarLcetura);
+            eventBus.post(event);
+            return;
+        }
+
+        try{
+            double lect1 =Double.parseDouble(lectura1);
+            double lect2 =Double.parseDouble(lectura2);
+
+            IndicadoresLectura lectura= new Select(IndicadoresLectura_Table.ALL_COLUMN_PROPERTIES)
+                    .from(IndicadoresLectura.class)
+                    .where(IndicadoresLectura_Table.id_medidores.is(sessionManager.getMedidor().getId_medidor()))
+                    .querySingle();
+
+
+            Log.e(TAG,"Indicador de lectura "+lectura.toString());
+
+            lectura.setFch_toma_lectura(new Date());
+            lectura.setConsumo_kwh(lect1);
+            lectura.setDemanda_va(lect2);
+            lectura.save();
+
+            Log.e(TAG,"Indicador de lectura actualizada "+lectura.toString());
+
+            TomaLecturaEvent event= new TomaLecturaEvent();
+            event.setEventType(TomaLecturaEvent.onSussesGrabarLectura);
+            eventBus.post(event);
+
+        }catch (Exception e){
+            TomaLecturaEvent event= new TomaLecturaEvent();
+            event.setEventType(TomaLecturaEvent.onFailedGrabarLcetura);
+            eventBus.post(event);
+
+        }finally {
+
+        }
+
     }
 
 

@@ -4,6 +4,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
 import ve.gob.fundelec.simlec.ListMedidores.ui.RecorridoView;
+import ve.gob.fundelec.simlec.TomaLectura.event.TomaLecturaEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -88,5 +89,10 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
     @Override
     public void actualizarPresinto(String retirado, String actual) {
         interactor.actualizarPresinto(retirado, actual);
+    }
+
+    @Override
+    public void saveLecrura() {
+        interactor.saveLectura();
     }
 }

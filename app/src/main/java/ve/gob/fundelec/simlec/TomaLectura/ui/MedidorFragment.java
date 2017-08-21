@@ -151,11 +151,13 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     @Override
     public void showLectura1(String text) {
         lectura1.setText(text);
+        lectura1.setTextColor(getContext().getResources().getColor(R.color.verde));
     }
 
     @Override
     public void showLectura2(String text) {
         lectura2.setText(text);
+        lectura1.setTextColor(getContext().getResources().getColor(R.color.verde));
     }
 
     @Override
@@ -183,7 +185,7 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
                         lectura1.setError("sobrepasa numeros decimales");
                     }
                 }
-
+                lectura1.setTextColor(getResources().getColor(R.color.colorPrimary));
             }
             @Override
             public void beforeTextChanged(CharSequence s, int start,
@@ -216,6 +218,8 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
                         lectura2.setError("sobrepasa numeros decimales");
                     }
                 }
+                lectura2.setTextColor(getResources().getColor(R.color.colorPrimary));
+
             }
             @Override
             public void beforeTextChanged(CharSequence s, int start,
@@ -231,6 +235,28 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     @Override
     public void showNotify(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSuccesGrabarLectura() {
+        lectura1.setTextColor(getContext().getResources().getColor(R.color.verde));
+        lectura2.setTextColor(getContext().getResources().getColor(R.color.verde));
+        Toast.makeText(getContext(), "Lectura Grabada Satisfactoriamente!!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFailedGrabarLectura() {
+        Toast.makeText(getContext(), "Fallo al grabar lectura!!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public String getLectura1() {
+        return lectura1.getText().toString();
+    }
+
+    @Override
+    public String getLectura2() {
+        return lectura2.getText().toString();
     }
 
     @Override

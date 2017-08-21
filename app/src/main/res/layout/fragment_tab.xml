@@ -73,14 +73,14 @@
                 android:background="?android:attr/listDivider" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/buttomSave"
                 android:padding="@dimen/margi_extra_corto"
+                android:background="@drawable/selectable_item_background"
                 android:tint="@color/colorPrimary"
                 android:layout_gravity="center_vertical"
-                android:background="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/save" />
+                android:src="@drawable/save"/>
 
             <View
                 android:layout_width="1dp"

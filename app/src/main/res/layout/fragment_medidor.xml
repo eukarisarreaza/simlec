@@ -272,6 +272,7 @@
                     android:id="@+id/lectura1"
                     android:padding="5dp"
                     android:hint="00000.00"
+                    android:textColor="@color/colorPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -320,7 +321,8 @@
                     android:id="@+id/lectura2"
                     android:padding="5dp"
                     android:hint="00000.00"
-                    android:layout_width="match_parent"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <TextView

@@ -15,4 +15,6 @@ public interface RecorridoInteractor {
     void anteriorObjetoConexion();
 
     void actualizarPresinto(String retirado, String actual);
+
+    void saveLectura();
 }

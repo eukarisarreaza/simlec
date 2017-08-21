@@ -1,5 +1,7 @@
 package ve.gob.fundelec.simlec.TomaLectura;
 
+import android.util.Log;
+
 import org.greenrobot.eventbus.Subscribe;
 
 import ve.gob.fundelec.simlec.TomaLectura.event.TomaLecturaEvent;
@@ -14,6 +16,7 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
     private EventBus eventBus;
     private TomaLecturaView view;
     private TomaLecturaInteractor interactor;
+    private static final String TAG= TomaLecturaPresenterImpl.class.getName();
 
     public TomaLecturaPresenterImpl(EventBus eventBus, TomaLecturaView view, TomaLecturaInteractor interactor) {
         this.eventBus = eventBus;
@@ -41,14 +44,36 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
             case TomaLecturaEvent.onSussesGrabarNota:
                 break;
             case TomaLecturaEvent.showInfoRuta:
-                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
-                view.showEmplazamiento(event.getObjetoConexion().getEmplazamiento());
+                if(view!=null) {
+                    view.showInfoRuta(event.getRuta().getNom_ruta(), "");
+                    view.showEmplazamiento(event.getObjetoConexion().getEmplazamiento());
+                }
                 break;
             case TomaLecturaEvent.showListNotas:
-                view.showNotaLectura(event.getNotasLectura());
+                if(view!=null)
+                    view.showNotaLectura(event.getNotasLectura());
                 break;
             case TomaLecturaEvent.showInfoMedidor:
-                view.setNumeroDecimalesEnteros(event.getMedidor().getDig_entero(), event.getMedidor().getDig_decimal());
+                if(view!=null)
+                    view.setNumeroDecimalesEnteros(event.getMedidor().getDig_entero(), event.getMedidor().getDig_decimal());
+                break;
+            case TomaLecturaEvent.showInfoIndicadorLectura:
+                if(view!=null) {
+                    view.showLectura1(event.getKva());
+                    view.showLectura2(event.getVa());
+                }
+                break;
+            case TomaLecturaEvent.saveLectura:
+                if(view!=null)
+                    interactor.saveLectura(view.getLectura1(), view.getLectura2());
+                break;
+            case TomaLecturaEvent.onFailedGrabarLcetura:
+                if(view!=null)
+                    view.onFailedGrabarLectura();
+                break;
+            case TomaLecturaEvent.onSussesGrabarLectura:
+                if(view!=null)
+                    view.onSuccesGrabarLectura();
                 break;
         }
     }

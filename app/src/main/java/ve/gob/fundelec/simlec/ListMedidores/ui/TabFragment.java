@@ -126,6 +126,12 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
         pressenter.anteriorMedidor();
     }
 
+    @OnClick(R.id.buttomSave)
+    @Override
+    public void saveLectrura() {
+        pressenter.saveLecrura();
+    }
+
     @OnClick(R.id.next_objeto)
     @Override
     public void sigObjetoConexion() {
@@ -137,6 +143,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     public void prevObjetoConexion() {
         pressenter.anteriorObjetoConexion();
     }
+
 
     @OnClick(R.id.search)
     @Override
