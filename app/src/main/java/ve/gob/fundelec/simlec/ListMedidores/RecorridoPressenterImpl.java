@@ -79,11 +79,12 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
 
     @Override
     public void proximoObjetoConexion() {
-
+        interactor.proximoObjetoConexion();
     }
 
     @Override
     public void anteriorObjetoConexion() {
+        interactor.anteriorObjetoConexion();
     }
 
     @Override

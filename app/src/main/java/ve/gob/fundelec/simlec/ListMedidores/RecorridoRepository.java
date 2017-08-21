@@ -12,6 +12,9 @@ public interface RecorridoRepository {
     void getProximoMedidor();
     void getPrevioMedidor();
 
+    void getProximoObjetoConexion();
+    void getPrevioObjetoConexion();
+
     void añadirSobrante();
     void actualizarPresinto(String retirado, String actual);
 

@@ -91,4 +91,16 @@ public class QueryObjetoConexion {
         String jsonString = gson.toJson(this);
         return jsonString;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof QueryObjetoConexion){
+            QueryObjetoConexion tmp= (QueryObjetoConexion)obj;
+            if(tmp.getId_objeto_conexion()== this.id_objeto_conexion){
+                return true;
+            }else
+                return false;
+        }else
+            return false;
+    }
 }

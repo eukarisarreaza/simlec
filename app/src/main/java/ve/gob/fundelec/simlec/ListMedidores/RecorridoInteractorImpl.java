@@ -34,12 +34,12 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
 
     @Override
     public void proximoObjetoConexion() {
-
+        repository.getProximoObjetoConexion();
     }
 
     @Override
     public void anteriorObjetoConexion() {
-
+        repository.getPrevioObjetoConexion();
     }
 
     @Override

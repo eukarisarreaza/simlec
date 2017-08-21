@@ -2,6 +2,7 @@ package ve.gob.fundelec.simlec.ListMedidores;
 
 import android.util.Log;
 
+import com.raizlabs.android.dbflow.sql.language.Method;
 import com.raizlabs.android.dbflow.sql.language.NameAlias;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
@@ -12,9 +13,12 @@ import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura;
 import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
 import ve.gob.fundelec.simlec.DataBase.entities.Medidores_Table;
+import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
+import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.TomaLectura.event.TomaLecturaEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -27,11 +31,37 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     private EventBus eventBus;
     private LectorSessionManager sessionManager;
     private List<QueryMedidores> listMedidores;
+    private List<QueryObjetoConexion> list_objetos;
 
 
     public RecorridoRepositoryImpl(EventBus eventBus, LectorSessionManager sessionManager) {
         this.eventBus = eventBus;
         this.sessionManager = sessionManager;
+        setListObjetos();
+    }
+
+    private void setListObjetos() {
+        list_objetos= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
+                ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex,
+                ObjetoConexion_Table.emplazamiento,
+                Method.count(Medidores_Table.id.withTable(NameAlias.builder("B").build())).as("numMedidores"),
+                Method.sum(IndicadoresLectura_Table.status_lectura).as("cant_lect_ejecutadas"))
+                .from(ObjetoConexion.class).as("A")
+
+                .innerJoin(Medidores.class).as("B")
+                .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
+                        .eq(Medidores_Table.id_objeto_conexion.withTable(NameAlias.builder("B").build())))
+
+                .innerJoin(IndicadoresLectura.class).as("C")
+                .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("C").build())
+                        .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
+
+                .where(ObjetoConexion_Table.id_calle_avenida.is(sessionManager.getCalle().getId_calle()))
+                .groupBy(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()))
+                .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
+                .queryCustomList(QueryObjetoConexion.class);
+
+
     }
 
     @Override
@@ -145,6 +175,50 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         event.setEventType(LecturasEvent.valorLectura);
         eventBus.post(event);
          */
+    }
+
+    @Override
+    public void getProximoObjetoConexion() {
+        sessionManager.setMedidor(null);
+        /** NECESITAMOS LA LISTA DE OBJETOS DE COPNEXION  */
+        QueryObjetoConexion currentObjetoConexion= sessionManager.getObjetConexion();
+
+        for (int i=0; i<list_objetos.size(); i++){
+            if(currentObjetoConexion.equals(list_objetos.get(i))){
+                if(i==0){
+                    return;
+                }
+                if(i==list_objetos.size()-1){
+                    return;
+                }
+                sessionManager.setObjetoConexion(list_objetos.get(i+1));
+                getMedidorInicio();
+                getNombreObjetoConexionSeleccionado();
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void getPrevioObjetoConexion() {
+        sessionManager.setMedidor(null);
+        /** NECESITAMOS LA LISTA DE OBJETOS DE COPNEXION  */
+        QueryObjetoConexion currentObjetoConexion= sessionManager.getObjetConexion();
+
+        for (int i=0; i<list_objetos.size(); i++){
+            if(currentObjetoConexion.equals(list_objetos.get(i))){
+                if(i==0){
+                    return;
+                }
+                if(i==list_objetos.size()-1){
+                    return;
+                }
+                sessionManager.setObjetoConexion(list_objetos.get(i-1));
+                getMedidorInicio();
+                getNombreObjetoConexionSeleccionado();
+                return;
+            }
+        }
     }
 
     @Override
