@@ -164,17 +164,18 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     public void setNumeroDecimalesEnteros(int decimales, int num_enteros) {
         Log.e(TAG, "decimales "+decimales+" "+num_enteros);
 
+
         lectura1.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                Log.e(TAG, "contiene punto "+s.toString().contains("."));
+                //Log.e(TAG, "contiene punto "+s.toString().contains("."));
                 if(!s.toString().contains(".") && s.toString().length()>num_enteros){
                     lectura1.setError("sobrepasa numeros enteros");
                 }
 
                 if(s.toString().contains(".") && !s.toString().substring(s.toString().length()-1).equals(".")){
                     String[] parts = s.toString().split("[.]");
-                    Log.e(TAG, "cantidad de partes "+parts.length);
+                    //Log.e(TAG, "cantidad de partes "+parts.length);
 
                     String part1 = parts[0]; // parte entera
                     String part2 = parts[1]; // parte decimal
@@ -201,13 +202,13 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
         lectura2.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                Log.e(TAG, "contiene punto "+s.toString().contains("."));
+                //Log.e(TAG, "contiene punto "+s.toString().contains("."));
                 if(!s.toString().contains(".") && s.toString().length()>num_enteros){
                     lectura2.setError("sobrepasa numeros enteros");
                 }
                 if(s.toString().contains(".") && !s.toString().substring(s.toString().length()-1).equals(".")){
                     String[] parts = s.toString().split("[.]");
-                    Log.e(TAG, "cantidad de partes "+parts.length);
+                    //Log.e(TAG, "cantidad de partes "+parts.length);
 
                     String part1 = parts[0]; // parte entera
                     String part2 = parts[1]; // parte decimal

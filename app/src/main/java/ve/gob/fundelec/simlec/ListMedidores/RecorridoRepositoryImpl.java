@@ -87,11 +87,6 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         return null;
     }
 
-    private QueryMedidores buscarMedidorPrevLeer(){
-
-        return null;
-    }
-
     @Override
     public void getNombreObjetoConexionSeleccionado() {
         Log.e(TAG, "OBEJETO "+sessionManager.getObjetConexion().getId_objeto_conexion());
@@ -121,13 +116,35 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
 
     @Override
     public void getPrevioMedidor() {
+        QueryMedidores curent= sessionManager.getMedidor();
+        LecturasEvent event= new LecturasEvent();
+        if(curent==null){
+            event.setEventType(LecturasEvent.showUnidadLecturaGestionar);
+            eventBus.post(event);
+            return;
+        }else {
+            for (int i=0; i<listMedidores.size(); i++ ) {
+                if(curent.equals(listMedidores.get(i))){
+                    if(i==0){
+                        event.setEventType(LecturasEvent.showUnidadLecturaGestionar);
+                        eventBus.post(event);
+                    }else {
+                        sessionManager.setMedidor(listMedidores.get(i-1));
+                        event.setEventType(LecturasEvent.valorLectura);
+                        eventBus.post(event);
+                    }
+                }
+            }
+        }
+
+        /**
         QueryMedidores current=buscarMedidorPrevLeer();
         sessionManager.setMedidor(current);
 
         LecturasEvent event= new LecturasEvent();
         event.setEventType(LecturasEvent.valorLectura);
         eventBus.post(event);
-
+         */
     }
 
     @Override

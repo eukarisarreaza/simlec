@@ -145,6 +145,7 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
             lectura.setFch_toma_lectura(new Date());
             lectura.setConsumo_kwh(lect1);
             lectura.setDemanda_va(lect2);
+            lectura.setStatus_lectura(1); /** TODO STUB: ACTUALIZAR OBJETO DE CONEXION DESPUES DE G*/
             lectura.save();
 
             Log.e(TAG,"Indicador de lectura actualizada "+lectura.toString());

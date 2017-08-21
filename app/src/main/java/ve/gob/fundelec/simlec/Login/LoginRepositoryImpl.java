@@ -1595,16 +1595,16 @@ public class LoginRepositoryImpl implements LoginRepository{
 
     private void setMedidores() {
 
-        Medidores medidor1= new Medidores(1,1,1,5,0,"1132","101735470","19002211848"," 7006945886","9002797027",1,1,1,"");
+        Medidores medidor1= new Medidores(1,1,1,5,3,"1132","101735470","19002211848"," 7006945886","9002797027",1,1,1,"");
         medidor1.save();
 
-        Medidores medidor2= new Medidores(2,2,1,5,0,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        Medidores medidor2= new Medidores(2,2,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
         medidor2.save();
 
-        Medidores medidor3= new Medidores(3,2,1,5,0,"1132","100876323","19001759656"," 7005103523","9000588065",1,1,1,"");
+        Medidores medidor3= new Medidores(3,2,1,5,3,"1132","100876323","19001759656"," 7005103523","9000588065",1,1,1,"");
         medidor3.save();
 
-        Medidores medidor4= new Medidores(4,2,1,4,0,"1132","100710528","19001759657"," 7005103501","9000279789",1,1,1,"");
+        Medidores medidor4= new Medidores(4,2,1,4,3,"1132","100710528","19001759657"," 7005103501","9000279789",1,1,1,"");
         medidor4.save();
 
     }

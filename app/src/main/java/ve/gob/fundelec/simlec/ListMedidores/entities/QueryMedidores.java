@@ -224,4 +224,15 @@ public class QueryMedidores {
         String jsonString = gson.toJson(this);
         return jsonString;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof QueryMedidores){
+            QueryMedidores temp=(QueryMedidores)obj;
+            if(temp.getId_medidor()==this.id_medidor)
+                return true;
+            return false;
+        }else
+            return false;
+    }
 }
