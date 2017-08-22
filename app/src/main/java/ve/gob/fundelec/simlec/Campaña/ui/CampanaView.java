@@ -5,4 +5,9 @@ package ve.gob.fundelec.simlec.Campaña.ui;
  */
 
 public interface CampanaView {
+
+    void onBackPress();
+    void onButtonMenu();
+    void onSearch();
+
 }

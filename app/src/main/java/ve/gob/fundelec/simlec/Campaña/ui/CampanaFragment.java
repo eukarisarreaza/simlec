@@ -5,11 +5,30 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.R;
+import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 
-public class CampanaFragment extends Fragment {
+public class CampanaFragment extends Fragment implements CampanaView {
+
+    @BindView(R.id.search)
+    ImageView search;
+    @BindView(R.id.toolbar)
+    LinearLayout toolbar;
+
+
+    Unbinder unbinder;
+
+    EventBus eventBus;
+
 
     public CampanaFragment() {
         // Required empty public constructor
@@ -30,8 +49,39 @@ public class CampanaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_campana, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        setToolbar();
 
-        return inflater.inflate(R.layout.fragment_campana, container, false);
+        return view;
     }
 
+    private void setToolbar() {
+        toolbar.setBackgroundColor(getContext().getResources().getColor(R.color.opcion1_3));
+
+    }
+
+    @OnClick(R.id.back)
+    @Override
+    public void onBackPress() {
+        Configuracion.back(eventBus);
+    }
+
+    @OnClick(R.id.menu)
+    @Override
+    public void onButtonMenu() {
+        Configuracion.menu(eventBus);
+    }
+
+    @OnClick(R.id.search)
+    @Override
+    public void onSearch() {
+        Configuracion.searh(eventBus);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

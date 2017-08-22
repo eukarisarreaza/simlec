@@ -5,4 +5,9 @@ package ve.gob.fundelec.simlec.AparatoSobrante.ui;
  */
 
 public interface AparatoSobranteView {
+
+    void onBackPress();
+    void onButtonMenu();
+    void onSearch();
+
 }

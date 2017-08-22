@@ -12,7 +12,6 @@ public class MainEvent {
     public final static int onBackPress = 0;
     public final static int onButtonMenu = 1;
     public final static int onSearch = 2;
-    public final static int onClickPresinto = 3;
     public final static int onClickSobrante = 4;
     public final static int showListMenu = 5;   /** MOSTRAR EL MENU LATERAL*/
     public final static int showFragmentInicio= 6;

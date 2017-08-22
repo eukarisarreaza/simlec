@@ -5,4 +5,7 @@ package ve.gob.fundelec.simlec.AparatoSobrante;
  */
 
 public interface AparatoSobrantePresenter {
+
+
+
 }

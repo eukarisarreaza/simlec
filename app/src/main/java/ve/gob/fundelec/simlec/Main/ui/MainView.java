@@ -27,8 +27,6 @@ public interface MainView {
 
     void onBackPress();
     void onButtonMenu();
-    void onClickPresinto();
-    void onClickSobrante();
     void onSearch();
 
 }

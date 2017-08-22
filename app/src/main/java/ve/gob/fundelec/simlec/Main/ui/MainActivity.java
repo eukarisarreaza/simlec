@@ -187,16 +187,6 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     }
 
     @Override
-    public void onClickPresinto() {
-
-    }
-
-    @Override
-    public void onClickSobrante() {
-
-    }
-
-    @Override
     public void onSearch() {
 
     }

@@ -50,13 +50,9 @@ public class MainPressenterImpl implements MainPressenter {
                 Log.e(TAG, "onButtonMenu");
                 view.onButtonMenu();
                 break;
-            case MainEvent.onClickPresinto:
-                Log.e(TAG, "onClickPresinto");
-                view.onClickPresinto();
-                break;
             case MainEvent.onClickSobrante:
                 Log.e(TAG, "onClickSobrante");
-                view.onClickSobrante();
+                view.aparatoSobrante();
                 break;
             case MainEvent.onSearch:
                 Log.e(TAG, "onSearch");

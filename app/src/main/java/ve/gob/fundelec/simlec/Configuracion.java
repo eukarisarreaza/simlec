@@ -46,10 +46,4 @@ public class Configuracion {
         eventBus.post(event);
     }
 
-    public static void letterP(EventBus eventBus){
-        MainEvent event= new MainEvent();
-        event.setEventType(MainEvent.onClickPresinto);
-        eventBus.post(event);
-    }
-
 }
