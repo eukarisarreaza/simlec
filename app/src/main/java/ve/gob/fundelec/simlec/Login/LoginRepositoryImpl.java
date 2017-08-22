@@ -42,9 +42,13 @@ public class LoginRepositoryImpl implements LoginRepository{
         if(type.isEmpty() || user.isEmpty() || password.isEmpty())
             postEvent(LoginEvent.onLoginError, "");
         else {
-            cargarDatosIncio();
-            sessionManager.setLogged();
-            postEvent(LoginEvent.onLoginSuccess, "");
+
+            new Thread(() -> {
+                cargarDatosIncio();
+                sessionManager.setLogged();
+                postEvent(LoginEvent.onLoginSuccess, "");
+            }).start();
+
         }
     }
 

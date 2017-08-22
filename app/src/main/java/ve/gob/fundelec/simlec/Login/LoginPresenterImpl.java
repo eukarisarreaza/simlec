@@ -37,6 +37,7 @@ public class LoginPresenterImpl implements LoginPresenter{
         switch (event.getEventType()){
             case LoginEvent.onLoginError:
                 view.hideProgressDialogo();
+                view.showNotify("Error al Iniciar Sesion!!");
                 break;
             case LoginEvent.onLoginSuccess:
                 view.hideProgressDialogo();

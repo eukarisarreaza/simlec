@@ -115,6 +115,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @OnClick(R.id.iniciar)
     @Override
     public void iniciar() {
+        if(usuarioText.getText().toString().isEmpty()){
+            usuarioText.setError("Id Usuario esta vacio");
+            return;
+        }
+        if(passwordText.getText().toString().isEmpty()){
+            passwordText.setError("Password esta vacio");
+            return;
+        }
         presenter.login(tipoUsuario, usuarioText.getText().toString(), passwordText.getText().toString());
     }
 
