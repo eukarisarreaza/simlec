@@ -8,9 +8,13 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.SearchView;
+import android.widget.EditText;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
 
@@ -27,18 +31,20 @@ import ve.gob.fundelec.simlec.R;
  * Created by fundelec on 24/08/17.
  */
 
-public class DialogoSearch extends DialogFragment implements ListenerMedidores{
+public class DialogoSearch extends DialogFragment implements ListenerMedidores {
 
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.editText)
+    EditText editText;
     Unbinder unbinder;
-    @BindView(R.id.searchView)
-    SearchView searchView;
+
 
     List<Medidores> medidoresList;
 
     AdapterSearch adapterSearch;
+
 
 
     public static DialogoSearch newInstance() {
@@ -60,13 +66,12 @@ public class DialogoSearch extends DialogFragment implements ListenerMedidores{
         dialogo.setCancelable(false);
         unbinder = ButterKnife.bind(this, dialogo);
 
-        adapterSearch= new AdapterSearch(new ArrayList<Medidores>(), this);
+        adapterSearch = new AdapterSearch(new ArrayList<Medidores>(), this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapterSearch);
 
         //searchView.requestFocus(View.FOCUS_RIGHT);
-        searchView.setSelected(true);
         setListMedidores();
         setSearchView();
 
@@ -75,30 +80,29 @@ public class DialogoSearch extends DialogFragment implements ListenerMedidores{
     }
 
     private void setListMedidores() {
-        medidoresList= new Select()
+        medidoresList = new Select()
                 .from(Medidores.class)
                 .queryList();
     }
 
+
+
     private void setSearchView() {
 
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                //Toast.makeText(getContext(), "SUBMIT "+query, Toast.LENGTH_SHORT).show();
-                return false;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                //Toast.makeText(getContext(), newText, Toast.LENGTH_SHORT).show();
-                setRecycler(newText);
-                return false;
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setRecycler(s.toString());
             }
         });
-
     }
 
 
@@ -111,10 +115,10 @@ public class DialogoSearch extends DialogFragment implements ListenerMedidores{
 
     public void setRecycler(String query) {
         ///NUMERO DE MEDIDOR  U OBJETO DE CONEXION
-        List<Medidores> list= new ArrayList<>();
+        List<Medidores> list = new ArrayList<>();
 
-        for (Medidores medidores: medidoresList){
-            if(medidores.getNumero().contains(query)){
+        for (Medidores medidores : medidoresList) {
+            if (medidores.getNumero().contains(query)) {
                 list.add(medidores);
             }
         }
@@ -127,4 +131,5 @@ public class DialogoSearch extends DialogFragment implements ListenerMedidores{
     public void onClickMedidor(Medidores medidor) {
 
     }
+
 }

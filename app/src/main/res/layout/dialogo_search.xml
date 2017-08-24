@@ -6,12 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="2dp"
         android:background="#fff" />
+    -->
+
+    <EditText
+        android:id="@+id/editText"
+        android:paddingLeft="5dp"
+        android:drawableLeft="@drawable/search"
+        android:padding="@dimen/margi_extra_corto"
+        android:textSize="@dimen/titulo_size"
+        android:background="@drawable/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
     <android.support.v7.widget.RecyclerView
