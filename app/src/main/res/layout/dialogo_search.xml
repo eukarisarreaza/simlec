@@ -19,14 +19,14 @@
         android:id="@+id/editText"
         android:paddingLeft="5dp"
         android:drawableLeft="@drawable/search"
-        android:drawableTint="@color/background"
+        android:drawableTint="@android:color/black"
         android:maxLines="1"
         android:padding="@dimen/margi_extra_corto"
         android:textSize="@dimen/titulo_size"
+        android:inputType="number"
         android:background="@drawable/edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
