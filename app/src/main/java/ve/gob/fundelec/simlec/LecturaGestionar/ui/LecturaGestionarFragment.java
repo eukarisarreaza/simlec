@@ -84,6 +84,7 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
 
     @Override
     public void showListNotas(String[] data) {
+
         notasLectura.initializeStringValues(data, getString(R.string.spinner_hint));
         notasLectura.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

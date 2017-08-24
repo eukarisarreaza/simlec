@@ -188,7 +188,8 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void onSearch() {
-
+        DialogoSearch dialogoSearch= DialogoSearch.newInstance();
+        dialogoSearch.show(getSupportFragmentManager(), "");
     }
 
     @Override

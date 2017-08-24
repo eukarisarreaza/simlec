@@ -43,19 +43,15 @@ public class MainPressenterImpl implements MainPressenter {
     public void onEventMainThread(MainEvent event) {
         switch (event.getEventType()){
             case MainEvent.onBackPress:
-                Log.e(TAG, "onBackPress");
                 view.onBackPress();
                 break;
             case MainEvent.onButtonMenu:
-                Log.e(TAG, "onButtonMenu");
                 view.onButtonMenu();
                 break;
             case MainEvent.onClickSobrante:
-                Log.e(TAG, "onClickSobrante");
                 view.aparatoSobrante();
                 break;
             case MainEvent.onSearch:
-                Log.e(TAG, "onSearch");
                 view.onSearch();
                 break;
             case MainEvent.showListMenu:

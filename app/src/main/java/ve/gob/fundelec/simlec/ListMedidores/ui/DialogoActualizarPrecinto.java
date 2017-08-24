@@ -15,6 +15,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
+import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
+import ve.gob.fundelec.simlec.Main.ui.ListenerMedidores;
 import ve.gob.fundelec.simlec.R;
 
 /**
@@ -76,6 +79,7 @@ public class DialogoActualizarPrecinto extends DialogFragment {
         super.onDestroyView();
         unbinder.unbind();
     }
+
 }
 
 
