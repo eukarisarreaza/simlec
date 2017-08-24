@@ -1,6 +1,7 @@
 package ve.gob.fundelec.simlec.Main.ui;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
@@ -75,6 +77,8 @@ public class DialogoSearch extends DialogFragment implements ListenerMedidores {
         setListMedidores();
         setSearchView();
 
+        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
 
         return dialogo;
     }
@@ -100,7 +104,8 @@ public class DialogoSearch extends DialogFragment implements ListenerMedidores {
 
             @Override
             public void afterTextChanged(Editable s) {
-                setRecycler(s.toString());
+                if(!s.toString().isEmpty())
+                    setRecycler(s.toString());
             }
         });
     }
