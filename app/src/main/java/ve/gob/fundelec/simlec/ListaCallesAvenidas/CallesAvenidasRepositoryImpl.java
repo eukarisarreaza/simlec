@@ -56,21 +56,6 @@ public class CallesAvenidasRepositoryImpl implements CallesAvenidasRepository{
     @Override
     public void getListCalles() {
 
-        /**
-         CREATE OR REPLACE VIEW vw_calle_avenida_apk_01 AS
-         SELECT b.id AS id_calle,
-         b.nom_calle,
-         a.id_lector,
-         a.id_dispositivo_movil,
-         sum(a.cant_lect_programadas) AS cant_lect_programadas,
-         sum(a.cant_lect_gestionada) AS "cant_lect_gestionadasŗ",
-         (sum(a.cant_lect_gestionada) / sum(a.cant_lect_programadas) * 100::numeric)::integer AS porcentaje_avance
-         FROM programacion_calle a
-         JOIN calle_avenida b ON a.id_calle_avenida = b.id
-         GROUP BY b.id, b.nom_calle, a.id_lector, a.id_dispositivo_movil;
-         */
-
-
         List<QueryCalles> list= new Select(CalleAvenida_Table.id.withTable(NameAlias.builder("B").build()).as("id_calle"),
                 CalleAvenida_Table.nom_calle, ProgramacionCalle_Table.id_lector, ProgramacionCalle_Table.id_dispositivo_movil,
                 ProgramacionCalle_Table.id.withTable(NameAlias.builder("A").build()).as("id_programacion_calle"),

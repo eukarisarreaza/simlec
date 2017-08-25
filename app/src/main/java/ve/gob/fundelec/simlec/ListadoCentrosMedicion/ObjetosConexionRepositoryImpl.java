@@ -86,31 +86,6 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
         }
 
 
-
-        /**
-
-        List<QueryObjetoConexion> list= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
-                ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex)
-                .from(ObjetoConexion.class).as("A")
-                .innerJoin(CalleAvenida.class).as("B")
-                .on(ObjetoConexion_Table.id_calle_avenida.withTable(NameAlias.builder("A").build())
-                        .eq(CalleAvenida_Table.id.withTable(NameAlias.builder("B").build())))
-                .innerJoin(Ruta.class).as("C")
-                .on(CalleAvenida_Table.id_ruta.withTable(NameAlias.builder("B").build())
-                        .eq(Ruta_Table.id.withTable(NameAlias.builder("C").build())))
-                .innerJoin(Parroquias.class).as("D")
-                .on(CalleAvenida_Table.id_parroquia.withTable(NameAlias.builder("B").build())
-                        .eq(Parroquias_Table.id_parroquia.withTable(NameAlias.builder("D").build())))
-                .innerJoin(Municipios.class).as("E")
-                .on(Parroquias_Table.id_municipio.withTable(NameAlias.builder("D").build())
-                        .eq(Municipios_Table.id_municipio.withTable(NameAlias.builder("E").build())))
-                .innerJoin(IndicadoresLectura.class).as("F")
-                .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
-                        .eq(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("F").build())))
-                .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
-                .queryCustomList(QueryObjetoConexion.class);
-        */
-
         ObjetosConexionEvent event= new ObjetosConexionEvent();
         event.setLista(list);
         event.setEventType(ObjetosConexionEvent.showListasObjetos);

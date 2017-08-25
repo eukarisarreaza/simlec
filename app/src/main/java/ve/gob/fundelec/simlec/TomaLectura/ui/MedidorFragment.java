@@ -157,7 +157,7 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     @Override
     public void showLectura2(String text) {
         lectura2.setText(text);
-        lectura1.setTextColor(getContext().getResources().getColor(R.color.verde));
+        lectura2.setTextColor(getContext().getResources().getColor(R.color.verde));
     }
 
     @Override

@@ -29,27 +29,12 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
     private EventBus eventBus;
     private LectorSessionManager sessionManager;
     private List<FNotaLectura> notasLectura; /** NOTAS DE LECTURA PARA LA TOMA DE LECTURA */
-    private QueryMedidores medidor;
 
     public TomaLecturaRepositoryImpl(EventBus eventBus, LectorSessionManager sessionManager) {
         this.eventBus = eventBus;
         this.sessionManager = sessionManager;
-        this.medidor = sessionManager.getMedidor();
-        // obtener el objeto programacion calle
     }
 
-    public void setProgramacion() {
-        /*
-        programacionCalle = new Select(ProgramacionCalle_Table.ALL_COLUMN_PROPERTIES)
-                .from(ProgramacionCalle.class)
-                .where(ProgramacionCalle_Table.id.is(sessionManager.getCalle().getId_programacion_calle()))
-                .querySingle();
-        Log.e(TAG, "programacion calle "+programacionCalle.toString());
-
-                */
-        Log.e(TAG, "id programacion calle "+sessionManager.getCalle().getId_programacion_calle());
-
-    }
     @Override
     public void getNotasLectura() {
 
@@ -87,8 +72,9 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
         IndicadoresLectura lectura_table= new Select()
                 .from(IndicadoresLectura.class)
-                .where(IndicadoresLectura_Table.id.is(medidor.getId_indicador_lectura()))
+                .where(IndicadoresLectura_Table.id.is(sessionManager.getMedidor().getId_indicador_lectura()))
                 .querySingle();
+
         lectura_table.setCod_nota_lectura(notasLectura.get(pos-1).getCod_nota_letura());
         lectura_table.save();
 
@@ -99,6 +85,9 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
     @Override
     public void getParametrosLectura() {
+        /** PARA VALIDAR LA CANTIDAD DE DEMCIMALES Y DE ENTEROS EN LA TOMA DE LECTURA */
+        Log.e(TAG, "medidor actual en parametros de lectura "+sessionManager.getMedidor().toString());
+
         TomaLecturaEvent event= new TomaLecturaEvent();
         event.setEventType(TomaLecturaEvent.showInfoMedidor);
         event.setMedidor(sessionManager.getMedidor());
@@ -107,12 +96,14 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
     @Override
     public void getIndicadoresLectura() {
+        Log.e(TAG, "medidor actual en indicadores de lectura "+sessionManager.getMedidor().toString());
+
         IndicadoresLectura lectura= new Select(IndicadoresLectura_Table.ALL_COLUMN_PROPERTIES)
                 .from(IndicadoresLectura.class)
                 .where(IndicadoresLectura_Table.id_medidores.is(sessionManager.getMedidor().getId_medidor()))
                 .querySingle();
 
-        if(lectura.getConsumo_kwh()!= 0 && lectura.getDemanda_va()!= 0 ){
+        if(lectura.getConsumo_kwh()!= 0d && lectura.getDemanda_va()!= 0d ){
             TomaLecturaEvent event= new TomaLecturaEvent();
             event.setEventType(TomaLecturaEvent.showInfoIndicadorLectura);
             event.setKva(String.valueOf(lectura.getConsumo_kwh()));

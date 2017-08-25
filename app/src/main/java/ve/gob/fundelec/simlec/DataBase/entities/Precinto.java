@@ -1,9 +1,13 @@
 package ve.gob.fundelec.simlec.DataBase.entities;
 
+import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import ve.gob.fundelec.simlec.DataBase.DataBaseSimlec;
 
@@ -68,8 +72,9 @@ public class Precinto extends BaseModel{
         return fch_cambio;
     }
 
-    public void setFch_cambio(String fch_cambio) {
-        this.fch_cambio = fch_cambio;
+    public void setFch_cambio(Date fch_cambio) {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.fch_cambio = sf.format(fch_cambio);
     }
 
     public String getPre_medidor_actual() {
@@ -102,5 +107,13 @@ public class Precinto extends BaseModel{
 
     public void setAccion(int accion) {
         this.accion = accion;
+    }
+
+
+    @Override
+    public String toString() {
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
 }

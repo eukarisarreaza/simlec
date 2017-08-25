@@ -6,6 +6,7 @@ import com.raizlabs.android.dbflow.sql.language.Method;
 import com.raizlabs.android.dbflow.sql.language.NameAlias;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
+import java.util.Date;
 import java.util.List;
 
 import ve.gob.fundelec.simlec.Configuracion;
@@ -15,6 +16,8 @@ import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
 import ve.gob.fundelec.simlec.DataBase.entities.Medidores_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion_Table;
+import ve.gob.fundelec.simlec.DataBase.entities.Precinto;
+import ve.gob.fundelec.simlec.DataBase.entities.Precinto_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
@@ -109,12 +112,13 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
 
 
         for (QueryMedidores medidor: listMedidores) {
-            if(medidor.getStatus_lectura()==0){
+            if(medidor.getStatus_lectura()==0 || medidor.getConsumo_kwh()==0d || medidor.getDemanda_va()==0d){
                 Log.e(TAG, "PROXIMO MEDIDOR "+medidor.getId_medidor());
                 return medidor;
             }
         }
-        return null;
+
+        return listMedidores.get(listMedidores.size()-1);
     }
 
     @Override
@@ -229,9 +233,31 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     @Override
     public void actualizarPresinto(String retirado, String actual) {
         Log.e(TAG, "ATUALIZAR PRESINTO "+retirado+" "+actual);
+        QueryMedidores medidores= sessionManager.getMedidor();
+        Log.e(TAG, "Medidor Actual "+medidores.toString());
 
-
-
+        Precinto precinto= new Select(Precinto_Table.ALL_COLUMN_PROPERTIES)
+                .from(Precinto.class)
+                .where(Precinto_Table.id_medidores.is(medidores.getId_medidor()))
+                .querySingle();
+        if(precinto!=null){
+            Log.e(TAG, "precinto "+precinto.toString());
+            precinto.setFch_cambio(new Date());
+            precinto.setPre_medidor_actual(retirado);
+            precinto.setPre_medidor_nuevo(actual);
+            precinto.save();
+        }else {
+            Precinto precinto1= new Precinto();
+            precinto1.setId((int)Math.random()*215454445+1);
+            precinto1.setId_medidores(medidores.getId_medidor());
+            precinto1.setFch_cambio(new Date());
+            precinto1.setPre_medidor_nuevo(actual);
+            precinto1.setPre_medidor_actual(retirado);
+            precinto1.setVersion(1);
+            precinto1.setAccion(1);
+            precinto1.save();
+            Log.e(TAG, "precinto creado "+precinto1.toString());
+        }
     }
 
     @Override
