@@ -52,6 +52,7 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
                 view.showNotify(event.getMessage());
                 break;
             case LecturasEvent.actualizarPresinto:
+                view.dialogoActualizarPresinto(event.getRetirado());
                 break;
         }
     }
@@ -95,5 +96,10 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
     @Override
     public void saveLecrura() {
         interactor.saveLectura();
+    }
+
+    @Override
+    public void selectLetterP() {
+        interactor.selectLetterP();
     }
 }

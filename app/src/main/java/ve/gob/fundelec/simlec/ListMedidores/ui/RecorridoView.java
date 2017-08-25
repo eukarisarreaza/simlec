@@ -15,6 +15,7 @@ public interface RecorridoView {
     void saveLectrura();
     void sigObjetoConexion();
     void prevObjetoConexion();
+    void dialogoActualizarPresinto(String retirado);
 
     void search();
     void menu();

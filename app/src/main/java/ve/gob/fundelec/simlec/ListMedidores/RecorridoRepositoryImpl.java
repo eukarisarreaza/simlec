@@ -225,10 +225,6 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         }
     }
 
-    @Override
-    public void añadirSobrante() {
-
-    }
 
     @Override
     public void actualizarPresinto(String retirado, String actual) {
@@ -266,6 +262,32 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         TomaLecturaEvent event=new TomaLecturaEvent();
         event.setEventType(TomaLecturaEvent.saveLectura);
         eventBus.post(event);
+    }
+
+    @Override
+    public void selecLetterP() {
+
+        QueryMedidores medidores= sessionManager.getMedidor();
+        Log.e(TAG, "Medidor Actual "+medidores.toString());
+
+        Precinto precinto= new Select(Precinto_Table.ALL_COLUMN_PROPERTIES)
+                .from(Precinto.class)
+                .where(Precinto_Table.id_medidores.is(medidores.getId_medidor()))
+                .querySingle();
+
+        if(precinto==null) {
+            LecturasEvent event= new LecturasEvent();
+            event.setEventType(LecturasEvent.actualizarPresinto);
+            event.setRetirado("123456");
+            eventBus.post(event);
+        }else {
+            LecturasEvent event= new LecturasEvent();
+            event.setEventType(LecturasEvent.actualizarPresinto);
+            event.setRetirado(precinto.getPre_medidor_actual());
+            eventBus.post(event);
+        }
+
+
     }
 
     private void postEventNomMedidor(int eventType, String message) {

@@ -51,4 +51,9 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
     public void saveLectura() {
         repository.saveLectura();
     }
+
+    @Override
+    public void selectLetterP() {
+        repository.selecLetterP();
+    }
 }

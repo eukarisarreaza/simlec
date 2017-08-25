@@ -144,6 +144,14 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
         pressenter.anteriorObjetoConexion();
     }
 
+    @Override
+    public void dialogoActualizarPresinto(String retirado) {
+
+        DialogoActualizarPrecinto dialogo= DialogoActualizarPrecinto.newInstance(this, retirado);
+        dialogo.show(getFragmentManager(), "");
+
+    }
+
 
     @OnClick(R.id.search)
     @Override
@@ -160,8 +168,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     @OnClick(R.id.letter_p)
     @Override
     public void letter_p() {
-        DialogoActualizarPrecinto dialogo= DialogoActualizarPrecinto.newInstance(this);
-        dialogo.show(getFragmentManager(), "");
+        pressenter.selectLetterP();
     }
 
     @OnClick(R.id.letter_s)

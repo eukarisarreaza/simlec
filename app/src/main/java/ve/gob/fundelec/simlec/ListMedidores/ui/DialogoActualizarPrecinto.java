@@ -33,19 +33,24 @@ public class DialogoActualizarPrecinto extends DialogFragment {
     Unbinder unbinder;
 
     private ListenerActualizarPresinto listener;
+    private String precinto_retirado;
 
-
-    public static DialogoActualizarPrecinto newInstance(ListenerActualizarPresinto listener) {
+    public static DialogoActualizarPrecinto newInstance(ListenerActualizarPresinto listener, String retirado) {
         Bundle args = new Bundle();
         DialogoActualizarPrecinto fragment = new DialogoActualizarPrecinto();
         fragment.setArguments(args);
         fragment.setListener(listener);
+        fragment.setRetirado(retirado);
         //fragment.imagen = photo;
         return fragment;
     }
 
     public void setListener(ListenerActualizarPresinto listener) {
         this.listener = listener;
+    }
+
+    public void setRetirado(String retirado) {
+        this.precinto_retirado = retirado;
     }
 
     @NonNull
@@ -58,7 +63,8 @@ public class DialogoActualizarPrecinto extends DialogFragment {
         dialogo.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         unbinder = ButterKnife.bind(this, dialogo);
 
-
+        actual.requestFocus();
+        retirado.setText(precinto_retirado);
 
         return dialogo;
     }

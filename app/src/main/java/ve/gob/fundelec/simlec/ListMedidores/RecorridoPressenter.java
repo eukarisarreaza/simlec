@@ -20,4 +20,6 @@ public interface RecorridoPressenter {
     void anteriorObjetoConexion();
     void actualizarPresinto(String retirado, String actual);
     void saveLecrura();
+
+    void selectLetterP();
 }

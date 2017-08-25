@@ -15,7 +15,8 @@ public class LecturasEvent {
     private int eventType;
     private String message;
     private String nom_medidor;
-    private String retirado, actual;
+
+    private String retirado;
 
 
     public int getEventType() {
@@ -50,11 +51,4 @@ public class LecturasEvent {
         this.retirado = retirado;
     }
 
-    public String getActual() {
-        return actual;
-    }
-
-    public void setActual(String actual) {
-        this.actual = actual;
-    }
 }
