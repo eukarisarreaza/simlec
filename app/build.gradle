@@ -60,13 +60,13 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
 
-    compile 'com.github.piotrek1543:CustomSpinner:0.1'
 
 
 
 
 
     testCompile 'junit:junit:4.12'
+    compile 'com.github.piotrek1543:CustomSpinner:0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
