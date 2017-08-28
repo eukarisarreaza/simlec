@@ -5,4 +5,8 @@ package ve.gob.fundelec.simlec.Reporte;
  */
 
 public interface ReportRepository {
+
+    void getListRutas();
+    void getReport();
+
 }

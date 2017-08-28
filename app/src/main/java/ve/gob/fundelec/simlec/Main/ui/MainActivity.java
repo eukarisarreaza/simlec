@@ -1,6 +1,8 @@
 package ve.gob.fundelec.simlec.Main.ui;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -9,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteFragment;
+import ve.gob.fundelec.simlec.Bateria.BateriaFragment;
 import ve.gob.fundelec.simlec.Campaña.ui.CampanaFragment;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.ui.CallesAvenidasFragment;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.ui.RutasAsignadasFragment;
@@ -35,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     private static final String TAG=MainActivity.class.getName();
     private AdaterMenuItem adaterMenuItem;
     private boolean isChecked;
+    private boolean linternaOn;
+    private boolean tieneFlash;
+    private Camera objCamara;
+    private android.hardware.Camera.Parameters parametrosCamara;
+
 
     @BindView(R.id.list_item)
     ListView listItem;
@@ -50,12 +59,21 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         isChecked= true;
+        linternaOn= false;
 
+        setTieneFlash();
+        getObjetoCamara();
         sertDrawer();
         setupInject();
         pressenter.onCreate();
         pressenter.getListItenMenu();
         pressenter.getInicio();
+    }
+
+    private void setTieneFlash() {
+        tieneFlash= getApplicationContext().getPackageManager()
+                .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+
     }
 
     private void setupInject() {
@@ -159,11 +177,21 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void bateria() {
-
+        isChecked=false;
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, BateriaFragment.newInstance())
+                .commit();
     }
 
     @Override
     public void linterna() {
+        if(tieneFlash){
+            if(linternaOn)
+                apagarFlash();
+            else
+                encenderFlash();
+        }else
+            Toast.makeText(getApplicationContext(), "El dispositivito no posee Flash!!", Toast.LENGTH_LONG).show();
 
     }
 
@@ -238,4 +266,47 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     public void onBackPressed() {
         onBackPress();
     }
+
+    public void getObjetoCamara() {
+        if(objCamara== null){
+            try{
+                objCamara= android.hardware.Camera.open();
+                parametrosCamara= objCamara.getParameters();
+            }catch (RuntimeException e){
+                Toast.makeText(getApplicationContext(), "Error al obtener la camara", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+
+    private void encenderFlash() {
+        if(!linternaOn){
+            if(objCamara== null || parametrosCamara==null)
+                return;
+            parametrosCamara= objCamara.getParameters();
+            if(parametrosCamara == null)
+                return;
+
+            parametrosCamara.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+            objCamara.setParameters(parametrosCamara);
+            objCamara.startPreview();
+            linternaOn= true;
+        }
+    }
+
+    private void apagarFlash() {
+        if(linternaOn){
+            if(objCamara== null || parametrosCamara==null)
+                return;
+            parametrosCamara= objCamara.getParameters();
+            if(parametrosCamara == null)
+                return;
+
+            parametrosCamara.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+            objCamara.setParameters(parametrosCamara);
+            objCamara.startPreview();
+            linternaOn= false;
+        }
+    }
+
 }

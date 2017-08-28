@@ -18,6 +18,13 @@ public class ReportRepositoryImpl implements ReportRepository {
     }
 
 
+    @Override
+    public void getListRutas() {
 
+    }
 
+    @Override
+    public void getReport() {
+
+    }
 }

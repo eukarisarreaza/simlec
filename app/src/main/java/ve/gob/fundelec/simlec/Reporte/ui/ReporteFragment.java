@@ -14,7 +14,7 @@ import ve.gob.fundelec.simlec.R;
  * Use the {@link ReporteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ReporteFragment extends Fragment implements ReportView{
+public class ReporteFragment extends Fragment{
 
     public ReporteFragment() {
         // Required empty public constructor
