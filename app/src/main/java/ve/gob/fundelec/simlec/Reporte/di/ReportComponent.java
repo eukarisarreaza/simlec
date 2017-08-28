@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 import ve.gob.fundelec.simlec.Login.di.ContextModule;
 import ve.gob.fundelec.simlec.Login.di.SesionModule;
+import ve.gob.fundelec.simlec.Reporte.ui.ReporteFragment;
 import ve.gob.fundelec.simlec.lib.di.LibsModule;
 
 /**
@@ -13,5 +14,5 @@ import ve.gob.fundelec.simlec.lib.di.LibsModule;
 @Singleton
 @Component(modules = {ReportModule.class, LibsModule.class, SesionModule.class, ContextModule.class})
 public interface ReportComponent {
-    void inject();
+    void inject(ReporteFragment fragment);
 }

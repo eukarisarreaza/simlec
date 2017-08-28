@@ -12,11 +12,17 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.R;
+import ve.gob.fundelec.simlec.Reporte.ReportPresenter;
+import ve.gob.fundelec.simlec.Reporte.di.ReportComponent;
+import ve.gob.fundelec.simlec.SimlecApplication;
+import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +41,12 @@ public class ReporteFragment extends Fragment implements ReportView{
     @BindView(R.id.chart)
     PieChart chart;
     Unbinder unbinder;
+
+    @Inject
+    ReportPresenter presenter;
+    @Inject
+    EventBus eventBus;
+
 
     public ReporteFragment() {
         // Required empty public constructor
@@ -61,10 +73,16 @@ public class ReporteFragment extends Fragment implements ReportView{
         toolbar.setBackgroundColor(getResources().getColor(R.color.opcion1_4));
         subtitulo.setText(R.string.reporte);
 
-
+        setupInject();
 
 
         return view;
+    }
+
+    private void setupInject() {
+        SimlecApplication application=(SimlecApplication)getActivity().getApplication();
+        ReportComponent component= application.getReportComponent(this);
+        component.inject(this);
     }
 
     @Override

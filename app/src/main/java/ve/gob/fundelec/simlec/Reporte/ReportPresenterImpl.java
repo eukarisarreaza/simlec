@@ -1,5 +1,8 @@
 package ve.gob.fundelec.simlec.Reporte;
 
+import org.greenrobot.eventbus.Subscribe;
+
+import ve.gob.fundelec.simlec.Reporte.event.ReportEvent;
 import ve.gob.fundelec.simlec.Reporte.ui.ReportView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -16,5 +19,21 @@ public class ReportPresenterImpl implements ReportPresenter{
         this.eventBus = eventBus;
         this.view = view;
         this.interactor = interactor;
+    }
+
+    @Override
+    public void onCreate() {
+        eventBus.register(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        eventBus.unregister(this);
+    }
+
+    @Subscribe
+    @Override
+    public void onEventMainThread(ReportEvent event) {
+
     }
 }

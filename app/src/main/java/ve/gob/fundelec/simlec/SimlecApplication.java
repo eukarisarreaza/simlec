@@ -38,6 +38,10 @@ import ve.gob.fundelec.simlec.ListMedidores.di.DaggerRecorridoComponent;
 import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoComponent;
 import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoModule;
 import ve.gob.fundelec.simlec.ListMedidores.ui.RecorridoView;
+import ve.gob.fundelec.simlec.Reporte.di.DaggerReportComponent;
+import ve.gob.fundelec.simlec.Reporte.di.ReportComponent;
+import ve.gob.fundelec.simlec.Reporte.di.ReportModule;
+import ve.gob.fundelec.simlec.Reporte.ui.ReportView;
 import ve.gob.fundelec.simlec.Services.di.ServiceModule;
 import ve.gob.fundelec.simlec.TomaLectura.di.DaggerTomaLecturaComponent;
 import ve.gob.fundelec.simlec.TomaLectura.di.TomaLecturaComponent;
@@ -137,6 +141,17 @@ public class SimlecApplication extends Application {
         return DaggerTomaLecturaComponent
                 .builder()
                 .tomaLecturaModule(new TomaLecturaModule(view))
+                .libsModule(new LibsModule())
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
+
+
+    public ReportComponent getReportComponent(ReportView view){
+        return DaggerReportComponent
+                .builder()
+                .reportModule(new ReportModule(view))
                 .libsModule(new LibsModule())
                 .sesionModule(new SesionModule())
                 .contextModule(new ContextModule(getApplicationContext()))
