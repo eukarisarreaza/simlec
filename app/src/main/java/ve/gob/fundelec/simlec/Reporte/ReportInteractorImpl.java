@@ -5,4 +5,9 @@ package ve.gob.fundelec.simlec.Reporte;
  */
 
 public class ReportInteractorImpl implements ReportInteractor {
+    private ReportRepository reportRepository;
+
+    public ReportInteractorImpl(ReportRepository reportRepository) {
+        this.reportRepository = reportRepository;
+    }
 }

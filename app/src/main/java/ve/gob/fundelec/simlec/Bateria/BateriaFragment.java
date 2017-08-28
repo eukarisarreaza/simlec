@@ -9,8 +9,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,9 +23,18 @@ import ve.gob.fundelec.simlec.R;
 
 public class BateriaFragment extends Fragment {
 
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
+
+    @BindView(R.id.progress)
+    RoundCornerProgressBar progress;
+    @BindView(R.id.progresoPorc)
+    TextView progresoPorc;
+    @BindView(R.id.subtitulo)
+    TextView subtitulo;
+    @BindView(R.id.toolbar)
+    LinearLayout toolbar;
     Unbinder unbinder;
+
+
 
     public BateriaFragment() {
         // Required empty public constructor
@@ -46,7 +58,10 @@ public class BateriaFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bateria, null);
         unbinder = ButterKnife.bind(this, view);
-        progressBar.setProgress(cargaBateria());
+        progress.setProgress(cargaBateria());
+        progresoPorc.setText(String.valueOf(cargaBateria()) + " %");
+        subtitulo.setText(R.string.bateria);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.opcion2_3));
 
         return view;
     }
@@ -69,5 +84,13 @@ public class BateriaFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    public void onClickMenu(){
+
+    }
+
+    public void onClickBack(){
+
     }
 }

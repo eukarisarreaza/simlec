@@ -5,6 +5,9 @@ package ve.gob.fundelec.simlec.Reporte.ui;
  */
 
 public interface ReportView {
+
+    void onBackPress();
+    void onButtonMenu();
     void showListRutas();
 
 }

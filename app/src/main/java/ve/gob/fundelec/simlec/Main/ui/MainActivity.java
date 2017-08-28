@@ -33,6 +33,7 @@ import ve.gob.fundelec.simlec.Main.di.MainComponent;
 import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ui.ObjetosConexionFragment;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.ListMedidores.ui.TabFragment;
+import ve.gob.fundelec.simlec.Reporte.ui.ReporteFragment;
 import ve.gob.fundelec.simlec.SimlecApplication;
 
 public class MainActivity extends AppCompatActivity implements MainView, AdapterView.OnItemClickListener{
@@ -153,7 +154,9 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Override
     public void reporte() {
         isChecked=false;
-
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framelayout, ReporteFragment.newInstance())
+                .commit();
     }
 
     @Override
