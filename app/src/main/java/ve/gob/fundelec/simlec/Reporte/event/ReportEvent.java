@@ -12,14 +12,15 @@ import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 
 public class ReportEvent {
     public static final int showListRutas=1;
-
-    public static final int onError=2;
+    public static final int showReport=2;
+    public static final int onError=3;
 
     private int eventType;
     private String message;
 
-    List<String> header;
-    HashMap<String, List<QueryCalles>> listDataChild;
+    private List<String> header;
+    private HashMap<String, List<QueryCalles>> listDataChild;
+    private float[] yData;
 
     public int getEventType() {
         return eventType;
@@ -51,5 +52,14 @@ public class ReportEvent {
 
     public void setListDataChild(HashMap<String, List<QueryCalles>> listDataChild) {
         this.listDataChild = listDataChild;
+    }
+
+
+    public float[] getyData() {
+        return yData;
+    }
+
+    public void setyData(float[] yData) {
+        this.yData = yData;
     }
 }

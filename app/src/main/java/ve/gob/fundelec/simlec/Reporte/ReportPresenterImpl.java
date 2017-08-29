@@ -41,6 +41,9 @@ public class ReportPresenterImpl implements ReportPresenter{
                     view.showListRutas(event.getHeader(), event.getListDataChild());
                 }
                 break;
+            case ReportEvent.showReport:
+                view.showReport(event.getyData());
+                break;
             case ReportEvent.onError:
                 if(view!=null)
                     view.showError(event.getMessage());

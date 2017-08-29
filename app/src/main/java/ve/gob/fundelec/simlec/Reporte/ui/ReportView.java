@@ -16,5 +16,6 @@ public interface ReportView {
     void showListRutas(List<String> header, HashMap<String, List<QueryCalles>> listDataChild);
     void showError(String message);
     void showReport(float[] yData);
+    void showDetailsReport(QueryCalles calle);
 
 }

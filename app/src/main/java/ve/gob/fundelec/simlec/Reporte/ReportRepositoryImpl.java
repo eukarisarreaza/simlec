@@ -117,10 +117,13 @@ public class ReportRepositoryImpl implements ReportRepository {
 
     @Override
     public void getReport(QueryCalles calle) {
+        float[] yData= new float[2];
+        yData[0]=(calle.getCant_lect_gestionadasŗ()*100)/calle.getCant_lect_programadas(); //leidas
+        yData[1]=((calle.getCant_lect_programadas()-calle.getCant_lect_gestionadasŗ())*100)/calle.getCant_lect_programadas(); //no leidas
 
-
-
-
-
+        ReportEvent event= new ReportEvent();
+        event.setyData(yData);
+        event.setEventType(ReportEvent.showReport);
+        eventBus.post(event);
     }
 }

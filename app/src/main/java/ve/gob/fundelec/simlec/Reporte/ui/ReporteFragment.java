@@ -192,6 +192,11 @@ public class ReporteFragment extends Fragment implements ReportView {
         l.setYEntrySpace(5);
     }
 
+    @Override
+    public void showDetailsReport(QueryCalles calle) {
+
+    }
+
     private void addData(float[] yData) {
         String[] xData = {"LEIDO", "NO LEIDO",};
 
@@ -235,5 +240,6 @@ public class ReporteFragment extends Fragment implements ReportView {
         // update pie chart
         chart.invalidate();
     }
+
 
 }
