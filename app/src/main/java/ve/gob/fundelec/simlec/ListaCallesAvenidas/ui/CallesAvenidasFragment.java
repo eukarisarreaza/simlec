@@ -166,6 +166,7 @@ public class CallesAvenidasFragment extends Fragment implements CallesAvenidasVi
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        pressenter.onDestroy();
     }
 
 

@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.Reporte;
 
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.Reporte.event.ReportEvent;
 
 /**
@@ -11,4 +12,6 @@ public interface ReportPresenter {
     void onDestroy();
     void onEventMainThread(ReportEvent event);
 
+    void getListRutas();
+    void onSelectCalle(QueryCalles calle);
 }

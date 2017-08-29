@@ -1,5 +1,11 @@
 package ve.gob.fundelec.simlec.Reporte.event;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
+
 /**
  * Created by fundelec on 28/08/17.
  */
@@ -11,6 +17,9 @@ public class ReportEvent {
 
     private int eventType;
     private String message;
+
+    List<String> header;
+    HashMap<String, List<QueryCalles>> listDataChild;
 
     public int getEventType() {
         return eventType;
@@ -26,5 +35,21 @@ public class ReportEvent {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public List<String> getHeader() {
+        return header;
+    }
+
+    public void setHeader(List<String> header) {
+        this.header = header;
+    }
+
+    public HashMap<String, List<QueryCalles>> getListDataChild() {
+        return listDataChild;
+    }
+
+    public void setListDataChild(HashMap<String, List<QueryCalles>> listDataChild) {
+        this.listDataChild = listDataChild;
     }
 }

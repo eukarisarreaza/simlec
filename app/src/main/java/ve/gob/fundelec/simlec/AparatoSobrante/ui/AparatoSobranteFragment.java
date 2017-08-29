@@ -88,5 +88,6 @@ public class AparatoSobranteFragment extends Fragment implements AparatoSobrante
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+
     }
 }

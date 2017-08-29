@@ -2,6 +2,7 @@ package ve.gob.fundelec.simlec.Reporte;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.Reporte.event.ReportEvent;
 import ve.gob.fundelec.simlec.Reporte.ui.ReportView;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -34,6 +35,26 @@ public class ReportPresenterImpl implements ReportPresenter{
     @Subscribe
     @Override
     public void onEventMainThread(ReportEvent event) {
+        switch (event.getEventType()){
+            case ReportEvent.showListRutas:
+                if(view!=null){
+                    view.showListRutas(event.getHeader(), event.getListDataChild());
+                }
+                break;
+            case ReportEvent.onError:
+                if(view!=null)
+                    view.showError(event.getMessage());
+                break;
+        }
+    }
 
+    @Override
+    public void getListRutas() {
+        interactor.getListRutas();
+    }
+
+    @Override
+    public void onSelectCalle(QueryCalles calle) {
+        interactor.onSelectCalle(calle);
     }
 }

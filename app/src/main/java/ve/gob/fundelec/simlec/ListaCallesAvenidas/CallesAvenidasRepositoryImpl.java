@@ -79,6 +79,8 @@ public class CallesAvenidasRepositoryImpl implements CallesAvenidasRepository{
                 .on(Municipios_Table.id_estado.withTable(NameAlias.builder("D").build())
                         .eq(Estados_Table.id_estado.withTable(NameAlias.builder("E").build())))
 
+                .where(CalleAvenida_Table.id_ruta.is(sessionManager.getRuta().getId_ruta())) /** TODO STUB */
+
                 .groupBy(CalleAvenida_Table.id.withTable(NameAlias.builder("B").build()))
                 .queryCustomList(QueryCalles.class);
 
