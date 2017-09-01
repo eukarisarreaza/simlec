@@ -95,8 +95,8 @@ public class AdapterCallesAvenidas extends RecyclerView.Adapter<AdapterCallesAve
 
         public void bindUnidadLectura(QueryCalles unidadLectura) {
             nomCalle.setText(unidadLectura.getNom_calle());
-            avance.setText(unidadLectura.getCant_lect_gestionadasŗ()+"/"+unidadLectura.getCant_lect_progr());
-            float div=(unidadLectura.getCant_lect_gestionadasŗ()*100)/unidadLectura.getCant_lect_progr();
+            avance.setText(unidadLectura.getCant_lect_gestionadasŗ()+"/"+unidadLectura.getCant_lect_programadas());
+            float div=(unidadLectura.getCant_lect_gestionadasŗ()*100)/unidadLectura.getCant_lect_programadas();
             progressso.setText(div+"%");
             progressBar.setProgress((int)div);
         }

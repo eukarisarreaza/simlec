@@ -89,7 +89,7 @@ public class CallesAvenidasRepositoryImpl implements CallesAvenidasRepository{
         for (QueryCalles calle: list) {
             Log.e(TAG, "item "+calle.getNom_calle());
             Log.e(TAG, "gestionadas "+calle.getCant_lect_gestionadasŗ());
-            Log.e(TAG, "programadas "+calle.getCant_lect_progr());
+            Log.e(TAG, "programadas "+calle.getCant_lect_programadas());
         }
 
         postEvent(CallesAvenidasEvent.showListCalles, list);

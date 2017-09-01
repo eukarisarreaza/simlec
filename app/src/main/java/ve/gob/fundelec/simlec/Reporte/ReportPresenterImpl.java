@@ -43,6 +43,8 @@ public class ReportPresenterImpl implements ReportPresenter{
                 break;
             case ReportEvent.showReport:
                 view.showReport(event.getyData());
+                view.showDetailsReport(event.getTotal_ord_lect(), event.getTotal_ord_leidas(), event.getOrdenes_faltantes(),
+                        event.getProcentaje_realiz(), event.getPorcentaje_x_leer(), event.getTotal_obj_conexion(), event.getObjetos_conexion_pendiente());
                 break;
             case ReportEvent.onError:
                 if(view!=null)

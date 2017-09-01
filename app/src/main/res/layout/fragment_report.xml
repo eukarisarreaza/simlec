@@ -38,7 +38,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/background_2" />
+                    android:background="@color/background" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -71,7 +71,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/background_2" />
+                    android:background="@color/background" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -103,7 +103,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/background_2" />
+                    android:background="@color/background" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -135,7 +135,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/background_2" />
+                    android:background="@color/background" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -167,7 +167,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/background_2" />
+                    android:background="@color/background" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -198,7 +198,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/background_2" />
+                    android:background="@color/background" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -229,7 +229,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/background_2" />
+                    android:background="@color/background" />
 
                 <LinearLayout
                     android:orientation="horizontal"

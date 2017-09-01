@@ -39,7 +39,7 @@ public class ObjetosConexionPressenterImpl implements ObjetosConexionPressenter 
             case ObjetosConexionEvent.showInfoCalle:
                 /**  PROGRESO Y UNIDAD DE LECTURA  */
                 view.showInfoCalle(event.getCalles().getNom_calle(),
-                        event.getCalles().getCant_lect_gestionadasŗ()+"/"+event.getCalles().getCant_lect_progr());
+                        event.getCalles().getCant_lect_gestionadasŗ()+"/"+event.getCalles().getCant_lect_programadas());
                 break;
             case ObjetosConexionEvent.showInfoRuta:
                 view.showInfoRuta(event.getRuta().getNom_ruta(), "");

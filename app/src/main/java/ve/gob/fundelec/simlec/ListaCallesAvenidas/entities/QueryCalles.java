@@ -85,14 +85,6 @@ public class QueryCalles {
         this.porcentaje_avance = porcentaje_avance;
     }
 
-    public int getCant_lect_progr() {
-        return cant_lect_programadas;
-    }
-
-    public void setCant_lect_progr(int cant_lect_progr) {
-        this.cant_lect_programadas = cant_lect_progr;
-    }
-
 
     public int getCant_lect_programadas() {
         return cant_lect_programadas;

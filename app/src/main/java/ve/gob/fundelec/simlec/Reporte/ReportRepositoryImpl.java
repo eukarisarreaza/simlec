@@ -14,8 +14,14 @@ import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida;
 import ve.gob.fundelec.simlec.DataBase.entities.CalleAvenida_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Estados;
 import ve.gob.fundelec.simlec.DataBase.entities.Estados_Table;
+import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura;
+import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura_Table;
+import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
+import ve.gob.fundelec.simlec.DataBase.entities.Medidores_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Municipios;
 import ve.gob.fundelec.simlec.DataBase.entities.Municipios_Table;
+import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
+import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Parroquias;
 import ve.gob.fundelec.simlec.DataBase.entities.Parroquias_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle;
@@ -25,6 +31,7 @@ import ve.gob.fundelec.simlec.DataBase.entities.Ruta_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
+import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
 import ve.gob.fundelec.simlec.Reporte.event.ReportEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -124,6 +131,46 @@ public class ReportRepositoryImpl implements ReportRepository {
         ReportEvent event= new ReportEvent();
         event.setyData(yData);
         event.setEventType(ReportEvent.showReport);
+
+        /** TOTAL DE ORDENES DE LECTURA **/
+        event.setTotal_ord_lect(calle.getCant_lect_programadas());
+        /** TOTAL DE ORDENES LEIDAS **/
+        event.setTotal_ord_leidas(calle.getCant_lect_gestionadasŗ());
+        /** TOTAL DE ORDENES FALTANTES **/
+        event.setOrdenes_faltantes(calle.getCant_lect_programadas()-calle.getCant_lect_gestionadasŗ());
+        /** PORCENTAJE RELIZADO **/
+        event.setProcentaje_realiz(yData[0]);
+        /** PORCENTAJE POR LEER **/
+        event.setProcentaje_realiz(yData[1]);
+        /** TOTAL OBJETOS DE CONEXION **/
+        List<QueryObjetoConexion> list= new Select(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()).as("id_objeto_conexion"),
+                ObjetoConexion_Table.cod_obj_conex, ObjetoConexion_Table.nom_obj_conex, ObjetoConexion_Table.ord_obj_conex,
+                ObjetoConexion_Table.emplazamiento,
+                Method.count(Medidores_Table.id.withTable(NameAlias.builder("B").build())).as("numMedidores"),
+                Method.sum(IndicadoresLectura_Table.status_lectura).as("cant_lect_ejecutadas"))
+                .from(ObjetoConexion.class).as("A")
+
+                .innerJoin(Medidores.class).as("B")
+                .on(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build())
+                        .eq(Medidores_Table.id_objeto_conexion.withTable(NameAlias.builder("B").build())))
+
+                .innerJoin(IndicadoresLectura.class).as("C")
+                .on(IndicadoresLectura_Table.id_medidores.withTable(NameAlias.builder("C").build())
+                        .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
+
+                .where(ObjetoConexion_Table.id_calle_avenida.is(calle.getId_calle()))
+                .groupBy(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()))
+                .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
+                .queryCustomList(QueryObjetoConexion.class);
+        event.setTotal_obj_conexion(list.size());
+
+        /** TOTAL OBJETOS DE CONEXION PENDIENTE **/
+        event.setTotal_obj_conexion(list.size()-list.get(0).getCant_lect_ejecutadas());
+
+
         eventBus.post(event);
     }
+
+
+
 }

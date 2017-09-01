@@ -16,6 +16,7 @@ public interface ReportView {
     void showListRutas(List<String> header, HashMap<String, List<QueryCalles>> listDataChild);
     void showError(String message);
     void showReport(float[] yData);
-    void showDetailsReport(QueryCalles calle);
+    void showDetailsReport(int total_ord_lect, int total_ord_leidas, int ordenes_faltantes, float procentaje_realiz,
+                           float porcentaje_x_leer, int total_obj_conexion, int objetos_conexion_pendiente);
 
 }

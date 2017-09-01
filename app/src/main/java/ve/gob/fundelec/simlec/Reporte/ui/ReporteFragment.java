@@ -73,6 +73,21 @@ public class ReporteFragment extends Fragment implements ReportView {
     @BindView(R.id.scrollReporte)
     ScrollView scrollReporte;
 
+    @BindView(R.id.total_ordenes_lectura)
+    TextView totalOrdenesLectura;
+    @BindView(R.id.total_ordenes_leidas)
+    TextView totalOrdenesLeidas;
+    @BindView(R.id.total_ordenes_faltantes)
+    TextView totalOrdenesFaltantes;
+    @BindView(R.id.porcentaje_realizado)
+    TextView porcentajeRealizado;
+    @BindView(R.id.porcentaje_por_leer)
+    TextView porcentajePorLeer;
+    @BindView(R.id.total_objetos_conexion)
+    TextView totalObjetosConexion;
+    @BindView(R.id.objetos_conexion_pendiente)
+    TextView objetosConexionPendiente;
+
     public ReporteFragment() {
         // Required empty public constructor
     }
@@ -193,9 +208,19 @@ public class ReporteFragment extends Fragment implements ReportView {
     }
 
     @Override
-    public void showDetailsReport(QueryCalles calle) {
+    public void showDetailsReport(int total_ord_lect, int total_ord_leidas, int ordenes_faltantes,
+                                  float porcentaje_realiz, float porcentaje_x_leer,
+                                  int total_obj_conexion, int objetos_conexion_pendiente) {
 
+        this.totalOrdenesLectura.setText(String.valueOf(total_ord_lect));
+        this.totalOrdenesLeidas.setText(String.valueOf(total_ord_leidas));
+        this.totalOrdenesFaltantes.setText(String.valueOf(ordenes_faltantes));
+        this.porcentajeRealizado.setText(String.valueOf(porcentaje_realiz));
+        this.porcentajePorLeer.setText(String.valueOf(porcentaje_x_leer));
+        this.totalObjetosConexion.setText(String.valueOf(total_obj_conexion));
+        this.objetosConexionPendiente.setText(String.valueOf(objetos_conexion_pendiente));
     }
+
 
     private void addData(float[] yData) {
         String[] xData = {"LEIDO", "NO LEIDO",};
