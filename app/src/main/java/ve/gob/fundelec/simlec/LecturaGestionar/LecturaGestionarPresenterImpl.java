@@ -53,13 +53,16 @@ public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
 
                 break;
             case LecturaGestionarEvent.showListNotas:
-                view.showListNotas(event.getNotasLectura());
+                if(view!=null)
+                    view.showListNotas(event.getNotasLectura());
                 break;
             case LecturaGestionarEvent.showInfoRuta:
-                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
-                QueryCalles calle=event.getCalle();
-                view.showDireccion(calle.getMunicipio(), calle.getParroquia(), "", calle.getNom_calle());
-                view.showObjetivoConexion(event.getObjetoConexion().getNom_obj_conex());
+                if(view!=null) {
+                    view.showInfoRuta(event.getRuta().getNom_ruta(), "");
+                    QueryCalles calle = event.getCalle();
+                    view.showDireccion(calle.getMunicipio(), calle.getParroquia(), "", calle.getNom_calle());
+                    view.showObjetivoConexion(event.getObjetoConexion().getNom_obj_conex());
+                }
                 break;
         }
     }

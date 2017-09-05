@@ -38,10 +38,12 @@ public class CallesAvenidasPressenterImpl implements CallesAvenidasPressenter{
     public void onEventMainThread(CallesAvenidasEvent event) {
         switch (event.getEventType()){
             case CallesAvenidasEvent.showListCalles:
-                view.showListCalles(event.getListCallesAv());
+                if(view!=null)
+                    view.showListCalles(event.getListCallesAv());
                 break;
             case CallesAvenidasEvent.showInfoRuta:
-                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
+                if(view!=null)
+                    view.showInfoRuta(event.getRuta().getNom_ruta(), "");
                 break;
         }
     }

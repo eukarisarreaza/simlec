@@ -38,14 +38,17 @@ public class ObjetosConexionPressenterImpl implements ObjetosConexionPressenter 
         switch (event.getEventType()){
             case ObjetosConexionEvent.showInfoCalle:
                 /**  PROGRESO Y UNIDAD DE LECTURA  */
-                view.showInfoCalle(event.getCalles().getNom_calle(),
-                        event.getCalles().getCant_lect_gestionadasŗ()+"/"+event.getCalles().getCant_lect_programadas());
+                if(view!=null)
+                    view.showInfoCalle(event.getCalles().getNom_calle(),
+                            event.getCalles().getCant_lect_gestionadasŗ()+"/"+event.getCalles().getCant_lect_programadas());
                 break;
             case ObjetosConexionEvent.showInfoRuta:
-                view.showInfoRuta(event.getRuta().getNom_ruta(), "");
+                if(view!=null)
+                    view.showInfoRuta(event.getRuta().getNom_ruta(), "");
                 break;
             case ObjetosConexionEvent.showListasObjetos:
-                view.showListObjetosConexion(event.getLista());
+                if(view!=null)
+                    view.showListObjetosConexion(event.getLista());
                 break;
         }
     }

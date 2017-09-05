@@ -44,24 +44,28 @@ public class RutasAsignadasPresenterImpl implements RutasAsignadasPresenter{
                 Lector lector= event.getLector();
                 switch (lector.getRol_operador()){
                     case 1:
-                        view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.LECTOR.name());
-
+                        if(view!=null)
+                            view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.LECTOR.name());
                         break;
                     case 2:
-                        view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.SUPERVISOR.name());
+                        if(view!=null)
+                            view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.SUPERVISOR.name());
                         break;
                     case 3:
-                        view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.ADMINISTRADOR.name());
+                        if(view!=null)
+                            view.showInfoUser(lector.getNom_lector()+" "+lector.getPrimer_apell(), Configuracion.TipoUsuario.ADMINISTRADOR.name());
                         break;
                 }
                 break;
             case RutasAsignadasEvent.showListRutasBloquedas:
                 break;
             case RutasAsignadasEvent.showListRutasEnCurso:
-                view.showListRutasCurso(event.getListRutas());
+                if(view!=null)
+                    view.showListRutasCurso(event.getListRutas());
                 break;
             case RutasAsignadasEvent.showVersionApp:
-                view.showVersionName(event.getVersionApp());
+                if(view!=null)
+                    view.showVersionName(event.getVersionApp());
                 break;
         }
     }

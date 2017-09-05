@@ -36,16 +36,22 @@ public class LoginPresenterImpl implements LoginPresenter{
     public void onEventMainThread(LoginEvent event) {
         switch (event.getEventType()){
             case LoginEvent.onLoginError:
-                view.hideProgressDialogo();
-                view.showNotify("Error al Iniciar Sesion!!");
+                if(view!=null) {
+                    view.hideProgressDialogo();
+                    view.showNotify("Error al Iniciar Sesion!!");
+                }
                 break;
             case LoginEvent.onLoginSuccess:
-                view.hideProgressDialogo();
-                view.showMainActivity();
+                if(view!=null){
+                    view.hideProgressDialogo();
+                    view.showMainActivity();
+                }
                 break;
             case LoginEvent.isLogeed:
-                view.hideProgressDialogo();
-                view.showMainActivity();
+                if(view!=null) {
+                    view.hideProgressDialogo();
+                    view.showMainActivity();
+                }
                 break;
         }
     }
