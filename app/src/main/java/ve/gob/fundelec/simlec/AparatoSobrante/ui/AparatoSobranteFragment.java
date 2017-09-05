@@ -15,8 +15,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import ve.gob.fundelec.simlec.AparatoSobrante.AparatoSobrantePresenter;
+import ve.gob.fundelec.simlec.AparatoSobrante.di.AparatoSobranteComponent;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.R;
+import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -28,6 +31,9 @@ public class AparatoSobranteFragment extends Fragment implements AparatoSobrante
 
     @Inject
     EventBus eventBus;
+    @Inject
+    AparatoSobrantePresenter presenter;
+
     @BindView(R.id.subtitulo)
     TextView subtitulo;
     Unbinder unbinder;
@@ -58,8 +64,15 @@ public class AparatoSobranteFragment extends Fragment implements AparatoSobrante
         unbinder = ButterKnife.bind(this, view);
 
         setToolbar();
+        setupInject();
 
         return view;
+    }
+
+    private void setupInject() {
+        SimlecApplication application=(SimlecApplication)getActivity().getApplication();
+        AparatoSobranteComponent component=application.getAparatoSobranteComponent(this);
+        component.inject(this);
     }
 
     private void setToolbar() {

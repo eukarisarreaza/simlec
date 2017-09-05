@@ -5,7 +5,9 @@ package ve.gob.fundelec.simlec.AparatoSobrante;
  */
 
 public class AparatoSobranteInteractorImpl implements AparatoSobranteInteractor{
+    private AparatoSobranteRepository repository;
 
-
-
+    public AparatoSobranteInteractorImpl(AparatoSobranteRepository repository) {
+        this.repository = repository;
+    }
 }

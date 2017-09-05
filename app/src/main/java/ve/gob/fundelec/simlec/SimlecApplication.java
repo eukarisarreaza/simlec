@@ -6,6 +6,10 @@ import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
+import ve.gob.fundelec.simlec.AparatoSobrante.di.AparatoSobranteComponent;
+import ve.gob.fundelec.simlec.AparatoSobrante.di.AparatoSobranteModule;
+import ve.gob.fundelec.simlec.AparatoSobrante.di.DaggerAparatoSobranteComponent;
+import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteView;
 import ve.gob.fundelec.simlec.LecturaGestionar.di.DaggerLecturaGestionarComponent;
 import ve.gob.fundelec.simlec.LecturaGestionar.di.LecturaGestionarComponent;
 import ve.gob.fundelec.simlec.LecturaGestionar.di.LecturaGestionarModule;
@@ -153,6 +157,16 @@ public class SimlecApplication extends Application {
                 .builder()
                 .reportModule(new ReportModule(view))
                 .libsModule(new LibsModule())
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
+
+    public AparatoSobranteComponent getAparatoSobranteComponent(AparatoSobranteView view){
+        return DaggerAparatoSobranteComponent
+                .builder()
+                .libsModule(new LibsModule())
+                .aparatoSobranteModule(new AparatoSobranteModule(view))
                 .sesionModule(new SesionModule())
                 .contextModule(new ContextModule(getApplicationContext()))
                 .build();

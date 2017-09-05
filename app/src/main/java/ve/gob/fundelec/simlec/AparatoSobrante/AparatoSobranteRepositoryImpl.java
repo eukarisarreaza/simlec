@@ -11,4 +11,8 @@ public class AparatoSobranteRepositoryImpl implements AparatoSobranteRepository 
     private EventBus eventBus;
     private LectorSessionManager sessionManager;
 
+    public AparatoSobranteRepositoryImpl(EventBus eventBus, LectorSessionManager sessionManager) {
+        this.eventBus = eventBus;
+        this.sessionManager = sessionManager;
+    }
 }
