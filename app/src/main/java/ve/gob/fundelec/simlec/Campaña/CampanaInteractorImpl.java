@@ -5,4 +5,13 @@ package ve.gob.fundelec.simlec.Campaña;
  */
 
 public class CampanaInteractorImpl implements CampanaInteractor{
+    private CampanaRepository repository;
+
+    public CampanaInteractorImpl(CampanaRepository repository) {
+        this.repository = repository;
+    }
+
+
+
+
 }

@@ -8,12 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import ve.gob.fundelec.simlec.Campaña.di.CampanaComponent;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.R;
+import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 
@@ -27,6 +31,7 @@ public class CampanaFragment extends Fragment implements CampanaView {
 
     Unbinder unbinder;
 
+    @Inject
     EventBus eventBus;
 
 
@@ -52,8 +57,15 @@ public class CampanaFragment extends Fragment implements CampanaView {
         View view = inflater.inflate(R.layout.fragment_campana, container, false);
         unbinder = ButterKnife.bind(this, view);
         setToolbar();
+        setupInject();
 
         return view;
+    }
+
+    private void setupInject() {
+        SimlecApplication application= (SimlecApplication)getActivity().getApplication();
+        CampanaComponent component= application.getCampanaComponent(this);
+        component.inject(this);
     }
 
     private void setToolbar() {

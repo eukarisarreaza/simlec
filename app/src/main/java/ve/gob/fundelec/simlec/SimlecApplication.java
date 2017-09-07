@@ -10,6 +10,10 @@ import ve.gob.fundelec.simlec.AparatoSobrante.di.AparatoSobranteComponent;
 import ve.gob.fundelec.simlec.AparatoSobrante.di.AparatoSobranteModule;
 import ve.gob.fundelec.simlec.AparatoSobrante.di.DaggerAparatoSobranteComponent;
 import ve.gob.fundelec.simlec.AparatoSobrante.ui.AparatoSobranteView;
+import ve.gob.fundelec.simlec.Campaña.di.CampanaComponent;
+import ve.gob.fundelec.simlec.Campaña.di.CampanaModule;
+import ve.gob.fundelec.simlec.Campaña.di.DaggerCampanaComponent;
+import ve.gob.fundelec.simlec.Campaña.ui.CampanaView;
 import ve.gob.fundelec.simlec.LecturaGestionar.di.DaggerLecturaGestionarComponent;
 import ve.gob.fundelec.simlec.LecturaGestionar.di.LecturaGestionarComponent;
 import ve.gob.fundelec.simlec.LecturaGestionar.di.LecturaGestionarModule;
@@ -167,6 +171,16 @@ public class SimlecApplication extends Application {
                 .builder()
                 .libsModule(new LibsModule())
                 .aparatoSobranteModule(new AparatoSobranteModule(view))
+                .sesionModule(new SesionModule())
+                .contextModule(new ContextModule(getApplicationContext()))
+                .build();
+    }
+
+    public CampanaComponent getCampanaComponent(CampanaView view){
+        return DaggerCampanaComponent
+                .builder()
+                .campanaModule(new CampanaModule(view))
+                .libsModule(new LibsModule())
                 .sesionModule(new SesionModule())
                 .contextModule(new ContextModule(getApplicationContext()))
                 .build();
