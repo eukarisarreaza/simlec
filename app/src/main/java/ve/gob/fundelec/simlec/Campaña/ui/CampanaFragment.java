@@ -14,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import ve.gob.fundelec.simlec.Campaña.CampanaPresenter;
 import ve.gob.fundelec.simlec.Campaña.di.CampanaComponent;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.R;
@@ -33,6 +34,8 @@ public class CampanaFragment extends Fragment implements CampanaView {
 
     @Inject
     EventBus eventBus;
+    @Inject
+    CampanaPresenter presenter;
 
 
     public CampanaFragment() {

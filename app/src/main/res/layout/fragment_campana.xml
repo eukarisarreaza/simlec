@@ -16,7 +16,7 @@
     -->
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editSearch"
         android:paddingLeft="5dp"
         android:drawableLeft="@drawable/search"
         android:drawableTint="@android:color/black"
@@ -56,7 +56,6 @@
                 <ImageView
                     android:layout_weight="1"
                     android:src="@drawable/descargar"
-                    android:padding="@dimen/margi_extra_corto"
                     android:background="@color/background_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -64,6 +63,8 @@
                 <TextView
                     android:id="@+id/codigo"
                     android:text="Titulo"
+                    android:layout_marginLeft="@dimen/margi_extra_corto"
+                    android:textSize="@dimen/titulo_size"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
