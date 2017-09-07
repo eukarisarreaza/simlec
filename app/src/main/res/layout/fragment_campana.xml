@@ -1,62 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        layout="@layout/toolbar_layout_subtitulo"/>
-
-    <TextView
-        android:id="@+id/actualizar"
-        android:background="@color/opcion1_3"
-        android:text="ACTUALIZAR"
-        android:gravity="end"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:padding="@dimen/margi_extra_corto"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <LinearLayout
-        android:layout_margin="@dimen/margi_corto"
-        android:orientation="vertical"
+    <!--
+    <SearchView
+        android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true">
+        android:elevation="2dp"
+        android:background="#fff" />
+    -->
 
-        <EditText
-            android:hint="12355678"
-            android:drawableLeft="@drawable/search"
-            android:paddingLeft="5dp"
-            android:drawablePadding="@dimen/margi_corto"
-            android:background="@drawable/edittext"
+    <EditText
+        android:id="@+id/editText"
+        android:paddingLeft="5dp"
+        android:drawableLeft="@drawable/search"
+        android:drawableTint="@android:color/black"
+        android:maxLines="1"
+        android:padding="@dimen/margi_extra_corto"
+        android:textSize="@dimen/titulo_size"
+        android:inputType="number"
+        android:background="@drawable/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:visibility="gone"
+            android:layout_margin="@dimen/margi_extra_corto"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:padding="@dimen/margi_extra_corto"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:src="@drawable/descargar"
+                    android:padding="@dimen/margi_extra_corto"
+                    android:background="@color/background_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/codigo"
+                    android:text="Titulo"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="@dimen/margi_extra_corto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Objeto de Conexion"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/subtitulo_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:textSize="@dimen/subtitulo_size"
+                    android:background="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingTop="@dimen/margi_extra_corto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Dirección"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/subtitulo_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:textSize="@dimen/subtitulo_size"
+                    android:background="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/actualizar"
+            android:background="@color/opcion1_3"
+            android:text="ACTUALIZAR"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
             android:padding="@dimen/margi_extra_corto"
-            android:text="OBJ. CONEX: EDIF. FEDE CALLE BELLA VISTA"
-            android:textColor="@android:color/black"
+            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <TextView
-            android:padding="@dimen/margi_extra_corto"
-            android:layout_weight="1"
-            android:text="PISO 5 APTO 53"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
-        <TextView
-            android:padding="@dimen/margi_extra_corto"
-            android:layout_weight="1"
-            android:text="C-1 DEAD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
