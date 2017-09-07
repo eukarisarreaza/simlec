@@ -58,7 +58,7 @@ public class MainRepositoryImpl implements MainRepository {
             menu.add(new ItemMenu(R.drawable.chart_pie, R.color.opcion1_4, context.getString(R.string.reporte)));
             menu.add(new ItemMenu(R.drawable.cloud_sync, R.color.opcion1_5, context.getString(R.string.sincronizar)));
             menu.add(new ItemMenu(R.drawable.exit_to_app, R.color.opcion2_2, context.getString(R.string.salir)));
-            menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
+            //menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
             menu.add(new ItemMenu(R.drawable.linterna, R.color.opcion2_4, context.getString(R.string.linterna)));
         }else
         if(sessionManager.getUser().getRol_operador()==2){ /** SUPERVISOR */
@@ -67,14 +67,14 @@ public class MainRepositoryImpl implements MainRepository {
             menu.add(new ItemMenu(R.drawable.cloud_sync, R.color.opcion1_5, context.getString(R.string.sincronizar)));
             menu.add(new ItemMenu(R.drawable.exit_to_app, R.color.opcion2_2, context.getString(R.string.salir)));
             menu.add(new ItemMenu(R.drawable.settings, R.color.opcion2_2, context.getString(R.string.ajustes)));
-            menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
+            //menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
             menu.add(new ItemMenu(R.drawable.linterna, R.color.opcion2_4, context.getString(R.string.linterna)));
         }else
         if(sessionManager.getUser().getRol_operador()==3){ /** ADMINISTRADOR */
             menu.add(new ItemMenu(R.drawable.cloud_sync, R.color.opcion1_5, context.getString(R.string.sincronizar)));
             menu.add(new ItemMenu(R.drawable.exit_to_app, R.color.opcion2_2, context.getString(R.string.salir)));
             menu.add(new ItemMenu(R.drawable.settings, R.color.opcion2_2, context.getString(R.string.ajustes)));
-            menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
+            //menu.add(new ItemMenu(R.drawable.battery_charging, R.color.opcion2_3, context.getString(R.string.bateria)));
             menu.add(new ItemMenu(R.drawable.linterna, R.color.opcion2_4, context.getString(R.string.linterna)));
         }
 
