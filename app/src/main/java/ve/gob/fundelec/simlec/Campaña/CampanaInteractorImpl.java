@@ -12,6 +12,8 @@ public class CampanaInteractorImpl implements CampanaInteractor{
     }
 
 
-
-
+    @Override
+    public void getListMedidores(String codigo) {
+        repository.getListMedidores(codigo);
+    }
 }

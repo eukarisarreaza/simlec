@@ -2,13 +2,19 @@ package ve.gob.fundelec.simlec.Campaña.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -19,18 +25,16 @@ import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.Campaña.CampanaPresenter;
 import ve.gob.fundelec.simlec.Campaña.di.CampanaComponent;
 import ve.gob.fundelec.simlec.Configuracion;
+import ve.gob.fundelec.simlec.DataBase.entities.Medidores;
+import ve.gob.fundelec.simlec.Main.ui.AdapterSearch;
+import ve.gob.fundelec.simlec.Main.ui.ListenerMedidores;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 
-public class CampanaFragment extends Fragment implements CampanaView {
+public class CampanaFragment extends Fragment implements CampanaView, ListenerMedidores {
 
-
-    @Inject
-    EventBus eventBus;
-    @Inject
-    CampanaPresenter presenter;
     @BindView(R.id.editSearch)
     EditText editSearch;
     @BindView(R.id.recycler_view)
@@ -43,10 +47,17 @@ public class CampanaFragment extends Fragment implements CampanaView {
     EditText direccion;
     @BindView(R.id.layoutInfo)
     LinearLayout layoutInfo;
-    Unbinder unbinder;
     @BindView(R.id.actualizar)
     TextView actualizar;
+    Unbinder unbinder;
 
+    @Inject
+    EventBus eventBus;
+    @Inject
+    CampanaPresenter presenter;
+
+
+    AdapterSearch adapterSearch;
 
     public CampanaFragment() {
         // Required empty public constructor
@@ -72,9 +83,43 @@ public class CampanaFragment extends Fragment implements CampanaView {
 
         setToolbar();
         setupInject();
+        setupSearch();
+        setupRecycler();
         presenter.onCreate();
 
         return view;
+    }
+
+    private void setupRecycler() {
+        adapterSearch = new AdapterSearch(new ArrayList<Medidores>(), this);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(adapterSearch);
+    }
+
+    private void setupSearch() {
+        editSearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().isEmpty())
+                    setRecycler(s.toString());
+            }
+        });
+
+    }
+    public void setRecycler(String recycler) {
+        presenter.getListMedidores(recycler);
     }
 
     private void setupInject() {
@@ -84,7 +129,6 @@ public class CampanaFragment extends Fragment implements CampanaView {
     }
 
     private void setToolbar() {
-        //toolbar.setBackgroundColor(getContext().getResources().getColor(R.color.opcion1_3));
         recyclerView.setVisibility(View.VISIBLE);
         actualizar.setVisibility(View.GONE);
         layoutInfo.setVisibility(View.GONE);
@@ -103,11 +147,11 @@ public class CampanaFragment extends Fragment implements CampanaView {
         Configuracion.menu(eventBus);
     }
 
-    @OnClick(R.id.search)
     @Override
-    public void onSearch() {
-        Configuracion.searh(eventBus);
+    public void showListMedidores(List<Medidores> list) {
+        adapterSearch.setList(list);
     }
+
 
     @Override
     public void onDestroyView() {
@@ -117,5 +161,15 @@ public class CampanaFragment extends Fragment implements CampanaView {
     }
 
 
+    @Override
+    public void onClickMedidor(Medidores medidor) {
+        recyclerView.setVisibility(View.GONE);
+        actualizar.setVisibility(View.VISIBLE);
+        layoutInfo.setVisibility(View.VISIBLE);
 
+        codigo.setText(medidor.getNumero());
+        direccion.setText("");
+        objetoConexion.setText("");
+
+    }
 }

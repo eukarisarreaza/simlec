@@ -12,4 +12,5 @@ public interface CampanaPresenter {
     void onDestroy();
     void onEventMainThread(CampanaEvent event);
 
+    void getListMedidores(String recycler);
 }

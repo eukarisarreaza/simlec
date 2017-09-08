@@ -5,4 +5,5 @@ package ve.gob.fundelec.simlec.Campaña;
  */
 
 public interface CampanaRepository {
+    void getListMedidores(String codigo);
 }

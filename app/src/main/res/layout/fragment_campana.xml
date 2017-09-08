@@ -25,6 +25,8 @@
 
         <EditText
             android:id="@+id/editSearch"
+            android:hint="Ingrese Código de Medidor"
+            android:textColorHint="@android:color/white"
             android:paddingLeft="5dp"
             android:drawableRight="@drawable/search"
             android:drawableTint="@android:color/white"
