@@ -42,7 +42,7 @@
                 android:layout_height="100dp" />
 
             <TextView
-                android:padding="@dimen/margi_extra_corto"
+                android:padding="5dp"
                 android:textSize="@dimen/titulo_size"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
@@ -90,14 +90,14 @@
 
                 <TextView
                     android:id="@+id/lector"
-                    android:background="@color/background_2"
-                    android:text="@string/lector"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/background_2"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/lector"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/supervisor"

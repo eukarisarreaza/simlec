@@ -96,6 +96,9 @@ public class LoginRepositoryImpl implements LoginRepository{
         progcalle1.save();
         ProgramacionCalle progcalle2=new ProgramacionCalle(2,"2017-05-29",1,2,"2017-05-29",2,1,1,6,4);
         progcalle2.save();
+
+
+
     }
 
     private void setParroquias() {
@@ -1254,8 +1257,6 @@ public class LoginRepositoryImpl implements LoginRepository{
                 1,"","CASA 09","PB", "", "C1-ALFR", 1, 1);
          objeto2.save();
 
-
-
         ObjetoConexion objeto3= new ObjetoConexion( 3,2, "18000692860","RESD EL SOLAR DEL SAMAN",
                 1,"SERVICIOS GUARVINACA C.A.","APTO","3", "3-B", "C1-ALFR", 1, 1);
         objeto3.save();
@@ -1621,6 +1622,25 @@ public class LoginRepositoryImpl implements LoginRepository{
         Medidores medidor4= new Medidores(4,2,1,4,3,"1132","100710528","19001759657"," 7005103501","9000279789",1,1,1,"");
         medidor4.save();
 
+
+        Medidores medidor5= new Medidores(5,1,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        medidor5.save();
+
+        Medidores medidor6= new Medidores(6,1,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        medidor6.save();
+
+        Medidores medidor7= new Medidores(7,3,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        medidor7.save();
+
+        Medidores medidor8= new Medidores(8,3,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        medidor8.save();
+
+        Medidores medidor9= new Medidores(9,4,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        medidor9.save();
+
+        Medidores medidor10= new Medidores(10,4,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        medidor10.save();
+
     }
 
     private void setLector() {
@@ -1649,6 +1669,36 @@ public class LoginRepositoryImpl implements LoginRepository{
                 199,1351,504.104395604396,"",0,0,1,1);
 
         indicador4.save();
+
+
+
+        IndicadoresLectura indicador5 = new IndicadoresLectura(5,5,2,1,"", 0, 548 /**LIMITE SUPERIOR*/,1962 /** LIMITE INFERIRO*/,
+                245/**lim_super_va*/, 1659/** lim_infer_va*/,680.166666666667/** lectura_prevista */,
+                "", 0d,0d,1,1);
+        indicador5.save();
+
+        IndicadoresLectura indicador6 = new IndicadoresLectura(6,6,1,2,"", 0, 32765, 33345,
+                413, 993, 32903.8681318681, "", 0,0,1,1);
+        indicador6.save();
+
+        IndicadoresLectura indicador7 = new IndicadoresLectura(7,7,1,3,"",0,67943,68622,
+                485,1164,68105.0824175824, "", 0,0,1,1);
+        indicador7.save();
+
+        IndicadoresLectura indicador8 = new IndicadoresLectura(8,8,1,4,"",0,396,1548,
+                199,1351,504.104395604396,"",0,0,1,1);
+
+        indicador8.save();
+
+        IndicadoresLectura indicador9 = new IndicadoresLectura(9,9,2,1,"", 0, 548 /**LIMITE SUPERIOR*/,1962 /** LIMITE INFERIRO*/,
+                245/**lim_super_va*/, 1659/** lim_infer_va*/,680.166666666667/** lectura_prevista */,
+                "", 0d,0d,1,1);
+        indicador9.save();
+
+        IndicadoresLectura indicador10 = new IndicadoresLectura(10,10,1,2,"", 0, 32765, 33345,
+                413, 993, 32903.8681318681, "", 0,0,1,1);
+        indicador10.save();
+
 
     }
 

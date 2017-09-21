@@ -76,6 +76,7 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
                 ObjetoConexion_Table.emplazamiento,
                 Method.count(Medidores_Table.id.withTable(NameAlias.builder("B").build())).as("numMedidores"),
                 Method.sum(IndicadoresLectura_Table.status_lectura).as("cant_lect_ejecutadas"))
+
                 .from(ObjetoConexion.class).as("A")
 
                 .innerJoin(Medidores.class).as("B")
@@ -87,8 +88,8 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
                         .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
 
                 .where(ObjetoConexion_Table.id_calle_avenida.is(sessionManager.getCalle().getId_calle()))
-             //   .groupBy(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()))
-              //  .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
+                .groupBy(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()))
+                .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
                 .queryCustomList(QueryObjetoConexion.class);
 
 

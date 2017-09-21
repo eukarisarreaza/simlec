@@ -9,6 +9,12 @@ public interface RecorridoView {
     void valorLectura();
     void showNotify(String message);
 
+    void ocultarBotonesSiguienteObjConexion();
+    void ocultarBotonesSiguinteMedidor();
+
+    void mostrarBotonesSiguienteObjConexion();
+    void mostrarBotonesSiguinteMedidor();
+
     void nextMedidor();
     void prevMedidor();
     void saveLectrura();

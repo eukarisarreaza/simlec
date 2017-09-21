@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,9 +20,9 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.Configuracion;
 import ve.gob.fundelec.simlec.LecturaGestionar.ui.LecturaGestionarFragment;
-import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.ListMedidores.RecorridoPressenter;
 import ve.gob.fundelec.simlec.ListMedidores.di.RecorridoComponent;
+import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
 import ve.gob.fundelec.simlec.TomaLectura.ui.MedidorFragment;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
@@ -35,6 +37,15 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     ImageView letterP;
     @BindView(R.id.search)
     ImageView search;
+    @BindView(R.id.prev_objeto)
+    ImageButton prevObjeto;
+    @BindView(R.id.prev_button)
+    Button prevButton;
+    @BindView(R.id.next_button)
+    Button nextButton;
+    @BindView(R.id.next_objeto)
+    ImageButton nextObjeto;
+
 
 
     Unbinder unbinder;
@@ -43,7 +54,6 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     RecorridoPressenter pressenter;
     @Inject
     EventBus eventBus;
-
 
 
 
@@ -75,12 +85,14 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
         pressenter.registrarFragment();
         pressenter.getFragmentInicio();
 
+        ocultarBotonesSiguinteMedidor();
+
         return view;
     }
 
     private void setupInject() {
-        SimlecApplication application=(SimlecApplication)getActivity().getApplication();
-        RecorridoComponent component= application.getRecorridoComponent(this);
+        SimlecApplication application = (SimlecApplication) getActivity().getApplication();
+        RecorridoComponent component = application.getRecorridoComponent(this);
         component.inject(this);
     }
 
@@ -108,6 +120,30 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     @Override
     public void showNotify(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void ocultarBotonesSiguienteObjConexion() {
+        nextObjeto.setVisibility(View.GONE);
+        prevObjeto.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void ocultarBotonesSiguinteMedidor() {
+        nextButton.setVisibility(View.GONE);
+        prevButton.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void mostrarBotonesSiguienteObjConexion() {
+        nextObjeto.setVisibility(View.VISIBLE);
+        prevObjeto.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void mostrarBotonesSiguinteMedidor() {
+        nextButton.setVisibility(View.VISIBLE);
+        prevButton.setVisibility(View.VISIBLE);
     }
 
     @OnClick(R.id.next_button)
@@ -143,7 +179,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     @Override
     public void dialogoActualizarPresinto(String retirado) {
 
-        DialogoActualizarPrecinto dialogo= DialogoActualizarPrecinto.newInstance(this, retirado);
+        DialogoActualizarPrecinto dialogo = DialogoActualizarPrecinto.newInstance(this, retirado);
         dialogo.show(getFragmentManager(), "");
 
     }
