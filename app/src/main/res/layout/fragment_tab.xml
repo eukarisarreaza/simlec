@@ -48,7 +48,8 @@
                     android:id="@+id/prev_objeto"
                     android:src="@drawable/left_circle"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="@drawable/selectable_item_background"
                     android:text="@string/prev" />
@@ -108,14 +109,15 @@
                     android:background="?android:attr/listDivider" />
 
                 <ImageButton
-                    android:tint="@color/colorPrimary"
                     android:id="@+id/next_objeto"
-                    android:src="@drawable/right_circle"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="@drawable/selectable_item_background"
-                    android:text="@string/next" />
+                    android:src="@drawable/right_circle"
+                    android:text="@string/next"
+                    android:tint="@color/colorPrimary" />
 
             </LinearLayout>
 

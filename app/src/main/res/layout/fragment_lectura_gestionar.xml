@@ -10,15 +10,67 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
             android:background="@color/opcion1_1"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:padding="@dimen/margi_extra_corto"
-            android:text="@string/unidad_lectura_gestionar_c"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@color/opcion1_1"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:padding="@dimen/margi_extra_corto"
+                android:text="@string/unidad_lectura_gestionar_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/selectObjConexion"
+                android:paddingRight="15dp"
+                android:paddingTop="@dimen/margi_extra_corto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/opcion1_1"
+                android:tint="@android:color/white"
+                android:src="@drawable/circles_go" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:background="@color/opcion1_1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="@dimen/margi_extra_corto"
+                android:text="@string/objeto_conexion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/objeConexion" />
+
+            <TextView
+                android:background="@color/opcion1_1"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:paddingTop="@dimen/margi_extra_corto"
+                android:paddingBottom="3dp"
+                android:paddingRight="@dimen/margi_extra_corto"
+                android:gravity="end"
+                android:paddingLeft="@dimen/margi_extra_corto"
+                android:text="3/4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
 
         <View
             android:background="@android:color/black"
