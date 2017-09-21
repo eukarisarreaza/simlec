@@ -92,6 +92,7 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
                 .queryCustomList(QueryObjetoConexion.class);
 
 
+
         Log.e(TAG, "numeros de objetos de conexion "+list.size());
 
         ObjetosConexionEvent event= new ObjetosConexionEvent();
