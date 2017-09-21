@@ -88,11 +88,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
         letterS.setVisibility(View.VISIBLE);
         letterP.setVisibility(View.VISIBLE);
         search.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void showNombreObjConexion(String nombre) {
-        subtitulo.setText(nombre);
+        subtitulo.setText(R.string.medidor);
     }
 
     @Override

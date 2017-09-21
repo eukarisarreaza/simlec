@@ -1255,6 +1255,16 @@ public class LoginRepositoryImpl implements LoginRepository{
          objeto2.save();
 
 
+
+        ObjetoConexion objeto3= new ObjetoConexion( 3,2, "18000692860","RESD EL SOLAR DEL SAMAN",
+                1,"SERVICIOS GUARVINACA C.A.","APTO","3", "3-B", "C1-ALFR", 1, 1);
+        objeto3.save();
+
+        ObjetoConexion objeto4= new ObjetoConexion( 4,1, "18000691893", "PSTE 00GM0165",
+                1,"","CASA 09","PB", "", "C1-ALFR", 1, 1);
+        objeto4.save();
+
+
     }
 
     private void setMunicipios() {

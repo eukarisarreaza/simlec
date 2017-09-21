@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.raizlabs.android.dbflow.sql.language.Method;
 import com.raizlabs.android.dbflow.sql.language.NameAlias;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
@@ -33,6 +34,17 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
     public ObjetosConexionRepositoryImpl(LectorSessionManager sessionManager, EventBus eventBus) {
         this.sessionManager = sessionManager;
         this.eventBus = eventBus;
+
+
+        List<ObjetoConexion> listadosPrueba= SQLite.select(ObjetoConexion_Table.ALL_COLUMN_PROPERTIES)
+                .from(ObjetoConexion.class)
+                .where(ObjetoConexion_Table.id_calle_avenida.is(sessionManager.getCalle().getId_calle()))
+                .queryList();
+
+        for (ObjetoConexion obj :
+                listadosPrueba) {
+            Log.e(TAG, "OBJETO " + obj.getId()+" id calle "+obj.getId_calle_avenida());
+        }
     }
 
     @Override
@@ -75,16 +87,12 @@ public class ObjetosConexionRepositoryImpl implements ObjetosConexionRepository 
                         .eq(Medidores_Table.id.withTable(NameAlias.builder("B").build())))
 
                 .where(ObjetoConexion_Table.id_calle_avenida.is(sessionManager.getCalle().getId_calle()))
-                .groupBy(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()))
-                .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
+             //   .groupBy(ObjetoConexion_Table.id.withTable(NameAlias.builder("A").build()))
+              //  .orderBy(ObjetoConexion_Table.ord_obj_conex, true)
                 .queryCustomList(QueryObjetoConexion.class);
 
 
-
-        for (QueryObjetoConexion objetoConexion : list) {
-            Log.e(TAG, "NUM MEDIDORES "+objetoConexion.getCant_lect_ejecutadas());
-        }
-
+        Log.e(TAG, "numeros de objetos de conexion "+list.size());
 
         ObjetosConexionEvent event= new ObjetosConexionEvent();
         event.setLista(list);

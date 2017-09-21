@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.Configuracion;
+import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion;
 import ve.gob.fundelec.simlec.ListadoCentrosMedicion.ObjetosConexionPressenter;
 import ve.gob.fundelec.simlec.ListadoCentrosMedicion.adapter.AdapterObjetosConexion;
 import ve.gob.fundelec.simlec.ListadoCentrosMedicion.adapter.OnClickObjetosConexion;
@@ -87,6 +88,7 @@ public class ObjetosConexionFragment extends Fragment
         pressenter.onCreate();
         pressenter.getInfoRuta();
         pressenter.getListObjetosConexion();
+
 
         return view;
     }

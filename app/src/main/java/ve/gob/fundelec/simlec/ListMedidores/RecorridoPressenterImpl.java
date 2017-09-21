@@ -40,8 +40,10 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
     public void onEventMainThread(LecturasEvent event) {
         switch (event.getEventType()){
             case LecturasEvent.showNombreObjetoConexion:
+                /** TODO STUB ***/
+                /*
                 if(view!=null)
-                    view.showNombreObjConexion(event.getNom_medidor());
+                    view.showNombreObjConexion(event.getNom_medidor());**/
                 break;
             case LecturasEvent.showUnidadLecturaGestionar:
                 if(view!=null)

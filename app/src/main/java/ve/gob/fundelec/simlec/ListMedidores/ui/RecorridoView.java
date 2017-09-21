@@ -5,7 +5,6 @@ package ve.gob.fundelec.simlec.ListMedidores.ui;
  */
 
 public interface RecorridoView {
-    void showNombreObjConexion(String nombre);
     void lecturaGestionar();
     void valorLectura();
     void showNotify(String message);
