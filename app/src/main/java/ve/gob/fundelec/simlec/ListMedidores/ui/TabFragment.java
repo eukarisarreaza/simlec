@@ -85,8 +85,6 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
         pressenter.registrarFragment();
         pressenter.getFragmentInicio();
 
-        ocultarBotonesSiguinteMedidor();
-
         return view;
     }
 
@@ -103,18 +101,24 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     }
 
     @Override
-    public void lecturaGestionar() {
+    public void lecturaGestionar(String pos) {
         subtitulo.setText(R.string.objeto_conexion);
+        ocultarBotonesSiguinteMedidor();
+        mostrarBotonesSiguienteObjConexion();
+
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frameMedidor, LecturaGestionarFragment.newInstance())
+                .replace(R.id.frameMedidor, LecturaGestionarFragment.newInstance(pos))
                 .commit();
     }
 
     @Override
-    public void valorLectura() {
+    public void valorLectura(String pos) {
         subtitulo.setText(R.string.medidor);
+        mostrarBotonesSiguinteMedidor();
+        ocultarBotonesSiguienteObjConexion();
+
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frameMedidor, MedidorFragment.newInstance())
+                .replace(R.id.frameMedidor, MedidorFragment.newInstance(pos))
                 .commit();
     }
 

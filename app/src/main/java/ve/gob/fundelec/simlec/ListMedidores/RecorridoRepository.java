@@ -6,8 +6,8 @@ package ve.gob.fundelec.simlec.ListMedidores;
 
 public interface RecorridoRepository {
     void registerHistory();
+    void getValorDeLectura();
     void getMedidorInicio();
-    void getNombreObjetoConexionSeleccionado();
     void getProximoMedidor();
     void getPrevioMedidor();
     void getProximoObjetoConexion();
@@ -15,4 +15,5 @@ public interface RecorridoRepository {
     void actualizarPresinto(String retirado, String actual);
     void saveLectura();
     void selecLetterP();
+
 }

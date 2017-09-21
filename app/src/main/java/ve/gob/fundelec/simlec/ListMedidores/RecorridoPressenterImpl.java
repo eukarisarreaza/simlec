@@ -41,21 +41,15 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
     @Override
     public void onEventMainThread(LecturasEvent event) {
         switch (event.getEventType()){
-            case LecturasEvent.showNombreObjetoConexion:
-                /** TODO STUB ***/
-                /*
-                if(view!=null)
-                    view.showNombreObjConexion(event.getNom_medidor());**/
-                break;
             case LecturasEvent.showUnidadLecturaGestionar:
                 Log.e(TAG, "PROXIMO OBJETO DE CONEXION ");
                 if(view!=null)
-                    view.lecturaGestionar();
+                    view.lecturaGestionar(event.getPosicionObj());
                 break;
             case LecturasEvent.valorLectura:
                 Log.e(TAG, "PROXIMO MEDIDOR");
                 if(view!=null)
-                    view.valorLectura();
+                    view.valorLectura(event.getPosicionMedidor());
                 break;
             case LecturasEvent.notifyError:
                 if(view!=null)
@@ -70,7 +64,7 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
                 if(view!=null){
                     view.mostrarBotonesSiguinteMedidor();
                     view.ocultarBotonesSiguienteObjConexion();
-                    //proximoMedidor();
+                    interactor.onSelectObjetoConexion();
                 }
                 break;
         }

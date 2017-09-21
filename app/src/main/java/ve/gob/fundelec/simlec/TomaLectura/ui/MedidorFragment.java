@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,8 +25,8 @@ import ve.gob.fundelec.simlec.TomaLectura.TomaLecturaPresenter;
 import ve.gob.fundelec.simlec.TomaLectura.di.TomaLecturaComponent;
 
 
-public class MedidorFragment extends Fragment implements TomaLecturaView{
-    private static final String TAG= MedidorFragment.class.getName();
+public class MedidorFragment extends Fragment implements TomaLecturaView {
+    private static final String TAG = MedidorFragment.class.getName();
 
     @BindView(R.id.ruta)
     TextView ruta;
@@ -49,21 +48,31 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     TextView lectura2;
     @BindView(R.id.notasLectura)
     CustomSpinner notasLectura;
+    @BindView(R.id.codMedidor)
+    TextView codMedidor;
+    @BindView(R.id.progreso)
+    TextView progreso;
+
     Unbinder unbinder;
 
     @Inject
     TomaLecturaPresenter presenter;
-
+    private String pos;
 
     public MedidorFragment() {
         // Required empty public constructor
     }
 
-    public static MedidorFragment newInstance() {
+    public static MedidorFragment newInstance(String pos) {
         MedidorFragment fragment = new MedidorFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
+        fragment.setPos(pos);
         return fragment;
+    }
+
+    public void setPos(String pos) {
+        this.pos = pos;
     }
 
     @Override
@@ -74,7 +83,7 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_medidor, container, false);
+        View view = inflater.inflate(R.layout.fragment_medidor, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         setupInject();
@@ -82,8 +91,13 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
         presenter.getInfoRuta();
         presenter.getNotasTomaLectura();
         presenter.getParametrosLectura();
+        setProgreso();
 
         return view;
+    }
+
+    private void setProgreso() {
+        progreso.setText(pos);
     }
 
     private void setupInject() {
@@ -91,7 +105,6 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
         TomaLecturaComponent component = application.getTomaLecturaComponent(this);
         component.inject(this);
     }
-
 
     @Override
     public void showNotaLectura(String[] data) {
@@ -110,11 +123,13 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
+    }
 
-
+    @Override
+    public void showNumMedidor(String numMedidor) {
+        codMedidor.setText(numMedidor);
     }
 
     @Override
@@ -162,36 +177,38 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
 
     @Override
     public void setNumeroDecimalesEnteros(int decimales, int num_enteros) {
-        Log.e(TAG, "decimales "+decimales+" "+num_enteros);
+        Log.e(TAG, "decimales " + decimales + " " + num_enteros);
 
 
         lectura1.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
                 //Log.e(TAG, "contiene punto "+s.toString().contains("."));
-                if(!s.toString().contains(".") && s.toString().length()>num_enteros){
+                if (!s.toString().contains(".") && s.toString().length() > num_enteros) {
                     lectura1.setError("sobrepasa numeros enteros");
                 }
 
-                if(s.toString().contains(".") && !s.toString().substring(s.toString().length()-1).equals(".")){
+                if (s.toString().contains(".") && !s.toString().substring(s.toString().length() - 1).equals(".")) {
                     String[] parts = s.toString().split("[.]");
                     //Log.e(TAG, "cantidad de partes "+parts.length);
 
                     String part1 = parts[0]; // parte entera
                     String part2 = parts[1]; // parte decimal
-                    if(part1.length()>num_enteros){
+                    if (part1.length() > num_enteros) {
                         lectura1.setError("sobrepasa numeros enteros");
                     }
-                    if(part2.length()>decimales){
+                    if (part2.length() > decimales) {
                         lectura1.setError("sobrepasa numeros decimales");
                     }
                 }
                 lectura1.setTextColor(getResources().getColor(R.color.colorPrimary));
             }
+
             @Override
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
@@ -203,29 +220,31 @@ public class MedidorFragment extends Fragment implements TomaLecturaView{
             @Override
             public void afterTextChanged(Editable s) {
                 //Log.e(TAG, "contiene punto "+s.toString().contains("."));
-                if(!s.toString().contains(".") && s.toString().length()>num_enteros){
+                if (!s.toString().contains(".") && s.toString().length() > num_enteros) {
                     lectura2.setError("sobrepasa numeros enteros");
                 }
-                if(s.toString().contains(".") && !s.toString().substring(s.toString().length()-1).equals(".")){
+                if (s.toString().contains(".") && !s.toString().substring(s.toString().length() - 1).equals(".")) {
                     String[] parts = s.toString().split("[.]");
                     //Log.e(TAG, "cantidad de partes "+parts.length);
 
                     String part1 = parts[0]; // parte entera
                     String part2 = parts[1]; // parte decimal
-                    if(part1.length()>num_enteros){
+                    if (part1.length() > num_enteros) {
                         lectura2.setError("sobrepasa numeros enteros");
                     }
-                    if(part2.length()>decimales){
+                    if (part2.length() > decimales) {
                         lectura2.setError("sobrepasa numeros decimales");
                     }
                 }
                 lectura2.setTextColor(getResources().getColor(R.color.colorPrimary));
 
             }
+
             @Override
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {

@@ -28,10 +28,6 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
     private static final String TAG = LecturaGestionarFragment.class.getName();
     @BindView(R.id.notasLectura)
     CustomSpinner notasLectura;
-    Unbinder unbinder;
-
-    @Inject
-    LecturaGestionarPresenter presenter;
     @BindView(R.id.nom_ruta)
     TextView nomRuta;
     @BindView(R.id.area)
@@ -53,15 +49,28 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
     @BindView(R.id.orden)
     TextView orden;
 
+    Unbinder unbinder;
+
+    @Inject
+    LecturaGestionarPresenter presenter;
+    private String pos;
+
+
     public LecturaGestionarFragment() {
         // Required empty public constructor
     }
 
-    public static LecturaGestionarFragment newInstance() {
+    public static LecturaGestionarFragment newInstance(String pos) {
         LecturaGestionarFragment fragment = new LecturaGestionarFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
+        fragment.setPos(pos);
         return fragment;
+    }
+
+
+    public void setPos(String pos) {
+        this.pos = pos;
     }
 
     @Override
@@ -77,8 +86,13 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
         setupInject();
         presenter.onCreate();
         presenter.getListNotasLecturas();
+        showPos();
 
         return view;
+    }
+
+    private void showPos() {
+        orden.setText(pos);
     }
 
     private void setupInject() {

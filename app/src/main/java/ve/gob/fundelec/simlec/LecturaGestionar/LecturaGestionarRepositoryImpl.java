@@ -16,6 +16,7 @@ import ve.gob.fundelec.simlec.DataBase.entities.ObjetosConexionNotas;
 import ve.gob.fundelec.simlec.DataBase.entities.ObjetosConexionNotas_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.LecturaGestionar.event.LecturaGestionarEvent;
+import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -94,20 +95,19 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
             Log.e(TAG, "objeto conexion nota "+notaObjetoConexion.toString());
 
         /**
-
         notaObjetoConexion.setCod_nota_lectura(notasLectura.get(pos-/1).getCod_nota_letura());
         notaObjetoConexion.save();
 
         LecturaGestionarEvent event= new LecturaGestionarEvent();
         event.setEventType(LecturaGestionarEvent.onSussesGrabarNota);
         eventBus.post(event);*/
-
     }
 
     @Override
     public void onSelectObjeto() {
-
-
+        LecturasEvent event= new LecturasEvent();
+        event.setEventType(LecturasEvent.selectObjetoConexion);
+        eventBus.post(event);
     }
 
 }

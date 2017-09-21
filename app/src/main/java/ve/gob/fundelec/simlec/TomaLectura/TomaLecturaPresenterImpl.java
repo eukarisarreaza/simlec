@@ -28,6 +28,7 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
     @Override
     public void onCreate() {
         eventBus.register(this);
+
     }
 
     @Override
@@ -43,19 +44,25 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
                 break;
             case TomaLecturaEvent.onSussesGrabarNota:
                 break;
+
+
             case TomaLecturaEvent.showInfoRuta:
                 if(view!=null) {
                     view.showInfoRuta(event.getRuta().getNom_ruta(), "");
                     view.showEmplazamiento(event.getObjetoConexion().getEmplazamiento());
                 }
                 break;
+
             case TomaLecturaEvent.showListNotas:
                 if(view!=null)
                     view.showNotaLectura(event.getNotasLectura());
+
                 break;
             case TomaLecturaEvent.showInfoMedidor:
-                if(view!=null)
+                if(view!=null) {
+                    view.showNumMedidor(event.getMedidor().getNumero());
                     view.setNumeroDecimalesEnteros(event.getMedidor().getDig_entero(), event.getMedidor().getDig_decimal());
+                }
                 break;
             case TomaLecturaEvent.showInfoIndicadorLectura:
                 if(view!=null) {

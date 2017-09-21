@@ -6,20 +6,19 @@ package ve.gob.fundelec.simlec.ListMedidores.event;
 
 public class LecturasEvent {
 
-    public final static int showNombreObjetoConexion= 1;
     public final static int showUnidadLecturaGestionar= 2;
     public final static int valorLectura= 3;
     public final static int notifyError= 4;
     public final static int actualizarPresinto= 5;
-
     public final static int selectObjetoConexion= 6;
 
     private int eventType;
     private String message;
     private String nom_medidor;
-
     private String retirado;
 
+    private String posicionObj;
+    private String posicionMedidor;
 
     public int getEventType() {
         return eventType;
@@ -53,4 +52,20 @@ public class LecturasEvent {
         this.retirado = retirado;
     }
 
+
+    public String getPosicionObj() {
+        return posicionObj;
+    }
+
+    public void setPosicionObj(String posicionObj) {
+        this.posicionObj = posicionObj;
+    }
+
+    public String getPosicionMedidor() {
+        return posicionMedidor;
+    }
+
+    public void setPosicionMedidor(String posicionMedidor) {
+        this.posicionMedidor = posicionMedidor;
+    }
 }

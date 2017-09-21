@@ -13,7 +13,11 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
 
     @Override
     public void getFragmentInicio() {
-        repository.getNombreObjetoConexionSeleccionado();
+        repository.getValorDeLectura();
+    }
+
+    @Override
+    public void onSelectObjetoConexion() {
         repository.getMedidorInicio();
     }
 

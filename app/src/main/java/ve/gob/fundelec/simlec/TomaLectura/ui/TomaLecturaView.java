@@ -5,6 +5,7 @@ package ve.gob.fundelec.simlec.TomaLectura.ui;
  */
 
 public interface TomaLecturaView {
+    void showNumMedidor(String numMedidor);
     void showInfoRuta(String nom_ruta, String area);
     void showUnidadLecturua(String text);
     void showSumEnergCall1(String text);

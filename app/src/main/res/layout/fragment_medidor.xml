@@ -19,6 +19,37 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView3" />
 
+        <LinearLayout
+            android:background="@color/opcion1_1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="@dimen/margi_extra_corto"
+                android:text="@string/medidor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/codMedidor" />
+
+            <TextView
+                android:id="@+id/progreso"
+                android:background="@color/opcion1_1"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:paddingTop="@dimen/margi_extra_corto"
+                android:paddingBottom="3dp"
+                android:paddingRight="@dimen/margi_extra_corto"
+                android:gravity="end"
+                android:paddingLeft="@dimen/margi_extra_corto"
+                android:text="3/4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
         <View
             android:background="@android:color/black"
             android:layout_width="match_parent"

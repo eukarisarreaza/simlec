@@ -33,7 +33,7 @@
                 android:background="@color/opcion1_1"
                 android:paddingRight="15dp"
                 android:paddingTop="@dimen/margi_extra_corto"
-                android:src="@drawable/circles_go"
+                android:src="@drawable/go"
                 android:tint="@android:color/white" />
 
         </LinearLayout>
