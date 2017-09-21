@@ -8,4 +8,5 @@ public interface LecturaGestionarRepository {
     void getInfoRuta();
     void getNotasLectura();
     void grabarNotaUnidadLectura(int pos);
+    void onSelectObjeto();
 }

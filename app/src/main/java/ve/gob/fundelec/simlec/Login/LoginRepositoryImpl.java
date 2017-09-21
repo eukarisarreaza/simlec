@@ -1257,11 +1257,11 @@ public class LoginRepositoryImpl implements LoginRepository{
                 1,"","CASA 09","PB", "", "C1-ALFR", 1, 1);
          objeto2.save();
 
-        ObjetoConexion objeto3= new ObjetoConexion( 3,2, "18000692860","RESD EL SOLAR DEL SAMAN",
+        ObjetoConexion objeto3= new ObjetoConexion( 3,2, "18000075986","RESD EL SOLAR DEL SAMAN",
                 1,"SERVICIOS GUARVINACA C.A.","APTO","3", "3-B", "C1-ALFR", 1, 1);
         objeto3.save();
 
-        ObjetoConexion objeto4= new ObjetoConexion( 4,1, "18000691893", "PSTE 00GM0165",
+        ObjetoConexion objeto4= new ObjetoConexion( 4,1, "18000642984", "PSTE 00GM0165",
                 1,"","CASA 09","PB", "", "C1-ALFR", 1, 1);
         objeto4.save();
 
@@ -1623,22 +1623,22 @@ public class LoginRepositoryImpl implements LoginRepository{
         medidor4.save();
 
 
-        Medidores medidor5= new Medidores(5,1,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        Medidores medidor5= new Medidores(5,1,1,5,3,"1132","643247123","19001759554"," 7005103058","9002283754",1,1,1,"");
         medidor5.save();
 
-        Medidores medidor6= new Medidores(6,1,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        Medidores medidor6= new Medidores(6,1,1,5,3,"1132","235443655","19001759554"," 7005103058","9002283754",1,1,1,"");
         medidor6.save();
 
-        Medidores medidor7= new Medidores(7,3,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        Medidores medidor7= new Medidores(7,3,1,5,3,"1132","432364775","19001759554"," 7005103058","9002283754",1,1,1,"");
         medidor7.save();
 
-        Medidores medidor8= new Medidores(8,3,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        Medidores medidor8= new Medidores(8,3,1,5,3,"1132","13254679","19001759554"," 7005103058","9002283754",1,1,1,"");
         medidor8.save();
 
-        Medidores medidor9= new Medidores(9,4,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        Medidores medidor9= new Medidores(9,4,1,5,3,"1132","43675878","19001759554"," 7005103058","9002283754",1,1,1,"");
         medidor9.save();
 
-        Medidores medidor10= new Medidores(10,4,1,5,3,"1132","101851238","19001759554"," 7005103058","9002283754",1,1,1,"");
+        Medidores medidor10= new Medidores(10,4,1,5,3,"1132","34646754","19001759554"," 7005103058","9002283754",1,1,1,"");
         medidor10.save();
 
     }

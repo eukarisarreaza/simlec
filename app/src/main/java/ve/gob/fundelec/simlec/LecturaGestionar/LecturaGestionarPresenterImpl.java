@@ -62,8 +62,15 @@ public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
                     QueryCalles calle = event.getCalle();
                     view.showDireccion(calle.getMunicipio(), calle.getParroquia(), "", calle.getNom_calle());
                     view.showObjetivoConexion(event.getObjetoConexion().getNom_obj_conex());
+                    view.showCodObjetivoConexion(event.getObjetoConexion().getCod_obj_conex());
+
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onSelectObjeto() {
+        interactor.onSelectObjeto();
     }
 }

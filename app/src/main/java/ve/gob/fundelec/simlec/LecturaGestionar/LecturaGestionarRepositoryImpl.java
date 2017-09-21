@@ -104,4 +104,10 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
 
     }
 
+    @Override
+    public void onSelectObjeto() {
+
+
+    }
+
 }

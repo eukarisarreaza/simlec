@@ -100,11 +100,11 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
         letterS.setVisibility(View.VISIBLE);
         letterP.setVisibility(View.VISIBLE);
         search.setVisibility(View.VISIBLE);
-        subtitulo.setText(R.string.medidor);
     }
 
     @Override
     public void lecturaGestionar() {
+        subtitulo.setText(R.string.objeto_conexion);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameMedidor, LecturaGestionarFragment.newInstance())
                 .commit();
@@ -112,6 +112,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
 
     @Override
     public void valorLectura() {
+        subtitulo.setText(R.string.medidor);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameMedidor, MedidorFragment.newInstance())
                 .commit();

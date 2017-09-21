@@ -7,4 +7,5 @@ package ve.gob.fundelec.simlec.LecturaGestionar;
 public interface LecturaGestionarInteractor {
     void getListNotasLectura();
     void grabarNotaLectura(int pos);
+    void onSelectObjeto();
 }

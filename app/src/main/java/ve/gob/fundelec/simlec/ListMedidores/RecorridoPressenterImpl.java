@@ -1,5 +1,7 @@
 package ve.gob.fundelec.simlec.ListMedidores;
 
+import android.util.Log;
+
 import org.greenrobot.eventbus.Subscribe;
 
 import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
@@ -46,10 +48,12 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
                     view.showNombreObjConexion(event.getNom_medidor());**/
                 break;
             case LecturasEvent.showUnidadLecturaGestionar:
+                Log.e(TAG, "PROXIMO OBJETO DE CONEXION ");
                 if(view!=null)
                     view.lecturaGestionar();
                 break;
             case LecturasEvent.valorLectura:
+                Log.e(TAG, "PROXIMO MEDIDOR");
                 if(view!=null)
                     view.valorLectura();
                 break;
@@ -60,6 +64,14 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
             case LecturasEvent.actualizarPresinto:
                 if(view!=null)
                     view.dialogoActualizarPresinto(event.getRetirado());
+                break;
+
+            case LecturasEvent.selectObjetoConexion:
+                if(view!=null){
+                    view.mostrarBotonesSiguinteMedidor();
+                    view.ocultarBotonesSiguienteObjConexion();
+                    //proximoMedidor();
+                }
                 break;
         }
     }

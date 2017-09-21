@@ -17,6 +17,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.LecturaGestionar.LecturaGestionarPresenter;
 import ve.gob.fundelec.simlec.LecturaGestionar.di.LecturaGestionarComponent;
@@ -47,6 +48,10 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
     TextView unidadLectura;
     @BindView(R.id.objConexion)
     TextView objConexion;
+    @BindView(R.id.codObjetoConexion)
+    TextView codObjetoConexion;
+    @BindView(R.id.orden)
+    TextView orden;
 
     public LecturaGestionarFragment() {
         // Required empty public constructor
@@ -126,11 +131,22 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
     }
 
     @Override
+    public void showCodObjetivoConexion(String objConexion) {
+        codObjetoConexion.setText(objConexion);
+    }
+
+    @Override
     public void showDireccion(String municipio_t, String parroquia_t, String urbanizacion_t, String calle_t) {
         municipio.setText(municipio_t);
         parroquia.setText(parroquia_t);
         urbanizacion.setText(urbanizacion_t);
         calle.setText(calle_t);
+    }
+
+    @OnClick(R.id.selectObjConexion)
+    @Override
+    public void onSelectObjeto() {
+        presenter.onSelectObjeto();
     }
 
     @Override

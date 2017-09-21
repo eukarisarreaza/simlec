@@ -9,9 +9,8 @@ import ve.gob.fundelec.simlec.LecturaGestionar.event.LecturaGestionarEvent;
 public interface LecturaGestionarPresenter {
     void onCreate();
     void onDestroy();
-
     void getListNotasLecturas();
     void grabarNotaUnidadLectura(int pos);
     void onEventMainThread(LecturaGestionarEvent event);
-
+    void onSelectObjeto();
 }

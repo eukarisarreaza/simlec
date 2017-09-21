@@ -21,4 +21,9 @@ public class LecturaGestionarInteractorImpl implements LecturaGestionarInteracto
     public void grabarNotaLectura(int pos) {
         repository.grabarNotaUnidadLectura(pos);
     }
+
+    @Override
+    public void onSelectObjeto() {
+        repository.onSelectObjeto();
+    }
 }
