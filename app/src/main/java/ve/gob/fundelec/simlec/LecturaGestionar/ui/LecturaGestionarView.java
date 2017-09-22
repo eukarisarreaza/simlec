@@ -9,8 +9,11 @@ public interface LecturaGestionarView {
     void showNotify(String message);
     void showInfoRuta(String nom_ruta, String area);
     void showUnidadLectura(String unidad_lectura);
-    void showObjetivoConexion(String objConexion);
-    void showCodObjetivoConexion(String objConexion);
+
+    void showObjetoConexion(String objConexion);
+    void showNotaLectura(int pos);
+
+    void showCodObjetoConexion(String objConexion);
     void showDireccion(String municipio, String parroquia, String urbanizacion, String calle);
 
     void onSelectObjeto();

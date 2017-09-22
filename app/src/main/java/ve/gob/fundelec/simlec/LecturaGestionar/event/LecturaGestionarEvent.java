@@ -14,6 +14,7 @@ public class LecturaGestionarEvent {
     public static final int onFailedGrabarNota=2;
     public static final int showListNotas=3;
     public static final int showInfoRuta=4;
+    public static final int grabarNotaLectura=5;
 
     private String message;
     private int EventType;
@@ -22,6 +23,7 @@ public class LecturaGestionarEvent {
     private QueryCalles calle;
     private QueryObjetoConexion objetoConexion;
     private QueryMedidores medidor;
+    private int posNotaLectura;
 
     public String getMessage() {
         return message;
@@ -79,5 +81,13 @@ public class LecturaGestionarEvent {
 
     public void setMedidor(QueryMedidores medidor) {
         this.medidor = medidor;
+    }
+
+    public int getPosNotaLectura() {
+        return posNotaLectura;
+    }
+
+    public void setPosNotaLectura(int posNotaLectura) {
+        this.posNotaLectura = posNotaLectura;
     }
 }

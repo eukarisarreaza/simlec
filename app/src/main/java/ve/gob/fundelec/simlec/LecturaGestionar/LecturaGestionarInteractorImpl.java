@@ -13,8 +13,10 @@ public class LecturaGestionarInteractorImpl implements LecturaGestionarInteracto
 
     @Override
     public void getListNotasLectura() {
-        repository.getInfoRuta();
         repository.getNotasLectura();
+
+        repository.getInfoRuta();
+
     }
 
     @Override

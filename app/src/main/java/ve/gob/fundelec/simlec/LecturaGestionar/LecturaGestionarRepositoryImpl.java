@@ -39,11 +39,27 @@ public class LecturaGestionarRepositoryImpl implements LecturaGestionarRepositor
         /** OBTENER LA SIG INFORMACION: COD-RUTA, AREA, UNIDAD-LECTURA, MUNICIPIO, PARROQUIA, URBANIZACION,
          * CALLE, TEXTO-EXPLICATIVO
          **/
+        ObjetosConexionNotas notaObjetoConexion= new Select(ObjetosConexionNotas_Table.ALL_COLUMN_PROPERTIES)
+                .from(ObjetosConexionNotas.class)
+                .where(ObjetosConexionNotas_Table.id_objeto_conexion.is(sessionManager.getObjetConexion().getId_objeto_conexion()))
+                .querySingle();
+
+        int pos=0;
+
+        if(notaObjetoConexion!=null){
+            for (int i=0; i<notasLectura.size(); i++) {
+                if(notaObjetoConexion.getCod_nota_lectura().equals(notasLectura.get(i).getCod_nota_letura())){
+                    pos=i+1;
+                }
+            }
+        }
+
         LecturaGestionarEvent event= new LecturaGestionarEvent();
         event.setEventType(LecturaGestionarEvent.showInfoRuta);
         event.setRuta(sessionManager.getRuta());
         event.setCalle(sessionManager.getCalle());
         event.setObjetoConexion(sessionManager.getObjetConexion());
+        event.setPosNotaLectura(pos);
         eventBus.post(event);
     }
 

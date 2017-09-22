@@ -19,7 +19,10 @@ public interface RecorridoPressenter {
     void proximoObjetoConexion();
     void anteriorObjetoConexion();
     void actualizarPresinto(String retirado, String actual);
+
     void saveLecrura();
+    void saveNotaLectura();
 
     void selectLetterP();
+
 }

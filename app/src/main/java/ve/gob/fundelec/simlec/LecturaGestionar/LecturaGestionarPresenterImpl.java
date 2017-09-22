@@ -57,18 +57,30 @@ public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
 
                 break;
             case LecturaGestionarEvent.showListNotas:
+                Log.e(TAG, "mostrar datos de notas de lectura ");
+
                 if(view!=null) {
                     view.showListNotas(event.getNotasLectura());
                 }
                 break;
+
             case LecturaGestionarEvent.showInfoRuta:
                 if(view!=null) {
                     view.showInfoRuta(event.getRuta().getNom_ruta(), "");
                     QueryCalles calle = event.getCalle();
                     view.showDireccion(calle.getMunicipio(), calle.getParroquia(), "", calle.getNom_calle());
-                    view.showObjetivoConexion(event.getObjetoConexion().getNom_obj_conex());
-                    view.showCodObjetivoConexion(event.getObjetoConexion().getCod_obj_conex());
+                    view.showObjetoConexion(event.getObjetoConexion().getNom_obj_conex());
+                    view.showCodObjetoConexion(event.getObjetoConexion().getCod_obj_conex());
+                    Log.e(TAG, "posiscion de nota de lectura "+event.getPosNotaLectura());
+
+                    if(event.getPosNotaLectura()!=0)
+                        view.showNotaLectura(event.getPosNotaLectura());
                 }
+                break;
+
+            case LecturaGestionarEvent.grabarNotaLectura:
+                Log.e(TAG, "btom grabar en valor de lectura");
+
                 break;
         }
     }

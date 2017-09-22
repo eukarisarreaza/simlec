@@ -130,7 +130,7 @@ public class MedidorFragment extends Fragment implements TomaLecturaView {
 
     @Override
     public void showNumMedidor(String numMedidor) {
-        codMedidor.setText("Medidor Actual: "+numMedidor);
+        codMedidor.setText("Cód. Medidor Actual: "+numMedidor);
     }
 
     @Override

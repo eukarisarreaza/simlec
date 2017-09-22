@@ -46,7 +46,6 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
                     view.lecturaGestionar(event.getPosicionObj());
                 break;
             case LecturasEvent.valorLectura:
-
                 if(view!=null)
                     view.valorLectura(event.getPosicionMedidor());
                 break;
@@ -112,6 +111,11 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
     @Override
     public void saveLecrura() {
         interactor.saveLectura();
+    }
+
+    @Override
+    public void saveNotaLectura() {
+        interactor.saveNotaLectura();
     }
 
     @Override

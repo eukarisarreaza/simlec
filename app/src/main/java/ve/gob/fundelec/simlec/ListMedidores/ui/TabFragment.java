@@ -2,7 +2,9 @@ package ve.gob.fundelec.simlec.ListMedidores.ui;
 
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ import ve.gob.fundelec.simlec.TomaLectura.ui.MedidorFragment;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 public class TabFragment extends Fragment implements RecorridoView, ListenerActualizarPresinto {
+    private static final String TAG= TabFragment.class.getName();
 
     @BindView(R.id.subtitulo)
     TextView subtitulo;
@@ -45,15 +48,15 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     Button nextButton;
     @BindView(R.id.next_objeto)
     ImageButton nextObjeto;
-
-
-
     Unbinder unbinder;
 
     @Inject
     RecorridoPressenter pressenter;
     @Inject
     EventBus eventBus;
+
+
+    private boolean swichetLecturaGestionar;
 
 
 
@@ -102,6 +105,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
 
     @Override
     public void lecturaGestionar(String pos) {
+        swichetLecturaGestionar=true;
         subtitulo.setText(R.string.objeto_conexion);
         ocultarBotonesSiguinteMedidor();
         mostrarBotonesSiguienteObjConexion();
@@ -113,6 +117,8 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
 
     @Override
     public void valorLectura(String pos) {
+        swichetLecturaGestionar=false;
+
         subtitulo.setText(R.string.medidor);
         mostrarBotonesSiguinteMedidor();
         ocultarBotonesSiguienteObjConexion();
@@ -166,7 +172,10 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     @OnClick(R.id.buttomSave)
     @Override
     public void saveLectrura() {
-        pressenter.saveLecrura();
+        if(swichetLecturaGestionar){
+            pressenter.saveNotaLectura();
+        }else
+            pressenter.saveLecrura();
     }
 
     @OnClick(R.id.next_objeto)

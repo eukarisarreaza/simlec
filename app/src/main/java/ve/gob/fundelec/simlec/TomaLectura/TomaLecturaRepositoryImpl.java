@@ -83,8 +83,6 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
         Log.e(TAG, "nota lectura "+lectura_table.toString());
     }
 
-
-
     @Override
     public void getParametrosLectura() {
         /** PARA VALIDAR LA CANTIDAD DE DEMCIMALES Y DE ENTEROS EN LA TOMA DE LECTURA */
@@ -102,7 +100,6 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
                 pos=i+1;
             }
         }
-
 
         TomaLecturaEvent event= new TomaLecturaEvent();
         event.setEventType(TomaLecturaEvent.showInfoMedidor);

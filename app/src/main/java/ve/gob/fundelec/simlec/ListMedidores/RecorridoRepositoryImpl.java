@@ -19,6 +19,7 @@ import ve.gob.fundelec.simlec.DataBase.entities.ObjetoConexion_Table;
 import ve.gob.fundelec.simlec.DataBase.entities.Precinto;
 import ve.gob.fundelec.simlec.DataBase.entities.Precinto_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
+import ve.gob.fundelec.simlec.LecturaGestionar.event.LecturaGestionarEvent;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
 import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
@@ -171,7 +172,7 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
 
         for (int i=0; i<listMedidores.size(); i++){
             if(currentMedidor.equals(listMedidores.get(i))){
-                if(i==list_objetos.size()-1){
+                if(i==listMedidores.size()-1){
                     return;
                 }
 
@@ -281,6 +282,14 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
 
         TomaLecturaEvent event=new TomaLecturaEvent();
         event.setEventType(TomaLecturaEvent.saveLectura);
+        eventBus.post(event);
+    }
+
+    @Override
+    public void saveNotaLectura() {
+
+        LecturaGestionarEvent event=new LecturaGestionarEvent();
+        event.setEventType(LecturaGestionarEvent.grabarNotaLectura);
         eventBus.post(event);
     }
 

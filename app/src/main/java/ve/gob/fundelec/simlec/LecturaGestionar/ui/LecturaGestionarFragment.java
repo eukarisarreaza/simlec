@@ -140,13 +140,18 @@ public class LecturaGestionarFragment extends Fragment implements LecturaGestion
     }
 
     @Override
-    public void showObjetivoConexion(String objConexion_t) {
+    public void showObjetoConexion(String objConexion_t) {
         objConexion.setText(objConexion_t);
     }
 
     @Override
-    public void showCodObjetivoConexion(String objConexion) {
-        codObjetoConexion.setText(objConexion);
+    public void showNotaLectura(int pos) {
+        notasLectura.setSelection(pos);
+    }
+
+    @Override
+    public void showCodObjetoConexion(String objConexion) {
+        codObjetoConexion.setText("Cód. Obj. Conexión Actual: "+objConexion);
     }
 
     @Override

@@ -45,7 +45,6 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
             case TomaLecturaEvent.onSussesGrabarNota:
                 break;
 
-
             case TomaLecturaEvent.showInfoRuta:
                 if(view!=null) {
                     view.showInfoRuta(event.getRuta().getNom_ruta(), "");
