@@ -110,13 +110,13 @@
     <TextView
         android:visibility="gone"
         android:id="@+id/iniciarRuta"
-        android:gravity="end"
+        android:gravity="center"
         android:textStyle="bold"
         android:padding="@dimen/margi_extra_corto"
         android:textColor="@android:color/white"
         android:background="@color/opcion1_1"
         android:layout_alignParentBottom="true"
-        android:text="Iniciar Recorrido"
+        android:text="@string/iniciar_recorrido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

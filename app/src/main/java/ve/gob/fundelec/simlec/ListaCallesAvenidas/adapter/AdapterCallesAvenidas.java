@@ -1,7 +1,6 @@
 package ve.gob.fundelec.simlec.ListaCallesAvenidas.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,7 @@ public class AdapterCallesAvenidas extends RecyclerView.Adapter<AdapterCallesAve
     @Override
     public void onBindViewHolder(CallesAvenidasViewHolder holder, int position) {
         QueryCalles item = datos.get(position);
-        holder.bindUnidadLectura(item);
+        holder.bindUnidadLectura(item, position);
         holder.setOnItemClickListener(item, onItemClickListener, position);
     }
 
@@ -66,7 +65,7 @@ public class AdapterCallesAvenidas extends RecyclerView.Adapter<AdapterCallesAve
         return posSeleccionado;
     }
 
-    public QueryCalles getItem(int position){
+    public QueryCalles getItem(int position) {
         return datos.get(position);
     }
 
@@ -85,6 +84,9 @@ public class AdapterCallesAvenidas extends RecyclerView.Adapter<AdapterCallesAve
         TextView progressso;
         @BindView(R.id.progressBar)
         ProgressBar progressBar;
+        @BindView(R.id.content)
+        LinearLayout content;
+
         private View item;
 
         public CallesAvenidasViewHolder(View itemView) {
@@ -93,21 +95,25 @@ public class AdapterCallesAvenidas extends RecyclerView.Adapter<AdapterCallesAve
             this.item = itemView;
         }
 
-        public void bindUnidadLectura(QueryCalles unidadLectura) {
+        public void bindUnidadLectura(QueryCalles unidadLectura, int pos) {
             nomCalle.setText(unidadLectura.getNom_calle());
-            avance.setText(unidadLectura.getCant_lect_gestionadasŗ()+"/"+unidadLectura.getCant_lect_programadas());
-            float div=(unidadLectura.getCant_lect_gestionadasŗ()*100)/unidadLectura.getCant_lect_programadas();
-            progressso.setText(div+"%");
-            progressBar.setProgress((int)div);
+            avance.setText(unidadLectura.getCant_lect_gestionadasŗ() + "/" + unidadLectura.getCant_lect_programadas());
+            float div = (unidadLectura.getCant_lect_gestionadasŗ() * 100) / unidadLectura.getCant_lect_programadas();
+            progressso.setText(div + "%");
+            progressBar.setProgress((int) div);
+            if(pos== posSeleccionado){
+                content.setBackgroundResource(android.R.color.darker_gray);
+            }else
+                content.setBackgroundResource(android.R.color.white);
         }
 
         public void setOnItemClickListener(final QueryCalles element, final OnClickCallesAvenidas onItemClickListener, final int position) {
             itemView.setOnClickListener(v -> {
-
-
+                /**
                 LinearLayout myBackground = (LinearLayout) v.findViewById(R.id.content);
                 if (posSeleccionado != -1 && !(position == posSeleccionado)) {
-                    return;
+                    myBackground.setBackgroundResource(android.R.color.darker_gray);
+                    posSeleccionado = position;
                 }
                 if (posSeleccionado == position) {
                     myBackground.setBackgroundResource(android.R.color.white);
@@ -115,10 +121,11 @@ public class AdapterCallesAvenidas extends RecyclerView.Adapter<AdapterCallesAve
                 } else {
                     myBackground.setBackgroundResource(android.R.color.darker_gray);
                     posSeleccionado = position;
-                }
+                }*/
+
+                posSeleccionado = position;
                 onItemClickListener.onClickUnidadLectura(element);
-
-
+                notifyDataSetChanged();
             });
         }
 
