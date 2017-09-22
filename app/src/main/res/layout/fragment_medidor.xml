@@ -29,6 +29,7 @@
                 android:layout_weight="1"
                 android:background="@color/opcion1_1"
                 android:textStyle="bold"
+                android:textSize="@dimen/titulo_size"
                 android:textColor="@android:color/white"
                 android:padding="@dimen/margi_extra_corto"
                 android:text="|"
