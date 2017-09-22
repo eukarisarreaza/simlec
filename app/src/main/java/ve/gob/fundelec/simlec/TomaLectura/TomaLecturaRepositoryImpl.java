@@ -58,6 +58,7 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
     @Override
     public void getInfoRuta() {
+
         TomaLecturaEvent event= new TomaLecturaEvent();
         event.setEventType(TomaLecturaEvent.showInfoRuta);
         event.setRuta(sessionManager.getRuta());
@@ -88,9 +89,24 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
         /** PARA VALIDAR LA CANTIDAD DE DEMCIMALES Y DE ENTEROS EN LA TOMA DE LECTURA */
         Log.e(TAG, "medidor actual en parametros de lectura "+sessionManager.getMedidor().toString());
 
+        IndicadoresLectura lectura_table= new Select()
+                .from(IndicadoresLectura.class)
+                .where(IndicadoresLectura_Table.id.is(sessionManager.getMedidor().getId_indicador_lectura()))
+                .querySingle();
+
+        int pos=0;
+
+        for (int i=0; i<notasLectura.size(); i++) {
+            if(lectura_table.getCod_nota_lectura().equals(notasLectura.get(i).getCod_nota_letura())){
+                pos=i+1;
+            }
+        }
+
+
         TomaLecturaEvent event= new TomaLecturaEvent();
         event.setEventType(TomaLecturaEvent.showInfoMedidor);
         event.setMedidor(sessionManager.getMedidor());
+        event.setPosNotaLectura(pos);
         eventBus.post(event);
     }
 

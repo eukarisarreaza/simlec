@@ -61,6 +61,7 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
             case TomaLecturaEvent.showInfoMedidor:
                 if(view!=null) {
                     view.showNumMedidor(event.getMedidor().getNumero());
+                    view.showNotaLectura(event.getPosNotaLectura());
                     view.setNumeroDecimalesEnteros(event.getMedidor().getDig_entero(), event.getMedidor().getDig_decimal());
                 }
                 break;

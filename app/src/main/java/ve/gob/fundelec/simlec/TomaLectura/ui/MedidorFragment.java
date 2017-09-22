@@ -88,8 +88,8 @@ public class MedidorFragment extends Fragment implements TomaLecturaView {
 
         setupInject();
         presenter.onCreate();
-        presenter.getInfoRuta();
         presenter.getNotasTomaLectura();
+        presenter.getInfoRuta();
         presenter.getParametrosLectura();
         setProgreso();
 
@@ -250,6 +250,11 @@ public class MedidorFragment extends Fragment implements TomaLecturaView {
                                       int before, int count) {
             }
         });
+    }
+
+    @Override
+    public void showNotaLectura(int pos) {
+        notasLectura.setSelection(pos);
     }
 
     @Override

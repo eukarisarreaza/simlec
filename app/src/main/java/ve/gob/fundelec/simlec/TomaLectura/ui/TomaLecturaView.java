@@ -6,15 +6,18 @@ package ve.gob.fundelec.simlec.TomaLectura.ui;
 
 public interface TomaLecturaView {
     void showNumMedidor(String numMedidor);
+    void showLectura1(String text);
+    void showLectura2(String text);
+    void setNumeroDecimalesEnteros(int decimales, int num_enteros);
+    void showNotaLectura(int pos);
+
     void showInfoRuta(String nom_ruta, String area);
     void showUnidadLecturua(String text);
     void showSumEnergCall1(String text);
     void showPuntoSuministro(String text);
     void showEmplazamiento(String text);
     void showAparato(String text);
-    void showLectura1(String text);
-    void showLectura2(String text);
-    void setNumeroDecimalesEnteros(int decimales, int num_enteros);
+
 
     void showNotaLectura(String[] data);
     void showNotify(String message);

@@ -1,5 +1,6 @@
 package ve.gob.fundelec.simlec.TomaLectura.event;
 
+import ve.gob.fundelec.simlec.DataBase.entities.IndicadoresLectura;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
 import ve.gob.fundelec.simlec.ListaRutasAsignadas.entities.QueryRutas;
 import ve.gob.fundelec.simlec.ListadoCentrosMedicion.entities.QueryObjetoConexion;
@@ -27,6 +28,8 @@ public class TomaLecturaEvent {
     private QueryRutas ruta;
     private QueryObjetoConexion objetoConexion;
     private QueryMedidores medidor;
+    private int posNotaLectura;
+
     private String kva;
     private String va;
 
@@ -113,5 +116,14 @@ public class TomaLecturaEvent {
 
     public void setVa(String va) {
         this.va = va;
+    }
+
+
+    public int getPosNotaLectura() {
+        return posNotaLectura;
+    }
+
+    public void setPosNotaLectura(int posNotaLectura) {
+        this.posNotaLectura = posNotaLectura;
     }
 }
