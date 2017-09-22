@@ -10,4 +10,5 @@ public interface TomaLecturaInteractor {
     void grabarNotaLectura(int pos);
     void getParametrosLectura();
     void saveLectura(String lectura1, String lectura2);
+    void onSelectObjetoConexion();
 }

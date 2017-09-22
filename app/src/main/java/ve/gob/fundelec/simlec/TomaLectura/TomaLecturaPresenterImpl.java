@@ -110,4 +110,9 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
     public void getParametrosLectura() {
         interactor.getParametrosLectura();
     }
+
+    @Override
+    public void onSelectObjetoConexion() {
+        interactor.onSelectObjetoConexion();
+    }
 }

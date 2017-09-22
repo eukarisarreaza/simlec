@@ -18,6 +18,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import ve.gob.fundelec.simlec.R;
 import ve.gob.fundelec.simlec.SimlecApplication;
@@ -129,7 +130,7 @@ public class MedidorFragment extends Fragment implements TomaLecturaView {
 
     @Override
     public void showNumMedidor(String numMedidor) {
-        codMedidor.setText(numMedidor);
+        codMedidor.setText("Medidor Actual: "+numMedidor);
     }
 
     @Override
@@ -161,6 +162,12 @@ public class MedidorFragment extends Fragment implements TomaLecturaView {
     @Override
     public void showAparato(String text) {
         aparato.setText(text);
+    }
+
+    @OnClick(R.id.selectObjConexion)
+    @Override
+    public void onSelectObjetoConexion() {
+        presenter.onSelectObjetoConexion();
     }
 
     @Override

@@ -22,6 +22,11 @@ public class RecorridoInteractorImpl implements RecorridoInteractor {
     }
 
     @Override
+    public void mostrarObjetoConexion() {
+        repository.getValorDeLectura();
+    }
+
+    @Override
     public void registrarFragment() {
         repository.registerHistory();
     }

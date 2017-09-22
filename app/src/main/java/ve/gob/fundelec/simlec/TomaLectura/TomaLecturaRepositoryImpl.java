@@ -17,6 +17,7 @@ import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle;
 import ve.gob.fundelec.simlec.DataBase.entities.ProgramacionCalle_Table;
 import ve.gob.fundelec.simlec.LectorSessionManager;
 import ve.gob.fundelec.simlec.ListMedidores.entities.QueryMedidores;
+import ve.gob.fundelec.simlec.ListMedidores.event.LecturasEvent;
 import ve.gob.fundelec.simlec.TomaLectura.event.TomaLecturaEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
@@ -170,6 +171,13 @@ public class TomaLecturaRepositoryImpl implements TomaLecturaRepository{
 
         }
 
+    }
+
+    @Override
+    public void onSelectObjetoConexion() {
+        LecturasEvent event = new LecturasEvent();
+        event.setEventType(LecturasEvent.selectObjtConexMedidores);
+        eventBus.post(event);
     }
 
 

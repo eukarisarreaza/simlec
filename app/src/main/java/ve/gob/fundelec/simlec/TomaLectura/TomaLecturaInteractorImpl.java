@@ -36,4 +36,9 @@ public class TomaLecturaInteractorImpl implements TomaLecturaInteractor {
     public void saveLectura(String lectura1, String lectura2) {
         repository.saveLectura(lectura1, lectura2);
     }
+
+    @Override
+    public void onSelectObjetoConexion() {
+        repository.onSelectObjetoConexion();
+    }
 }

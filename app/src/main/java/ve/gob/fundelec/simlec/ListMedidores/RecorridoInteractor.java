@@ -7,6 +7,8 @@ package ve.gob.fundelec.simlec.ListMedidores;
 public interface RecorridoInteractor {
     void getFragmentInicio();
     void onSelectObjetoConexion();
+    void mostrarObjetoConexion();
+
     void registrarFragment();
     void proximoMedidor();
     void anteriorMedidor();

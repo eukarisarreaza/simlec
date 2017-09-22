@@ -11,6 +11,7 @@ public class LecturasEvent {
     public final static int notifyError= 4;
     public final static int actualizarPresinto= 5;
     public final static int selectObjetoConexion= 6;
+    public final static int selectObjtConexMedidores= 7;
 
     private int eventType;
     private String message;

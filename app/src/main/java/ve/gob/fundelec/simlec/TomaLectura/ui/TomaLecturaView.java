@@ -18,6 +18,8 @@ public interface TomaLecturaView {
     void showEmplazamiento(String text);
     void showAparato(String text);
 
+    void onSelectObjetoConexion();
+
 
     void showNotaLectura(String[] data);
     void showNotify(String message);

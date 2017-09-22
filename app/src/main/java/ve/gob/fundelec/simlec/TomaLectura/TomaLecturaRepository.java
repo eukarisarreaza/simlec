@@ -10,7 +10,6 @@ public interface TomaLecturaRepository {
     void grabarNotaLectura(int pos);
     void getParametrosLectura();
     void getIndicadoresLectura();
-
-
     void saveLectura(String lectura1, String lectura2);
+    void onSelectObjetoConexion();
 }

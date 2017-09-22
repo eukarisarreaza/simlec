@@ -15,5 +15,7 @@ public interface TomaLecturaPresenter {
     void grabarNota(int post);
     void grabarLectura(String lectura);
     void getParametrosLectura();
+
+    void onSelectObjetoConexion();
 }
 

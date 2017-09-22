@@ -42,12 +42,11 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
     public void onEventMainThread(LecturasEvent event) {
         switch (event.getEventType()){
             case LecturasEvent.showUnidadLecturaGestionar:
-                Log.e(TAG, "PROXIMO OBJETO DE CONEXION ");
                 if(view!=null)
                     view.lecturaGestionar(event.getPosicionObj());
                 break;
             case LecturasEvent.valorLectura:
-                Log.e(TAG, "PROXIMO MEDIDOR");
+
                 if(view!=null)
                     view.valorLectura(event.getPosicionMedidor());
                 break;
@@ -66,6 +65,10 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
                     view.ocultarBotonesSiguienteObjConexion();
                     interactor.onSelectObjetoConexion();
                 }
+                break;
+
+            case LecturasEvent.selectObjtConexMedidores: /** botom que selecciona objeto de conexion en fragment medidores **/
+                interactor.mostrarObjetoConexion();
                 break;
         }
     }
