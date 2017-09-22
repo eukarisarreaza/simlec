@@ -40,7 +40,9 @@
             <TextView
                 android:id="@+id/selectObjConexion"
                 android:text="Medidores"
-                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
+                android:textSize="@dimen/subtitulo_size"
+                android:textColor="@color/amarillo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/opcion1_1"
