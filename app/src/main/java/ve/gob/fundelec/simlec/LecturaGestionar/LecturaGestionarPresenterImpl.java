@@ -1,10 +1,13 @@
 package ve.gob.fundelec.simlec.LecturaGestionar;
 
+import android.util.Log;
+
 import org.greenrobot.eventbus.Subscribe;
 
 import ve.gob.fundelec.simlec.LecturaGestionar.event.LecturaGestionarEvent;
 import ve.gob.fundelec.simlec.LecturaGestionar.ui.LecturaGestionarView;
 import ve.gob.fundelec.simlec.ListaCallesAvenidas.entities.QueryCalles;
+import ve.gob.fundelec.simlec.TomaLectura.event.TomaLecturaEvent;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 /**
@@ -12,6 +15,7 @@ import ve.gob.fundelec.simlec.lib.base.EventBus;
  */
 
 public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
+    private static final String TAG= LecturaGestionarPresenterImpl.class.getName();
     private EventBus eventBus;
     private LecturaGestionarView view;
     private LecturaGestionarInteractor interactor;
@@ -53,8 +57,9 @@ public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
 
                 break;
             case LecturaGestionarEvent.showListNotas:
-                if(view!=null)
+                if(view!=null) {
                     view.showListNotas(event.getNotasLectura());
+                }
                 break;
             case LecturaGestionarEvent.showInfoRuta:
                 if(view!=null) {
@@ -63,11 +68,12 @@ public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
                     view.showDireccion(calle.getMunicipio(), calle.getParroquia(), "", calle.getNom_calle());
                     view.showObjetivoConexion(event.getObjetoConexion().getNom_obj_conex());
                     view.showCodObjetivoConexion(event.getObjetoConexion().getCod_obj_conex());
-
                 }
                 break;
         }
     }
+
+
 
     @Override
     public void onSelectObjeto() {

@@ -12,5 +12,6 @@ public interface LecturaGestionarPresenter {
     void getListNotasLecturas();
     void grabarNotaUnidadLectura(int pos);
     void onEventMainThread(LecturaGestionarEvent event);
+
     void onSelectObjeto();
 }

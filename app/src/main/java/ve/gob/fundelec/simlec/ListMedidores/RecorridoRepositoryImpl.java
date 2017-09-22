@@ -115,7 +115,7 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
     }
 
 
-    /**
+        /**
          //OBTENGO LA LISTA DE MEDIDORES
         if( sessionManager.getObjetConexion().getCant_lect_ejecutadas()==0){
             // MOSTRAR UNIDAD DE LECTURA A GESTIONAR
@@ -276,7 +276,9 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
 
     @Override
     public void saveLectura() {
+
         /**VERIFICAR SI ESTA ACTIVA UNIDAD DE LECTURA A GECTIONAR O VALOR DE LECTURA */
+
         TomaLecturaEvent event=new TomaLecturaEvent();
         event.setEventType(TomaLecturaEvent.saveLectura);
         eventBus.post(event);
