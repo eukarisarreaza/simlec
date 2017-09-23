@@ -17,7 +17,6 @@ public interface RecorridoInteractor {
     void actualizarPresinto(String retirado, String actual);
 
     void saveLectura();
-    void saveNotaLectura();
 
     void selectLetterP();
 

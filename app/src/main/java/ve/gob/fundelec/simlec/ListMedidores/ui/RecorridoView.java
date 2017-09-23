@@ -11,6 +11,8 @@ public interface RecorridoView {
 
     void ocultarBotonesSiguienteObjConexion();
     void ocultarBotonesSiguinteMedidor();
+    void mostrarBotomSave();
+    void ocultarBotomSave();
 
     void mostrarBotonesSiguienteObjConexion();
     void mostrarBotonesSiguinteMedidor();

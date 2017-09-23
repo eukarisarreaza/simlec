@@ -2,9 +2,7 @@ package ve.gob.fundelec.simlec.ListMedidores.ui;
 
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +28,7 @@ import ve.gob.fundelec.simlec.TomaLectura.ui.MedidorFragment;
 import ve.gob.fundelec.simlec.lib.base.EventBus;
 
 public class TabFragment extends Fragment implements RecorridoView, ListenerActualizarPresinto {
-    private static final String TAG= TabFragment.class.getName();
+    private static final String TAG = TabFragment.class.getName();
 
     @BindView(R.id.subtitulo)
     TextView subtitulo;
@@ -54,9 +52,9 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     RecorridoPressenter pressenter;
     @Inject
     EventBus eventBus;
+    @BindView(R.id.buttomSave)
+    ImageButton buttomSave;
 
-
-    private boolean swichetLecturaGestionar;
 
 
 
@@ -105,10 +103,11 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
 
     @Override
     public void lecturaGestionar(String pos) {
-        swichetLecturaGestionar=true;
+
         subtitulo.setText(R.string.objeto_conexion);
         ocultarBotonesSiguinteMedidor();
         mostrarBotonesSiguienteObjConexion();
+        ocultarBotomSave();
 
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameMedidor, LecturaGestionarFragment.newInstance(pos))
@@ -117,11 +116,11 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
 
     @Override
     public void valorLectura(String pos) {
-        swichetLecturaGestionar=false;
 
         subtitulo.setText(R.string.medidor);
         mostrarBotonesSiguinteMedidor();
         ocultarBotonesSiguienteObjConexion();
+        mostrarBotomSave();
 
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameMedidor, MedidorFragment.newInstance(pos))
@@ -143,6 +142,16 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     public void ocultarBotonesSiguinteMedidor() {
         nextButton.setVisibility(View.GONE);
         prevButton.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void mostrarBotomSave() {
+        buttomSave.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void ocultarBotomSave() {
+        buttomSave.setVisibility(View.GONE);
     }
 
     @Override
@@ -172,10 +181,7 @@ public class TabFragment extends Fragment implements RecorridoView, ListenerActu
     @OnClick(R.id.buttomSave)
     @Override
     public void saveLectrura() {
-        if(swichetLecturaGestionar){
-            pressenter.saveNotaLectura();
-        }else
-            pressenter.saveLecrura();
+        pressenter.saveLecrura();
     }
 
     @OnClick(R.id.next_objeto)

@@ -21,7 +21,6 @@ public interface RecorridoPressenter {
     void actualizarPresinto(String retirado, String actual);
 
     void saveLecrura();
-    void saveNotaLectura();
 
     void selectLetterP();
 

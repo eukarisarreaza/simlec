@@ -74,6 +74,7 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
                 if(view!=null)
                     interactor.saveLectura(view.getLectura1(), view.getLectura2());
                 break;
+
             case TomaLecturaEvent.onFailedGrabarLcetura:
                 if(view!=null)
                     view.onFailedGrabarLectura();
@@ -98,11 +99,6 @@ public class TomaLecturaPresenterImpl implements TomaLecturaPresenter {
     @Override
     public void grabarNota(int post) {
         interactor.grabarNotaLectura(post);
-    }
-
-    @Override
-    public void grabarLectura(String lectura) {
-        //interactor.grabarLectura(lectura);
     }
 
     @Override

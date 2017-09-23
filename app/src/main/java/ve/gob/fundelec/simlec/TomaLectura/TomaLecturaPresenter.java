@@ -13,7 +13,6 @@ public interface TomaLecturaPresenter {
     void getNotasTomaLectura();
     void getInfoRuta();
     void grabarNota(int post);
-    void grabarLectura(String lectura);
     void getParametrosLectura();
 
     void onSelectObjetoConexion();

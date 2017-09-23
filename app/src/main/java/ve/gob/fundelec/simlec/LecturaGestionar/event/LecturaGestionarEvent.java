@@ -14,8 +14,6 @@ public class LecturaGestionarEvent {
     public static final int onFailedGrabarNota=2;
     public static final int showListNotas=3;
     public static final int showInfoRuta=4;
-    public static final int grabarNotaLectura=5;
-
     private String message;
     private int EventType;
     private String[] notasLectura;

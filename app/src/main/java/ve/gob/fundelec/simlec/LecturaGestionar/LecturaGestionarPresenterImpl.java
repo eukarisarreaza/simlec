@@ -78,10 +78,6 @@ public class LecturaGestionarPresenterImpl implements LecturaGestionarPresenter{
                 }
                 break;
 
-            case LecturaGestionarEvent.grabarNotaLectura:
-                Log.e(TAG, "btom grabar en valor de lectura");
-
-                break;
         }
     }
 

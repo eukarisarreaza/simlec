@@ -14,8 +14,6 @@ public interface RecorridoRepository {
     void getPrevioObjetoConexion();
     void actualizarPresinto(String retirado, String actual);
     void saveLectura();
-    void saveNotaLectura();
-
     void selecLetterP();
 
 }

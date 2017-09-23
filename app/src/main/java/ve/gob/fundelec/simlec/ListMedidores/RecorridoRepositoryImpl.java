@@ -285,13 +285,6 @@ public class RecorridoRepositoryImpl implements RecorridoRepository {
         eventBus.post(event);
     }
 
-    @Override
-    public void saveNotaLectura() {
-
-        LecturaGestionarEvent event=new LecturaGestionarEvent();
-        event.setEventType(LecturaGestionarEvent.grabarNotaLectura);
-        eventBus.post(event);
-    }
 
     @Override
     public void selecLetterP() {

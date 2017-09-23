@@ -60,8 +60,6 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
 
             case LecturasEvent.selectObjetoConexion:
                 if(view!=null){
-                    view.mostrarBotonesSiguinteMedidor();
-                    view.ocultarBotonesSiguienteObjConexion();
                     interactor.onSelectObjetoConexion();
                 }
                 break;
@@ -113,10 +111,6 @@ public class RecorridoPressenterImpl implements RecorridoPressenter{
         interactor.saveLectura();
     }
 
-    @Override
-    public void saveNotaLectura() {
-        interactor.saveNotaLectura();
-    }
 
     @Override
     public void selectLetterP() {
