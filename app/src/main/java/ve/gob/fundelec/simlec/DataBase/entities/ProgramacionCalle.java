@@ -56,6 +56,8 @@ public class ProgramacionCalle extends BaseModel{
     @Column
     int id_dispositivo_movil; /** dispositivo_movil (id)**/
     @Column
+    int id_calle_avenida; /** calle_avenida (id)*/
+    @Column
     String fch_asig_diaria; // date
 
     @Column
@@ -77,15 +79,15 @@ public class ProgramacionCalle extends BaseModel{
     @Column
     int cant_med_sobrantes;
     @Column
-    int id_calle_avenida; /** calle_avenida (id)*/
+    int cant_lect_programadas;
+    @Column
+    int cant_lect_gestionada;
+
     @Column
     int version;
     @Column
     int accion;
-    @Column
-    int cant_lect_programadas;
-    @Column
-    int cant_lect_gestionada;
+
 
     public ProgramacionCalle() {
     }

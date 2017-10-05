@@ -24,18 +24,15 @@ CREATE TABLE f_ruta
  */
 @Table(database = DataBaseSimlec.class)
 public class FRuta extends BaseModel{
-
     @Column
     @PrimaryKey
     int id;
-
     @Column
     String cod_edo_ruta; // limite de 3
     @Column
     String nom_edo_ruta; // limite de 40
     @Column
     String desc_edo_ruta;
-
     @Column
     int version;
     @Column

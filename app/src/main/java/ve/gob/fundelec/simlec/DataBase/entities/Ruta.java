@@ -35,18 +35,18 @@ public class Ruta extends BaseModel{
     @Column
     @PrimaryKey
     int id;
-
-    @Column
-    String cod_ruta; // limite de 10
-    @Column
-    String nom_ruta; // limite de 50
     @Column
     int id_edo_ruta;  /** f_ruta (id) */
     @Column
     int id_centro_lectura; /**  centro_lectura (id) */
     @Column
+    int id_dispositivo_movil;
+    @Column
+    String cod_ruta; // limite de 10
+    @Column
+    String nom_ruta; // limite de 50
+    @Column
     String cod_status; // limite de 2
-
     @Column
     int version;
     @Column
@@ -74,22 +74,6 @@ public class Ruta extends BaseModel{
         this.id = id;
     }
 
-    public String getCod_ruta() {
-        return cod_ruta;
-    }
-
-    public void setCod_ruta(String cod_ruta) {
-        this.cod_ruta = cod_ruta;
-    }
-
-    public String getNom_ruta() {
-        return nom_ruta;
-    }
-
-    public void setNom_ruta(String nom_ruta) {
-        this.nom_ruta = nom_ruta;
-    }
-
     public int getId_edo_ruta() {
         return id_edo_ruta;
     }
@@ -104,6 +88,30 @@ public class Ruta extends BaseModel{
 
     public void setId_centro_lectura(int id_centro_lectura) {
         this.id_centro_lectura = id_centro_lectura;
+    }
+
+    public int getId_dispositivo_movil() {
+        return id_dispositivo_movil;
+    }
+
+    public void setId_dispositivo_movil(int id_dispositivo_movil) {
+        this.id_dispositivo_movil = id_dispositivo_movil;
+    }
+
+    public String getCod_ruta() {
+        return cod_ruta;
+    }
+
+    public void setCod_ruta(String cod_ruta) {
+        this.cod_ruta = cod_ruta;
+    }
+
+    public String getNom_ruta() {
+        return nom_ruta;
+    }
+
+    public void setNom_ruta(String nom_ruta) {
+        this.nom_ruta = nom_ruta;
     }
 
     public String getCod_status() {
