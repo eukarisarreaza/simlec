@@ -87,7 +87,11 @@ public class LoginRepositoryImpl implements LoginRepository{
     }
 
     private void setRutas() {
-        Ruta ruta= new Ruta(1, "SRA44014", "SRA44014", 1, 1, "", 1, 1);
+        /**
+         * (int id, int id_edo_ruta, int id_centro_lectura, int id_dispositivo_movil,
+         String cod_ruta, String nom_ruta, String cod_status, int version, int accion)
+         */
+        Ruta ruta= new Ruta(1,1,1, 152, "SRA44014", "SRA44014", "", 1, 1);
         ruta.save();
     }
 

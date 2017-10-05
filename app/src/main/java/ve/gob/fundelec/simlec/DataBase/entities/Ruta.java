@@ -55,12 +55,14 @@ public class Ruta extends BaseModel{
     public Ruta() {
     }
 
-    public Ruta(int id, String cod_ruta, String nom_ruta, int id_edo_ruta, int id_centro_lectura, String cod_status, int version, int accion) {
+    public Ruta(int id, int id_edo_ruta, int id_centro_lectura, int id_dispositivo_movil,
+                String cod_ruta, String nom_ruta, String cod_status, int version, int accion) {
         this.id = id;
-        this.cod_ruta = cod_ruta;
-        this.nom_ruta = nom_ruta;
         this.id_edo_ruta = id_edo_ruta;
         this.id_centro_lectura = id_centro_lectura;
+        this.id_dispositivo_movil = id_dispositivo_movil;
+        this.cod_ruta = cod_ruta;
+        this.nom_ruta = nom_ruta;
         this.cod_status = cod_status;
         this.version = version;
         this.accion = accion;
