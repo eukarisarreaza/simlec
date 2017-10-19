@@ -42,7 +42,7 @@ public class RutasAsignadasRepositoryImpl implements RutasAsignadasRepository{
             /** ASUMIMOS QUE TODOS LAS TUPLAS QUE AQUI ESTEN SON PARA ESTE DISPOSITIVO MOVIL **/
             List<QueryRutas> list= new Select(ProgramacionCalle_Table.id.withTable(NameAlias.builder("C").build()).as("id_programacion_calle"),
                     CalleAvenida_Table.id.withTable(NameAlias.builder("R").build()).as("id_calle_avenida"),
-                    ProgramacionCalle_Table.fch_programa, ProgramacionCalle_Table.id_lector, ProgramacionCalle_Table.id_dispositivo_movil,
+                    ProgramacionCalle_Table.fch_programa, ProgramacionCalle_Table.id_lector, ProgramacionCalle_Table.id_dispositivo_movil.withTable(NameAlias.builder("C").build()),
                     ProgramacionCalle_Table.fch_asig_diaria, CalleAvenida_Table.id_ruta, CalleAvenida_Table.id_parroquia,
                     CalleAvenida_Table.cod_calle, CalleAvenida_Table.nom_calle, CalleAvenida_Table.secuencia, CalleAvenida_Table.sector,
                     Ruta_Table.cod_ruta, Ruta_Table.nom_ruta)
@@ -53,7 +53,7 @@ public class RutasAsignadasRepositoryImpl implements RutasAsignadasRepository{
                     .innerJoin(Ruta.class).as("D")
                     .on(CalleAvenida_Table.id_ruta.withTable(NameAlias.builder("R").build())
                             .eq(Ruta_Table.id.withTable(NameAlias.builder("D").build())))
-                    .groupBy(CalleAvenida_Table.id_ruta, Ruta_Table.nom_ruta, ProgramacionCalle_Table.id_lector, ProgramacionCalle_Table.id_dispositivo_movil)
+                    .groupBy(CalleAvenida_Table.id_ruta, Ruta_Table.nom_ruta, ProgramacionCalle_Table.id_lector, ProgramacionCalle_Table.id_dispositivo_movil.withTable(NameAlias.builder("C").build()))
                     .queryCustomList(QueryRutas.class);
 
             Log.e(TAG, "size "+list.size());
