@@ -13,8 +13,8 @@
     <dimen name="margi_largo">40dp</dimen>
     <dimen name="toolbar_elevation">4dp</dimen>
 
-    <dimen name="titulo_size">20sp</dimen>
-    <dimen name="subtitulo_size">15sp</dimen>
-    <dimen name="mini_text">10sp</dimen>
+    <dimen name="titulo_size">15sp</dimen>
+    <dimen name="subtitulo_size">10sp</dimen>
+    <dimen name="mini_text">5sp</dimen>
 
 </resources>

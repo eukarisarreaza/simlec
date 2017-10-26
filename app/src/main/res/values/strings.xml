@@ -35,12 +35,12 @@
     <string name="verificar_lectura">¡¡VERIFICAR LECTURA!!</string>
     <string name="calles_avenidas">Listado de Calles y Avenidas</string>
     <string name="lista_de_centros">Listado de Centros de Medición</string>
-    <string name="hint_usuario">ID USUARIO</string>
-    <string name="hint_password">CLAVE</string>
+    <string name="hint_usuario">Usuario</string>
+    <string name="hint_password">Clave</string>
     <string name="lector">LECTOR</string>
     <string name="supervisor">SUPERVISOR</string>
     <string name="administrador">ADMINISTRADOR</string>
-    <string name="iniciar">INICIAR</string>
+    <string name="iniciar">Iniciar</string>
     <string name="kwh">kWh</string>
     <string name="loading">Cargando...</string>
     <string name="ajustes">Ajustes</string>
@@ -57,6 +57,12 @@
     <string name="medidor">Medidor</string>
     <string name="objeto_conexion">Objeto de Conexión</string>
     <string name="iniciar_recorrido">Iniciar Recorrido</string>
+
+    <string-array name="tipo_user">
+        <item>Lector</item>
+        <item>Supervisor</item>
+        <item>Administrador</item>
+    </string-array>
 
 
 </resources>

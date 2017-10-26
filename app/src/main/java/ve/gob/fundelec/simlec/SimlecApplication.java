@@ -6,6 +6,7 @@ import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import ve.gob.fundelec.simlec.AparatoSobrante.di.AparatoSobranteComponent;
 import ve.gob.fundelec.simlec.AparatoSobrante.di.AparatoSobranteModule;
 import ve.gob.fundelec.simlec.AparatoSobrante.di.DaggerAparatoSobranteComponent;
@@ -69,6 +70,13 @@ public class SimlecApplication extends Application {
         super.onCreate();
         FlowManager.init(new FlowConfig.Builder(this).build());
         FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/arial.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
+
     }
 
     public LoginComponent getLoginComponent(LoginView view){

@@ -43,6 +43,9 @@
 
 
     <color name="opcion1_4_dark">#0b6466</color>
+    <color name="blue">#080eb4</color>
 
+    <color name="colorvacio">#00ffffff</color>
+    <color name="blanco">#fff</color>
 
 </resources>

@@ -18,4 +18,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="editetlogin" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/colorvacio</item>
+        <item name="colorControlActivated">@color/colorvacio</item>
+        <item name="android:textColorHighlight">@color/blanco</item>
+    </style>
 </resources>
