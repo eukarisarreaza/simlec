@@ -74,4 +74,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
     retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:1.8.1'
+    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+
+
 }
