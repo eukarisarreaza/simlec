@@ -1,13 +1,19 @@
 package ve.gob.fundelec.simlec.Login.ui;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.piotrek.customspinner.CustomSpinner;
 
@@ -39,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private String tipoUsuario;
     private ProgressDialog dialog;
-
+    public static final String TAG=LoginActivity.class.getName();
 
     @Inject
     LoginPresenter presenter;
@@ -54,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         setupTipoUser();
         presenter.onCreate();
         presenter.checkForAuthenticateUser();
-        tipoUsuario = Configuracion.TipoUsuario.LECTOR.name();
+        tipoUsuario = "";
 
 
     }
@@ -62,7 +68,33 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private void setupTipoUser() {
         String[] data= getResources().getStringArray(R.array.tipo_user);
         tipoUser.initializeStringValues(data, getString(R.string.spinner_hint));
+        tipoUser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if (!adapterView.getSelectedItem().equals(getString(R.string.spinner_hint))) {
+                    //String notaSelected = adapterView.getSelectedItem().toString();
+                    //Toast.makeText(getApplicationContext(), notaSelected, Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "posicion " + position);
 
+                    switch (position){
+                        case 1://lector
+                            tipoUsuario = Configuracion.TipoUsuario.LECTOR.name();
+                            break;
+                        case 2://supervisor
+                            tipoUsuario = Configuracion.TipoUsuario.SUPERVISOR.name();
+                            break;
+                        case 3://administrador
+                            tipoUsuario = Configuracion.TipoUsuario.ADMINISTRADOR.name();
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
     }
 
@@ -157,6 +189,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             passwordText.setError("Password esta vacio");
             return;
         }
+        if (tipoUsuario.isEmpty()) {
+            AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+            dialogo1.setTitle("Importante");
+            dialogo1.setMessage("Seleccione Tipo Usuario para continuar!!");
+            dialogo1.setCancelable(false);
+            dialogo1.setPositiveButton("Confirmar", (dialogo11, id) -> {
+            });
+
+
+            dialogo1.show();
+
+            return;
+        }
+
         presenter.login(tipoUsuario, usuarioText.getText().toString(), passwordText.getText().toString());
     }
 
